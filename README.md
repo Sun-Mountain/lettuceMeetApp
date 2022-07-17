@@ -1,10 +1,10 @@
 # Lettuce Meet App
 
 ### Technology Used
-* [![Vue][Vue.js]][Vue-url]
-* [![Ruby][Ruby.js]][Ruby-url]
-* [![Rails][Rails.js]][Rails-url]
-* [![Postgres][Postgres.js]][Postgres-url]
+[![Vue][Vue.js]][Vue-url]
+[![Ruby][Ruby.js]][Ruby-url]
+[![Rails][Rails.js]][Rails-url]
+[![Postgres][Postgres.js]][Postgres-url]
 
 
 ## Installation
