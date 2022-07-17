@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <SessionManager />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SessionManager from './components/SessionManager.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SessionManager
   }
 }
 </script>
