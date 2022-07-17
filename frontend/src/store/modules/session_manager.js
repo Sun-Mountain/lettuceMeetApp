@@ -32,7 +32,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .post(`${BASE_URL}users`, payload)
-        .then((respsonse) => {
+        .then((response) => {
           commit("setUserInfo", response);
           resolve(response);
         })
@@ -93,13 +93,13 @@ const actions = {
 };
 
 const mutations = {
-  setUserInfo(state, payload) {
+  setUserInfo(state, data) {
     state.user = data.data.user;
     state.auth_token = data.headers.authorization;
     axios.defaults.headers.common["Authorization"] = data.headers.authorization;
     localStorage.setItem("auth_token", data.headers.authorization)
   },
-  setUserInfoFromToken(state, payload) {
+  setUserInfoFromToken(state, data) {
     state.user = data.data.user;
     state.auth_token = localStorage.getItem("auth_token");
   },
