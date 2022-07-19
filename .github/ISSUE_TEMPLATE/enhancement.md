@@ -1,15 +1,13 @@
 ---
-name: Enhancement/User Story
-about: Enhancement Issue Template
-title: '[Enhancement/User Story]'
-labels: development,enhancement
+name: Feature
+about: Feature Issue Template
+title: 'Feature'
+labels: development,feature
 assignees: ''
 ---
 
-**Title should be User Story or Short Description of Task -**
-
 <!-- e.g.
-
+Title should be describing the story/feature in one sentences:
 - As a team user, I want to be able to move a student from one roster to another.
 - Create Title Case component and use for all Nav Items, Section Titles, and Table Headers -->
 
