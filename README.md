@@ -9,15 +9,14 @@ Our goal is to provide an easy way to organize events between people. Users will
 
 - [Tech Stack](#tech-stack)
 - [Local Set Up and Installation](#local-set-up-and-installation)
-  * [Backend (Ruby on Rails)](#backend--ruby-on-rails-)
-    + [Set Up Backend and Database](#set-up-backend-and-database)
+  * [Set Up Ruby on Rails Locally](#set-up-ruby-on-rails-locally)
+    + [Set Up Ruby on Rails App](#set-up-ruby-on-rails-app)
     + [Run the Server](#run-the-server)
-  * [Frontend (VueJS)](#frontend--vuejs-)
 - [Testing](#testing)
 - [Contributing](#contributing)
   * [Pull Request Steps](#pull-request-steps)
   * [Use a Consistent Coding style](#use-a-consistent-coding-style)
-  * [Report Bugs with Github Issues](#report-bugs-with-github-issues-)
+  * [Report Bugs with Github [Issues](https://github.com/Sun-Mountain/lettuceMeetApp/issues)](#report-bugs-with-github--issues--https---githubcom-sun-mountain-lettucemeetapp-issues-)
 - [Code of Conduct](#code-of-conduct)
   * [Our Pledge](#our-pledge)
   * [Our Standards](#our-standards)
@@ -26,9 +25,6 @@ Our goal is to provide an easy way to organize events between people. Users will
   * [Attribution](#attribution)
 
 ### Tech Stack
-
-[![Vue][Vue.js]][Vue-url]
-
 [![Ruby][Ruby.js]][Ruby-url]
 
 [![Rails][Rails.js]][Rails-url]
@@ -36,8 +32,6 @@ Our goal is to provide an easy way to organize events between people. Users will
 [![Postgres][Postgres.js]][Postgres-url]
 
 # Local Set Up and Installation
-This application requires the backend ([Ruby on Rails](Rails-url)) and the frontend ([VueJS](Vue-url)) to be run simultaneously.
-
 To clone the application then change into the directory:
 
 ```
@@ -45,7 +39,7 @@ git clone git@github.com:Sun-Mountain/lettuceMeetApp.git
 cd lettuceMeetApp
 ```
 
-## Backend (Ruby on Rails)
+## Set Up Ruby on Rails Locally
 
 The backend is built with Ruby on Rails with a [PostgreSQL](Postgres-url) database. OSX comes with Ruby already installed. [Homebrew](https://brew.sh/) can be used to install if necessary. For Windows, we recommend [Ruby Installer](https://rubyinstaller.org/).
 
@@ -54,8 +48,8 @@ The backend is built with Ruby on Rails with a [PostgreSQL](Postgres-url) databa
 Install and switch to the latest version of Ruby:
 
 ```
-rvm install 3.0.0
-rvm use 3.0.0
+rvm install 3.0.3
+rvm use 3.0.3
 ```
 
 Homebrew can be used to install postgresql:
@@ -66,8 +60,7 @@ brew install postgresql
 
 Follow the prompts following installation to start running postgres as a service. For postgresql clients, we recommend [Postico](https://eggerapps.at/postico/) or [Postgres.app](https://postgresapp.com/downloads.html).
 
-### Set Up Backend and Database
-
+### Set Up Ruby on Rails App
 Install bundler:
 
 1. `gem install bundler --no-document`
@@ -80,16 +73,7 @@ Install bundler:
 rails s
 ```
 
-The backend will be running by default on `http://localhost:3000` and the server will be running on port `5432`.
-
-## Frontend (VueJS)
-
-In another terminal, change into the frontend directory:
-
-1. Install package manager `yarn install`
-2. Run frontend `yarn serve`
-
-In a browser, go to `http://localhost:8080/` to go to the application.
+The application will be running by default on `http://localhost:3000` and the server will be running on port `5432`.
 
 # Testing
 
