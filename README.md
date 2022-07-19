@@ -12,7 +12,6 @@ Our goal is to provide an easy way to organize events between people. Users will
   * [Set Up Ruby on Rails Locally](#set-up-ruby-on-rails-locally)
     + [Set Up Ruby on Rails App](#set-up-ruby-on-rails-app)
     + [Run the Server](#run-the-server)
-  * [Frontend (VueJS)](#frontend--vuejs-)
 - [Testing](#testing)
 - [Contributing](#contributing)
   * [Pull Request Steps](#pull-request-steps)
@@ -74,16 +73,7 @@ Install bundler:
 rails s
 ```
 
-The backend will be running by default on `http://localhost:3000` and the server will be running on port `5432`.
-
-## Frontend (VueJS)
-
-In another terminal, change into the frontend directory:
-
-1. Install package manager `yarn install`
-2. Run frontend `yarn serve`
-
-In a browser, go to `http://localhost:8080/` to go to the application.
+The application will be running by default on `http://localhost:3000` and the server will be running on port `5432`.
 
 # Testing
 
