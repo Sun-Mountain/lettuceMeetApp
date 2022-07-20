@@ -1,3 +1,12 @@
 @import './color_palette';
 
+$base-bgcolor: $color-cultured;
+$navbar-color: $color-keppel;
+$navicon-cont-color: $color-cultured;
 $text-color: $color-eerie-black;
+
+// Screen Sizes
+$width-sm: 640px;
+$width-md-min: 641px;
+$width-md-max: 1007px;
+$width-lg: 1008px; 

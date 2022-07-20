@@ -1,9 +1,10 @@
 @import './variables';
 
 body {
-  margin: 0 auto;
+  background-color: $base-bgcolor;
   color: $text-color;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
 }
 
 .skip-nav {
@@ -12,4 +13,4 @@ body {
   position: absolute;
   top: -96px;
   z-index: 100;
-} 
+}

@@ -1,0 +1,27 @@
+@import '../theme/0_theme';
+
+.navbar {
+  background-color: $navbar-color;
+  min-height: 3rem;
+  display: flex;
+  flex-direction: column;
+
+  #icon-container {
+    background-color: $navicon-cont-color;
+    border-radius: 50%;
+    margin: 0.5rem auto;
+    padding: 0.8rem 1rem 0.6rem 1rem;
+    max-width: 3rem;
+
+    img {
+      width: 3rem;
+      height: auto;
+    }
+  }
+}
+
+@media only screen and (min-width: $width-sm) {
+  .navbar {
+    flex-direction: row;
+  }
+}
