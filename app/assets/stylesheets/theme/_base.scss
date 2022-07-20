@@ -1,0 +1,15 @@
+@import './variables';
+
+body {
+  margin: 0 auto;
+  color: $text-color;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.skip-nav {
+  left: 0;
+  padding: 8px 16px;
+  position: absolute;
+  top: -96px;
+  z-index: 100;
+} 
