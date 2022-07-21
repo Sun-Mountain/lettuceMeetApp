@@ -2,16 +2,21 @@
 
 .navbar {
   background-color: $navbar-color;
-  min-height: 3rem;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
+  min-height: 80px;
+  padding: 4px;
 
   #icon-container {
     background-color: $navicon-cont-color;
     border-radius: 50%;
-    margin: 0.5rem auto;
+    margin: 0 auto;
     padding: 0.8rem 1rem 0.6rem 1rem;
     max-width: 3rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 
     img {
       width: 3rem;
@@ -23,5 +28,7 @@
 @media only screen and (min-width: $width-sm) {
   .navbar {
     flex-direction: row;
+    margin-bottom: 0;
+    min-height: 3.5rem;
   }
 }
