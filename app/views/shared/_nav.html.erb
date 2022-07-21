@@ -4,4 +4,8 @@
   <div id="icon-container">
     <%= image_tag("lettuce.png", :alt => "Lettuce Meet Logo") %>
   </div>
+
+  <% if user_signed_in? %>
+    <%= button_to "Sign Out", destroy_user_session_path, class: 'nav-btn', method: :delete, name: 'user_sign_out' %>
+  <% end %>
 </nav>
