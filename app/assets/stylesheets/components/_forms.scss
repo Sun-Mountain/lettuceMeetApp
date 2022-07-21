@@ -12,6 +12,8 @@
   margin: 1rem 0;
 
   .field-text {
+    border: 1px $form-field-border-color solid;
+    line-height: 1.8rem;
     margin: 4px auto;
     padding: 8px;
     width: 93%;
