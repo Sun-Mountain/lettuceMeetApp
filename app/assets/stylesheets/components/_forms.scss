@@ -1,0 +1,19 @@
+@import '../theme/0_theme';
+
+.form-container {
+  background-color: $form-cont-bgc;
+  border: 4px $border-color solid;
+  margin: 0 auto;
+  max-width: 20rem;
+  padding: 1rem;
+}
+
+.form-wrapper {
+  margin: 1rem 0;
+
+  .field-text {
+    margin: 4px auto;
+    padding: 8px;
+    width: 93%;
+  }
+}
