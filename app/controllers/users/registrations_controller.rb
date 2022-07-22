@@ -55,7 +55,7 @@ module Users
 
     # The path used after sign up.
     def after_sign_up_path_for(resource)
-      request.referrer || root_path
+      root_path
     end
 
     # The path used after sign up for inactive accounts.
@@ -66,12 +66,12 @@ module Users
     private
 
     def sign_up_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, 
+      params.require(:user).permit(:username, :full_name, :email, :password, 
       :password_confirmation)
     end
 
     def account_update_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, 
+      params.require(:user).permit(:username, :full_name, :email, :password, 
       :password_confirmation, :current_password)
     end
   end
