@@ -4,9 +4,6 @@
   background-color: $navbar-color;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-  min-height: 80px;
-  padding: 4px;
 
   #icon-container {
     background-color: $navicon-cont-color;
@@ -15,7 +12,7 @@
     padding: 0.8rem 1rem 0.6rem 1rem;
     max-width: 3rem;
     position: relative;
-    top: 50%;
+    top: 38%;
     transform: translateY(-50%);
 
     img {
@@ -29,7 +26,11 @@
   .navbar {
     flex-direction: row;
     margin-bottom: 0;
-    min-height: 3.5rem;
     padding: 8px 0;
+
+
+    #icon-container {
+      top: 50%;
+    }
   }
 }

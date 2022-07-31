@@ -17,11 +17,17 @@ main {
 
 footer {
   display: flex;
-  flex-wrap: wrap;
-  font-size: 12px;
-  justify-content: space-between;
-  min-height: 2rem;
-  padding: 0.5rem 1.5rem;
+  flex-direction: column;
+  padding: 1rem;
+
+  .icons {
+    font-size: 1.5rem;
+  }
+
+  .links {
+    font-size: 14px;
+    padding-top: 0.5rem;
+  }
 }
 
 .skip-nav {
