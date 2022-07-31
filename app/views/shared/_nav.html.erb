@@ -7,5 +7,7 @@
 
   <% if user_signed_in? %>
     <%= button_to "Sign Out", destroy_user_session_path, class: 'nav-btn', method: :delete, name: 'user_sign_out' %>
+
+    <%= button_to "Edit Profile", edit_registration_path(User), class: 'nav-btn', method: :get, name: 'user_edit' %>
   <% end %>
 </nav>

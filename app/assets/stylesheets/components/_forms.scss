@@ -40,13 +40,13 @@
 
   input[type="submit"] {
     background-color: $form-btn-color;
-    border: 3px #FFF solid;
+    border: 3px $form-btn-hover solid;
     font-size: 16px;
     padding: 8px;
   }
 
   input[type="submit"]:hover {
-    background-color: $form-btn-border;
+    background-color: $form-btn-hover;
     border: 3px $form-btn-color solid;
     cursor: pointer;
   }
