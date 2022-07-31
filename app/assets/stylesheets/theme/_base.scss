@@ -17,8 +17,11 @@ main {
 
 footer {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  justify-content: space-between;
   min-height: 2rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .skip-nav {
