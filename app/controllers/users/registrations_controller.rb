@@ -26,7 +26,7 @@ module Users
     #   end
     # end
 
-    # protected
+    protected
 
     # def user_params
     #   params.require(:user).permit(:password_to_delete)
@@ -40,8 +40,6 @@ module Users
     # def cancel
     #   super
     # end
-
-    # protected
 
     # If you have extra params to permit, append them to the sanitizer.
     # def configure_sign_up_params
@@ -63,16 +61,14 @@ module Users
     #   super(resource)
     # end
 
-    private
+    # def sign_up_params
+    #   params.require(:user).permit(:first_name, :last_name, :email, :password, 
+    #   :password_confirmation)
+    # end
 
-    def sign_up_params
-      params.require(:user).permit(:username, :full_name, :email, :password, 
-      :password_confirmation)
-    end
-
-    def account_update_params
-      params.require(:user).permit(:username, :full_name, :email, :password, 
-      :password_confirmation, :current_password)
-    end
+    # def account_update_params
+    #   params.require(:user).permit(:first_name, :last_name, :email, :password, 
+    #   :password_confirmation, :current_password)
+    # end
   end
 end
