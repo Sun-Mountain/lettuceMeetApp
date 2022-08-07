@@ -6,31 +6,51 @@
   flex-direction: column;
 
   #icon-container {
-    background-color: $navicon-cont-color;
-    border-radius: 50%;
     margin: 0 auto;
-    padding: 0.8rem 1rem 0.6rem 1rem;
-    max-width: 3rem;
     position: relative;
-    top: 38%;
+    top: 25%;
     transform: translateY(-50%);
 
     img {
-      width: 3rem;
+      width: 70px;
       height: auto;
     }
+  }
+
+  #topNavLinks {
+    padding-top: 5px;
+  }
+
+  button {
+    background-color: $navbar-color;
+    border: 0;
+    color: $color-cultured;
+    font-weight: 500;
+    font-size: 22px;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: $color-viridian-green;
   }
 }
 
 @media only screen and (min-width: $width-sm) {
   .navbar {
+    display: flex;
     flex-direction: row;
-    margin-bottom: 0;
-    padding: 8px 0;
-
+    justify-content: space-between;
 
     #icon-container {
+      margin: 0 15px;
       top: 50%;
+    }
+
+    #topNavLinks {
+      display: flex;
+      flex-direction: row;
     }
   }
 }

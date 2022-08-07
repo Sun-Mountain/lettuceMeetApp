@@ -2,17 +2,14 @@
 
 <nav class="navbar" id="navigation-bar">
   <div id="icon-container">
-    <%= image_tag("lettuce.png", :alt => "Lettuce Meet Logo") %>
+    <%= image_tag("lettuce_logo_ph.png", :alt => "Lettuce Meet Logo") %>
   </div>
 
   <% if user_signed_in? %>
-    <div class="topnav-wrap" id="topnav-wrap">
-      <button id="topnav-button" type="button" aria-controls="topnav-wrap" aria-label="Open menu" aria-expanded=false>
-        <i class="fa-solid fa-bars"  aria-hidden="true"></i>
-      </button>
-      <%= button_to "Sign Out", destroy_user_session_path, class: 'nav-btn', method: :delete, name: 'user_sign_out' %>
+    <div id="topNavLinks" class="topNavLinks">
+      <%= button_to "Sign Out", destroy_user_session_path, class: 'topNav-btn', method: :delete, name: 'user_sign_out' %>
 
-      <%= button_to "Edit Profile", edit_registration_path(User), class: 'nav-btn', method: :get, name: 'user_edit' %>
+      <%= button_to "Edit Profile", edit_registration_path(User), class: 'topNav-btn', method: :get, name: 'user_edit' %>
     </div>
   <% end %>
 </nav>
