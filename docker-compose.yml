@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=lettuceMeetApp
+      - POSTGRES_PASSWORD=leafOnTheWind
+    volumes:
+      - "dbdata:/var/lib/postgres/data"
+    expose:
+      - 5432
+    ports:
+      - 54325:5432
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - REDIS_URL=redis://redis
+      - DATABASE_URL=postgresql://db/lettuceMeetApp_development
+      - DB_USER=postgres
+      - DB_PASS=leafOnTheWind
+      - DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL=true
+    volumes:
+      - .:/lettuceMeetApp
+
+volumes:
+  dbdata:
