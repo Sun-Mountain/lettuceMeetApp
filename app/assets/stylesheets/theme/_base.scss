@@ -30,6 +30,14 @@ footer {
   }
 }
 
+a, a:visited {
+  color: $link-color;
+}
+
+a:hover {
+  color: $link-hover-color;
+}
+
 .skip-nav {
   left: 0;
   padding: 8px 16px;
