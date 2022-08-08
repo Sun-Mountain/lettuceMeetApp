@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   }
 
   root to: 'public#landing'
+
+  if Rails.env.development? || Rails.env.staging?
+    mount LetterOpenerWeb::Engine, at: 'letter_opener'
+  end
 end
