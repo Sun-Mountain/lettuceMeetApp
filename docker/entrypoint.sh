@@ -7,11 +7,9 @@ if [ -f tmp/pids/server.pid ]; then
   rm tmp/pids/server.pid
 fi
 
-if [ "$1" == "lma" ]; then
-  # Run database migrations
-  echo "Migrating database..."
-  bundle exec rails db:migrate
+# Run database migrations
+echo "Migrating database..."
+bundle exec rails db:migrate
 
-  # Start the database service
-  bundle exec rails server -b 0.0.0.0 -p 3000
-fi
+# Start the database service
+bundle exec rails server -b 0.0.0.0 -p 3000

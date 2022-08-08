@@ -10,7 +10,7 @@ services:
     expose:
       - 5432
     ports:
-      - 54325:5432
+      - 5432:5432
 
   redis:
     image: redis:latest

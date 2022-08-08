@@ -40,7 +40,7 @@ COPY --from=ruby_builder /lettuceMeetApp /lettuceMeetApp
 
 # Declare the entrypoint shell script
 RUN chmod 555 /lettuceMeetApp/docker/entrypoint.sh
-ENTRYPOINT ["./docker/entrypoint.sh"]
+ENTRYPOINT ["/lettuceMeetApp/docker/entrypoint.sh"]
 
 # Default to running the rails server
 CMD ["lettuceMeetApp"]
