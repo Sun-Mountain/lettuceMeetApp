@@ -164,6 +164,8 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    nokogiri (1.13.7-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.13.7-arm64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -291,6 +293,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  aarch64-linux-musl
   arm64-darwin-20
   arm64-darwin-21
 
@@ -307,6 +310,7 @@ DEPENDENCIES
   jbuilder
   letter_opener
   letter_opener_web
+  nokogiri (>= 1.12.5)
   pg (~> 1.1)
   pry
   pry-nav

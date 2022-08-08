@@ -14,6 +14,7 @@ gem "jbuilder"
 gem "sass-rails"
 gem "devise"
 gem "font-awesome-sass", "~> 6.1.2"
+gem "nokogiri", ">= 1.12.5"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
