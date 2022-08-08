@@ -6,6 +6,8 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'capybara/rails'
+require 'capybara/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -31,6 +33,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -41,6 +44,21 @@ RSpec.configure do |config|
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
+
+  # Devise test helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Warden::Test::Helpers
+
+  Warden.test_mode!
+
+  config.use_transactional_fixtures = false
+  config.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
+  config.before(:each) { DatabaseCleaner.strategy = :transaction }
+  config.before(:each, js: true) { DatabaseCleaner.strategy = :truncation }
+
+  config.before(:each) { DatabaseCleaner.start }
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
