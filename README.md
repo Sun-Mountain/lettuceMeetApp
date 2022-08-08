@@ -77,7 +77,7 @@ The application will be running by default on `http://localhost:3000` and the se
 
 # Testing
 
-TBA
+`rspec spec`
 
 # Contributing
 

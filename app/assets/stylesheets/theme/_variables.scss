@@ -1,0 +1,22 @@
+@import './color_palette';
+
+$base-bgcolor: $color-cultured;
+$form-btn-border: $color-keppel;
+$form-btn-color: $color-keppel;
+$form-btn-hover: $color-cultured;
+$form-cont-bgc: $color-cultured;
+$form-cont-border-color: $color-keppel;
+$form-field-border-color: $color-onyx;
+$form-font-color: $color-onyx;
+$form-outline-color: $color-keppel;
+$link-color: $color-cg-blue;
+$link-hover-color: $color-keppel;
+$navbar-color: $color-keppel;
+$navicon-cont-color: $color-cultured-2;
+$text-color: $color-eerie-black;
+
+// Screen Sizes
+$width-sm: 640px;
+$width-md-min: 641px;
+$width-md-max: 1007px;
+$width-lg: 1008px; 

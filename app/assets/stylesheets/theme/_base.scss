@@ -1,0 +1,47 @@
+@import './variables';
+
+body {
+  background-color: $base-bgcolor;
+  color: $text-color;
+  display: flex;
+  flex-flow: column;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+main {
+  flex: 1;
+  padding: 40px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  .icons {
+    font-size: 1.5rem;
+  }
+
+  .links {
+    font-size: 14px;
+    padding-top: 0.5rem;
+  }
+}
+
+a, a:visited {
+  color: $link-color;
+}
+
+a:hover {
+  color: $link-hover-color;
+}
+
+.skip-nav {
+  left: 0;
+  padding: 8px 16px;
+  position: absolute;
+  top: -96px;
+  z-index: 100;
+}
