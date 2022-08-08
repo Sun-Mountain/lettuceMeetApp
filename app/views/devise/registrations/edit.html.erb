@@ -17,7 +17,7 @@
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email", class: "field-text", class: "field-text"  %>
+        <%= f.email_field :email, autocomplete: "email", class: "field-text"  %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
