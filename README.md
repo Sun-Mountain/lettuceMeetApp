@@ -16,7 +16,7 @@ Our goal is to provide an easy way to organize events between people. Users will
 - [Contributing](#contributing)
   * [Pull Request Steps](#pull-request-steps)
   * [Use a Consistent Coding style](#use-a-consistent-coding-style)
-  * [Report Bugs with Github [Issues](https://github.com/Sun-Mountain/lettuceMeetApp/issues)](#report-bugs-with-github--issues--https---githubcom-sun-mountain-lettucemeetapp-issues-)
+  * [Report Bugs with Github Issues(](#report-bugs-with-github--issues)
 - [Code of Conduct](#code-of-conduct)
   * [Our Pledge](#our-pledge)
   * [Our Standards](#our-standards)
