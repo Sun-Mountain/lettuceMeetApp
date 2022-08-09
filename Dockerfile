@@ -7,7 +7,6 @@ RUN apk add --no-cache postgresql-dev && \
     apk add --no-cache --virtual build-deps alpine-sdk yarn tzdata
 
 WORKDIR /lettuce-meet-app
-COPY . /lettuce-meet-app/
 
 # Copy over the files needed to fetch dependencies
 COPY ./Gemfile /lettuce-meet-app/
