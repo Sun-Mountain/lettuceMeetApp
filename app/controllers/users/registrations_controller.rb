@@ -52,7 +52,7 @@ module Users
     # end
 
     # The path used after sign up.
-    def after_sign_up_path_for(resource)
+    def after_sign_up_path_for(_resource)
       root_path
     end
 
@@ -62,12 +62,12 @@ module Users
     # end
 
     # def sign_up_params
-    #   params.require(:user).permit(:first_name, :last_name, :email, :password, 
+    #   params.require(:user).permit(:first_name, :last_name, :email, :password,
     #   :password_confirmation)
     # end
 
     # def account_update_params
-    #   params.require(:user).permit(:first_name, :last_name, :email, :password, 
+    #   params.require(:user).permit(:first_name, :last_name, :email, :password,
     #   :password_confirmation, :current_password)
     # end
   end

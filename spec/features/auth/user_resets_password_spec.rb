@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -7,7 +8,7 @@ RSpec.feature 'user resets password' do
   context 'when successful' do
     scenario 'user resets password' do
       visit new_user_password_path
-  
+
       expect(page.body).to have_content('Forgot your password?')
 
       fill_in 'user_email', with: user.email
@@ -22,7 +23,7 @@ RSpec.feature 'user resets password' do
 
       visit reset_link
 
-      expect(page.body).to include("Change your password")
+      expect(page.body).to include('Change your password')
 
       fill_in 'user_password', with: '3v3ryDayP0tat0!'
       fill_in 'user_password_confirmation', with: '3v3ryDayP0tat0!'
@@ -36,7 +37,7 @@ RSpec.feature 'user resets password' do
       fill_in :user_password, with: '3v3ryDayP0tat0!'
       find('input[data-test="submit"]').click
 
-      expect(page.body).to include("Signed in successfully.")
+      expect(page.body).to include('Signed in successfully.')
     end
   end
 end
