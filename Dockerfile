@@ -48,4 +48,4 @@ COPY --from=ruby_builder /lettuce-meet-app /lettuce-meet-app
 RUN chmod 555 ./docker/entrypoint.sh
 ENTRYPOINT ["./docker/entrypoint.sh"]
 
-CMD ["rails", "server"]
+CMD ["rails", "server", "-b", "0.0.0.0"]
