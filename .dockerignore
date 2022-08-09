@@ -22,3 +22,5 @@
 
 Dockerfile
 docker-compose.yml
+
+.env

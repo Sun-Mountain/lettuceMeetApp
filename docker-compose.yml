@@ -1,12 +1,15 @@
-version: '3.8'
+version: '3'
+
 services:
+
   db:
-    image: postgres:14.3
+    image: postgres:14
+    command: postgres -c 'max_connections=250'
     environment:
-      - POSTGRES_DB=lettuceMeetApp
-      - POSTGRES_PASSWORD=leafOnTheWind
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=changeme
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      - "dbdata:/var/lib/postgres/data"
     ports:
       - "5432:5432"
 
@@ -14,10 +17,9 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
-    volumes:
-      - redis_data:/data
 
   web:
+    platform: linux/x86_64
     build: .
     ports:
       - "3000:3000"
@@ -25,16 +27,10 @@ services:
       - db
       - redis
     environment:
-      - REDIS_URL=redis://redis
-      - DATABASE_URL=postgresql://db/lettuceMeetApp_development
-      - DB_USER=postgres
-      - DB_PASS=leafOnTheWind
-      - DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL=true
+      - DATABASE_URL=postgresql://lettuceMeetApp_development
+      - REDIS_URL=redis://redis:6397
     volumes:
-      - .:/lettuceMeetApp
-      - bundle:/usr/local/bundle
+      - .:/app
 
 volumes:
-  pg_data:
-  redis_data:
-  bundle:
+  dbdata:
