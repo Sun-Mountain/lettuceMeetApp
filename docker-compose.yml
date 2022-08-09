@@ -29,6 +29,8 @@ services:
     environment:
       - DATABASE_URL=postgresql://db/lettuceMeetApp_development
       - REDIS_URL=redis://redis:6397
+      - DB_USER=postgres
+      - DB_PASS=changeme
     volumes:
       - .:/app
 
