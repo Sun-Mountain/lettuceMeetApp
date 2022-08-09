@@ -27,7 +27,7 @@ services:
       - db
       - redis
     environment:
-      - DATABASE_URL=postgresql://lettuceMeetApp_development
+      - DATABASE_URL=postgresql://db/lettuceMeetApp_development
       - REDIS_URL=redis://redis:6397
     volumes:
       - .:/app
