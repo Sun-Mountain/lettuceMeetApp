@@ -1,0 +1,20 @@
+@import '../theme/0_theme';
+
+.alert-cont {
+  border-radius: 10px;
+  margin: 15px auto 0 auto;
+  padding: 25px;
+  width: 80%;
+}
+
+.alert {
+  background-color: $alert-bgcolor;
+  border: $alert-border-color 5px solid;
+  color: $alert-text;
+}
+
+.notice {
+  background-color: $notice-bgcolor;
+  border: $notice-border-color 5px solid;
+  color: $notice-text;
+}

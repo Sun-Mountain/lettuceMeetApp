@@ -1,6 +1,22 @@
 @import './color_palette';
 
+// Base vars
 $base-bgcolor: $color-cultured;
+$link-color: $color-cg-blue;
+$link-hover-color: $color-keppel;
+$navbar-color: $color-keppel;
+$navicon-cont-color: $color-cultured-2;
+$text-color: $color-eerie-black;
+
+// Alert vars
+$alert-bgcolor: #FAE0E0;
+$alert-border-color: #BB2220;
+$alert-text: $color-crimsom-red;
+$notice-bgcolor: #D7F2FA;
+$notice-border-color: $color-blue-munsell;
+$notice-text: $color-yale-blue;
+
+// Form vars
 $form-btn-border: $color-keppel;
 $form-btn-color: $color-keppel;
 $form-btn-hover: $color-cultured;
@@ -9,11 +25,6 @@ $form-cont-border-color: $color-keppel;
 $form-field-border-color: $color-onyx;
 $form-font-color: $color-onyx;
 $form-outline-color: $color-keppel;
-$link-color: $color-cg-blue;
-$link-hover-color: $color-keppel;
-$navbar-color: $color-keppel;
-$navicon-cont-color: $color-cultured-2;
-$text-color: $color-eerie-black;
 
 // Screen Sizes
 $width-sm: 640px;
