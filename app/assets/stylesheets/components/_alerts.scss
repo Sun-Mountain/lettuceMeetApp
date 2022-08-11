@@ -2,9 +2,9 @@
 
 .alert-cont {
   border-radius: 10px;
-  margin: 15px auto 0 auto;
+  margin: 8px auto 0 auto;
   padding: 25px;
-  width: 80%;
+  width: 75%;
 }
 
 .alert {
@@ -17,4 +17,10 @@
   background-color: $notice-bgcolor;
   border: $notice-border-color 5px solid;
   color: $notice-text;
+}
+
+.msg {
+  background-color: $msg-bgcolor;
+  border: $msg-border-color 5px solid;
+  color: $msg-text;
 }

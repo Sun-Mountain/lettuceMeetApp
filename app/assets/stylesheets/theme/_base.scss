@@ -12,7 +12,7 @@ body {
 
 main {
   flex: 1;
-  padding: 40px;
+  padding: 25px;
 }
 
 footer {
@@ -21,7 +21,13 @@ footer {
   padding: 1rem;
 
   .icons {
-    font-size: 1.5rem;
+    color: $footer-link-color;
+    font-size: 35px;
+
+    .fa-brands:hover{
+      color: $footer-hover-color;
+      cursor: pointer;
+    }
   }
 
   .links {

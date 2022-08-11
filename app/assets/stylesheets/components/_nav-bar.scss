@@ -6,10 +6,7 @@
   flex-direction: column;
 
   #icon-container {
-    margin: 0 auto;
-    position: relative;
-    top: 25%;
-    transform: translateY(-50%);
+    margin: 5px auto 0 auto;
 
     img {
       width: 70px;
@@ -44,8 +41,7 @@
     justify-content: space-between;
 
     #icon-container {
-      margin: 0 15px;
-      top: 50%;
+      margin: 5px 15px;
     }
 
     #topNavLinks {
