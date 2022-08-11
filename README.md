@@ -1,5 +1,5 @@
 # Lettuce Meet App 
-![Version][Version.js] ![example workflow](https://github.com/Sun-Mountain/lettuceMeetApp/actions/workflows/main.yml/badge.svg)
+![Version][Version.js] ![example workflow](https://github.com/Sun-Mountain/lettuceMeetApp/actions/workflows/rubyonrails.yml/badge.svg)
 
 This is the pre-release version of the Lettuce Meet Application.
 
