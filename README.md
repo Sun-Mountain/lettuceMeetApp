@@ -1,5 +1,5 @@
 # Lettuce Meet App 
-![Version][Version.js]
+![Version][Version.js] ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
 This is the pre-release version of the Lettuce Meet Application.
 
