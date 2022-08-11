@@ -9,9 +9,7 @@ Our goal is to provide an easy way to organize events between people. Users will
 
 - [Tech Stack](#tech-stack)
 - [Local Set Up and Installation](#local-set-up-and-installation)
-  * [Set Up Ruby on Rails Locally](#set-up-ruby-on-rails-locally)
-    + [Set Up Ruby on Rails App](#set-up-ruby-on-rails-app)
-    + [Run the Server](#run-the-server)
+  * [Set Up Ruby on Rails](#set-up-ruby-on-rails)
 - [Testing](#testing)
 - [Contributing](#contributing)
   * [Pull Request Steps](#pull-request-steps)
