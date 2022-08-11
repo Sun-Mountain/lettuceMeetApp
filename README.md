@@ -31,7 +31,7 @@ Our goal is to provide an easy way to organize events between people. Users will
 
 [![Postgres][Postgres.js]][Postgres-url]
 
-# Local Set Up and Installation
+# Set Up and Installation
 To clone the application then change into the directory:
 
 ```
@@ -39,7 +39,9 @@ git clone git@github.com:Sun-Mountain/lettuceMeetApp.git
 cd lettuceMeetApp
 ```
 
-## Set Up Ruby on Rails Locally
+## Set Up Ruby on Rails
+
+### Locally
 
 The backend is built with Ruby on Rails with a [PostgreSQL](Postgres-url) database. OSX comes with Ruby already installed. [Homebrew](https://brew.sh/) can be used to install if necessary. For Windows, we recommend [Ruby Installer](https://rubyinstaller.org/).
 
@@ -60,20 +62,27 @@ brew install postgresql
 
 Follow the prompts following installation to start running postgres as a service. For postgresql clients, we recommend [Postico](https://eggerapps.at/postico/) or [Postgres.app](https://postgresapp.com/downloads.html).
 
-### Set Up Ruby on Rails App
+#### Set Up Ruby on Rails App
 Install bundler:
 
 1. `gem install bundler --no-document`
 2. Run `bundle install`
 3. Run `rails db:create db:migrate` to set up the database.
 
-### Run the Server
+#### Run the Server
 
 ```
 rails s
 ```
 
 The application will be running by default on `http://localhost:3000` and the server will be running on port `5432`.
+
+### Docker
+
+```
+docker-compose build
+docker-compose up
+```
 
 # Testing
 
