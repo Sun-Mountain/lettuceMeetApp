@@ -1,5 +1,5 @@
 # Lettuce Meet App 
-![Version][Version.js] ![Ruby on Rails CI Workflow](https://github.com/Sun-Mountain/lettuceMeetApp/actions/workflows/rubyonrails.yml/badge.svg) [![Heroku](http://heroku-badge.herokuapp.com/?app=lettuce-meet-app&style=flat&svg=1)]
+![Version][Version.js] ![Ruby on Rails CI Workflow](https://github.com/Sun-Mountain/lettuceMeetApp/actions/workflows/rubyonrails.yml/badge.svg) ![Heroku](https://pyheroku-badge.herokuapp.com/?app=lettuce-meet-app&style=flat)
 
 This is the pre-release version of the Lettuce Meet Application.
 
