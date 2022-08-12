@@ -13,7 +13,7 @@
       "formation": {
         "test": {
           "size":     "performance-l",
-          "quantity": 3
+          "quantity": 2
         }
       },
       "scripts": {
