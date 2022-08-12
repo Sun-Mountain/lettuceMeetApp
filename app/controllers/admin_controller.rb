@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AdminController < ApplicationController
-  layout "application"
+  layout 'application'
   before_action :authorize_admin
 
   def index

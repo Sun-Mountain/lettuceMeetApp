@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddsAdminColumnToUsers < ActiveRecord::Migration[7.0]
   def change
     add_column :users, :authorized, :boolean, default: false, null: false

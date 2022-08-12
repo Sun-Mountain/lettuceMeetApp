@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    redirect_to request.referrer || root_path, alert: "Permissions denied" unless current_user.admin?
+    redirect_to request.referrer || root_path, alert: 'Permissions denied' unless current_user.admin?
   end
 end
