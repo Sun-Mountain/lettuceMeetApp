@@ -15,27 +15,6 @@ main {
   padding: 25px;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-
-  .icons {
-    color: $footer-link-color;
-    font-size: 35px;
-
-    .fa-brands:hover{
-      color: $footer-hover-color;
-      cursor: pointer;
-    }
-  }
-
-  .links {
-    font-size: 14px;
-    padding-top: 0.5rem;
-  }
-}
-
 a, a:visited {
   color: $link-color;
 }
