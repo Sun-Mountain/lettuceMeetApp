@@ -7,7 +7,9 @@
 
   <% if user_signed_in? %>
     <div id="topNavLinks" class="topNavLinks">
-      <%= link_to "Dashboard", admin_url %>
+      <% if user_admin? %>
+        <%= link_to "Dashboard", admin_url %>
+      <% end %>
       <%= button_to "Sign Out", destroy_user_session_path, class: 'topNav-btn', method: :delete, name: 'user_sign_out' %>
 
       <%= button_to "Edit Profile", edit_registration_path(User), class: 'topNav-btn', method: :get, name: 'user_edit' %>
