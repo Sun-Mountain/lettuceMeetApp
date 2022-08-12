@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     # passwords: 'users/passwords'
   }
 
+  match '/admin', to: 'admin#dashboard', via: :get
+
   root to: 'public#landing'
 
   mount LetterOpenerWeb::Engine, at: 'letter_opener' if Rails.env.development? || Rails.env.staging?
