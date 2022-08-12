@@ -9,14 +9,32 @@
     margin: 5px auto 0 auto;
 
     img {
+      background-color: none;
       width: 70px;
       height: auto;
     }
   }
 
   #topNavLinks {
-    padding-top: 5px;
+    a, a:visited {
+      background-color: $navbar-color;
+      color: $color-cultured;
+      font-weight: 500;
+      font-size: 22px;
+      padding: 10px;
+      text-decoration: none;
+
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+    }
+  
+    a:hover {
+      background-color: $color-viridian-green;
+    }
   }
+
 
   button {
     background-color: $navbar-color;
@@ -31,6 +49,7 @@
 
   button:hover {
     background-color: $color-viridian-green;
+    cursor: pointer;
   }
 }
 
