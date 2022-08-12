@@ -56,9 +56,17 @@ development:
   # Defaults to warning.
   #min_messages: notice
 
-# Warning: The database defined as "test" will be erased and
+# Warning: The database defined as "staging" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+staging:
+  <<: *default
+  username: <%= ENV.fetch("DB_USER", nil) %>
+
+  password: '<%= ENV.fetch("DB_PASS", nil) %>'
+
+  url: <%= ENV.fetch("DATABASE_URL", "postgresql://localhost/lettuceMeetApp_staging") %>
+
 test:
   <<: *default
   username: <%= ENV.fetch("DB_USER", nil) %>
