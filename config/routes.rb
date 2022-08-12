@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     # passwords: 'users/passwords'
   }
 
-  match '/admin', to: 'admin#dashboard', via: :get
+  match '/admin', to: 'admin#index', via: :get
 
   root to: 'public#landing'
 

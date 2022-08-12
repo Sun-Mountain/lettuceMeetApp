@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(_resource_or_scope)
     request.referrer || root_path
   end
+
+  def authorize_admin
+    redirect_to request.referrer || root_path, alert: "Permissions denied" unless current_user.admin?
+  end
 end
