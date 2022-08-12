@@ -13,7 +13,7 @@ module LettuceMeetApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    #Dump and read as sql
+    # Dump and read as sql
     config.active_record.schema_format = :sql
     
     # Don't generate system test files.
