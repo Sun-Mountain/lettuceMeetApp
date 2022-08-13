@@ -54,23 +54,33 @@
     cursor: pointer;
   }
 }
+
 #adminNavBar {
   background-color: $color-blue-munsell;
   color: $color-cultured;
   display: flex;
   flex-direction: column;
 
-  a, a:visited {
-    color: $color-cultured;
+  a {
     padding: 5px 10px;
+  }
+
+  a,.admin_link, .admin_link:visited {
+    color: $color-cultured;
     text-decoration: none;
   }
 
-  a:hover {
+  a:hover,.admin_link:hover {
+    background-color: $color-cultured;
+    color: $color-blue-munsell;
+  }
+
+  .current_admin_page {
     background-color: $color-cultured;
     color: $color-blue-munsell;
   }
 }
+
 
 @media only screen and (min-width: $width-sm) {
   .navbar {
