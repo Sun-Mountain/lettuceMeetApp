@@ -8,4 +8,8 @@ module NavHelper
   def admin_dashboard?
     current_page?('/admin')
   end
+
+  def admin_user_page?
+    current_page?('/admin/users')
+  end
 end

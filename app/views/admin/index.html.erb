@@ -1,7 +1,28 @@
-<div>
-  Admin Dashboard
 
-  <div>
-    Welcome <%= @admin.name %>.
+<div id="adminDashboard_main">
+  <div id="adminDash_welcome">
+    <h2>Admin Dashboard</h2>
+
+    <div>
+      Welcome <%= @admin.name %>.
+    </div>
+  </div>
+  <div id="adminDash_stats">
+    <div>
+      <a href="admin/users" class="dash_link">
+        <i class="fa-solid fa-users fa-6x"></i>
+        <div class="dash_link_title">
+          <%= @users.count %> Users
+        </div>
+      </a>
+    </div>
+    <div>
+      <a href="admin/events" class="dash_link">
+        <i class="fa-solid fa-calendar-days fa-6x"></i>
+        <div class="dash_link_title">
+          # Events
+        </div>
+      </a>
+    </div>
   </div>
 </div>
