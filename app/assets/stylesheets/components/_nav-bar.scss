@@ -18,7 +18,6 @@
   #topNavLinks {
     a, a:visited {
       background-color: $navbar-color;
-      color: $color-cultured;
       font-weight: 500;
       font-size: 22px;
       padding: 10px;
@@ -35,6 +34,9 @@
     }
   }
 
+  a, a:visited {
+    color: $color-cultured;
+  }
 
   button {
     background-color: $navbar-color;
@@ -52,6 +54,23 @@
     cursor: pointer;
   }
 }
+#adminNavBar {
+  background-color: $color-blue-munsell;
+  color: $color-cultured;
+  display: flex;
+  flex-direction: column;
+
+  a, a:visited {
+    color: $color-cultured;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: $color-cultured;
+    color: $color-blue-munsell;
+  }
+}
 
 @media only screen and (min-width: $width-sm) {
   .navbar {
@@ -67,5 +86,10 @@
       display: flex;
       flex-direction: row;
     }
+  }
+
+  #adminNavBar {
+    display: flex;
+    flex-direction: row;
   }
 }
