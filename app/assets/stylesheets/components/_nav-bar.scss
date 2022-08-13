@@ -18,7 +18,6 @@
   #topNavLinks {
     a, a:visited {
       background-color: $navbar-color;
-      color: $color-cultured;
       font-weight: 500;
       font-size: 22px;
       padding: 10px;
@@ -35,6 +34,9 @@
     }
   }
 
+  a, a:visited {
+    color: $color-cultured;
+  }
 
   button {
     background-color: $navbar-color;
@@ -53,6 +55,33 @@
   }
 }
 
+#adminNavBar {
+  background-color: $color-blue-munsell;
+  color: $color-cultured;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    padding: 5px 10px;
+  }
+
+  a,.admin_link, .admin_link:visited {
+    color: $color-cultured;
+    text-decoration: none;
+  }
+
+  a:hover,.admin_link:hover {
+    background-color: $color-cultured;
+    color: $color-blue-munsell;
+  }
+
+  .current_admin_page {
+    background-color: $color-cultured;
+    color: $color-blue-munsell;
+  }
+}
+
+
 @media only screen and (min-width: $width-sm) {
   .navbar {
     display: flex;
@@ -67,5 +96,10 @@
       display: flex;
       flex-direction: row;
     }
+  }
+
+  #adminNavBar {
+    display: flex;
+    flex-direction: row;
   }
 }

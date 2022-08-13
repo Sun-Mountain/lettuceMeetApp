@@ -1,0 +1,40 @@
+@import '../theme/0_theme';
+
+#adminDashboard_main {
+  width: 100%;
+}
+
+#adminDash_stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 18px 10px;
+  width: 100%;
+
+  .dash_link {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5px 25px;
+  }
+
+  a,a:visited,.dash_link,.dash_link:visited {
+    text-decoration: none;
+    font-weight: 700;
+  }
+  a:hover,.dash_link:hover {
+    border-bottom: 2px solid $color-emerald;
+    color: $color-emerald;
+  }
+
+  .fa-solid {
+    margin-bottom: 8px;
+  }
+}
+
+#adminDash_welcome {
+  h2 {
+    margin-top: 0;
+  }
+}

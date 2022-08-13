@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
 
   match '/admin', to: 'admin#index', via: :get
+  match '/admin/users', to: 'admin#users', via: :get
 
   root to: 'public#landing'
 

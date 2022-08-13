@@ -6,6 +6,10 @@
     <!-- nav -->
     <%= render partial: 'shared/nav' %>
 
+    <% if user_admin? %>
+      <%= render partial: 'shared/admin-nav' %>
+    <% end %>
+
     <%= render partial: 'shared/alerts' %>
     <%= render partial: 'shared/msg' %>
 

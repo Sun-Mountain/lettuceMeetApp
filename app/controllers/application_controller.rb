@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
   def authorize_admin
     redirect_to request.referrer || root_path, alert: 'Permissions denied' unless current_user.admin?
   end
+
+  def render_not_found
+    render file: "#{RAILS_ROOT}/public/404.html", status: 404
+  end
 end
