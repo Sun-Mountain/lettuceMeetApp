@@ -4,7 +4,7 @@ module ApplicationHelper
   private
 
   def user_admin?
-    current_user.admin?
+    current_user.admin? if current_user.present?
   end
 
   def user_authorized?

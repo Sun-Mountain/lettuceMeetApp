@@ -28,7 +28,7 @@ RSpec.feature 'admin user signs in' do
 
       expect(page).to have_content('Dashboard')
       expect(page).to_not have_content('Welcome to Lettuce Meet.')
-      find('[data-test="dash_btn"]').click
+      find('[data-test="admin_dash_btn"]').click
 
       expect(page).to have_content(admin.name)
     end
