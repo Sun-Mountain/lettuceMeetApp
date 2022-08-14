@@ -32,6 +32,7 @@ CREATE TABLE public.ar_internal_metadata (
 CREATE TABLE public.events (
     id bigint NOT NULL,
     title character varying DEFAULT ''::character varying NOT NULL,
+    public boolean DEFAULT false NOT NULL,
     all_day boolean DEFAULT false NOT NULL,
     start_date date NOT NULL,
     end_date date,
