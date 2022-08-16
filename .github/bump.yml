@@ -2,7 +2,6 @@ release:
   title-prefix: 'v'
   initial-version: '0.0.1'
   tag-prefix: 'v'
-  base-branch: 'main'
   commit-note-replacers:
     - replace-prefix: 'breaking: '
       new-prefix: ''
@@ -19,6 +18,7 @@ release:
 branch:
   version-branch-prefix: 'v'
   bump-version-commit-prefix: 'v'
+  base-branch: 'main'
 categories:
   - title: 'Breaking Changes!'
     labels:
