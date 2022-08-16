@@ -18,7 +18,7 @@ release:
 branch:
   version-branch-prefix: 'v'
   bump-version-commit-prefix: 'v'
-  base-branch: ${{ github.ref_name }}
+  base-branch: "${BRANCH_NAME}"
 categories:
   - title: 'Breaking Changes!'
     labels:
