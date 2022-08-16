@@ -1,7 +1,7 @@
 ---
 name: Design
 about: Design Issue template
-title: '[Design Issue]'
+title: 'Design - '
 labels: design
 assignees: ''
 ---

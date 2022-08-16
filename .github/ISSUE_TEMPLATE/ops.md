@@ -1,8 +1,8 @@
 ---
 name: Ops
 about: Operations Issue Template
-title: '[Operations]'
-labels: DevOps
+title: 'Operations - '
+labels: dev-ops
 assignees: ''
 ---
 
