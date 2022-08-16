@@ -45,7 +45,7 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec spec
-      - uses: MeilCli/bump-release-action@master
+      - uses: MeilCli/bump-release-action@main
         with:
           config_path: '.github/bump.yml'
           bump: ${{ github.event.inputs.bump }}
