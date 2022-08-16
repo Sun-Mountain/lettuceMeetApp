@@ -56,12 +56,3 @@ jobs:
         run: bundle exec brakeman -q -w2
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: rymndhng/release-on-push-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          bump_version_scheme: norelease
