@@ -2,6 +2,7 @@ release:
   title-prefix: 'v'
   initial-version: '0.0.1'
   tag-prefix: 'v'
+  base-branch: 'main'
   commit-note-replacers:
     - replace-prefix: 'breaking: '
       new-prefix: ''
