@@ -1,9 +1,9 @@
 <div id="landing-page__container">
   <% if user_signed_in? %>
     <ul>
-      <% @events.each do |article| %>
+      <% @events.each do |event| %>
         <li>
-          <%= article.title %>
+          <%= link_to event.title, event %>
         </li>
       <% end %>
     </ul>

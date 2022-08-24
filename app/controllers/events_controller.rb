@@ -23,10 +23,18 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @event = Event.find(event_id)
+  end
+
   private
 
   def events_params
     params.require(:event).permit(:title, :start_date, :end_date, :description, :user_id)
+  end
+
+  def event_id
+    params.require(:id)
   end
 
   def user_id
