@@ -13,7 +13,6 @@ class EventsController < ApplicationController
   def create
     @user = User.find(user_id)
     @event = @user.events.new(events_params)
-    binding.pry
 
     if @event.save
       flash[:notice] = 'Event created.'
