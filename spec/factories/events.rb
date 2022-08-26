@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :event do
     sequence(:title) { |n| "event_#{n}" }
-    sequence(:start_date) { |n| Date.today }
+    sequence(:start_date) { |_n| Date.today }
 
     public { false }
     all_day { false }
