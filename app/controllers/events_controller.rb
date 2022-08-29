@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event.id)
     else
       flash[:alert] = 'Event could not be created.'
-      redirect_to root_path
+      redirect_to new_event_path
     end
   end
 
