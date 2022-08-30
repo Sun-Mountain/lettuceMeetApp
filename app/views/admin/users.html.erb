@@ -1,1 +1,21 @@
 <%= @users.count %>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= user.name %>
+
+      <% if user.authorized %>
+        Authorized
+      <% else %>
+        Unauthorized
+      <% end %>
+
+      <% if user.admin %>
+        Admin
+      <% else %>
+        Not Admin
+      <% end %>
+    </li>
+  <% end %>
+</ul>
