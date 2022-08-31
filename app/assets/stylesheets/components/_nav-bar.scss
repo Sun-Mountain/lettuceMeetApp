@@ -83,11 +83,15 @@ nav {
 
   a:hover,.admin_link:hover {
     background-color: $color-cultured;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     color: $color-blue-munsell;
   }
 
   .current_admin_page {
     background-color: $color-cultured;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     color: $color-blue-munsell;
   }
 }
