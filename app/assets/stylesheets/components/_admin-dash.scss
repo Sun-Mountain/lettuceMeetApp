@@ -38,3 +38,26 @@
     margin-top: 0;
   }
 }
+
+.admin-list {
+  list-style: none;
+  padding: 0;
+
+  .user-list {
+    background-color: $color-deep-champagne-50;
+    border: 2px solid $color-lapis-lazuli;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px auto;
+    padding: 20px 30px;
+    width: 80%;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 25%;
+  }
+}

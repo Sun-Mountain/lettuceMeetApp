@@ -1,21 +1,25 @@
 <%= @users.count %>
 
-<ul>
+<ul class="admin-list">
   <% @users.each do |user| %>
-    <li>
-      <%= user.name %>
+    <li class="user-list">
+      <div>
+        <%= user.name %>
+      </div>
 
-      <% if user.authorized %>
-        Authorized
-      <% else %>
-        Unauthorized
-      <% end %>
+      <div class="btn-container">
 
-      <% if user.admin %>
-        Admin
-      <% else %>
-        Not Admin
-      <% end %>
+        <% if user.admin %>
+          <%= button_to "Admin" %>
+        <% else %>
+          <% if user.authorized %>
+            <%= button_to "Authorized" %>
+          <% else %>
+            <%= button_to "Unauthorized"%>
+          <% end %>
+          <%= button_to "Not Admin"%>
+        <% end %>
+      </div>
     </li>
   <% end %>
 </ul>
