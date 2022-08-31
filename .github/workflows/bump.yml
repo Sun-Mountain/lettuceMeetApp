@@ -32,7 +32,9 @@ branch:
         run: echo 'The branch name is' $BRANCH_NAME
   version-branch-prefix: 'v'
   bump-version-commit-prefix: 'v'
-  base-branch: $BRANCH_NAME || 'main'
+  base-branch: 
+    if: $BRANCH_NAME !== 'main'
+    run: echo "${{$BRANCH_NAME}}"
 changelog:
   exclude:
     labels:
