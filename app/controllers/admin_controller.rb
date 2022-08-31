@@ -34,7 +34,7 @@ class AdminController < ApplicationController
       flash[:alert] = "Something went wrong. Please try again later."
     end
 
-    redirect_to admin_users_path(@admin)
+    redirect_to admin_users_path
   end
 
   def authorization
@@ -49,7 +49,7 @@ class AdminController < ApplicationController
       flash[:alert] = "Something went wrong. Please try again later."
     end
 
-    redirect_to admin_users_path(@admin)
+    redirect_to admin_users_path
   end
 
   private
