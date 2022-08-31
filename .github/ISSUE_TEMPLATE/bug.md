@@ -1,8 +1,8 @@
 ---
 name: Bug
 about: Bug Issue Template
-title: '[Bug]'
-labels: development, bug
+title: 'Bug - '
+labels: bug
 assignees: ''
 ---
 
