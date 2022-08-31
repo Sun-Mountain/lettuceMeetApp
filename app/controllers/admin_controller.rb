@@ -7,9 +7,14 @@ class AdminController < ApplicationController
   def index
     @admin = current_user
     @users = User.all
+    @events = Event.all
   end
 
   def users
     @users = User.all
+  end
+
+  def events
+    @events = Event.all
   end
 end

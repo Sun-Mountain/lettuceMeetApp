@@ -1,9 +1,15 @@
 @import '../theme/0_theme';
 
+nav {
+  background-color: $navbar-color;
+}
+
 .navbar {
   background-color: $navbar-color;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  width: $width-md-max;
 
   #icon-container {
     margin: 5px auto 0 auto;
@@ -60,6 +66,11 @@
   color: $color-cultured;
   display: flex;
   flex-direction: column;
+
+  .adminLinks-container {
+    margin: 0 auto;
+    max-width: $width-md-max;
+  }
 
   a {
     padding: 5px 10px;

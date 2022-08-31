@@ -1,3 +1,13 @@
 <div id="landing-page__container">
-  Hello
+  <% if user_signed_in? %>
+    <ul>
+      <% @events.each do |event| %>
+        <li>
+          <%= link_to event.title, event %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= link_to "+ Event", new_event_path, data: {test: 'new_events_link'} %>
+  <% end %>
 </div>
