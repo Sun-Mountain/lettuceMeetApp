@@ -10,15 +10,18 @@
       <div class="btn-container">
 
         <% if user.admin %>
-          <%= button_to "Admin", class: "not-admin-btn" %>
+          <%= button_to "Admin", class: "btn auth-btn" %>
         <% else %>
-          <%= button_to "Not Admin" %>
+          <%= button_to "Not Admin", class: "btn deauth-btn" %>
           <% if user.authorized %>
-            <%= button_to "Authorized", class: "auth-btn" %>
+            <%= form_for @admin, url: admin_authorization_url(@admin) do |f| %>
+              <%= f.hidden_field :id, value: user.id %>
+              <%= f.submit "Authorized", class: "btn auth-btn" %>
+            <% end %>
           <% else %>
             <%= form_for @admin, url: admin_authorization_url(@admin) do |f| %>
               <%= f.hidden_field :id, value: user.id %>
-              <%= f.submit "Unauthorized", class: "unauth-btn" %>
+              <%= f.submit "Unauthorized", class: "btn deauth-btn" %>
             <% end %>
           <% end %>
         <% end %>

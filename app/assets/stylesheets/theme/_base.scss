@@ -24,6 +24,11 @@ a, a:visited {
 
 a:hover {
   color: $link-hover-color;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .skip-nav {
