@@ -48,11 +48,11 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: echo "APP_VERSION=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}" >> $GITHUB_ENV
-      - name: Bump version and publish release action
-        uses: MeilCli/bump-release-action@v1.5.0
-        with:
-          config_path: '.github/bump.yml'
-          bump: ${{ github.event.inputs.bump }}
+      # - name: Bump version and publish release action
+      #   uses: MeilCli/bump-release-action@v1.5.0
+      #   with:
+      #     config_path: '.github/bump.yml'
+      #     bump: ${{ github.event.inputs.bump }}
 
   lint:
     runs-on: ubuntu-latest
