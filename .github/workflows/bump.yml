@@ -18,7 +18,7 @@ release:
 branch:
   version-branch-prefix: 'v'
   bump-version-commit-prefix: 'v'
-  base-branch: ${{ github.base_ref }}
+  base-branch: $GITHUB_BASE_REF!
 changelog:
   exclude:
     labels:
