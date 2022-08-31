@@ -47,7 +47,7 @@ jobs:
         run: bundle exec rspec spec
       - name: Extract branch name
         shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+        run: echo "APP_VERSION=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}" >> $GITHUB_ENV
       - name: Bump version and publish release action
         uses: MeilCli/bump-release-action@v1.5.0
         with:
