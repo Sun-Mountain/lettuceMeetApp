@@ -33,9 +33,11 @@ branch:
   version-branch-prefix: 'v'
   bump-version-commit-prefix: 'v'
   base-branch: 
-    - uses: nelonoel/branch-name@v1
-    # Use branch name for whatever purpose
-    - run: echo ${BRANCH_NAME}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nelonoel/branch-name@v1
+      # Use branch name for whatever purpose
+      - run: echo ${BRANCH_NAME}
 changelog:
   exclude:
     labels:
