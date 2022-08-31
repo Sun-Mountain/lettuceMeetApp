@@ -6,13 +6,11 @@ class AdminController < ApplicationController
 
   def index
     @admin = current_user
-    @adminId = current_user.id
     @events = Event.all
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def users
     @users = User.all
@@ -23,6 +21,5 @@ class AdminController < ApplicationController
   end
 
   def admin_create_delete_auth(user)
-    binding.pry
   end
 end
