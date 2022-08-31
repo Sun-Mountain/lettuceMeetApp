@@ -16,6 +16,20 @@ release:
     - replace-prefix: 'dependency: '
       new-prefix: ''
 branch:
+  which_branch:
+    runs-on: ubuntu-latest
+    steps:
+      # extract branch name
+      - name: Extract branch name
+        shell: bash
+        run: echo "APP_VERSION=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}" >> $GITHUB_ENV
+      # extract branch name on pull request
+      - name: Print branch name
+        if: github.event_name == 'pull_request'
+        run: echo "APP_VERSION=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}" >> $GITHUB_ENV
+      # print branch name
+      - name: Get branch name
+        run: echo 'The branch name is' $BRANCH_NAME
   version-branch-prefix: 'v'
   bump-version-commit-prefix: 'v'
   base-branch: $BRANCH_NAME || 'main'
