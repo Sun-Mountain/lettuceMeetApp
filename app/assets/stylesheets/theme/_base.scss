@@ -13,6 +13,9 @@ body {
 main {
   flex: 1;
   padding: 25px;
+  margin: 0 auto;
+  min-width: $width-md-min;
+  max-width: $width-md-max;
 }
 
 a, a:visited {

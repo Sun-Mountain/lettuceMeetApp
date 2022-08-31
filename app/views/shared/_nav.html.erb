@@ -1,6 +1,7 @@
 <a class="skip-nav" href="#main">Skip to main content</a>
 
-<nav class="navbar" id="navigation-bar">
+<nav id="navigation-bar">
+  <div class="navbar">
   <div id="icon-container">
     <%= link_to(image_tag("lettuce_logo_ph.png"), root_path) %>
   </div>
@@ -12,4 +13,5 @@
       <%= button_to "Edit Profile", edit_registration_path(User), class: 'topNav-btn', method: :get, name: 'user_edit' %>
     </div>
   <% end %>
+  </div>
 </nav>
