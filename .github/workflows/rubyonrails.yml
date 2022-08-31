@@ -46,7 +46,7 @@ jobs:
       - name: Bump version and publish release action
         uses: MeilCli/bump-release-action@v1.5.0
         with:
-          config_path: '.github/bump.yml'
+          config_path: '.github/workflows/bump.yml'
           bump: ${{ github.event.inputs.bump }}
 
   lint:
