@@ -23,6 +23,31 @@ class AdminController < ApplicationController
   end
 
   def authorization
-    binding.pry
+    @admin = current_user
+    @user = User.find(auth_params[:id])
+
+    if !user_authorized(@user)
+      authorize_user(@user)
+    end
+
+    redirect_to admin_users_path(@admin)
+  end
+
+  private
+  def auth_params
+    params.require(:user).permit(:id)
+  end
+
+  def authorize_user(u)
+    u.authorized = true
+    if u.save
+      flash[:notice] = "#{u.name} is now Authorized."
+    else
+      flash[:alert] = "#{u.name} could not be Authorized."
+    end
+  end
+
+  def user_authorized(u)
+    u.authorized
   end
 end
