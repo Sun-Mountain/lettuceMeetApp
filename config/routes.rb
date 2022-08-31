@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   }
 
   resources :admin, only: [:index] do
-    match :create_delete_admin, via: [:get, :post, :delete]
-    match :create_delete_auth, via: [:get, :post, :delete]
+    match :create_delete_admin, via: %i[:get, :post, :delete]
+    match :create_delete_auth, via: %i[:get, :post, :delete]
   end
 
   match '/admin', to: 'admin#index', via: :get

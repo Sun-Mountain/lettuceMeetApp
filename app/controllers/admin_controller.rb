@@ -22,6 +22,7 @@ class AdminController < ApplicationController
     @events = Event.all
   end
 
-  def create_delete_admin(user)
+  def admin_create_delete_auth(user)
+    binding.pry
   end
 end
