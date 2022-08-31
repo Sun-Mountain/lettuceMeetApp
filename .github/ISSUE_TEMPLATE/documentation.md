@@ -1,7 +1,7 @@
 ---
 name: Documentation
 about: Documentation Issue template
-title: '[Documentation Issue]'
+title: 'Documentation - '
 labels: documentation
 assignees: ''
 ---

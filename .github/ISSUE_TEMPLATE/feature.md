@@ -1,8 +1,8 @@
 ---
 name: Feature
 about: Feature Issue Template
-title: '[Feature]'
-labels: development,feature
+title: 'Feature - '
+labels: feature
 assignees: ''
 ---
 

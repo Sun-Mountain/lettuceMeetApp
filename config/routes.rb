@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   match '/admin', to: 'admin#index', via: :get
   match '/admin/users', to: 'admin#users', via: :get
+  match '/admin/events', to: 'admin#events', via: :get
+
+  resources :events
 
   root to: 'public#landing'
 

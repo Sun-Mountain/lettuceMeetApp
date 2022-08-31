@@ -12,4 +12,8 @@ module NavHelper
   def admin_user_page?
     current_page?('/admin/users')
   end
+
+  def admin_event_page?
+    current_page?('/admin/events')
+  end
 end
