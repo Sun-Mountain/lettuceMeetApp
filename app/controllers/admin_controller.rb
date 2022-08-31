@@ -10,9 +10,11 @@ class AdminController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+  end
 
   def users
+    @admin = current_user
     @users = User.all
   end
 
@@ -20,6 +22,7 @@ class AdminController < ApplicationController
     @events = Event.all
   end
 
-  def admin_create_delete_auth(user)
+  def authorization
+    binding.pry
   end
 end

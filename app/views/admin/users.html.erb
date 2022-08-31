@@ -12,7 +12,10 @@
         <% if user.admin %>
           <%= button_to "Admin", class: "not-admin-btn" %>
         <% else %>
-          <%= button_to "Not Admin", class: "not-admin-btn" %>
+          <%= form_for @admin, url: admin_authorization_url(@admin) do |f| %>
+            <%= f.hidden_field :id, value: user.id %>
+            <%= f.submit "Not Admin" %>
+          <% end %>
           <% if user.authorized %>
             <%= button_to "Authorized", class: "auth-btn" %>
           <% else %>
