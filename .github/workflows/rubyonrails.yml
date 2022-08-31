@@ -5,20 +5,21 @@
 # This workflow will install a prebuilt Ruby version, install dependencies, and
 # run tests and linters.
 name: "Ruby on Rails CI"
-on:
-  workflow_dispatch:
-    inputs:
-      name: 'Bump version and publish release action'
-        description: 'bump type, major or minor or patch or empty string'
-        default: ''
-        uses: MeilCli/bump-release-action@v1.5.0
-        with:
-          config_path: '.github/bump.yml'
-          bump: ${{ github.event.inputs.bump }}
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       bump:
+#         name: 'Bump version and publish release action'
+#         description: 'bump type, major or minor or patch or empty string'
+#         default: ''
+#         uses: MeilCli/bump-release-action@v1.5.0
+#         with:
+#           config_path: '.github/bump.yml'
+#           bump: ${{ github.event.inputs.bump }}
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
 
 jobs:
   test:
