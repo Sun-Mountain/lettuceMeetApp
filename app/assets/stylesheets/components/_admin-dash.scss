@@ -60,16 +60,33 @@
 
     .btn {
       margin: 0 5px;
+      padding: 3px 7px;
     }
 
     .btn:hover {
       cursor: pointer;
     }
 
+    .auth-btn {
+      background-color: $color-lapis-lazuli;
+      border: $color-lapis-lazuli 2px solid;
+      color: $color-cultured;
+    }
+
+    .auth-btn:hover {
+      background-color: $color-cultured;
+      color: $color-lapis-lazuli;
+    }
+
     .deauth-btn {
       background-color: $color-carnelian;
       border: $color-carnelian 2px solid;
       color: $color-cultured;
+    }
+
+    .deauth-btn:hover {
+      background-color: $color-cultured;
+      color: $color-carnelian;
     }
   }
 }
