@@ -10,14 +10,14 @@
       <div class="btn-container">
 
         <% if user.admin %>
-          <%= button_to "Admin" %>
+          <%= button_to "Admin", class: "not-admin-btn" %>
         <% else %>
+          <%= button_to "Not Admin", class: "not-admin-btn" %>
           <% if user.authorized %>
-            <%= button_to "Authorized" %>
+            <%= button_to "Authorized", class: "auth-btn" %>
           <% else %>
-            <%= button_to "Unauthorized"%>
+            <%= button_to "Unauthorized", class: "unauth-btn"%>
           <% end %>
-          <%= button_to "Not Admin"%>
         <% end %>
       </div>
     </li>

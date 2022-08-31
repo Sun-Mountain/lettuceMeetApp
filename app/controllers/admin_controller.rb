@@ -6,10 +6,17 @@ class AdminController < ApplicationController
 
   def index
     @admin = current_user
+    @adminId = current_user.id
     @users = User.all
+  end
+
+  def show
   end
 
   def users
     @users = User.all
+  end
+
+  def create_delete_admin(user)
   end
 end

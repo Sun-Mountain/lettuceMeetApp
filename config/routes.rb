@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     # passwords: 'users/passwords'
   }
 
+  resources :admin, only: [:index] do
+    match :create_delete_admin, via: [:get, :post, :delete]
+    match :create_delete_auth, via: [:get, :post, :delete]
+  end
+
   match '/admin', to: 'admin#index', via: :get
   match '/admin/users', to: 'admin#users', via: :get
 
