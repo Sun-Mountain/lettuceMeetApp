@@ -15,10 +15,6 @@ release:
       new-prefix: ''
     - replace-prefix: 'dependency: '
       new-prefix: ''
-branch:
-  version-branch-prefix: 'v'
-  bump-version-commit-prefix: 'v'
-  base-branch: $GITHUB_BASE_REF!
 changelog:
   exclude:
     labels:
