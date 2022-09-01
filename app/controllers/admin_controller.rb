@@ -15,7 +15,7 @@ class AdminController < ApplicationController
 
   def users
     @admin = current_user
-    @users = User.all
+    @users = User.all.order("id ASC")
   end
 
   def events
