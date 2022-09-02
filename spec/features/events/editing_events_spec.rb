@@ -14,7 +14,7 @@ RSpec.feature 'user edits events' do
     expect(page).to have_selector("input[value='#{event.start_date}']")
   end
 
-  scenario 'when successful' do
+  it 'is successful' do
     new_title = 'My New Title'
     new_start_date = Date.today + 3.days
     new_end_date = Date.today + 4.days
@@ -30,7 +30,7 @@ RSpec.feature 'user edits events' do
     expect(page.body).to have_content('Event successfully updated.')
   end
 
-  scenario 'when unsuccessful' do
+  it 'is unsuccessful' do
     fill_in :event_title, with: ''
 
     find('[data-test="update"]').click

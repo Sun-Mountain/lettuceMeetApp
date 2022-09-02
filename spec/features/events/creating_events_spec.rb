@@ -10,7 +10,7 @@ RSpec.feature 'user creates events' do
     visit root_path
   end
 
-  scenario 'when successfull' do
+  it 'is successfull' do
     find('[data-test="new_events_link"]').click
 
     expect(page.body).to include('New Event')
@@ -26,7 +26,7 @@ RSpec.feature 'user creates events' do
     expect(page.body).to include(title)
   end
 
-  scenario 'when unsuccessful' do
+  it 'is unsuccessful' do
     start_date = Date.today + 2.days
 
     find('[data-test="new_events_link"]').click

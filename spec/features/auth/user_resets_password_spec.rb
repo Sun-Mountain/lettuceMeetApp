@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'user resets password' do
   let(:user) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!' }
 
-  scenario 'when successful' do
+  it 'is successful' do
     visit new_user_password_path
 
     expect(page.body).to have_content('Forgot your password?')

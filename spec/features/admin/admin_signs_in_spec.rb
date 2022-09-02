@@ -6,8 +6,8 @@ RSpec.feature 'admin user signs in' do
   let!(:admin) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!', admin: true }
   let!(:user) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!' }
 
-  context 'only admin can view the admin dashboard' do
-    scenario 'when successfull' do
+  scenario 'only admin can view the admin dashboard' do
+    it 'is successfull' do
       visit new_user_session_path
       expect(page).to have_content('Log in')
 
@@ -33,7 +33,7 @@ RSpec.feature 'admin user signs in' do
       expect(page).to have_content(admin.name)
     end
 
-    scenario 'when unsuccessful' do
+    it 'is unsuccessful' do
       sign_in user
 
       visit admin_index_path

@@ -8,7 +8,7 @@ RSpec.feature 'new user signs up for account' do
     click_link 'Sign up'
   end
 
-  scenario 'when successful' do
+  it 'is successful' do
     fill_in :user_first_name, with: 'Samuel'
     fill_in :user_last_name, with: 'Vimes'
     fill_in :user_email, with: 'vimes@gmail.com'

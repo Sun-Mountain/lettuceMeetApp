@@ -11,7 +11,7 @@ RSpec.feature 'user edits profile' do
   end
 
   describe 'user changes their name' do
-    scenario 'when successful' do
+    it 'is successful' do
       fill_in 'user_first_name', with: 'James'
       fill_in 'user_last_name', with: 'Kirk'
       fill_in 'user_current_password', with: '12345ABCDEfghi!'
@@ -23,7 +23,7 @@ RSpec.feature 'user edits profile' do
   end
 
   describe 'user changes their email' do
-    scenario 'when successful' do
+    it 'is successful' do
       fill_in 'user_email', with: 'kirk@gmail.com'
       fill_in 'user_current_password', with: '12345ABCDEfghi!'
 
@@ -34,7 +34,7 @@ RSpec.feature 'user edits profile' do
   end
 
   describe 'user changes their password' do
-    scenario 'when successful' do
+    it 'is successful' do
       fill_in 'user_password', with: 'fghi!12345ABCDE'
       fill_in 'user_password_confirmation', with: 'fghi!12345ABCDE'
       fill_in 'user_current_password', with: '12345ABCDEfghi!'

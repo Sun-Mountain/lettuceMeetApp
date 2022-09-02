@@ -11,7 +11,7 @@ RSpec.feature 'user deletes events' do
     visit event_path(event.id)
   end
 
-  scenario 'when successful' do
+  it 'is successful' do
     expect(page.body).to have_content(event.title)
 
     find('[data-test="delete_event"]').click
