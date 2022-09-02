@@ -1,33 +1,33 @@
 <%= @users.count %>
 
-<ul class="admin-list">
+<ul>
   <% @users.each do |user| %>
-    <li class="user-list-item">
+    <li>
       <div>
         <%= user.name %>
       </div>
 
-      <div class="btn-container">
+      <div>
 
         <% if user.admin %>
           <%= form_for @admin, url: admin_administration_url(@admin) do |f| %>
             <%= f.hidden_field :id, value: user.id %>
-            <%= f.submit "Admin", class: "btn auth-btn admin-button", data: {test: "admin-user-#{user.id}"} %>
+            <%= f.submit "Admin", data: {test: "admin-user-#{user.id}"} %>
           <% end %>
         <% else %>
           <%= form_for @admin, url: admin_administration_url(@admin) do |f| %>
             <%= f.hidden_field :id, value: user.id %>
-            <%= f.submit "Not Admin", class: "btn deauth-btn not-admin-button", data: {test: "not-admin-user-#{user.id}"} %>
+            <%= f.submit "Not Admin", data: {test: "not-admin-user-#{user.id}"} %>
           <% end %>
           <% if user.authorized %>
             <%= form_for @admin, url: admin_authorization_url(@admin) do |f| %>
               <%= f.hidden_field :id, value: user.id %>
-              <%= f.submit "Authorized", class: "btn auth-btn authorized", data: {test: "auth-user-#{user.id}"} %>
+              <%= f.submit "Authorized", data: {test: "auth-user-#{user.id}"} %>
             <% end %>
           <% else %>
             <%= form_for @admin, url: admin_authorization_url(@admin) do |f| %>
               <%= f.hidden_field :id, value: user.id %>
-              <%= f.submit "Unauthorized", class: "btn deauth-btn unauthorized", data: {test: "deauth-user-#{user.id}"} %>
+              <%= f.submit "Unauthorized", data: {test: "deauth-user-#{user.id}"} %>
             <% end %>
           <% end %>
         <% end %>
