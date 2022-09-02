@@ -1,36 +1,5 @@
 @import './variables';
 
-body {
-  background-color: $base-bgcolor;
-  color: $text-color;
-  display: flex;
-  flex-flow: column;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  margin: 0 auto;
-}
-
-main {
-  flex: 1;
-  padding: 25px;
-  margin: 0 auto;
-  min-width: $width-md-min;
-  max-width: $width-md-max;
-}
-
-a, a:visited {
-  color: $link-color;
-}
-
-a:hover {
-  color: $link-hover-color;
-  cursor: pointer;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
 .skip-nav {
   left: 0;
   padding: 8px 16px;
