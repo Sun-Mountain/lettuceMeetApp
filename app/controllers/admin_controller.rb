@@ -73,7 +73,7 @@ class AdminController < ApplicationController
 
   def authorize_user(u)
     u.authorized = true
-    if u.save
+    if u.save!
       flash[:notice] = "#{u.name} is now Authorized."
     else
       flash[:alert] = "#{u.name} could not be Authorized."
