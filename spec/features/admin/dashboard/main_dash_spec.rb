@@ -11,7 +11,7 @@ RSpec.feature 'admin dashboard' do
   end
 
   describe 'user dashboard' do
-    scenario 'shows all users' do
+    context 'shows all users' do
       it 'is successful' do
         total = User.all.count
         expect(page).to have_content('Dashboard')

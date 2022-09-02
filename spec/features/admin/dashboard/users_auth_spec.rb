@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.feature 'admin can manage users' do
+RSpec.feature 'admin can authorize users' do
   let!(:admin) { create :user, admin: true }
 
   before(:each) do
     sign_in admin
   end
 
-  scenario 'when admin authorizes user' do
+  context 'when admin authorizes user' do
     it 'is successful' do
       new_auth = create(:user)
       visit admin_users_path
@@ -26,7 +26,7 @@ RSpec.feature 'admin can manage users' do
     end
   end
 
-  scenario 'when admin deauthorizes user' do
+  context 'when admin deauthorizes user' do
     it 'is successful' do
       old_auth = create(:user, authorized: true)
       visit admin_users_path
