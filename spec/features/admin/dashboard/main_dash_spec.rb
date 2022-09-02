@@ -15,11 +15,11 @@ RSpec.feature 'admin dashboard' do
       it 'is successful' do
         total = User.all.count
         expect(page).to have_content('Dashboard')
-  
+
         find('[data-test="admin_users_btn"]').click
-  
+
         users = find('ul').all('li')
-  
+
         expect(users.size).to equal(total)
       end
     end

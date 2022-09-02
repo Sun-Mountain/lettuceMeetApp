@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'admin can appoints users' do
+RSpec.feature 'admin can appoints admins' do
   let!(:admin) { create :user, admin: true }
 
   before(:each) do
