@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 18px 10px;
-  width: 100%;
+  max-width: 100%;
 
   .dash_link {
     display: flex;
@@ -36,5 +36,58 @@
 #adminDash_welcome {
   h2 {
     margin-top: 0;
+  }
+}
+
+.admin-list {
+  list-style: none;
+  padding: 0;
+
+  .user-list {
+    background-color: $color-deep-champagne-50;
+    border: 2px solid $color-lapis-lazuli;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px auto;
+    padding: 20px 30px;
+    width: 100%;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+
+    .btn {
+      margin: 0 5px;
+      padding: 3px 7px;
+    }
+
+    .btn:hover {
+      cursor: pointer;
+    }
+
+    .auth-btn {
+      background-color: $color-lapis-lazuli;
+      border: $color-lapis-lazuli 2px solid;
+      color: $color-cultured;
+    }
+
+    .auth-btn:hover {
+      background-color: $color-cultured;
+      color: $color-lapis-lazuli;
+    }
+
+    .deauth-btn {
+      background-color: $color-carnelian;
+      border: $color-carnelian 2px solid;
+      color: $color-cultured;
+    }
+
+    .deauth-btn:hover {
+      background-color: $color-cultured;
+      color: $color-carnelian;
+    }
   }
 }

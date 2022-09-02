@@ -6,15 +6,12 @@
 # run tests and linters.
 name: "Ruby on Rails CI"
 on:
-  workflow_dispatch:
-    inputs:
-      bump:
-        description: 'bump type, major or minor or patch or empty string'
-        default: ''
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main
 
 jobs:
   test:
@@ -48,11 +45,6 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: echo "APP_VERSION=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}" >> $GITHUB_ENV
-      # - name: Bump version and publish release action
-      #   uses: MeilCli/bump-release-action@v1.5.0
-      #   with:
-      #     config_path: '.github/bump.yml'
-      #     bump: ${{ github.event.inputs.bump }}
 
   lint:
     runs-on: ubuntu-latest

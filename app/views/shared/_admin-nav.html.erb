@@ -1,12 +1,12 @@
 <div id='adminNavBar'>
     <div class="adminLinks-container">
-        <%= link_to "Dashboard", admin_url, 
+        <%= link_to "Dashboard", admin_index_url, 
             class: "#{admin_dashboard? ? 'current_admin_page' : 'admin_link'}",
             data: {test: 'admin_dash_btn'} %>
-        <%= link_to "Users", admin_users_url, 
+        <%= link_to "Users", admin_users_path, 
             class: "#{admin_user_page? ? 'current_admin_page' : 'admin_link'}",
             data: {test: 'admin_users_btn'} %>
-        <%= link_to "Events", admin_events_url,
+        <%= link_to "Events", admin_events_path,
             class: "#{admin_event_page? ? 'current_admin_page' : 'admin_link'}",
             data: {test: 'admin_events_btn'} %>
     </div>

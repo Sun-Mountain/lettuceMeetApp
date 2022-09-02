@@ -7,9 +7,13 @@ Rails.application.routes.draw do
     # passwords: 'users/passwords'
   }
 
-  match '/admin', to: 'admin#index', via: :get
-  match '/admin/users', to: 'admin#users', via: :get
-  match '/admin/events', to: 'admin#events', via: :get
+  resources :admin, path: '/admin', only: :index do
+    match :authorization, via: %i[get patch]
+    match :administration, via: %i[get patch]
+  end
+
+  match 'admin/users', to: 'admin#users', via: %i[get post]
+  match 'admin/events', to: 'admin#events', via: :get
 
   resources :events
 
