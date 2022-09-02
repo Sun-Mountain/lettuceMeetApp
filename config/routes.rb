@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   }
 
   resources :admin, path: '/admin', only: :index do
-    match :authorization, via: [:get, :patch]
-    match :administration, via: [:get, :patch]
+    match :authorization, via: %i[get patch]
+    match :administration, via: %i[get patch]
   end
 
-  match 'admin/users', to: 'admin#users', via: [:get, :post]
+  match 'admin/users', to: 'admin#users', via: %i[get post]
   match 'admin/events', to: 'admin#events', via: :get
-
 
   resources :events
 

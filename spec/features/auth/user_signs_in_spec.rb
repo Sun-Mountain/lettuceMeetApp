@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.feature 'user signs in' do
   let!(:user) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!' }
 
-  context 'when successful' do
-    scenario 'user signs in successfully' do
+  context 'user signs in successfully' do
+    scenario 'when successful' do
       visit new_user_session_path
       fill_in :user_email, with: user.email
       fill_in :user_password, with: '12345ABCDEfghi!'

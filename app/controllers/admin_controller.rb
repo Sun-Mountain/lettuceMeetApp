@@ -10,12 +10,11 @@ class AdminController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def users
     @admin = current_user
-    @users = User.all.order("id ASC")
+    @users = User.all.order('id ASC')
   end
 
   def events
@@ -31,7 +30,7 @@ class AdminController < ApplicationController
     elsif user_admin(@user)
       admin_remove(@user)
     else
-      flash[:alert] = "Something went wrong. Please try again later."
+      flash[:alert] = 'Something went wrong. Please try again later.'
     end
 
     redirect_to admin_users_path
@@ -46,55 +45,58 @@ class AdminController < ApplicationController
     elsif user_authorized(@user)
       deauthorize_user(@user)
     else
-      flash[:alert] = "Something went wrong. Please try again later."
+      flash[:alert] = 'Something went wrong. Please try again later.'
     end
 
     redirect_to admin_users_path
   end
 
   private
-  def admin_add(u)
-    u.admin = true
-    if u.save
-      flash[:notice] = "#{u.name} is now an Administrator."
+
+  def admin_add(user)
+    user.admin = true
+    user.authorized = true
+    if user.save
+      flash[:notice] = "#{user.name} is now an Administrator."
     else
-      flash[:alert] = "#{u.name} could not be made an Administrator."
+      flash[:alert] = "#{user.name} could not be made an Administrator."
     end
   end
 
-  def admin_remove(u)
-    u.admin = false
-    if u.save
-      flash[:notice] = "#{u.name} is no longer an Administrator."
+  def admin_remove(user)
+    user.admin = false
+    user.authorized = false
+    if user.save
+      flash[:notice] = "#{user.name} is no longer an Administrator."
     else
-      flash[:alert] = "#{u.name} could not be removed as an Administrator."
+      flash[:alert] = "#{user.name} could not be removed as an Administrator."
     end
   end
 
-  def authorize_user(u)
-    u.authorized = true
-    if u.save!
-      flash[:notice] = "#{u.name} is now Authorized."
+  def authorize_user(user)
+    user.authorized = true
+    if user.save!
+      flash[:notice] = "#{user.name} is now Authorized."
     else
-      flash[:alert] = "#{u.name} could not be Authorized."
+      flash[:alert] = "#{user.name} could not be Authorized."
     end
   end
 
-  def deauthorize_user(u)
-    u.authorized = false
-    if u.save
-      flash[:notice] = "#{u.name} is now Unauthorized."
+  def deauthorize_user(user)
+    user.authorized = false
+    if user.save
+      flash[:notice] = "#{user.name} is now Unauthorized."
     else
-      flash[:alert] = "#{u.name} could not be Unauthorized."
+      flash[:alert] = "#{user.name} could not be Unauthorized."
     end
   end
 
-  def user_admin(u)
-    u.admin
+  def user_admin(user)
+    user.admin
   end
 
-  def user_authorized(u)
-    u.authorized
+  def user_authorized(user)
+    user.authorized
   end
 
   def user_params

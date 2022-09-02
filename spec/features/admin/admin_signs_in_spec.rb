@@ -8,8 +8,6 @@ RSpec.feature 'admin user signs in' do
 
   context 'when successful' do
     scenario 'only admin can view the admin dashboard' do
-      params = {admin_id: admin.id}
-
       visit new_user_session_path
       expect(page).to have_content('Log in')
 
