@@ -1,0 +1,13 @@
+.only-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#logo-container {
+  img {
+    margin: 8px;
+    width: 100px;
+    height: auto;
+  }
+}

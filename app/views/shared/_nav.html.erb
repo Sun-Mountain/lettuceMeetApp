@@ -1,8 +1,10 @@
 <a class="skip-nav" href="#main">Skip to main content</a>
 
 <nav>
-  <div>
-    <div>
+  <div
+    class=<%= "#{ user_signed_in? ? '' : 'only-logo'}"%>
+  >
+    <div id="logo-container">
       <%= link_to(image_tag("lettuce_logo_ph.png"), root_path) %>
     </div>
 
