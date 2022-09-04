@@ -41,6 +41,10 @@
       background-color: $nav-link-hover;
       cursor: pointer;
     }
+
+    .current_nav_page {
+      background-color: $nav-link-hover;
+    }
   }
 }
 
