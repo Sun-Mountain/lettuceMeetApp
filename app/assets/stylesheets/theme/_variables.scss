@@ -7,7 +7,11 @@ $width-md-max: 1007px;
 $width-lg: 1008px;
 
 // Base variables
-$font-color: $color-onyx;
+$font-color: $color-davys-grey;
+$font-size: 18px;
+$heading-color: $color-sonic-silver;
+$link-color: $color-blue-munsell;
+$link-color-hover: $color-keppel;
 $nav-bg: $color-medium-sea-green;
 
 // Alerts and Messages
@@ -17,3 +21,14 @@ $comm-font-sz: 16px;
 $msg-bg: $color-honeydew;
 $msg-border: $color-medium-sea-green;
 $msg-font: $color-spanish-green;
+
+// Forms
+$form-border-color: $color-keppel;
+$form-border-sz: 5px;
+$form-btn-color: $color-keppel;
+$form-btn-hover: $color-cultured;
+$form-color: $color-cultured;
+$form-color-hover: $color-spanish-green;
+$form-text-border: $color-davys-grey;
+$form-text-focus: $color-lemon-yellow;
+$form-width: 300px;

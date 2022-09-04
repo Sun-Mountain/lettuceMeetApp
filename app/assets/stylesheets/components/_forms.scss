@@ -1,0 +1,53 @@
+@import '../theme/variables';
+
+.form-container {
+  border: $form-border-color $form-border-sz solid;
+  -webkit-box-shadow: inset 0 1px 1px rgba(52, 58, 64,.075), 0 0 20px rgba(52, 58, 64, .6);
+  box-shadow: inset 0 1px 1px rgba(52, 58, 64,.075), 0 0 20px rgba(52, 58, 64, .6);
+  margin: 24px auto;
+  padding: 14px;
+  width: $form-width;
+
+  h2 {
+    color: $heading-color;
+    margin: 5px 0;
+  }
+}
+
+.form-wrapper {
+  margin: 16px 0;
+
+  .field {
+    margin: 20px 0px 10px;
+  }
+
+  input[type="submit"] {
+    background-color: $form-btn-color;
+    border: 3px $form-btn-hover solid;
+    color: $form-color;
+    font-size: 16px;
+    margin: 12px 0 8px;
+    padding: 8px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: $form-btn-hover;
+    border: 3px $form-btn-color solid;
+    color: $form-color-hover;
+    cursor: pointer;
+  }
+
+  .text-field {
+    border: 2px $form-text-border solid;
+    line-height: 28px;
+    font-size: $font-size;
+    margin: 4px auto;
+    padding: 8px;
+    width: 93%;
+  }
+
+
+  .text-field:focus {
+    outline: $form-text-focus solid 5px;
+  }
+}
