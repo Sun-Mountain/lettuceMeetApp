@@ -13,11 +13,18 @@ $heading-color: $color-sonic-silver;
 $link-color: $color-blue-munsell;
 $link-color-hover: $color-keppel;
 
+// Footer
+$foot-font-sz: 14px;
+$foot-social-color: $color-davys-grey;
+$foot-social-hover: $color-keppel;
+
 // Navigation Bar
 $nav-bg: $color-medium-sea-green;
 $nav-link-bg: #5EA68E;
+$nav-link-border: $color-honeydew;
 $nav-link-color: $color-cultured;
-$nav-link-hover: $color-blue-munsell;
+$nav-link-current: $color-blue-munsell;
+$nav-link-hover: $color-yale-blue;
 
 // Alerts and Messages
 $comm-border-rad: 15px;

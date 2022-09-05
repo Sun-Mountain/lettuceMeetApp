@@ -1,0 +1,17 @@
+@import '../theme/0_theme';
+
+footer {
+  position: relative;
+
+  .social-links {
+    a, a:visited {
+      font-size: 30px;
+      color: $foot-social-color;
+      padding-right: 6px;
+    }
+
+    a:hover {
+      color: $foot-social-hover;
+    }
+  }
+}

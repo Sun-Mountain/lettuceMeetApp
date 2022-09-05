@@ -3,17 +3,32 @@
 
 body {
   color: $font-color;
+  display: flex;
+  flex-flow: column;
   font-family: Arial, Helvetica, sans-serif;
   font-size: $font-size;
+  height: 100vh;
   margin: 0;
 }
 
+footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-size: $foot-font-sz;
+  min-height: 60px;
+  padding: 10px;
+}
+
 main {
+  flex: 1;
   padding: 8px;
 }
 
 nav {
   background-color: $nav-bg;
+  border-bottom: 4px solid $nav-link-current;
+  min-height: 118px;
 }
 
 a, a:visited {
@@ -35,4 +50,10 @@ a:hover {
   position: absolute;
   top: -96px;
   z-index: 100;
+}
+
+@media only screen and (min-width: $width-sm) {
+  footer {
+    padding: 25px;
+  }
 }
