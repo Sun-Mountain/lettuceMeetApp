@@ -1,33 +1,17 @@
 @import '../theme/0_theme';
 
 footer {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
+  position: relative;
 
-  a,a :visited {
-    color: $footer-link-color;
-  }
-
-  a:hover {
-    color: $footer-hover-color;
-  }
-
-  .icons {
-    font-size: 35px;
-
-    .fa-brands {
-      color: $footer-link-color;
+  .social-links {
+    a, a:visited {
+      font-size: 30px;
+      color: $foot-social-color;
+      padding-right: 6px;
     }
 
-    .fa-brands:hover{
-      color: $footer-hover-color;
-      cursor: pointer;
+    a:hover {
+      color: $foot-social-hover;
     }
-  }
-
-  .links {
-    font-size: 14px;
-    padding-top: 0.5rem;
   }
 }

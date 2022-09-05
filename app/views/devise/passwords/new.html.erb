@@ -7,10 +7,10 @@
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-text" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-field" %>
       </div>
 
-      <div class="actions">
+      <div>
         <%= f.submit "Send me reset password instructions", data: {test: "submit"} %>
       </div>
     <% end %>

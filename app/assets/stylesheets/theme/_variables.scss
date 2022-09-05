@@ -1,38 +1,46 @@
 @import './color_palette';
 
-// Base vars
-$base-bgcolor: $color-cultured;
-$footer-hover-color: $color-cg-blue;
-$footer-link-color: $color-eerie-black;
-$link-color: $color-cg-blue;
-$link-hover-color: $color-keppel;
-$navbar-color: $color-keppel;
-$navicon-cont-color: $color-cultured-2;
-$text-color: $color-eerie-black;
-
-// Alert vars
-$alert-bgcolor: $color-misty-rose;
-$alert-border-color: $color-carnelian;
-$alert-text: $color-crimsom-red;
-$notice-bgcolor: $color-cyan;
-$notice-border-color: $color-blue-munsell;
-$notice-text: $color-yale-blue;
-$msg-bgcolor: $color-honeydew;
-$msg-border-color: $color-emerald;
-$msg-text: $color-spanish-green;
-
-// Form vars
-$form-btn-border: $color-keppel;
-$form-btn-color: $color-keppel;
-$form-btn-hover: $color-cultured;
-$form-cont-bgc: $color-cultured;
-$form-cont-border-color: $color-keppel;
-$form-field-border-color: $color-onyx;
-$form-font-color: $color-onyx;
-$form-outline-color: $color-keppel;
-
 // Screen Sizes
 $width-sm: 640px;
 $width-md-min: 641px;
 $width-md-max: 1007px;
-$width-lg: 1008px; 
+$width-lg: 1008px;
+
+// Base variables
+$font-color: $color-davys-grey;
+$font-size: 18px;
+$heading-color: $color-sonic-silver;
+$link-color: $color-blue-munsell;
+$link-color-hover: $color-keppel;
+
+// Footer
+$foot-font-sz: 14px;
+$foot-social-color: $color-davys-grey;
+$foot-social-hover: $color-keppel;
+
+// Navigation Bar
+$nav-bg: $color-medium-sea-green;
+$nav-link-bg: #5EA68E;
+$nav-link-border: $color-honeydew;
+$nav-link-color: $color-cultured;
+$nav-link-current: $color-blue-munsell;
+$nav-link-hover: $color-yale-blue;
+
+// Alerts and Messages
+$comm-border-rad: 15px;
+$comm-border-sz: 5px;
+$comm-font-sz: 16px;
+$msg-bg: $color-honeydew;
+$msg-border: $color-medium-sea-green;
+$msg-font: $color-spanish-green;
+
+// Forms
+$form-border-color: $color-keppel;
+$form-border-sz: 5px;
+$form-btn-color: $color-keppel;
+$form-btn-hover: $color-cultured;
+$form-color: $color-cultured;
+$form-color-hover: $color-spanish-green;
+$form-text-border: $color-davys-grey;
+$form-text-focus: $color-lemon-yellow;
+$form-width: 300px;

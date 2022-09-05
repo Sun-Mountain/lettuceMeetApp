@@ -1,21 +1,33 @@
+@import './mixins';
 @import './variables';
 
 body {
-  background-color: $base-bgcolor;
-  color: $text-color;
+  color: $font-color;
   display: flex;
   flex-flow: column;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: $font-size;
   height: 100vh;
-  margin: 0 auto;
+  margin: 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-size: $foot-font-sz;
+  min-height: 60px;
+  padding: 10px;
 }
 
 main {
   flex: 1;
-  padding: 25px;
-  margin: 0 auto;
-  min-width: $width-md-min;
-  max-width: $width-md-max;
+  padding: 18px;
+}
+
+nav {
+  background-color: $nav-bg;
+  border-bottom: 4px solid $nav-link-current;
 }
 
 a, a:visited {
@@ -23,12 +35,12 @@ a, a:visited {
 }
 
 a:hover {
-  color: $link-hover-color;
+  color: $link-color-hover;
   cursor: pointer;
 }
 
-button:hover {
-  cursor: pointer;
+@include headings {
+  color: $heading-color;
 }
 
 .skip-nav {
@@ -37,4 +49,16 @@ button:hover {
   position: absolute;
   top: -96px;
   z-index: 100;
+}
+
+@media only screen and (min-width: $width-sm) {
+  footer {
+    padding: 25px;
+  }
+
+  footer, main {
+    margin: 0 auto;
+    max-width: $width-md-max;
+    min-width: $width-md-min;
+  }
 }
