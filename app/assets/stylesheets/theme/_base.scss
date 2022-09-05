@@ -22,13 +22,12 @@ footer {
 
 main {
   flex: 1;
-  padding: 8px;
+  padding: 18px;
 }
 
 nav {
   background-color: $nav-bg;
   border-bottom: 4px solid $nav-link-current;
-  min-height: 118px;
 }
 
 a, a:visited {
@@ -55,5 +54,11 @@ a:hover {
 @media only screen and (min-width: $width-sm) {
   footer {
     padding: 25px;
+  }
+
+  footer, main {
+    margin: 0 auto;
+    max-width: $width-md-max;
+    min-width: $width-md-min;
   }
 }

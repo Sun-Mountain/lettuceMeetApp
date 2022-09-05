@@ -1,23 +1,23 @@
-<div>
+<div class="form-container">
   <h2>Edit Event</h2>
 
-  <div>
+  <div class="form-wrapper">
     <%= form_for @event, url: event_path do |f| %>
-      <div>
+      <div class="field">
         <%= f.label :title %><br>
-        <%= f.text_field :title, autofocus: true %>
+        <%= f.text_field :title, autofocus: true, class: "text-field" %>
       </div>
-      <div>
+      <div class="field">
         <%= f.label :start_date %><br>
-        <%= f.date_field :start_date %>
+        <%= f.date_field :start_date, class: "text-field" %>
       </div>
-      <div>
+      <div class="field">
         <%= f.label :end_date %><br>
         <%= f.date_field :end_date %>
       </div>
-      <div>
+      <div class="field">
         <%= f.label :description %><br>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, class: "text-field" %>
       </div>
       <div>
         <%= f.submit "Update", data: {test: "update"} %>
