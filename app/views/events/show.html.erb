@@ -3,3 +3,7 @@
 <%= link_to "Edit Event", edit_event_url(@event.id), data: {test: "edit_event"} %>
 
 <%= button_to "Delete", event_path(@event.id), method: :delete, data: {test: 'delete_event'} %>
+
+<div>
+  <%= markdown(@event.description) %>
+</div>
