@@ -1,7 +1,7 @@
-<div class="form-container">
+<div class="event-form-container">
   <h2>Edit Event</h2>
 
-  <div class="form-wrapper">
+  <div class="event-form-wrapper">
     <%= form_for @event, url: event_path do |f| %>
       <div class="field">
         <%= f.label :title %><br>
@@ -16,7 +16,7 @@
         <%= f.date_field :end_date %>
       </div>
       <div class="field">
-        <%= f.label :description %><br>
+        <%= f.label :description  %><br>
         <%= f.text_area :description, class: "text-field" %>
       </div>
       <div>
