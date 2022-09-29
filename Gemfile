@@ -17,6 +17,8 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
+gem "pundit"
+
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 gem 'sidekiq'
