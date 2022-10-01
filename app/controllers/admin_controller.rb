@@ -2,10 +2,9 @@
 
 class AdminController < ApplicationController
   layout 'application'
-  before_action :authorize_admin
 
   def index
-    @admin = current_user
+    @user = current_user
     @events = Event.all
     @users = User.all
   end
@@ -13,16 +12,17 @@ class AdminController < ApplicationController
   def show; end
 
   def users
-    @admin = current_user
+    @user = current_user
     @users = User.all.order('id ASC')
   end
 
   def events
+    @user = current_user
     @events = Event.all
   end
 
   def administration
-    @admin = current_user
+    @user = current_user
     @user = User.find(user_params[:id])
 
     if !user_admin(@user)
@@ -37,7 +37,7 @@ class AdminController < ApplicationController
   end
 
   def authorization
-    @admin = current_user
+    @user = current_user
     @user = User.find(user_params[:id])
 
     if !user_authorized(@user)

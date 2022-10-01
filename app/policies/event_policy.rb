@@ -15,7 +15,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @user.has_any_role? :admin, :enduser || @record.user == @user
   end
 
   class Scope < Scope

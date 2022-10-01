@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @user = User.find(user_id)
     @event = Event.new
   end
 
@@ -32,6 +33,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = User.find(user_id)
     @event = Event.find(event_id_param)
   end
 
