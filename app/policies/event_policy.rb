@@ -2,6 +2,7 @@
 
 class EventPolicy < ApplicationPolicy
   attr_reader :user, :scope, :record
+
   class Scope < Scope
     def resolve
       if user.admin? || user.superadmin?
