@@ -5,8 +5,9 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index
+    authorize Events
     @user = User.find(user_id)
-    @events = Event.where(user_id: @user.id).or(Event.where(public: true))
+    @events = Event.all
   end
 
   def new
@@ -33,8 +34,16 @@ class EventsController < ApplicationController
   end
 
   def show
-    @user = User.find(user_id)
     @event = Event.find(event_id_param)
+
+    authorize @event
+
+    if @event
+      @user = User.find(user_id)
+    else
+      flash[:alert] = 'Event could not be created.'
+      redirect_to new_event_path
+    end
   end
 
   def edit

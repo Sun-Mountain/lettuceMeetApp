@@ -1,5 +1,22 @@
 class EventPolicy < ApplicationPolicy
-  attr_reader :current_user, :event
+  class Scope < Scope
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      if user.admin? || user.superadmin?
+        scope.all
+      else
+        scope.where(user_id: user.id)
+      end
+    end
+
+    private
+
+    attr_reader :user, :scope
+  end
 
   def initialize(current_user, event)
     @current_user = current_user
@@ -15,13 +32,10 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    @user.has_any_role? :admin, :enduser || @record.user == @user
+    current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
   end
 
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.all
-    end
-  end
+  private
+
+  attr_reader :current_user, :event
 end
