@@ -20,14 +20,13 @@ class EventsController < ApplicationController
       authorize Event
       @user = User.find(user_id)
       @event = @user.events.new(events_params)
-      respond_to do |format|
-        if @event.save
-          flash[:notice] = 'Event successfully created.'
-          redirect_to event_path(@event.id)
-        else
-          flash[:alert] = 'Event could not be created.'
-          redirect_to new_event_path
-        end
+
+      if @event.save
+        flash[:notice] = 'Event successfully created.'
+        redirect_to event_path(@event.id)
+      else
+        flash[:alert] = 'Event could not be created.'
+        redirect_to new_event_path
       end
     end
   end

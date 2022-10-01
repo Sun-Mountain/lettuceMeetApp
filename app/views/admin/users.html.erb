@@ -9,7 +9,7 @@
 
       <div>
 
-        <% if user.admin %>
+        <% if user.admin? %>
           <%= form_for @admin, url: admin_administration_url(@admin) do |f| %>
             <%= f.hidden_field :id, value: user.id %>
             <%= f.submit "Admin", data: {test: "admin-user-#{user.id}"} %>

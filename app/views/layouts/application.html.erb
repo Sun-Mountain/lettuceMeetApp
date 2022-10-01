@@ -6,9 +6,9 @@
     <!-- nav -->
     <%= render partial: 'shared/nav' %>
 
-    <%# if user_admin? %>
-      <%#= render partial: 'shared/admin-nav' %>
-    <%# end %>
+    <% if @user.admin? || @user.superadmin? %>
+      <%= render partial: 'shared/admin-nav' %>
+    <% end %>
 
 
     <main>
