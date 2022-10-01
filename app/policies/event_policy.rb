@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventPolicy < ApplicationPolicy
+  attr_reader :user, :scope, :record
   class Scope < Scope
     def resolve
       if user.admin? || user.superadmin?
@@ -9,10 +10,6 @@ class EventPolicy < ApplicationPolicy
         scope.where(user_id: user.id)
       end
     end
-
-    private
-
-    attr_reader :user, :scope
   end
 
   def index?
@@ -24,18 +21,14 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
+    user.id == record.user_id || user.admin? || user.superadmin?
   end
 
   def update?
-    current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
+    user.id == record.user_id || user.admin? || user.superadmin?
   end
 
   def destroy?
-    current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
+    user.id == record.user_id || user.admin? || user.superadmin?
   end
-
-  private
-
-  attr_reader :current_user, :event
 end
