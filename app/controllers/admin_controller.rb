@@ -5,10 +5,10 @@ class AdminController < ApplicationController
 
   def index
     @user = current_user
-    if auth_admin(@user)
-      @events = Event.all
-      @users = User.all
-    end
+    return unless auth_admin(@user)
+
+    @events = Event.all
+    @users = User.all
   end
 
   def show; end

@@ -2,11 +2,6 @@
 
 class EventPolicy < ApplicationPolicy
   class Scope < Scope
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
     def resolve
       if user.admin? || user.superadmin?
         scope.all
@@ -18,11 +13,6 @@ class EventPolicy < ApplicationPolicy
     private
 
     attr_reader :user, :scope
-  end
-
-  def initialize(current_user, event)
-    @current_user = current_user
-    @event = event
   end
 
   def index?
