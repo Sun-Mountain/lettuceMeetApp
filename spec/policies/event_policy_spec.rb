@@ -1,27 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe EventPolicy, type: :policy do
-  let(:user) { User.new }
+  # let(:user) { User.new }
 
-  subject { described_class }
+  # subject { EventPolicy.new(user, event) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  # let(:event)
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  # context "for a visitor" do
+  #   let(:user) { nil }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  #   it { should_not    permit(:show)    }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  #   it { should_not permit(:create)  }
+  #   it { should_not permit(:new)     }
+  #   it { should_not permit(:update)  }
+  #   it { should_not permit(:edit)    }
+  #   it { should_not permit(:destroy) }
+  # end
 
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  # permissions ".scope" do
+  #   pending "add some examples to (or delete) #{__FILE__}"
+  # end
+
+  # permissions :show? do
+  #   pending "add some examples to (or delete) #{__FILE__}"
+  # end
+
+  # permissions :create? do
+  #   pending "add some examples to (or delete) #{__FILE__}"
+  # end
+
+  # permissions :update? do
+  #   pending "add some examples to (or delete) #{__FILE__}"
+  # end
+
+  # permissions :destroy? do
+  #   pending "add some examples to (or delete) #{__FILE__}"
+  # end
 end

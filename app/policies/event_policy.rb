@@ -35,6 +35,14 @@ class EventPolicy < ApplicationPolicy
     current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
   end
 
+  def update?
+    current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
+  end
+
+  def destroy?
+    current_user.id == event.user_id || current_user.admin? || current_user.superadmin?
+  end
+
   private
 
   attr_reader :current_user, :event
