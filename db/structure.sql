@@ -88,7 +88,7 @@ CREATE TABLE public.users (
     remember_created_at timestamp(6) without time zone,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    role character varying DEFAULT ''::character varying
+    role integer DEFAULT 0 NOT NULL
 );
 
 

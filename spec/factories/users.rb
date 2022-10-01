@@ -8,5 +8,6 @@ FactoryBot.define do
 
     password { '12345ABCDEfghi!' }
     password_confirmation { '12345ABCDEfghi!' }
+    role { 'enduser' }
   end
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  
   include Pundit
     protect_from_forgery with: :exception
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -12,14 +11,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) do |user|
       user.permit(
         :first_name, :last_name, :email, :password, :password_confirmation,
-        :current_password
+        :current_password, :role
       )
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |user|
       user.permit(
         :first_name, :last_name, :email, :password, :password_confirmation,
-        :current_password
+        :current_password, :role
       )
     end
   end
