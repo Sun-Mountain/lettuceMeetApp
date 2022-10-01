@@ -3,8 +3,8 @@
 class User < ApplicationRecord
   has_many :events, dependent: :destroy
 
-  after_initialize :set_default_role, :if => :new_record?
-  enum role: [:enduser, :beta, :admin, :superadmin]
+  after_initialize :set_default_role, if: :new_record?
+  enum role: %i[enduser beta admin superadmin]
 
   def set_default_role
     self.role ||= :enduser
@@ -14,7 +14,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
 
   validates :first_name, :last_name, :email, presence: true
 

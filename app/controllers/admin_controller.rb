@@ -15,23 +15,17 @@ class AdminController < ApplicationController
 
   def users
     @user = current_user
-    if auth_admin(@user)
-      @users = User.all.order('id ASC')
-    end
+    @users = User.all.order('id ASC') if auth_admin(@user)
   end
 
   def events
     @user = current_user
-    if auth_admin(@user)
-      @events = Event.all
-    end
+    @events = Event.all if auth_admin(@user)
   end
 
-  def administration
-  end
+  def administration; end
 
-  def authorization
-  end
+  def authorization; end
 
   private
 

@@ -5,17 +5,17 @@ class PublicController < ApplicationController
 
   def landing
     @user = User.find(user_id)
-    unless @user.admin? || @user.superadmin?
-      @events = Event.where(user_id: @user.id).or(Event.where(public: true))
-    else
-      @events = Event.all
-    end
+    @events = if @user.admin? || @user.superadmin?
+                Event.all
+              else
+                Event.where(user_id: @user.id).or(Event.where(public: true))
+              end
   end
 
   private
 
   def user_admin?
-    return current_user.role == 'admin' || current_user.role == 'superadmin'
+    current_user.role == 'admin' || current_user.role == 'superadmin'
   end
 
   def user_id
