@@ -39,7 +39,12 @@ RSpec.feature 'admin dashboard' do
 
       it 'is unsuccessful for regular user' do
         sign_in user
-        visit admin_users
+        visit root_path
+
+        expect(page).to_not have_content('Dashboard')
+
+        visit admin_index_path
+        expect(page).to have_content('Something went wrong. Please try again later.')
       end
     end
   end
