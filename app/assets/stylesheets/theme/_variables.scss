@@ -44,3 +44,9 @@ $form-color-hover: $color-spanish-green;
 $form-text-border: $color-davys-grey;
 $form-text-focus: $color-lemon-yellow;
 $form-width: 300px;
+
+// General Styling
+.bullet-less {
+  list-style-type: none;
+  padding: 0;
+}

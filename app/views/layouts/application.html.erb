@@ -6,14 +6,16 @@
     <!-- nav -->
     <%= render partial: 'shared/nav' %>
 
-    <% if @user.admin? || @user.superadmin? %>
+    <% if @user.admin? || @user.superadmin?  %>
       <%= render partial: 'shared/admin-nav' %>
     <% end %>
 
 
     <main>
       <%= render partial: 'shared/alerts' %>
-      <%= render partial: 'shared/msg' %>
+      <% unless user_signed_in? %>
+        <%= render partial: 'shared/msg' %>
+      <% end %>
       <%= yield %>
     </main>
 

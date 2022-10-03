@@ -1,6 +1,9 @@
 <div>
   <% if user_signed_in? %>
-    <ul>
+    <h2>
+      Upcoming Events
+    </h2>
+    <ul class="bullet-less">
       <% @events.each do |event| %>
         <li>
           <%= link_to event.title, event %>
