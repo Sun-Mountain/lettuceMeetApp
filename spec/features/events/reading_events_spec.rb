@@ -10,7 +10,7 @@ RSpec.feature 'user reads events' do
   let!(:admin) { create :user, role: 2 }
   let!(:superadmin) { create :user, role: 3 }
 
-  describe 'private events' do
+  describe 'private events for end users' do
     context 'enduser only sees their private events' do
       it 'is successful' do
         sign_in user
@@ -28,7 +28,9 @@ RSpec.feature 'user reads events' do
         expect(page.body).to have_content('You are not authorized to perform this action.')
       end
     end
+  end
 
+  describe 'private events for admin users' do
     context 'admin can view all events' do
       it 'is successful' do
         sign_in admin
@@ -48,7 +50,9 @@ RSpec.feature 'user reads events' do
         expect(page.body).to have_selector('h2', text: title2)
       end
     end
+  end
 
+  describe 'private events for superadmin users' do
     context 'superadmin can view all events' do
       it 'is successful' do
         sign_in superadmin
