@@ -2,16 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.feature 'user edits events' do
-  let!(:user) { create :user }
+RSpec.feature 'user updates events' do
+  let!(:user) { create :user, role: 0 }
   let!(:event) { create :event, user_id: user.id }
 
   before(:each) do
     sign_in user
     visit event_path(event.id)
     find('[data-test="edit_event"]').click
-    expect(page).to have_selector("input[value='#{event.title}']")
-    expect(page).to have_selector("input[value='#{event.start_date}']")
   end
 
   it 'is successful' do

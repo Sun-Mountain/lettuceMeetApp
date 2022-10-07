@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'admin user signs in' do
-  let!(:admin) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!', admin: true }
+  let!(:admin) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!', role: 2 }
   let!(:user) { create :user, password: '12345ABCDEfghi!', password_confirmation: '12345ABCDEfghi!' }
 
   context 'only admin can view the admin dashboard' do
@@ -16,7 +16,6 @@ RSpec.feature 'admin user signs in' do
       find('[data-test="submit"]').click
 
       expect(page).to_not have_content('Dashboard')
-      expect(page).to have_content('Welcome to Lettuce Meet.')
 
       find('[data-test="sign_out_btn"]').click
 
@@ -27,7 +26,6 @@ RSpec.feature 'admin user signs in' do
       find('[data-test="submit"]').click
 
       expect(page).to have_content('Dashboard')
-      expect(page).to_not have_content('Welcome to Lettuce Meet.')
       find('[data-test="admin_dash_btn"]').click
 
       expect(page).to have_content(admin.name)
@@ -38,7 +36,7 @@ RSpec.feature 'admin user signs in' do
 
       visit admin_index_path
 
-      expect(page).to have_content('Permissions denied')
+      expect(page).to have_content('Something went wrong. Please try again later.')
     end
   end
 end

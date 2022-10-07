@@ -1,13 +1,16 @@
-<div>
+`<div>
   <% if user_signed_in? %>
-    <ul>
+    <h2>
+      Upcoming Events
+    </h2>
+    <ul class="bullet-less">
       <% @events.each do |event| %>
         <li>
-          <%= link_to event.title, event %>
+          <%= link_to event.title, event, data: {test: event.title} %>
         </li>
       <% end %>
     </ul>
 
     <%= link_to "+ Event", new_event_path, data: {test: 'new_events_link'} %>
   <% end %>
-</div>
+</div>`

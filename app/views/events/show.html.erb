@@ -3,3 +3,17 @@
 <%= link_to "Edit Event", edit_event_url(@event.id), data: {test: "edit_event"} %>
 
 <%= button_to "Delete", event_path(@event.id), method: :delete, data: {test: 'delete_event'} %>
+<div class="event-date-container">
+  <div>
+    <%= @event.start_date %>
+  </div>
+  <% if @event.end_date.present? %>
+    <div>
+      - <%= @event.end_date %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= markdown(@event.description) %>
+</div>

@@ -2,14 +2,21 @@
 
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_event, only: %i[show edit update destroy]
 
-  def index; end
+  def index
+    authorize Events
+    @user = User.find(user_id)
+    @events = Event.all
+  end
 
   def new
+    @user = User.find(user_id)
     @event = Event.new
   end
 
   def create
+    authorize Event
     @user = User.find(user_id)
     @event = @user.events.new(events_params)
 
@@ -24,9 +31,19 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(event_id_param)
+
+    authorize @event
+
+    if @event
+      @user = User.find(user_id)
+    else
+      flash[:alert] = 'Event could not be created.'
+      redirect_to new_event_path
+    end
   end
 
   def edit
+    @user = User.find(user_id)
     @event = Event.find(event_id_param)
   end
 
@@ -62,6 +79,10 @@ class EventsController < ApplicationController
 
   def event_id_param
     params.require(:id)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
   def user_id

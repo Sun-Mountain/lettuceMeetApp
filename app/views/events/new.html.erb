@@ -1,7 +1,7 @@
-<div class="form-container">
+<div class="event-form-container">
   <h2>New Event</h2>
 
-  <div class="form-wrapper">
+  <div class="event-form-wrapper">
     <%= form_with model: @event do |f| %>
       <div class="field">
         <%= f.label :title %><br>
@@ -17,7 +17,8 @@
       </div>
       <div class="field">
         <%= f.label :description %><br>
-        <%= f.text_area :description, class: "text-field" %>
+        You can format your description using <a href="#">markdown styling</a>.
+        <%= f.text_area  :description, class: "text-field", cols: 100, rows: 10 %>
       </div>
       <div>
         <%= f.submit "Create Event", data: {test: "submit"} %>
