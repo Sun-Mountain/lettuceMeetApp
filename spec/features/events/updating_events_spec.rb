@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'user edits events' do
+RSpec.feature 'user updates events' do
   let!(:user) { create :user, role: 0 }
   let!(:event) { create :event, user_id: user.id }
 
