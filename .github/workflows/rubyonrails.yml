@@ -10,10 +10,27 @@ on:
     branches: 
       - main
   pull_request:
+    types:
+      - closed
     branches: 
       - main
 
 jobs:
+  build:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: version-tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          VERBOSE: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
   test:
     runs-on: ubuntu-latest
     services:
