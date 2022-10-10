@@ -65,11 +65,11 @@ jobs:
 
   build:
     on:
-    pull_request:
-      types:
-        - merge
-      branches: 
-        - main
+      pull_request:
+        types:
+          - merge
+        branches: 
+          - main
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
