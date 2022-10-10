@@ -64,9 +64,6 @@ jobs:
         run: bundle exec rubocop --parallel
 
   build:
-    on:
-      pull_request:
-        types: closed
     needs: test, lint
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
