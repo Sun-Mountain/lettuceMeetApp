@@ -15,6 +15,7 @@ Our goal is to provide an easy way to organize events between people. Users will
   * [Pull Request Steps](#pull-request-steps)
   * [Use a Consistent Coding style](#use-a-consistent-coding-style)
   * [Report Bugs with Github Issues(](#report-bugs-with-github--issues)
+- [Credits](#credits)
 - [Code of Conduct](#code-of-conduct)
   * [Our Pledge](#our-pledge)
   * [Our Standards](#our-standards)
@@ -124,6 +125,9 @@ Bugs are a reality of code and we appreciate people finding and reporting them i
 - What you expected would happen
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
+
+## Credits
+[github-tag-action](https://github.com/anothrNick/github-tag-action) by anothrNick
 
 # Code of Conduct
 
