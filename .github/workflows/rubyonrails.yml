@@ -64,7 +64,7 @@ jobs:
         run: bundle exec rubocop --parallel
 
   build:
-    on
+    on:
       pull_request_review:
         types:
           - submitted
