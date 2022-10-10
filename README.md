@@ -126,7 +126,7 @@ Bugs are a reality of code and we appreciate people finding and reporting them i
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
 
-# Credits
+## Credits
 [github-tag-action](https://github.com/anothrNick/github-tag-action) by anothrNick
 
 # Code of Conduct
