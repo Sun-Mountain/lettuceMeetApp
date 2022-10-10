@@ -63,18 +63,18 @@ jobs:
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
 
-  # build:
-  #   needs: test, lint
-  #   if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-  #   runs-on: ubuntu-22.04
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: '0'
-  #         ref: ${{ github.event.pull_request.head.sha }}
-  #     - name: version-tag
-  #       uses: anothrNick/github-tag-action@master
-  #       env:
-  #         VERBOSE: true
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #         WITH_V: true
+  build:
+    needs: test
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: version-tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          VERBOSE: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
