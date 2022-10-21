@@ -18,6 +18,7 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 
 gem 'pundit'
+gem 'simple_form'
 
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'

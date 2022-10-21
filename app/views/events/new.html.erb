@@ -2,23 +2,19 @@
   <h2>New Event</h2>
 
   <div class="event-form-wrapper">
-    <%= form_with model: @event do |f| %>
+    <%= simple_form_for @event, defaults: { input_html: { class: 'text-field' } } do |f| %>
       <div class="field">
-        <%= f.label :title %><br>
-        <%= f.text_field :title, autofocus: true, class: "text-field" %>
+        <%= f.input :title %>
       </div>
       <div class="field">
-        <%= f.label :start_date %><br>
-        <%= f.date_field :start_date, class: "text-field" %>
+        <%= f.input :start_date, as: :date, type: :text %>
       </div>
       <div class="field">
-        <%= f.label :end_date %><br>
-        <%= f.date_field :end_date, class: "text-field" %>
+        <%= f.input :end_date, as: :date, type: :text %>
       </div>
       <div class="field">
-        <%= f.label :description %><br>
         You can format your description using <a href="#">markdown styling</a>.
-        <%= f.text_area  :description, class: "text-field", cols: 100, rows: 10 %>
+        <%= f.input  :description %>
       </div>
       <div>
         <%= f.submit "Create Event", data: {test: "submit"} %>
