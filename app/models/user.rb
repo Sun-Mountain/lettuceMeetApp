@@ -7,6 +7,8 @@ class User < ApplicationRecord
   enum role: %i[enduser beta admin superadmin]
 
   def set_default_role
+    unless self.role.nil?
+      return
     self.role ||= :enduser
   end
 
