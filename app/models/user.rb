@@ -3,7 +3,6 @@
 class User < ApplicationRecord
   has_many :events, dependent: :destroy
 
-  after_create :set_default_role
   enum role: %i[enduser beta admin superadmin]
 
   # Include default devise modules. Others available are:
@@ -15,11 +14,5 @@ class User < ApplicationRecord
 
   def name
     "#{first_name} #{last_name}"
-  end
-
-  private
-
-  def set_default_role
-    self.role = 0
   end
 end
