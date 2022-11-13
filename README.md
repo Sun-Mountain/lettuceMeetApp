@@ -49,8 +49,8 @@ The backend is built with Ruby on Rails with a [PostgreSQL](Postgres-url) databa
 Install and switch to the latest version of Ruby:
 
 ```
-rvm install 3.0.3
-rvm use 3.0.3
+rvm install 3.1.0
+rvm use 3.1.0
 ```
 
 Homebrew can be used to install postgresql:
