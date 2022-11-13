@@ -10,7 +10,7 @@ class User < ApplicationRecord
     unless self.role.nil?
       return
     end
-    self.role ||= :enduser
+    self.role = :enduser
   end
 
   # Include default devise modules. Others available are:
