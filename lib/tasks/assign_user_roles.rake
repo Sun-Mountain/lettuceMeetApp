@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'Assign user roles where nil'
 
 task assign_user_roles: :environment do
