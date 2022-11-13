@@ -9,6 +9,7 @@ class User < ApplicationRecord
   def set_default_role
     unless self.role.nil?
       return
+    end
     self.role ||= :enduser
   end
 
