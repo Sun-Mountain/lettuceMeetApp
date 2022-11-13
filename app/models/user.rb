@@ -20,6 +20,6 @@ class User < ApplicationRecord
   private
 
   def set_default_role
-    current_user.role = 0
+    self.role = 0
   end
 end
