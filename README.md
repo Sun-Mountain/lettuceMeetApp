@@ -3,7 +3,7 @@
 
 This is the pre-release version of the Lettuce Meet Application.
 
-Our goal is to provide an easy way to organize events between people. Users will be able to make an account and use our [sandbox](https://lettucemeet.app), but only select users with supplied with a code will be able to create events and invite guests.
+Our goal is to provide an easy way to organize events between people.
 
 ## Table of Contents
 
