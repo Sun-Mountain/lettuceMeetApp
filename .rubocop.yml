@@ -1,7 +1,0 @@
-inherit_from: .rubocop_todo.yml
-Documentation:
-  Enabled: false
-Metrics/BlockLength:
-  Exclude:
-    - "spec/features/auth/**/*"
-    - "spec/features/events/reading_events_spec.rb"
