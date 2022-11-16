@@ -1,17 +1,13 @@
-<template>
-  <SessionManager />
-</template>
-
-<script>
+<script setup>
+import {RouterView} from 'vue-router';
+import Navigation from "./components/Navigation.vue";
 import SessionManager from "./components/SessionManager.vue";
-
-export default {
-  name: "App",
-  components: {
-    SessionManager,
-  },
-};
 </script>
+
+<template>
+  <Navigation />
+  <RouterView />
+</template>
 
 <style>
 #app {

@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import store from "./store";
+import router from './router';
 
 /**
  * Load JWT from Local Storage on Refresh.
@@ -14,4 +15,9 @@ if (cookieExists) {
     store.dispatch("loginUserWithToken", { auth_token });
   }
 }
-createApp(App).use(store).mount("#app");
+
+const app = createApp(App).use(store)
+
+app.use(router)
+
+app.mount("#app");
