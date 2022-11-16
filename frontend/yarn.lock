@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.20.3.tgz#5358cf62e380cf69efcb87a7bb922ff88bfac6e2"
   integrity sha512-OP/s5a94frIPXwjzEcv5S/tpQfc6XhxYUnmWpgdqMWGgYCuErA3SzozaRAMQgSZWKeTJxht9aWAkUY+0UzvOFg==
 
+"@coreui/vue@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@coreui/vue/-/vue-4.5.0.tgz#a9054d27ee39e794d85c7cda3e877d7c52ff5d55"
+  integrity sha512-D6vv04fJne1zIs4HAyDnsAbKWACvWm+a3N1dfpvUZ8hvi7MrjC4+WqOjVa3xcCFLHU5YkN5XIcZyw0lGmII6vw==
+
 "@esbuild/android-arm@0.15.14":
   version "0.15.14"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm/-/android-arm-0.15.14.tgz#5d0027f920eeeac313c01fd6ecb8af50c306a466"
