@@ -7,10 +7,6 @@
 </template>
     
 <script>
-<<<<<<< HEAD
-  import { mapActions, mapGetters } from "vuex";
-=======
->>>>>>> parent of 244f6e9 (accordion)
   export default {
   }
 </script>
