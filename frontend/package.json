@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@coreui/coreui": "^4.2.2",
+    "@coreui/coreui-pro": "^4.4.0",
     "@coreui/vue": "^4.5.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",

@@ -1,6 +1,30 @@
 <template>
   <div>
-    Landing Page
+    <div v-if="isLoggedIn">
+      You're logged in!
+    </div>
+    <div v-else>
+      <h3>Login!</h3>
+      <CForm @submit="onLogin">
+        <div>
+          <CFormInput
+            type="email"
+            id="exampleFormControlInput1"
+            label="Email"
+            placeholder="name@example.com"
+            aria-describedby="exampleFormControlInputHelpInline"
+            v-model="loginEmail"
+          />
+        </div>
+        <div>
+          <CFormLabel for="inputPassword2">Password</CFormLabel>
+          <CFormInput type="password" id="inputPassword2" placeholder="Password" v-model="loginPassword" />
+        </div>
+        <div>
+          <CButton type="submit" color="primary" value="Login">Login</CButton>
+        </div>
+      </CForm>
+    </div>
   </div>
 </template>
 
