@@ -1,8 +1,12 @@
 // General
 $general-font-color: $color-davys-grey;
-$general-font-size: 18px;
 
 // Navigation
 $nav-bgc: $color-medium-sea-green;
-$nav-font-color: $color-cultured;
-$nav-font-size: 20px;
+
+
+// Screen Sizes
+$width-sm: 640px;
+$width-md-min: 641px;
+$width-md-max: 1007px;
+$width-lg: 1008px;
