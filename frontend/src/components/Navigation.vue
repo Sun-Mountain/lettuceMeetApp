@@ -18,7 +18,7 @@
               </span>
             </div>
           </CAccordionHeader>
-          <CAccordionBody>
+          <CAccordionBody class="nav-accordion-body">
             <div class="nav-links">
               <RouterLink :to="{name: 'home'}">Home</RouterLink>
               <button @click="logoutUser" class="logout-button" v-if="isLoggedIn">Logout</button>

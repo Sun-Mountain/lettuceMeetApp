@@ -1,6 +1,6 @@
 nav {
   background-color: $nav-bgc;
-  padding: 8px 8px 0 8px;
+  padding-top: 8px;
 
   display: flex;
   flex-direction: column;
@@ -24,6 +24,10 @@ nav {
       --cui-accordion-btn-active-icon: none;
     }
 
+    .accordion-body {
+      padding: 0 !important;
+    }
+
     .accordion-button {
       color: $nav-font-color;
       font-size: $nav-font-size;
@@ -31,8 +35,14 @@ nav {
       padding: 0;
       width: 100%;
 
+      box-shadow: none;
+
       display: flex;
       flex-direction: column;
+    }
+
+    .accordion-button::after {
+      content: none;
     }
   }
 
@@ -40,5 +50,18 @@ nav {
     display: flex;
     flex-direction: column;
     text-align: center;
+
+    a, a:visited {
+      color: $nav-link-color;
+      font-size: $nav-font-size;
+      font-weight: 600;
+      padding: 8px 0 4px 0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: $general-bgc;
+      color: $nav-link-hover;
+    }
   }
 }
