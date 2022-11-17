@@ -1,17 +1,44 @@
 nav {
   background-color: $nav-bgc;
-  padding: 8px;
+  padding: 8px 8px 0 8px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  .logo_container {
+  .nav_logo_container {
     margin: 0 auto;
 
     .logo {
       width: 120px;
       height: auto;
     }
+  }
+
+  .nav_links_container {
+    margin-top: 12px;
+    .nav_accordion {
+      --cui-accordion-bg: $nav-bgc;
+      --cui-accordion-active-bg: $nav-bgc;
+      --cui-accordion-btn-icon: none;
+      --cui-accordion-btn-active-icon: none;
+    }
+
+    .accordion-button {
+      color: $nav-font-color;
+      font-size: $nav-font-size;
+      font-weight: 600;
+      padding: 0;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }

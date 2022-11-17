@@ -1,0 +1,3 @@
+<template>
+  Sign Up
+</template>
