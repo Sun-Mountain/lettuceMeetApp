@@ -7,6 +7,8 @@
 </template>
     
 <script>
+  import { mapActions, mapGetters } from "vuex";
+  import { CAccordion, CAccordionHeader, CAccordionBody } from '@coreui/vue';
   export default {
   }
 </script>
