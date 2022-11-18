@@ -8,6 +8,7 @@ const state = {
     id: null,
     username: null,
     email: null,
+    error: "",
   },
 };
 const getters = {
@@ -47,8 +48,10 @@ const actions = {
         .then((response) => {
           commit("setUserInfo", response);
           resolve(response);
+          console.log({response})
         })
         .catch((error) => {
+          console.log(error.response);
           reject(error);
         });
     });

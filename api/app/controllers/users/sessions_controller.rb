@@ -5,10 +5,16 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(_resource, _opts = {})
-    render json: {
-      message: 'You are logged in.',
-      user: current_user
-    }, status: :ok
+    @current_user = User.find_by_email(sign_in_params[:email])
+
+    if @current_user && @current_user.valid_password?(sign_in_params[:password])
+      render json: {
+        message: 'You are logged in.',
+        user: @current_user
+      }, status: :ok
+    else
+      render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
+    end
   end
 
   def respond_to_on_destroy

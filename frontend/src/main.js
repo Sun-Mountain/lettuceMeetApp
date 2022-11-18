@@ -23,8 +23,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faUserSecret, faAnglesDown, faAnglesUp } from "@fortawesome/free-solid-svg-icons";
 library.add(faUserSecret, faAnglesDown, faAnglesUp)
 
-const app = createApp(App).use(store).use(CoreUI).component('font-awesome-icon', FontAwesomeIcon)
+const app = createApp(App)
 
+app.use(store)
+app.use(CoreUI)
 app.use(router)
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount("#app");

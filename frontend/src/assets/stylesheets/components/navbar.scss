@@ -63,5 +63,19 @@ nav {
       background-color: $general-bgc;
       color: $nav-link-hover;
     }
+
+    button {
+      background-color: $nav-bgc;
+      border: 0;
+      color: $nav-link-color;
+      font-size: $nav-font-size;
+      font-weight: 600;
+      padding: 8px 0 4px 0;
+    }
+
+    button:hover {
+      background-color: $general-bgc;
+      color: $nav-link-hover;
+    }
   }
 }
