@@ -20,7 +20,7 @@
           <CFormLabel for="inputPassword2">Password</CFormLabel>
           <CFormInput type="password" id="inputPassword2" placeholder="Password" v-model="loginPassword" />
         </div>
-        <div>
+        <div class="button-container">
           <CButton type="submit" color="primary" value="Login">Login</CButton>
         </div>
       </CForm>

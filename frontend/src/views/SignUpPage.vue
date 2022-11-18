@@ -21,32 +21,7 @@
                  </tbody>
              </table>
          </div>
-         <div v-else>
-             <h3>Sign Up!</h3>
-                 <form @submit="onSignUp" class="sign-up-form">
-                     <input class="sign-up-form-email" type="email" v-model="signUpEmail" placeholder="Email" />
-                     <br />
-                     <input
-                         type="password"
-                         class="sign-up-form-password"
-                         v-model="signUpPassword"
-                         placeholder="Password"
-                     />
-                     <br />
-                     <input type="submit" value="Sign up" class="sign-up-form-submit" />
-                 </form>
-             <hr />
-             <br />
-             <h3>Login!</h3>
-             <form @submit="onLogin" class="login-form">
-                 <input class="login-form-email" type="text" v-model="loginEmail" placeholder="Email" />
-                 <br />
-                 <input class="login-form-password" type="password" v-model="loginPassword" placeholder="Password" />
-                 <br />
-                 <input type="submit" value="Login" class="login-form-submit" />
-             </form>
-         </div>
-     </div>
+    </div>
  </div>
 </template>
 

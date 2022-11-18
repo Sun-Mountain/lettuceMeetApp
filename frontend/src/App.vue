@@ -1,6 +1,7 @@
 <script setup>
 import {RouterView} from 'vue-router';
 import Navigation from "./components/Navigation.vue";
+import ErrorMessage from './components/ErrorMessage.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import Navigation from "./components/Navigation.vue";
     </header>
 
     <main>
+      <ErrorMessage />
       <RouterView/>
     </main>
   </div>

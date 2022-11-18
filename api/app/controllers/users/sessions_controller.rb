@@ -8,12 +8,13 @@ class Users::SessionsController < Devise::SessionsController
     @current_user = User.find_by_email(sign_in_params[:email])
 
     if @current_user && @current_user.valid_password?(sign_in_params[:password])
+      @token = @current_user.generate_jwt
       render json: {
         message: 'You are logged in.',
         user: @current_user
       }, status: :ok
     else
-      render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
+      render json: { errors: 'Email or password is invalid.' }, status: :unprocessable_entity
     end
   end
 
