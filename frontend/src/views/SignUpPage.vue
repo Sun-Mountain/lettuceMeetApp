@@ -1,76 +1,66 @@
 <template>
-  <div class="container">
-     <h1 class="sm-title">Vue Session Manager</h1>
-     <div class="sm-card">
-         <div v-if="isLoggedIn">
-             <button @click="logoutUser" class="logout-button" >Logout</button>
-             <table class="table">
-                 <thead class="thead-dark">
-                 <tr class="table-headers">
-                     <th scope="col">ID</th>
-                     <th scope="col">email</th>
-                     <th scope="col">Token</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                 <tr class="table-rows">
-                     <th class="table-row">[{{ this.getUserID }}]</th>
-                     <td class="table-row table-row-username">{{ this.getUserEmail }}</td>
-                     <td class="table-row">{{ this.getAuthToken }}</td>
-                 </tr>
-                 </tbody>
-             </table>
-         </div>
-    </div>
- </div>
+  <div v-if="isLoggedIn">
+    You're logged in!
+  </div>
+  <div v-else>
+    <h3>Sign up!</h3>
+    <CForm @submit="onSignUp">
+      <div>
+        <CFormInput
+          type="email"
+          id="exampleFormControlInput1"
+          label="Email"
+          placeholder="name@example.com"
+          aria-describedby="exampleFormControlInputHelpInline"
+          v-model="signUpEmail"
+        />
+      </div>
+      <div>
+        <CFormLabel for="inputPassword2">Password</CFormLabel>
+        <CFormInput type="password" id="inputPassword2" placeholder="Password" v-model="signupPassword" />
+      </div>
+      <div class="button-container">
+        <CButton type="submit" color="primary" value="Sign up">Sign Up</CButton>
+      </div>
+    </CForm>
+  </div>
 </template>
 
 <script>
-import "../store/index";
-import { mapActions, mapGetters } from "vuex";
-export default {
- name: "SessionManager",
- computed: {
-     ...mapGetters(["getAuthToken", "getUserEmail", "getUserID", "isLoggedIn"]),
- },
- data() {
-     return {
-     signUpEmail: "",
-     signUpPassword: "",
-     loginEmail: "",
-     loginPassword: "",
-     };
- },
- methods: {
-     ...mapActions(["registerUser", "loginUser", "logoutUser"]),
-     onSignUp(event) {
-         event.preventDefault();
-         let data = {
-         user: {
-         email: this.signUpEmail,
-         password: this.signUpPassword,
-         },
-     };
-     this.registerUser(data);
-     this.resetData();
-     },
-     onLogin(event) {
-         event.preventDefault();
-         let data = {
-             user: {
-                 email: this.loginEmail,
-                 password: this.loginPassword,
-             },
-         };
-         this.loginUser(data);
-         this.resetData();
-     },
-     resetData() {
-         this.signUpEmail = "";
-         this.signUpPassword = "";
-         this.loginEmail = "";
-         this.loginPassword = "";
-     },
- },
+  import "@/store/index";
+  import { CFormInput } from "@coreui/vue";
+  import { mapActions, mapGetters } from "vuex";
+  export default {
+    name: "SignUpPage",
+    computed: {
+        ...mapGetters(["isLoggedIn"]),
+    },
+    data() {
+        return {
+            signUpEmail: "",
+            signUpPassword: ""
+        };
+    },
+    methods: {
+        ...mapActions(["registerUser"]),
+        onSignUp(event) {
+            event.preventDefault();
+            let data = {
+                user: {
+                    email: this.signUpEmail,
+                    password: this.signUpPassword,
+                },
+            };
+            this.registerUser(data);
+            this.resetData();
+        },
+        resetData() {
+            this.signUpEmail = "";
+            this.signUpPassword = "";
+            this.loginEmail = "";
+            this.loginPassword = "";
+        }
+    },
+    components: { CFormInput }
 }
 </script>

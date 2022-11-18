@@ -1,7 +1,7 @@
 <script setup>
 import {RouterView} from 'vue-router';
-import Navigation from "./components/Navigation.vue";
 import ErrorMessage from './components/ErrorMessage.vue';
+import Navigation from "./components/Navigation.vue";
 </script>
 
 <template>

@@ -13,11 +13,11 @@
 
 <script>
   import "@/store/index";
-  import { mapActions, mapGetters } from "vuex";
+  import { mapGetters } from "vuex";
   export default {
     name: "ErrorMessage",
     computed: {
-        ...mapGetters(["getAlerts"]),
+      ...mapGetters(["getAlerts"]),
     },
     methods: {
       dismiss() {
