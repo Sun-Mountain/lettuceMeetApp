@@ -40,6 +40,7 @@ const actions = {
           resolve(response);
         })
         .catch((error) => {
+          commit("setAlert", error);
           reject(error);
         });
     });

@@ -17,10 +17,13 @@
       </div>
       <div>
         <CFormLabel for="inputPassword2">Password</CFormLabel>
-        <CFormInput type="password" id="inputPassword2" placeholder="Password" v-model="signupPassword" />
+        <CFormInput type="password" id="inputPassword2" placeholder="Password" v-model="signUpPassword" />
       </div>
       <div class="button-container">
-        <CButton type="submit" color="primary" value="Sign up">Sign Up</CButton>
+        <CButton
+          type="submit"
+          color="primary"
+          value="Sign Up">Sign Up</CButton>
       </div>
     </CForm>
   </div>

@@ -1,9 +1,7 @@
 <template>
   <CAlert color="danger"
           class="d-flex align-items-center"
-          v-if="this.getAlerts"
-          dismissible
-          @close="dismiss">
+          v-if="this.getAlerts">
     <CIcon icon="cil-warning" class="flex-shrink-0 me-2" width="24" height="24" />
     <div>
       {{ this.getAlerts }}
