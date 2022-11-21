@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'health/index'
   devise_for :users,
              controllers: {
                sessions: 'users/sessions',
