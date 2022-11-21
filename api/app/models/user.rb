@@ -7,6 +7,6 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtDenylist
 
-  validates :email, uniqueness: { case_sensitive: false }
+  validates :email, uniqueness: { case_sensitive: false }, presence: true
   validates :password, presence: true, length: { minimum: 6 }, on: :create
 end
