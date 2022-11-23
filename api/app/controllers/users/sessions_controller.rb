@@ -14,7 +14,7 @@ module Users
         render json: {
           message: 'You are logged in.',
           user: @current_user
-        }, status: :ok
+        }, status: 200
       else
         render json: { errors: 'Email or password is invalid.' }, status: :unprocessable_entity
       end

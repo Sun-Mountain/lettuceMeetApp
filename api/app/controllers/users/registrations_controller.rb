@@ -17,7 +17,7 @@ module Users
       render json: {
         message: 'Signed up sucessfully.',
         user: current_user
-      }, status: :ok
+      }, status: 200
     end
 
     def register_failed
