@@ -1,26 +1,17 @@
 <template>
   <CAlert color="danger"
           class="d-flex align-items-center"
-          v-if="this.getAlerts">
+          v-if="this.$store.state.errors">
     <CIcon icon="cil-warning" class="flex-shrink-0 me-2" width="24" height="24" />
     <div>
-      {{ this.getAlerts }}
+      {{ this.$store.state.errors }}
     </div>
   </CAlert>
 </template>
 
 <script>
   import "@/store/index";
-  import { mapGetters } from "vuex";
   export default {
-    name: "ErrorMessage",
-    computed: {
-      ...mapGetters(["getAlerts"]),
-    },
-    methods: {
-      dismiss() {
-        this.getAlerts = null;
-      },
-    },
+    name: "ErrorMessage"
   };
 </script>

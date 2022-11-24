@@ -38,15 +38,18 @@
     },
     data() {
       return {
-      signUpEmail: "",
-      signUpPassword: "",
-      loginEmail: "",
-      loginPassword: "",
+        signUpEmail: "",
+        signUpPassword: "",
+        loginEmail: "",
+        loginPassword: "",
+        errors: "",
       };
     },
     methods: {
       ...mapActions(["loginUser", "logoutUser"]),
       onLogin(event) {
+        // Reset the alert to empty
+        this.$store.state.errors = "";
         event.preventDefault();
         let data = {
             user: {
@@ -54,7 +57,7 @@
                 password: this.loginPassword,
             },
         };
-        this.loginUser(data);
+        this.loginUser(data)
         this.resetData();
       },
       resetData() {

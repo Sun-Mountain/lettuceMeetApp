@@ -3,14 +3,6 @@
     You're logged in!
   </div>
   <div v-else>
-    <CAlert color="danger"
-            class="d-flex align-items-center"
-            v-if="errors">
-      <CIcon icon="cil-warning" class="flex-shrink-0 me-2" width="24" height="24" />
-      <div>
-        {{ errors }}
-      </div>
-    </CAlert>
     <h3>Sign up!</h3>
     <CForm @submit="onSignUp">
       <div>
@@ -62,10 +54,10 @@
         ...mapActions(["registerUser"]),
         onSignUp(event) {
         // Reset the alert to empty
-        this.errors = "";
+        this.$store.state.errors = "";
         // Verify that the passwords match
         if (this.signUpPassword !== this.passwordVerify) {
-          this.errors = "Passwords must match";
+          this.$store.state.errors = "Passwords must match";
           return;
         }
           event.preventDefault();
@@ -75,16 +67,15 @@
                   password: this.signUpPassword,
               },
           };
-          this.registerUser(data).catch(err => {
-            this.errors = err.message
-          });
+          this.registerUser(data)
           this.resetData();
         },
         resetData() {
-            this.signUpEmail = "";
-            this.signUpPassword = "";
-            this.loginEmail = "";
-            this.loginPassword = "";
+          this.signUpEmail = "";
+          this.signUpPassword = "";
+          this.passwordVerify = "";
+          this.loginEmail = "";
+          this.loginPassword = "";
         }
     },
     components: { CFormInput }

@@ -9,12 +9,9 @@ const state = {
     username: null,
     email: null,
   },
-  errors: null
+  errors: ""
 };
 const getters = {
-  getAlerts(state) {
-    return state.errors
-  },
   getAuthToken(state) {
     return state.auth_token;
   },
@@ -40,7 +37,7 @@ const actions = {
           resolve(response);
         })
         .catch((error) => {
-          commit("setAlert", error);
+          this.state.errors = error.message;
           reject(error);
         });
     });
@@ -54,7 +51,7 @@ const actions = {
           resolve(response);
         })
         .catch((error) => {
-          commit("setAlert", error);
+          this.state.errors = error.message;
           reject(error);
         });
     });
@@ -97,9 +94,6 @@ const actions = {
   },
 };
 const mutations = {
-  setAlert(state, data) {
-    state.errors = data.response.data.errors;
-  },
   setUserInfo(state, data) {
     state.user = data.data.user;
     state.auth_token = data.headers.authorization;
