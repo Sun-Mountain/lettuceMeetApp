@@ -20,8 +20,13 @@ if (cookieExists) {
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faUserSecret, faAnglesDown, faAnglesUp } from "@fortawesome/free-solid-svg-icons";
-library.add(faUserSecret, faAnglesDown, faAnglesUp)
+import { 
+  faAnglesDown,
+  faAnglesUp,
+  faTriangleExclamation,
+  faUserSecret,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faAnglesDown, faAnglesUp, faTriangleExclamation, faUserSecret)
 
 const app = createApp(App)
 
