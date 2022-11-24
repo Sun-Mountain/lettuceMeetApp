@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import LandingPage from '@/views/LandingPage.vue';
-import SignUpPage from '@/views/SignUpPage.vue';
+import LandingPageVue from '@/views/LandingPage.vue';
+import SignUpPageVue from '@/views/SignUpPage.vue';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -8,12 +8,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component:  LandingPage
+      component:  LandingPageVue
     },
     {
       path: '/signup',
       name: 'signup',
-      component: SignUpPage
+      component: SignUpPageVue
     }
   ]
 })

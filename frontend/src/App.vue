@@ -6,21 +6,21 @@
 <template>
   <div>
     <header>
-      <Navigation/>
+      <Navigation />
     </header>
 
     <main>
-      <ErrorMessage />
-      <RouterView/>
+      <ErrorMessageVue />
+      <RouterView />
     </main>
   </div>
 </template>
 
 <script>
-  import ErrorMessage from '@/components/ErrorMessage.vue';
+  import ErrorMessageVue from '@/components/ErrorMessage.vue';
 
   export default {
-    components: { ErrorMessage }
+    components: { ErrorMessageVue }
   };
 </script>
 
