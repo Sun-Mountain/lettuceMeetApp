@@ -47,10 +47,10 @@
         ...mapActions(["registerUser"]),
         onSignUp(event) {
         // Reset the alert to empty
-        this.$store.state.errors = "";
+        this.state.errors = "";
         // Verify that the passwords match
         if (this.signUpPassword !== this.passwordVerify) {
-          this.$store.state.errors = "Passwords must match";
+          this.state.errors = "Passwords must match";
           return;
         }
           event.preventDefault();

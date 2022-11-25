@@ -41,7 +41,7 @@
       ...mapActions(["loginUser", "logoutUser"]),
       onLogin(event) {
         // Reset the alert to empty
-        this.$store.state.errors = "";
+        this.state.errors = "";
         event.preventDefault();
         let data = {
             user: {

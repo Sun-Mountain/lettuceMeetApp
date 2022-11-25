@@ -9,12 +9,12 @@
           <CAccordionHeader @click="activeDropDown = !activeDropDown">
             <div v-if="activeDropDown">
               <span style="font-size: 25px;">
-                <font-awesome-icon icon="fa-solid fa-angles-up" class="nav-direction" />
+                <faAnglesUp class="nav-direction" />
               </span>
             </div>
             <div v-else>
               <span style="font-size: 25px;">
-                <font-awesome-icon icon="fa-solid fa-angles-down" class="nav-direction" />
+                <faAnglesDown class="nav-direction" />
               </span>
             </div>
           </CAccordionHeader>
@@ -33,8 +33,28 @@
     
 <script>
   import { mapActions, mapGetters } from "vuex";
+  import { RouterLink } from 'vue-router'; 
+  import {
+    CAccordion,
+    CAccordionBody,
+    CAccordionHeader,
+    CAccordionItem
+  } from '@coreui/vue'
+  import { 
+    faAnglesDown,
+    faAnglesUp,
+  } from "@fortawesome/free-solid-svg-icons";
   export default {
     name: "Navigation",
+    components: {
+      CAccordion,
+      CAccordionBody,
+      CAccordionHeader,
+      CAccordionItem,
+      faAnglesDown,
+      faAnglesUp,
+      RouterLink
+    },
     computed: {
         ...mapGetters(["isLoggedIn"]),
     },

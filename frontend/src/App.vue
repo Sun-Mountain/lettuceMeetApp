@@ -20,7 +20,11 @@
   import ErrorMessageVue from '@/components/ErrorMessage.vue';
 
   export default {
-    components: { ErrorMessageVue }
+    components: {
+      ErrorMessageVue,
+      Navigation,
+      RouterView
+    }
   };
 </script>
 
