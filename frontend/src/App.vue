@@ -10,18 +10,14 @@
     </header>
 
     <main>
-      <ErrorMessageVue />
       <RouterView />
     </main>
   </div>
 </template>
 
 <script>
-  import ErrorMessageVue from '@/components/ErrorMessage.vue';
-
   export default {
     components: {
-      ErrorMessageVue,
       Navigation,
       RouterView
     }
