@@ -25,7 +25,7 @@
 
 <script>
   import "@/store/index";
-  import { CFormInput } from "@coreui/vue";
+  import { CButton, CForm, CFormInput, CFormLabel } from "@coreui/vue";
   import { mapActions } from "vuex";
   export default {
     data() {
@@ -37,6 +37,7 @@
         errors: "",
       };
     },
+    components: { CButton, CForm, CFormInput, CFormLabel },
     methods: {
       ...mapActions(["loginUser", "logoutUser"]),
       onLogin(event) {
@@ -58,7 +59,6 @@
         this.loginEmail = "";
         this.loginPassword = "";
       },
-    },
-    components: { CFormInput }
+    }
   };
 </script>
