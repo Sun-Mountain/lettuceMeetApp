@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "spec": "vitest",
-    "coverage": "vitest run --coverage"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@coreui/coreui": "^4.2.2",
@@ -29,7 +27,6 @@
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/test-utils": "^2.2.4",
     "jsdom": "^20.0.3",
-    "vite": "^3.2.3",
-    "vitest": "^0.25.3"
+    "vite": "^3.2.3"
   }
 }
