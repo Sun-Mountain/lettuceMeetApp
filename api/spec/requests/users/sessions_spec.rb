@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 Rails.describe 'Session Requests', type: :request do
-  describe 'POST /users/sign_in'do
+  describe 'POST /api/users/sign_in'do
     let(:user) { create(:user) }
-    let(:url) { '/users/sign_in' }
+    let(:url) { '/api/users/sign_in' }
     let(:params) do
       {
         user: {

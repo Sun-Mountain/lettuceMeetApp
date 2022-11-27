@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 Rails.describe 'Registration Requests', type: :request do
-  describe 'POST /users'do
+  describe 'POST /api/users'do
     email = 'email@example.com'
-    let(:url) { '/users' }
+    let(:url) { '/api/users' }
     let(:params) do
       {
         user: {

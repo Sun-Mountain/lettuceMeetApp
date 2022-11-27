@@ -31,7 +31,7 @@ const actions = {
   registerUser({ commit }, payload) {
     return new Promise((resolve, reject) => {
       axios
-        .post(`${BASE_URL}users`, payload)
+        .post(`${BASE_URL}api/users`, payload)
         .then((response) => {
           commit("setUserInfo", response);
           resolve(response);
@@ -45,7 +45,7 @@ const actions = {
   loginUser({ commit }, payload) {
     new Promise((resolve, reject) => {
       axios
-        .post(`${BASE_URL}users/sign_in`, payload)
+        .post(`${BASE_URL}api/users/sign_in`, payload)
         .then((response) => {
           commit("setUserInfo", response);
           resolve(response);
@@ -64,7 +64,7 @@ const actions = {
     };
     new Promise((resolve, reject) => {
       axios
-        .delete(`${BASE_URL}users/sign_out`, config)
+        .delete(`${BASE_URL}api/users/sign_out`, config)
         .then(() => {
           commit("resetUserInfo");
           resolve();
