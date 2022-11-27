@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  post 'refresh', controller: :refresh, action: :create
+  post 'signin', controller: :signin, action: :create
+  post 'registration', controller: :registration, action: :create
+  # delete 'signin', controller: :signin, action: :destroy
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :todos
 end
