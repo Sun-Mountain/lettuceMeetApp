@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe TodosController, type: :controller do
   let(:user) { create(:user) }
 
@@ -61,7 +63,7 @@ RSpec.describe TodosController, type: :controller do
         request.headers[JWTSessions.csrf_header] = @tokens[:csrf]
         post :create, params: { todo: valid_attributes }
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
         expect(response.location).to eq(todo_url(Todo.last))
       end
 
@@ -78,7 +80,7 @@ RSpec.describe TodosController, type: :controller do
         request.headers[JWTSessions.csrf_header] = @tokens[:csrf]
         post :create, params: { todo: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
@@ -104,7 +106,7 @@ RSpec.describe TodosController, type: :controller do
         request.headers[JWTSessions.csrf_header] = @tokens[:csrf]
         put :update, params: { id: todo.to_param, todo: valid_attributes }
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
 
@@ -114,7 +116,7 @@ RSpec.describe TodosController, type: :controller do
         request.headers[JWTSessions.csrf_header] = @tokens[:csrf]
         put :update, params: { id: todo.to_param, todo: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
