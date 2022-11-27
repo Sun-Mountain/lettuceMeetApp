@@ -9,6 +9,7 @@ const state = {
     username: null,
     email: null,
   },
+  errors: ""
 };
 const getters = {
   getAuthToken(state) {
@@ -36,6 +37,7 @@ const actions = {
           resolve(response);
         })
         .catch((error) => {
+          this.state.errors = error.message;
           reject(error);
         });
     });
@@ -49,6 +51,7 @@ const actions = {
           resolve(response);
         })
         .catch((error) => {
+          this.state.errors = error.message;
           reject(error);
         });
     });

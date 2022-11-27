@@ -1,25 +1,29 @@
+<script setup>
+  import {RouterView} from 'vue-router';
+  import Navigation from "./components/Navigation.vue";
+</script>
+
 <template>
-  <SessionManager />
+  <div>
+    <header>
+      <Navigation />
+    </header>
+
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <script>
-import SessionManager from "./components/SessionManager.vue";
-
-export default {
-  name: "App",
-  components: {
-    SessionManager,
-  },
-};
+  export default {
+    components: {
+      Navigation,
+      RouterView
+    }
+  };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import '@/assets/stylesheets/application.scss';
 </style>

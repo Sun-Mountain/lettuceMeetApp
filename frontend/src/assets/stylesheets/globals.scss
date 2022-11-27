@@ -1,0 +1,12 @@
+@import './themes/0_themes.scss';
+
+body {
+  background-color: $general-bgc;
+  color: $general-font-color;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+}
+
+main {
+  padding: 8px;
+}
