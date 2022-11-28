@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resource :private_api_keys, only: :update
   end
 
+  resources :users, param: :_id
+
   namespace :api do
     namespace :v1 do
       defaults format: :json do

@@ -4,9 +4,11 @@ class Api::V1::PostsController < Api::V1::BaseController
 
   def index
     @posts = @user.posts
+    @user.requests.create(method: :get, requestable_type: "Post")
   end
 
   def show
+    @user.requests.create(method: :get, requestable_type: "Post")
   end
 
   def create
@@ -16,6 +18,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     else
       render json: { message: @post.errors.full_messages }, status: :unprocessable_entity
     end
+    @user.requests.create(method: :post, requestable_type: "Post")
   end
 
   def update
@@ -24,11 +27,13 @@ class Api::V1::PostsController < Api::V1::BaseController
     else
       render json: { message: @post.errors.full_messages }, status: :unprocessable_entity
     end
+    @user.requests.create(method: :put, requestable_type: "Post")
   end
 
   def destroy
     @post.destroy
     render :show, status: :ok
+    @user.requests.create(method: :delete, requestable_type: "Post")
   end 
   
   private
