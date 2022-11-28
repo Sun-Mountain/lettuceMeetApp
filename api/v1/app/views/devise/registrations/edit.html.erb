@@ -1,3 +1,4 @@
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -31,15 +32,15 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <h3>API Key</h3>
-  <%= form_with model: current_user, url: user_private_api_keys_path do |f| %>
-    <%= f.text_field :private_api_key, disabled: true %>
-    <%= f.submit "Generate New Key" %>
-  <% end %>
-
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+<% end %>
+
+<h3>API Key</h3>
+<%= form_with model: current_user, url: user_private_api_keys_path do |f| %>
+  <%= f.text_field :private_api_key, disabled: true %>
+  <%= f.submit "Generate New Key" %>
 <% end %>
 
 <h3>Cancel my account</h3>

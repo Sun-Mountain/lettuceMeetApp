@@ -1,5 +1,5 @@
-class Api::V1::PostsController < Api::V1::BaseController
-  before_action :set_post, only: [:show, :update, :destroy]
+class Api::PostsController < Api::BaseController
+  before_action :set_post, only: [:show, :update, :destroy] 
   before_action :authorize_post, only: [:show, :update, :destroy]
 
   def index
@@ -42,11 +42,11 @@ class Api::V1::PostsController < Api::V1::BaseController
     @post = Post.find(params[:id])
   end
 
-  def post_params
-    params.require(:post).permit(:title, :body)
-  end
-
   def authorize_post
     render json: { message: "Unauthorized" }, status: :unauthorized unless @user == @post.user
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 end

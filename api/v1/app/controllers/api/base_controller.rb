@@ -1,5 +1,8 @@
-class Api::V1::BaseController < ApplicationController
+class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session
+
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
+
   before_action :authenticate
 
   private
