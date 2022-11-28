@@ -1,1 +1,1 @@
-json.array! @posts, partial: "api/posts/post", as: :post
+json.array! @posts, partial: "api/v1/posts/post", as: :post
