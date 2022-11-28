@@ -7,6 +7,8 @@ ruby "3.1.0"
 gem "rails", "~> 7.0.4"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "jbuilder"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -18,9 +20,6 @@ gem "bootsnap", require: false
 gem 'devise'
 gem "lockbox", "~> 1.1"
 gem "blind_index", "~> 2.3"
-
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
