@@ -6,15 +6,15 @@ const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="app-container" :class="authStore.user && 'bg-light'">
+  <div class="app-container" :class="authStore.user">
     <Nav />
     <Alert />
-    <div class="container pt-4 pb-4">
+    <main>
       <router-view />
-    </div>
+    </main>
   </div>
 </template>
 
-<style>
-@import "@/assets/base.css";
+<style lang="scss">
+@import "@/assets/stylesheets/application.scss";
 </style>

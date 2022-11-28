@@ -1,0 +1,17 @@
+nav {
+  background-color: $nav-bgc;
+  padding-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .nav_logo_container {
+    margin: 0 auto;
+
+    .logo {
+      width: 120px;
+      height: auto;
+    }
+  }
+}
