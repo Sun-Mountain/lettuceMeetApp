@@ -1,0 +1,30 @@
+.alert-container {
+  position: relative;
+  padding: 16px;
+  
+  .alert {
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 18px;
+  }
+
+  .alert-danger {
+    background-color: $alert-bgc;
+    border: 1px solid $alert-border;
+    color: $alert-font-color;
+
+    button {
+    background-color: $general-bgc;
+      border: 2px solid $alert-font-color;
+      color: $alert-font-color;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+  }
+}

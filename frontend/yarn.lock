@@ -19,6 +19,25 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
+"@coreui/coreui-pro@^4.4.0":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@coreui/coreui-pro/-/coreui-pro-4.4.1.tgz#fddb52eb7d35d292203288afe6672d32de38b471"
+  integrity sha512-KbDZVIy+E64mW0VF6y0CSgIcPD/sCrniGUt+gjTOijzXEzx7SoXf3FsCzNWhZv2wPt7BxoDbGOQ+hghjWXW9kQ==
+  dependencies:
+    postcss-combine-duplicated-selectors "^10.0.3"
+
+"@coreui/coreui@^4.2.2":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@coreui/coreui/-/coreui-4.2.3.tgz#defa1b7123ec004ff43062f80f42596ea94efddb"
+  integrity sha512-jOi1Rc9Xu72WkGUBdXsUivi06KAOnW9KQvxuXYdMkCEyc5FwVJFmeVk6x7/1iCExtRD1rs4oChLJPwXg1sBcvg==
+  dependencies:
+    postcss-combine-duplicated-selectors "^10.0.3"
+
+"@coreui/vue@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@coreui/vue/-/vue-4.5.0.tgz#a9054d27ee39e794d85c7cda3e877d7c52ff5d55"
+  integrity sha512-D6vv04fJne1zIs4HAyDnsAbKWACvWm+a3N1dfpvUZ8hvi7MrjC4+WqOjVa3xcCFLHU5YkN5XIcZyw0lGmII6vw==
+
 "@cypress/request@^2.88.10":
   version "2.88.10"
   resolved "https://registry.yarnpkg.com/@cypress/request/-/request-2.88.10.tgz#b66d76b07f860d3a4b8d7a0604d020c662752cce"
@@ -2095,7 +2114,14 @@ pinia@^2.0.26:
     "@vue/devtools-api" "^6.4.5"
     vue-demi "*"
 
-postcss-selector-parser@^6.0.9:
+postcss-combine-duplicated-selectors@^10.0.3:
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/postcss-combine-duplicated-selectors/-/postcss-combine-duplicated-selectors-10.0.3.tgz#71e8b6783e99cd560cf08ba7b896ad0db318c11c"
+  integrity sha512-IP0BmwFloCskv7DV7xqvzDXqMHpwdczJa6ZvIW8abgHdcIHs9mCJX2ltFhu3EwA51ozp13DByng30+Ke+eIExA==
+  dependencies:
+    postcss-selector-parser "^6.0.4"
+
+postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.9:
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.11.tgz#2e41dc39b7ad74046e1615185185cd0b17d0c8dc"
   integrity sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==

@@ -6,6 +6,11 @@ $color-emerald: #5DC379ff;
 $color-medium-sea-green: #5ec379;
 $color-sea-green: #328648;
 
+// Reds
+$color-dark-red: #893232;
+$color-pale-red: #fadddd;
+$color-pale-red-gray: #f7cbcb;
+
 // Monochrome
 $color-cultured: #f8f9faff;
 $color-cultured-2: #e9ecefff;
@@ -30,3 +35,8 @@ $nav-font-color: $color-cultured;
 $nav-font-size: 20px;
 $nav-link-color: $color-cultured;
 $nav-link-hover: $color-sea-green;
+
+// Alert notification
+$alert-bgc: $color-pale-red;
+$alert-border: $color-pale-red-gray;
+$alert-font-color: $color-dark-red;

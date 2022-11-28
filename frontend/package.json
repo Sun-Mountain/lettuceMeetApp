@@ -12,6 +12,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@coreui/coreui": "^4.2.2",
+    "@coreui/coreui-pro": "^4.4.0",
+    "@coreui/vue": "^4.5.0",
     "pinia": "^2.0.26",
     "sass": "^1.56.1",
     "vee-validate": "^4.7.3",
