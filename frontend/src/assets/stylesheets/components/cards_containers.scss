@@ -1,0 +1,24 @@
+.card {
+  margin: 10px;
+  padding: 25px;
+}
+
+.form-container {
+  .form-header {
+    margin: 10px 0;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    input[type=text], input[type=password] {
+      border: 2px solid $form-border-color;
+      font-size: 22px;
+    }
+  }
+
+  .form-group+.form-group {
+    margin: 15px 0;
+  }
+}

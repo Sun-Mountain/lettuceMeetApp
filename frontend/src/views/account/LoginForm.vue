@@ -17,9 +17,9 @@ async function onSubmit(values) {
 </script>
 
 <template>
-  <div class="card m-3">
-    <h4 class="card-header">Login</h4>
-    <div class="card-body">
+  <div>
+    <h4 class="form-header">Login</h4>
+    <div>
       <Form
         @submit="onSubmit"
         :validation-schema="schema"
@@ -45,7 +45,7 @@ async function onSubmit(values) {
           />
           <div class="invalid-feedback">{{ errors.password }}</div>
         </div>
-        <div class="form-group">
+        <div class="form-button-container">
           <button class="btn btn-primary" :disabled="isSubmitting">
             <span
               v-show="isSubmitting"
