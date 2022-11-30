@@ -3,24 +3,10 @@
   padding: 25px;
 }
 
-.form-container {
-  .form-header {
-    margin: 10px 0;
-  }
+.form-group {
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
+}
 
-    input[type=text], input[type=password] {
-      border: 2px solid $form-border-color;
-      font-size: 18px;
-      line-height: 20px;
-      padding: 4px;
-    }
-  }
-
-  .form-group+.form-group {
-    margin: 15px 0;
-  }
+.buttons-container {
+  margin-top: 15px;
 }
