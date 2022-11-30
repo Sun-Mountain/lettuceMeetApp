@@ -1,5 +1,5 @@
 <script setup>
-import { Form, Field } from "vee-validate";
+// import { Form, Field } from "vee-validate";
 import * as Yup from "yup";
 
 import { useUsersStore, useAlertStore } from "@/stores";
@@ -100,7 +100,7 @@ async function onSubmit(values) {
           />
           <div class="invalid-feedback">{{ errors.password_confirmation }}</div>
         </div>
-        <div class="form-group">
+        <div class="buttons-container">
           <button class="btn btn-primary" :disabled="isSubmitting">
             <span
               v-show="isSubmitting"

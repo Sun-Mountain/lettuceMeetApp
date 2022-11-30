@@ -3,10 +3,10 @@
   padding: 25px;
 }
 
-.form-group {
-
+.form-group+.form-group {
+  margin-top: 15px;
 }
 
-.buttons-container {
+.submit-btn-container {
   margin-top: 15px;
 }

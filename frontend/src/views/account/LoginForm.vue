@@ -1,61 +1,64 @@
 <script setup>
-import { Form, Field } from "vee-validate";
-import * as Yup from "yup";
+import { CButton, CForm, CFormInput } from "@coreui/vue";
 
 import { useAuthStore } from "@/stores";
-
-const schema = Yup.object().shape({
-  email: Yup.string().required("Email is required"),
-  password: Yup.string().required("Password is required"),
-});
-
-async function onSubmit(values) {
-  const authStore = useAuthStore();
-  const { email, password } = values;
-  await authStore.login(email, password);
-}
 </script>
 
 <template>
   <div id="login-form">
-    <h4 class="form-header">Login</h4>
-    <div>
-      <Form
-        @submit="onSubmit"
-        :validation-schema="schema"
-        v-slot="{ errors, isSubmitting }"
-      >
-        <div class="form-group">
-          <label>Email</label>
-          <Field
-            name="email"
-            type="text"
-            class="form-control"
-            :class="{ 'is-invalid': errors.email }"
-          />
-          <div class="invalid-feedback">{{ errors.email }}</div>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <Field
-            name="password"
-            type="password"
-            class="form-control"
-            :class="{ 'is-invalid': errors.password }"
-          />
-          <div class="invalid-feedback">{{ errors.password }}</div>
-        </div>
-        <div class="form-button-container">
-          <button class="btn btn-primary" :disabled="isSubmitting">
-            <span
-              v-show="isSubmitting"
-              class="spinner-border spinner-border-sm mr-1"
-            ></span>
-            Login
-          </button>
-          <router-link to="register" class="btn btn-link">Register</router-link>
-        </div>
-      </Form>
-    </div>
+    <h3>Login!</h3>
+    <CForm @submit="onSubmit">
+      <div class="form-group">
+        <CFormInput
+          type="email"
+          id="LoginEmail"
+          label="Email"
+          placeholder="name@example.com"
+          aria-describedby="exampleFormControlInputHelpInline"
+          v-model="LoginEmail"
+        />
+      </div>
+      <div class="form-group">
+        <CFormInput
+          type="password"
+          id="LoginPassword"
+          label="Password"
+          placeholder="Password"
+          v-model="LoginPassword"
+        />
+      </div>
+      <div class="submit-btn-container">
+        <CButton type="submit" color="primary" value="Login">Login</CButton>
+        <router-link to="register" class="btn btn-link">Register</router-link>
+      </div>
+    </CForm>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async onSubmit(event) {
+      event.preventDefault();
+      let data = {
+        email: this.LoginEmail,
+        password: this.LoginPassword,
+      };
+      const authStore = useAuthStore();
+      const { email, password } = data;
+      await authStore.login(email, password);
+      this.resetData();
+    },
+    resetData() {
+      this.email = "";
+      this.password = "";
+    },
+  },
+};
+</script>
