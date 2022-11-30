@@ -17,7 +17,7 @@ async function onSubmit(values) {
 </script>
 
 <template>
-  <div>
+  <div id="login-form">
     <h4 class="form-header">Login</h4>
     <div>
       <Form

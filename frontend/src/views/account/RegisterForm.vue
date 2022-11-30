@@ -32,9 +32,9 @@ async function onSubmit(values) {
 </script>
 
 <template>
-  <div class="card m-3">
-    <h4 class="card-header">Register</h4>
-    <div class="card-body">
+  <div>
+    <h4>Register</h4>
+    <div>
       <Form
         @submit="onSubmit"
         :validation-schema="schema"

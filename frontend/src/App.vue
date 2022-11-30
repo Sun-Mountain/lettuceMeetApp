@@ -1,5 +1,5 @@
 <script setup>
-import { Nav, Alert } from "@/components";
+import { Nav, Alert } from "@/components/layout";
 import { useAuthStore } from "@/stores";
 
 const authStore = useAuthStore();

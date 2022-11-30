@@ -11,7 +11,7 @@ if (authStore.user) {
 
 <template>
   <div class="card">
-    <div class="form-container">
+    <div class="account-form-container form-container">
       <router-view />
     </div>
   </div>

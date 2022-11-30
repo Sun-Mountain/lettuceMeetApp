@@ -14,7 +14,9 @@
 
     input[type=text], input[type=password] {
       border: 2px solid $form-border-color;
-      font-size: 22px;
+      font-size: 18px;
+      line-height: 20px;
+      padding: 4px;
     }
   }
 
