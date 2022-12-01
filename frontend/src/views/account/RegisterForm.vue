@@ -1,116 +1,124 @@
 <script setup>
-// import { Form, Field } from "vee-validate";
-import * as Yup from "yup";
-
+import { CButton, CForm, CFormInput } from "@coreui/vue";
 import { useUsersStore, useAlertStore } from "@/stores";
 import { router } from "@/router";
-
-const schema = Yup.object().shape({
-  first_name: Yup.string().required("First Name is required"),
-  last_name: Yup.string().required("Last Name is required"),
-  user_name: Yup.string().required("Username is required"),
-  email: Yup.string().required("Email is required"),
-  password: Yup.string()
-    .required("Password is required")
-    .min(6, "Password must be at least 6 characters"),
-  password_confirmation: Yup.string().required(
-    "Password confrimationis required"
-  ),
-});
-
-async function onSubmit(values) {
-  const usersStore = useUsersStore();
-  const alertStore = useAlertStore();
-  try {
-    await usersStore.register(values);
-    await router.push("/account/login");
-    alertStore.success("Registration successful");
-  } catch (error) {
-    alertStore.error(error);
-  }
-}
 </script>
 
 <template>
   <div>
     <h4>Register</h4>
     <div>
-      <Form
-        @submit="onSubmit"
-        :validation-schema="schema"
-        v-slot="{ errors, isSubmitting }"
-      >
+      <CForm @submit="onSubmit">
         <div class="form-group">
-          <label>First Name</label>
-          <Field
+          <CFormInput
             name="first_name"
+            id="FirstName"
+            label="First Name"
             type="text"
             class="form-control"
-            :class="{ 'is-invalid': errors.first_name }"
+            v-model="FirstName"
           />
-          <div class="invalid-feedback">{{ errors.first_name }}</div>
         </div>
         <div class="form-group">
-          <label>Last Name</label>
-          <Field
+          <CFormInput
             name="last_name"
+            id="LastName"
+            label="Last Name"
             type="text"
             class="form-control"
-            :class="{ 'is-invalid': errors.last_name }"
+            v-model="LastName"
           />
-          <div class="invalid-feedback">{{ errors.last_name }}</div>
         </div>
         <div class="form-group">
-          <label>Username</label>
-          <Field
+          <CFormInput
             name="user_name"
+            id="RegisterUsername"
+            label="Username"
             type="text"
             class="form-control"
-            :class="{ 'is-invalid': errors.user_name }"
+            v-model="RegisterUsername"
           />
-          <div class="invalid-feedback">{{ errors.user_name }}</div>
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <Field
+          <CFormInput
             name="email"
+            id="RegisterEmail"
+            label="Email"
             type="text"
             class="form-control"
-            :class="{ 'is-invalid': errors.email }"
+            v-model="RegisterEmail"
           />
-          <div class="invalid-feedback">{{ errors.email }}</div>
         </div>
         <div class="form-group">
-          <label>Password</label>
-          <Field
+          <CFormInput
             name="password"
+            id="RegisterPassword"
+            label="Password"
             type="password"
             class="form-control"
-            :class="{ 'is-invalid': errors.password }"
+            v-model="RegisterPassword"
           />
-          <div class="invalid-feedback">{{ errors.password }}</div>
         </div>
         <div class="form-group">
-          <label>Password Confirmation</label>
-          <Field
+          <CFormInput
             name="password_confirmation"
+            id="PasswordConfirmation"
+            label="Password Confirmation"
             type="password"
             class="form-control"
-            :class="{ 'is-invalid': errors.password_confirmation }"
+            v-model="PasswordConfirmation"
           />
-          <div class="invalid-feedback">{{ errors.password_confirmation }}</div>
         </div>
-        <div class="buttons-container">
-          <button class="btn btn-primary" :disabled="isSubmitting">
-            <span
-              v-show="isSubmitting"
-              class="spinner-border spinner-border-sm mr-1"
-            ></span>
-            Register
-          </button>
+        <div class="submit-btn-container">
+          <CButton type="submit" class="btn btn-primary"> Register </CButton>
           <router-link to="login" class="btn btn-link">Cancel</router-link>
         </div>
-      </Form>
+      </CForm>
     </div>
   </div>
 </template>
+
+<script>
+let FirstName,
+  LastName,
+  RegisterUsername,
+  RegisterEmail,
+  RegisterPassword,
+  PasswordConfirmation;
+export default {
+  data() {
+    return {
+      first_name: "",
+      last_name: "",
+      user_name: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+    };
+  },
+  methods: {
+    async onSubmit(event) {
+      event.preventDefault();
+      let data = {
+        first_name: FirstName,
+        last_name: LastName,
+        user_name: RegisterUsername,
+        email: RegisterEmail,
+        password: RegisterPassword,
+        password_confirmation: PasswordConfirmation,
+      };
+
+      const usersStore = useUsersStore();
+      const alertStore = useAlertStore();
+
+      try {
+        await usersStore.register(data);
+        await router.push("/account/login");
+        alertStore.success("Registration successful");
+      } catch (error) {
+        alertStore.error(error);
+      }
+    },
+  },
+};
+</script>

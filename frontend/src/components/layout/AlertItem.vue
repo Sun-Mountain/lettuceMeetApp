@@ -1,18 +1,22 @@
 <script setup>
 import { storeToRefs } from "pinia";
+import { CAlert } from "@coreui/vue";
 
 import { useAlertStore } from "@/stores";
 
 const alertStore = useAlertStore();
 const { alert } = storeToRefs(alertStore);
-console.log(alert.message);
 </script>
 
 <template>
-  <div v-if="alert" class="alert-container">
-    <div class="alert alert-dismissable" :class="alert.type">
+  <div class="alert-container">
+    <CAlert
+      v-if="alert"
+      dismissible
+      :color="alert.type"
+      @close="alertStore.clear()"
+    >
       {{ alert.message }}
-      <button @click="alertStore.clear()" class="btn btn-link close">×</button>
-    </div>
+    </CAlert>
   </div>
 </template>

@@ -36,6 +36,7 @@ import { useAuthStore } from "@/stores";
 </template>
 
 <script>
+let LoginEmail, LoginPassword;
 export default {
   data() {
     return {
@@ -47,8 +48,8 @@ export default {
     async onSubmit(event) {
       event.preventDefault();
       let data = {
-        email: this.LoginEmail,
-        password: this.LoginPassword,
+        email: LoginEmail,
+        password: LoginPassword,
       };
       const authStore = useAuthStore();
       const { email, password } = data;
