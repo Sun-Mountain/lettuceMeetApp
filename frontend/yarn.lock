@@ -55,6 +55,11 @@
     tunnel-agent "^0.6.0"
     uuid "^8.3.2"
 
+"@cypress/vue@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@cypress/vue/-/vue-5.0.2.tgz#eb7071b84fdef854bed80f7a8a3603b0dbf7b690"
+  integrity sha512-1aU8iAjVKc6gFCbZgXUJ+Dr5Gz88brVrRwWxJOUPKfEDSzKJgVEdNDCu/jZhOxFjc2PhiE/IiAHDxZ+RED5Bmw==
+
 "@cypress/xvfb@^1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@cypress/xvfb/-/xvfb-1.2.4.tgz#2daf42e8275b39f4aa53c14214e557bd14e7748a"
@@ -139,6 +144,13 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
+
+"@pinia/testing@^0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@pinia/testing/-/testing-0.0.14.tgz#774791df360a1949c9ea2d8665de35d5a0200251"
+  integrity sha512-ZmZwVNd/NnKYLIfjfuKl0zlJ3UdiXFpsHzSlL6wCeezSlyrqGMxsIQKv0J6fleu38gyCNTPBEipfxrt8V4+VIg==
+  dependencies:
+    vue-demi "*"
 
 "@rushstack/eslint-patch@^1.1.4":
   version "1.2.0"

@@ -1,8 +1,15 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     specPattern: "cypress/e2e/**/*.{cy,spec}.{js,jsx,ts,tsx}",
-    baseUrl: "http://localhost:4173",
+    baseUrl: "http://127.0.0.1:5173/",
+  },
+
+  component: {
+    devServer: {
+      framework: "vue",
+      bundler: "vite",
+    },
   },
 });
