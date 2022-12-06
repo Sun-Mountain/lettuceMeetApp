@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import App from "./App.vue";
 import { createTestingPinia } from "@pinia/testing";
 import { router } from "./router";
+
+import App from "./App.vue";
 
 describe("<App />", () => {
   it("renders", () => {
@@ -13,6 +14,6 @@ describe("<App />", () => {
         plugins: [router, pinia],
       },
     });
-    expect(wrapper).toBeTruthy;
+    expect(wrapper.text()).toContain("Home");
   });
 });

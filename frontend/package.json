@@ -7,8 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
-    "test:e2e": "start-server-and-test preview :4173 'cypress run --e2e'",
-    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' :4173 'cypress open --e2e'",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "@coreui/coreui-pro": "^4.4.0",
     "@coreui/vue": "^4.5.0",
     "@cypress/vue": "^5.0.2",
+    "cypress-testing-library": "^4.0.0",
     "pinia": "^2.0.26",
     "sass": "^1.56.1",
     "vue": "^3.2.45",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@pinia/testing": "^0.0.14",
     "@rushstack/eslint-patch": "^1.1.4",
+    "@testing-library/cypress": "^4.0.4",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.2.4",
