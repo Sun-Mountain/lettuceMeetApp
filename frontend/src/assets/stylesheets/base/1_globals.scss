@@ -9,3 +9,9 @@ body {
 main {
   margin: 0 auto;
 }
+
+@media screen and (min-width: $bp-sm-max) {
+  main {
+    max-width: 800px;
+  }
+}

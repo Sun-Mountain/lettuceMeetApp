@@ -9,7 +9,7 @@ const { alert } = storeToRefs(alertStore);
 </script>
 
 <template>
-  <div class="alert-container">
+  <div>
     <CAlert
       v-if="alert"
       dismissible
