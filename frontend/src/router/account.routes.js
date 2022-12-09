@@ -4,12 +4,11 @@ export default {
   path: "/account",
   component: Layout,
   children: [
-    { path: "", redirect: "login" },
     { path: "login", component: Login },
-    {
-      path: "profile",
-      component: () => import("@/views/account/UserProfile.vue"),
-    },
+    // {
+    //   path: "profile",
+    //   component: () => import("@/views/account/UserProfile.vue"),
+    // },
     { path: "register", component: Register },
   ],
 };

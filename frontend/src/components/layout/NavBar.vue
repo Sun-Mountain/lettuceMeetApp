@@ -13,7 +13,7 @@ const authStore = useAuthStore();
       <router-link to="/" class="nav-item nav-link">Home</router-link>
       <router-link
         id="profile"
-        to="account/profile"
+        to="profile"
         v-show="authStore.user"
         class="nav-item nav-link"
         >Profile</router-link

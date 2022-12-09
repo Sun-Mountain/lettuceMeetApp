@@ -1,12 +1,9 @@
 <script setup>
 import { Nav } from "@/components/layout";
-import { useAuthStore } from "@/stores";
-
-const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="app-container" :class="authStore.user">
+  <div class="app-container">
     <Nav />
     <main>
       <router-view />

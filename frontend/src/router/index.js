@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import { useAuthStore, useAlertStore } from "@/stores";
-import { Home } from "@/views";
+import { Home, Profile } from "@/views";
 import accountRoutes from "./account.routes";
 
 export const router = createRouter({
@@ -9,13 +9,14 @@ export const router = createRouter({
   linkActiveClass: "active",
   routes: [
     { path: "/", component: Home },
+    { path: "/profile", component: Profile },
     { ...accountRoutes },
     // catch all redirect to home page
-    { path: "/:pathMatch(.*)*", redirect: "/" },
+    // { path: "/:pathMatch(.*)*", redirect: "/" },
   ],
 });
 
-router.beforeEach(async (to) => {
+router.beforeEach(async (to, from, next) => {
   // clear alert on route change
   const alertStore = useAlertStore();
   alertStore.clear();
@@ -28,5 +29,7 @@ router.beforeEach(async (to) => {
   if (authRequired && !authStore.user) {
     authStore.returnUrl = to.fullPath;
     return "/account/login";
+  } else {
+    await next();
   }
 });
