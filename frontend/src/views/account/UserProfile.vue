@@ -1,10 +1,10 @@
 <script setup>
-// import { useUsersStore, useAlertStore } from "@/stores";
-// import { router } from "@/router";
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "@/stores";
+const authStore = useAuthStore();
+const { user } = storeToRefs(authStore);
 </script>
 
 <template>
-  <div>
-    User Profile
-  </div>
+  <div>User Profile</div>
 </template>

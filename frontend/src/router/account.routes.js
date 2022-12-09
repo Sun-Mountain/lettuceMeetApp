@@ -6,7 +6,7 @@ export default {
   children: [
     { path: "", redirect: "login" },
     { path: "login", component: Login },
-    { path: "profile/:user_name", component: Profile },
+    { path: "profile", component: Profile },
     { path: "register", component: Register },
   ],
 };

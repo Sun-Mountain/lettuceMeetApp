@@ -11,6 +11,13 @@ const authStore = useAuthStore();
     </div>
     <div class="nav_links_container">
       <router-link to="/" class="nav-item nav-link">Home</router-link>
+      <router-link
+        id="profile"
+        to="account/profile"
+        v-show="authStore.user"
+        class="nav-item nav-link"
+        >Profile</router-link
+      >
       <button
         id="logout"
         @click="authStore.logout()"
