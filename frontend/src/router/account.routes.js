@@ -1,4 +1,4 @@
-import { Layout, Login, Profile, Register } from "@/views/account";
+import { Layout, Login, Register } from "@/views/account";
 
 export default {
   path: "/account",
@@ -6,7 +6,10 @@ export default {
   children: [
     { path: "", redirect: "login" },
     { path: "login", component: Login },
-    { path: "profile", component: Profile },
+    {
+      path: "profile",
+      component: () => import("@/views/account/UserProfile.vue"),
+    },
     { path: "register", component: Register },
   ],
 };
