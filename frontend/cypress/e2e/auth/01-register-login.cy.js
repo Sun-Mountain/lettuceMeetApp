@@ -3,9 +3,7 @@
 describe("My First Test", () => {
   it("register user", () => {
     cy.visit("/account/register");
-    cy.intercept("POST", "http://127.0.0.1:3000", {}).as(
-      "backendAPI"
-    );
+    cy.intercept("POST", "http://127.0.0.1:3000", {}).as("backendAPI");
     cy.findByRole("heading", { name: /Register/ }).should("exist");
     cy.get("#FirstName").type("Jean Luc");
     cy.get("#LastName").type("Picard");

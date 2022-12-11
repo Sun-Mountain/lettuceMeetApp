@@ -12,11 +12,11 @@ export const router = createRouter({
     { path: "/profile", component: Profile },
     { ...accountRoutes },
     // catch all redirect to home page
-    // { path: "/:pathMatch(.*)*", redirect: "/" },
+    { path: "/:pathMatch(.*)*", redirect: "/" },
   ],
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to) => {
   // clear alert on route change
   const alertStore = useAlertStore();
   alertStore.clear();
@@ -29,7 +29,5 @@ router.beforeEach(async (to, from, next) => {
   if (authRequired && !authStore.user) {
     authStore.returnUrl = to.fullPath;
     return "/account/login";
-  } else {
-    await next();
   }
 });

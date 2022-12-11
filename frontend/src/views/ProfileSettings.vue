@@ -64,14 +64,12 @@ export default {
 
       try {
         await usersStore.delete(userId);
-        console.log("Maybe?")
         await router.push("/account/login");
-        alertStore.success("Registration successful");
+        alertStore.success("Account successfully deleted");
       } catch (error) {
-        console.log("Boo")
         alertStore.error(error);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

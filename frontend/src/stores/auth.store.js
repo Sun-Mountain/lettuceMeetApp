@@ -29,7 +29,7 @@ export const useAuthStore = defineStore({
         // redirect to previous url or default to home page
         router.push(this.returnUrl || "/");
       } catch (error) {
-        alertStore.error(error);
+        alertStore.error("Incorrect email or password.");
       }
     },
     logout() {
