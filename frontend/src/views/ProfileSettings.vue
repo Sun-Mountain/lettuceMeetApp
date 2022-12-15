@@ -81,7 +81,9 @@ const user = authStore.user;
       <div class="delete-accordion-container">
         <CAccordion>
           <CAccordionItem>
-            <CAccordionHeader class="delete-btn-container"> Delete Your Account </CAccordionHeader>
+            <CAccordionHeader class="delete-btn-container">
+              Delete Your Account
+            </CAccordionHeader>
             <CAccordionBody>
               <CForm @submit="onDelete">
                 <div class="form-group">
