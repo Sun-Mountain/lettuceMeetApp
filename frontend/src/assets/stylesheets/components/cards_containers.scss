@@ -10,3 +10,14 @@
 .submit-btn-container {
   margin-top: 15px;
 }
+
+.delete-btn-container {
+  button {
+    color: #e55353;
+    font-weight: 600;
+  }
+  
+  button.collapsed {
+    border: solid 1px #e55353;
+  }
+}
