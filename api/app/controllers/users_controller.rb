@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    unless @user.update(user_params)
+    binding.pry
+    unless @user&.authenticate(params[:password]) && @user.update(user_params)
       render json: {err: @user.errors.full_messages}, status: 503
     end
   end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.permit(:first_name, :last_name, :user_name, :email, :password, :password_confirmation)
+      params.permit(:id, :first_name, :last_name, :user_name, :email, :password, :password_confirmation)
     end
 
     def find_user

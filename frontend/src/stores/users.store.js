@@ -32,7 +32,8 @@ export const useUsersStore = defineStore({
       }
     },
     async update(id, params) {
-      await fetchWrapper.patch(`${baseUrl}/users/${id}`, params);
+      console.log({params})
+      await fetchWrapper.put(`${baseUrl}/users/${id}`, params);
 
       // update stored user if the logged in user updated their own record
       const authStore = useAuthStore();

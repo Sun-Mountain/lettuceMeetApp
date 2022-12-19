@@ -21,7 +21,7 @@ const user = authStore.user;
     <div class="card">
       <h1>Profile Settings</h1>
   
-      <CForm @submit="patchUser">
+      <CForm @submit="updateUser">
         <div class="form-group">
           <CFormInput
             :value="user.first_name"
@@ -30,6 +30,7 @@ const user = authStore.user;
             label="First Name"
             type="text"
             class="form-control"
+            :v-model="FirstName"
           />
         </div>
         <div class="form-group">
@@ -40,6 +41,7 @@ const user = authStore.user;
             label="Last Name"
             type="text"
             class="form-control"
+            :v-model="LastName"
           />
         </div>
         <div class="form-group">
@@ -50,6 +52,7 @@ const user = authStore.user;
             label="Email"
             type="text"
             class="form-control"
+            :v-model="UserEmail"
           />
         </div>
         <div class="form-group">
@@ -60,6 +63,7 @@ const user = authStore.user;
             label="Username"
             type="text"
             class="form-control"
+            :v-model="UserName"
           />
         </div>
         <div class="form-group">
@@ -68,7 +72,7 @@ const user = authStore.user;
             id="UserPassword"
             label="Password"
             placeholder="Password"
-            v-model="UserPassword"
+            :v-model="UserPassword"
           />
         </div>
         <div class="submit-btn-container">
@@ -110,8 +114,31 @@ const user = authStore.user;
 </template>
 
 <script>
+let FirstName, LastName, UserName, UserEmail, UserPassword;
+
 export default {
   methods: {
+    async updateUser(event) {
+      event.preventDefault();
+      const usersStore = useUsersStore();
+      const alertStore = useAlertStore();
+      const authStore = useAuthStore();
+      const user = authStore.user;
+      let userId = user.id,
+        params = {
+          first_name: FirstName,
+          last_name: LastName,
+          email: UserEmail,
+          user_name: UserName,
+          password: UserPassword,
+        };
+      try {
+        await usersStore.update(userId, params);
+        alertStore.success("Updated!");
+      } catch (error) {
+        alertStore.error(error);
+      }
+    },
     async onDelete(event) {
       event.preventDefault();
       const usersStore = useUsersStore();
@@ -119,7 +146,6 @@ export default {
       const authStore = useAuthStore();
       const user = authStore.user;
       let userId = user.id;
-
       try {
         await usersStore.delete(userId);
         await router.push("/account/login");
