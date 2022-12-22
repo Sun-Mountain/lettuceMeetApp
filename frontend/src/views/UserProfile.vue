@@ -28,6 +28,7 @@ const userProfile = reactive({
   userOldPassword: "",
   userNewPassword: "",
   userNewPasswordConfirm: "",
+  passwordToDelete: "",
 });
 
 async function editUserProfile(event) {
@@ -37,8 +38,8 @@ async function editUserProfile(event) {
     last_name: userProfile.lastName,
     user_name: userProfile.userName,
     email: userProfile.userEmail,
-    password: userProfile.userOldPassword
-  }
+    password: userProfile.userOldPassword,
+  };
   try {
     await usersStore.update(userProfile._id, data);
     userProfile.userOldPassword = "";
@@ -48,6 +49,19 @@ async function editUserProfile(event) {
   }
 }
 
+async function deleteUser(event) {
+  event.preventDefault();
+  const data = {
+    password: userProfile.passwordToDelete,
+  };
+  try {
+    await usersStore.delete(userProfile._id, data);
+    await router.push("/account/login");
+    alertStore.success("Account successfully deleted");
+  } catch (error) {
+    alertStore.error(error);
+  }
+}
 </script>
 
 <template>
@@ -114,10 +128,7 @@ async function editUserProfile(event) {
         </div>
       </CForm>
     </div>
-  </div>
-</template>
-
-    <!-- <div class="card">
+    <div class="card">
       <div class="delete-accordion-container">
         <CAccordion>
           <CAccordionItem>
@@ -125,14 +136,14 @@ async function editUserProfile(event) {
               Delete Your Account
             </CAccordionHeader>
             <CAccordionBody>
-              <CForm @submit="onDelete">
+              <CForm @submit="deleteUser">
                 <div class="form-group">
                   <CFormInput
                     type="password"
-                    id="OldPassword"
+                    id="passwordToDelete"
                     label="Password"
                     placeholder="Password"
-                    v-model="OldPassword"
+                    v-model="userProfile.passwordToDelete"
                   />
                 </div>
                 <div class="submit-btn-container">
@@ -148,63 +159,3 @@ async function editUserProfile(event) {
     </div>
   </div>
 </template>
-
-export default {
-  name: "ProfileSettings",
-  data() {
-    return {
-      user: {
-        first_name: user.first_name,
-        last_name: "",
-        email: "",
-        user_name: "",
-        password: "",
-      }
-    }
-  },
-  methods: {
-    async updateUser(event) {
-      event.preventDefault();
-      const usersStore = useUsersStore();
-      const alertStore = useAlertStore();
-      const authStore = useAuthStore();
-      const user = authStore.user;
-      let userId = user.id,
-        data = {
-          user: {
-            first_name: this.FirstName,
-            last_name: LastName,
-            email: UserEmail,
-            user_name: UserName,
-            password: OldPassword,
-          }
-        };
-        console.log(data)
-      try {
-        await usersStore.update(userId, data);
-        alertStore.success("Updated!");
-      } catch (error) {
-        alertStore.error(error);
-      }
-    },
-    async onDelete(event) {
-      event.preventDefault();
-      const usersStore = useUsersStore();
-      const alertStore = useAlertStore();
-      const authStore = useAuthStore();
-      const user = authStore.user;
-      let userId = user.id;
-      try {
-        await usersStore.delete(userId);
-        await router.push("/account/login");
-        alertStore.success("Account successfully deleted");
-      } catch (error) {
-        alertStore.error(error);
-      }
-    },
-
-    async patchUser(event) {
-      event.preventDefault();
-    },
-  },
-}; -->

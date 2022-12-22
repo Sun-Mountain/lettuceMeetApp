@@ -28,7 +28,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    unless @user&.authenticate(params[:password]) && @user.destroy
+      render json: {err: @user.errors.full_messages}, status: 503
+    end
   end
 
   private
