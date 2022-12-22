@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import { useAlertStore, useAuthStore, useUsersStore } from "@/stores";
+import { Alert } from "@/components/layout";
 import {
   CAccordion,
   CAccordionBody,
@@ -38,9 +39,9 @@ async function editUserProfile(event) {
     email: userProfile.userEmail,
     password: userProfile.userOldPassword
   }
-  console.log(data)
   try {
     await usersStore.update(userProfile._id, data);
+    userProfile.userOldPassword = "";
     alertStore.success("Updated!");
   } catch (error) {
     alertStore.error(error);
@@ -52,6 +53,7 @@ async function editUserProfile(event) {
 <template>
   <div>
     <div class="card">
+      <Alert />
       <h1>Profile Settings</h1>
       <CForm @submit="editUserProfile">
         <div class="form-group">
