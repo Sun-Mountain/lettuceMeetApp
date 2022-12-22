@@ -1,4 +1,5 @@
 <script setup>
+import { reactive } from "vue";
 import { useAlertStore, useAuthStore, useUsersStore } from "@/stores";
 import {
   CAccordion,
@@ -11,68 +12,99 @@ import {
 } from "@coreui/vue";
 import { router } from "@/router";
 
+const alertStore = useAlertStore();
 const authStore = useAuthStore();
+const usersStore = useUsersStore();
+
 const user = authStore.user;
+
+const userProfile = reactive({
+  _id: user.id,
+  firstName: user.first_name,
+  lastName: user.last_name,
+  userName: user.user_name,
+  userEmail: user.email,
+  userOldPassword: "",
+  userNewPassword: "",
+  userNewPasswordConfirm: "",
+});
+
+async function editUserProfile(event) {
+  event.preventDefault();
+  const data = {
+    first_name: userProfile.firstName,
+    last_name: userProfile.lastName,
+    user_name: userProfile.userName,
+    email: userProfile.userEmail,
+    password: userProfile.userOldPassword
+  }
+  console.log(data)
+  try {
+    await usersStore.update(userProfile._id, data);
+    alertStore.success("Updated!");
+  } catch (error) {
+    alertStore.error(error);
+  }
+}
+
 </script>
 
 <template>
   <div>
-
     <div class="card">
       <h1>Profile Settings</h1>
-  
-      <CForm @submit="updateUser">
+      <CForm @submit="editUserProfile">
         <div class="form-group">
           <CFormInput
-            :value="user.first_name"
-            name="firstName"
+            class="form-control"
             id="UserFirstName"
             label="First Name"
+            name="firstName"
             type="text"
-            class="form-control"
-            :v-model="FirstName"
+            :value="userProfile.firstName"
+            v-model="userProfile.firstName"
           />
         </div>
         <div class="form-group">
           <CFormInput
-            :value="user.last_name"
-            name="lastName"
+            class="form-control"
             id="UserLastName"
             label="Last Name"
+            name="lastName"
             type="text"
-            class="form-control"
-            :v-model="LastName"
+            :value="userProfile.lastName"
+            v-model="userProfile.lastName"
           />
         </div>
         <div class="form-group">
           <CFormInput
-            :value="user.email"
-            name="email"
+            class="form-control"
             id="UserEmail"
             label="Email"
+            name="email"
             type="text"
-            class="form-control"
-            :v-model="UserEmail"
+            :value="userProfile.userEmail"
+            v-model="userProfile.userEmail"
           />
         </div>
         <div class="form-group">
           <CFormInput
-            :value="user.user_name"
-            name="username"
+            class="form-control"
             id="UserUsername"
             label="Username"
+            name="username"
             type="text"
-            class="form-control"
-            :v-model="UserName"
+            :value="userProfile.userName"
+            v-model="userProfile.userName"
           />
         </div>
         <div class="form-group">
           <CFormInput
-            type="password"
-            id="UserPassword"
+            id="OldPassword"
             label="Password"
             placeholder="Password"
-            :v-model="UserPassword"
+            type="password"
+            v-model="userProfile.userOldPassword"
           />
         </div>
         <div class="submit-btn-container">
@@ -80,8 +112,10 @@ const user = authStore.user;
         </div>
       </CForm>
     </div>
+  </div>
+</template>
 
-    <div class="card">
+    <!-- <div class="card">
       <div class="delete-accordion-container">
         <CAccordion>
           <CAccordionItem>
@@ -93,10 +127,10 @@ const user = authStore.user;
                 <div class="form-group">
                   <CFormInput
                     type="password"
-                    id="UserPassword"
+                    id="OldPassword"
                     label="Password"
                     placeholder="Password"
-                    v-model="UserPassword"
+                    v-model="OldPassword"
                   />
                 </div>
                 <div class="submit-btn-container">
@@ -113,10 +147,19 @@ const user = authStore.user;
   </div>
 </template>
 
-<script>
-let FirstName, LastName, UserName, UserEmail, UserPassword;
-
 export default {
+  name: "ProfileSettings",
+  data() {
+    return {
+      user: {
+        first_name: user.first_name,
+        last_name: "",
+        email: "",
+        user_name: "",
+        password: "",
+      }
+    }
+  },
   methods: {
     async updateUser(event) {
       event.preventDefault();
@@ -125,15 +168,18 @@ export default {
       const authStore = useAuthStore();
       const user = authStore.user;
       let userId = user.id,
-        params = {
-          first_name: FirstName,
-          last_name: LastName,
-          email: UserEmail,
-          user_name: UserName,
-          password: UserPassword,
+        data = {
+          user: {
+            first_name: this.FirstName,
+            last_name: LastName,
+            email: UserEmail,
+            user_name: UserName,
+            password: OldPassword,
+          }
         };
+        console.log(data)
       try {
-        await usersStore.update(userId, params);
+        await usersStore.update(userId, data);
         alertStore.success("Updated!");
       } catch (error) {
         alertStore.error(error);
@@ -159,5 +205,4 @@ export default {
       event.preventDefault();
     },
   },
-};
-</script>
+}; -->
