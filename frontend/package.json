@@ -1,36 +1,42 @@
 {
-  "name": "lettuce-meet-app-frontend",
-  "private": true,
+  "name": "frontend",
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test:unit": "vitest --environment jsdom --root src/",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@coreui/coreui": "^4.2.2",
     "@coreui/coreui-pro": "^4.4.0",
     "@coreui/vue": "^4.5.0",
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-brands-svg-icons": "^6.2.1",
-    "@fortawesome/free-regular-svg-icons": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@fortawesome/vue-fontawesome": "^3.0.2",
-    "axios": "^1.1.3",
-    "pinia": "^2.0.13",
+    "@cypress/vue": "^5.0.2",
+    "cypress-testing-library": "^4.0.0",
+    "pinia": "^2.0.26",
     "sass": "^1.56.1",
-    "vue": "^3.2.41",
-    "vue-router": "^4.1.6",
-    "vuex": "^4.0.0"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@pinia/testing": "^0.0.14",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@testing-library/cypress": "^4.0.4",
     "@vitejs/plugin-vue": "^3.2.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.2.4",
+    "cypress": "^11.2.0",
+    "eslint": "^8.22.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-vue": "^9.3.0",
     "jsdom": "^20.0.3",
-    "vite": "^3.2.3",
+    "prettier": "^2.7.1",
+    "start-server-and-test": "^1.14.0",
+    "vite": "^3.2.4",
     "vitest": "^0.25.3"
   }
 }

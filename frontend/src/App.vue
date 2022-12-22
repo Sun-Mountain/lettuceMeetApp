@@ -1,29 +1,16 @@
 <script setup>
-  import {RouterView} from 'vue-router';
-  import Navigation from "./components/Navigation.vue";
+import { Nav } from "@/components/layout";
 </script>
 
 <template>
-  <div>
-    <header>
-      <Navigation />
-    </header>
-
+  <div class="app-container">
+    <Nav />
     <main>
-      <RouterView />
+      <router-view />
     </main>
   </div>
 </template>
 
-<script>
-  export default {
-    components: {
-      Navigation,
-      RouterView
-    }
-  };
-</script>
-
 <style lang="scss">
-  @import '@/assets/stylesheets/application.scss';
+@import "@/assets/stylesheets/application.scss";
 </style>
