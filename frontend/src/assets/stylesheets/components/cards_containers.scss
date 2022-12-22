@@ -1,0 +1,23 @@
+.card {
+  margin: 10px;
+  padding: 25px;
+}
+
+.form-group+.form-group {
+  margin-top: 15px;
+}
+
+.submit-btn-container {
+  margin-top: 15px;
+}
+
+.delete-btn-container {
+  button {
+    color: $danger-color;
+    font-weight: 600;
+  }
+
+  button.collapsed {
+    border: solid 1px $danger-color;
+  }
+}
