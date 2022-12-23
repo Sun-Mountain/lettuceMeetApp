@@ -17,6 +17,17 @@ RSpec.describe 'Users', type: :request do
       }
     end
 
+    let(:invalid_user_params) do
+      {
+        first_name: 'Jean Luc',
+        last_name: 'Picard',
+        user_name: 'Captain Picard',
+        email: email,
+        password: 'password',
+        password_confirmation: 'passwordd'
+      }
+    end
+
     context 'is successful' do
       before do
         post url, params: valid_user_params

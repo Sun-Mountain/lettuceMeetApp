@@ -1,0 +1,25 @@
+# This is the configuration used to check the rubocop source code.
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'bin/**'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'bin/**'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'bin/**'
+
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/**'
+    - 'app/mailers/**/*'
+    - 'app/models/**'
+    - 'config/**'
+    - 'db/**/*'
