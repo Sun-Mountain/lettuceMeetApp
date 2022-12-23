@@ -28,7 +28,7 @@ RSpec.describe 'Users', type: :request do
       }
     end
 
-    context 'is successful' do
+    context 'registration is successful' do
       before do
         post url, params: valid_user_params
       end
@@ -42,5 +42,9 @@ RSpec.describe 'Users', type: :request do
         expect(response.body).to include(email.to_json)
       end
     end
+
+    # context 'login is successful' do
+    #   let(:user)
+    # end
   end
 end

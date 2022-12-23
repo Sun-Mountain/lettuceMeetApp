@@ -1,5 +1,9 @@
 # This is the configuration used to check the rubocop source code.
 
+Layout/LineLength:
+  Exclude:
+    - 'bin/**'
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
