@@ -1,5 +1,6 @@
 <script setup>
 import { MobileNav } from "../mobile";
+import { DeskNav } from "../desktop";
 </script>
 
 <template>
@@ -9,7 +10,8 @@ import { MobileNav } from "../mobile";
     </div>
 
     <div class="nav_links_container">
-      <MobileNav />
+      <MobileNav class="mobile-break" />
+      <DeskNav class="desktop-break" />
     </div>
   </nav>
 </template>

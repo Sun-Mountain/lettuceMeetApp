@@ -1,1 +1,1 @@
-export { default as MobileNav } from "./NavBarLinks.vue";
+export { default as MobileNav } from "./MobileNavLinks.vue";
