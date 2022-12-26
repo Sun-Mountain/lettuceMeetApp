@@ -44,14 +44,26 @@ nav {
       margin: 0 auto;
     }
 
-    .nav-link, .nav-link:visited {
-      color: $nav-link-color;
-      font-size: $nav-font-size;
-      font-weight: 600;
-      margin: 0 auto;
-      padding: 8px 0 4px 0;
-      text-decoration: none;
-      width: 100%;
+    .mobile-break {
+      .nav-link, .nav-link:visited {
+        color: $nav-link-color;
+        font-size: $nav-font-size;
+        font-weight: 600;
+        margin: 0 auto;
+        padding: 8px 0 4px 0;
+        text-decoration: none;
+        width: 100%;
+      }
+    }
+
+    .desktop-break {
+      .nav-item {
+        margin-left: 10px;
+      }
+
+      .nav-tabs.active {
+        background-color: $general-bgc;
+      }
     }
 
     .nav-link:hover {
@@ -77,5 +89,52 @@ nav {
     button:after {
       content: none;
    }
+  }
+}
+
+
+@media screen and (min-width: $bp-lg-min) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: relative;
+
+    .nav_logo_container {
+      margin: 0;
+      padding-bottom: 8px;
+      padding-left: 10px;
+
+      .logo {
+        width: 68px;
+      }
+    }
+
+    .nav_links_container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      button {
+        border: 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 8px 8px 4px 8px;
+      }
+
+      .nav-link, .nav-link:visited {
+        color: $general-bgc;
+        font-weight: 700;
+      }
+
+      .nav-link.active {
+        color: $nav-bgc;
+      }
+
+      .nav-link:hover {
+        color: $nav-bgc;
+      }
+    }
   }
 }

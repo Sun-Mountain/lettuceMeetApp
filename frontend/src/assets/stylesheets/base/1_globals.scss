@@ -19,6 +19,7 @@ main {
 @media screen and (max-width: $bp-md-max) {
   .desktop-break {
     visibility: hidden;
+    height: 0px;
   }
 
   .mobile-break {
@@ -32,6 +33,7 @@ main {
   }
 
   .mobile-break {
+    height: 0px;
     visibility: hidden;
   }
 }
