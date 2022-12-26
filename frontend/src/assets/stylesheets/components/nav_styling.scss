@@ -6,6 +6,18 @@ nav {
   flex-direction: column;
   justify-content: center;
 
+  .accordion-body {
+    padding: 0;
+  }
+
+  .accordion-button:not(.collapsed) {
+    box-shadow: 0px 0px 0px 0px !important;
+  }
+
+  .accordion-header {
+    color: $general-bgc;
+  }
+
   .nav_logo_container {
     margin: 0 auto;
 
@@ -20,6 +32,18 @@ nav {
     flex-direction: column;
     padding: 8px 0;
     text-align: center;
+
+    .nav_accordion {
+      --cui-accordion-active-color: $general-bgc;
+      --cui-accordion-bg: $nav-bgc;
+      --cui-accordion-active-bg: $nav-bgc;
+      --cui-accordion-btn-icon: none;
+      --cui-accordion-btn-active-icon: none;
+    }
+
+    .nav-direction {
+      margin: 0 auto;
+    }
 
     .nav-link, .nav-link:visited {
       color: $nav-link-color;
@@ -50,5 +74,9 @@ nav {
       color: $nav-link-hover;
       cursor: pointer;
     }
+
+    button:after {
+      content: none;
+   }
   }
 }
