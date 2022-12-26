@@ -2333,7 +2333,7 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash.merge@^4.6.0, lodash.merge@^4.6.2:
+lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
@@ -3272,13 +3272,6 @@ vitest@^0.25.3:
     tinypool "^0.3.0"
     tinyspy "^1.0.2"
     vite "^3.0.0"
-
-vue-breakpoints@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-breakpoints/-/vue-breakpoints-1.1.0.tgz#e57c2f129184460ae3b64f28d7112650a7364db0"
-  integrity sha512-kbUiGpxW5WzOwOT5t2MjtH3mDwUwlHUM71D3KK+6ssh/XPURc7wp/iWeHrJRI9hGmqTzwDhr65VPde7QxCo+PQ==
-  dependencies:
-    lodash.merge "^4.6.0"
 
 vue-demi@*:
   version "0.13.11"

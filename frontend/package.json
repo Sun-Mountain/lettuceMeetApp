@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "e2e": "cypress run",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "test": "vitest",
@@ -25,7 +26,6 @@
     "pinia": "^2.0.26",
     "sass": "^1.56.1",
     "vue": "^3.2.45",
-    "vue-breakpoints": "^1.1.0",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
