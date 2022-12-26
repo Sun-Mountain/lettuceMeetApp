@@ -21,6 +21,15 @@ const authStore = useAuthStore();
         >
       </CNavItem>
       <CNavItem>
+        <router-link
+          id="register"
+          v-show="!authStore.user"
+          to="register"
+          class="nav-item nav-link"
+          >Register</router-link
+        >
+      </CNavItem>
+      <CNavItem>
         <button
           id="logout"
           @click="authStore.logout()"
@@ -29,15 +38,6 @@ const authStore = useAuthStore();
         >
           Logout
         </button>
-      </CNavItem>
-      <CNavItem>
-        <router-link
-          id="register"
-          v-show="!authStore.user"
-          to="register"
-          class="nav-item nav-link"
-          >Register</router-link
-        >
       </CNavItem>
     </CNav>
   </div>

@@ -37,6 +37,13 @@ function shiftMobileNav() {
               class="nav-item nav-link"
               >Profile</router-link
             >
+            <router-link
+              id="register"
+              v-show="!authStore.user"
+              to="register"
+              class="nav-item nav-link"
+              >Register</router-link
+            >
             <button
               id="logout"
               @click="authStore.logout()"
@@ -45,13 +52,6 @@ function shiftMobileNav() {
             >
               Logout
             </button>
-            <router-link
-              id="register"
-              v-show="!authStore.user"
-              to="register"
-              class="nav-item nav-link"
-              >Register</router-link
-            >
           </div>
         </CAccordionBody>
       </CAccordionItem>

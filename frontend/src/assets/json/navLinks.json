@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Home",
+    "path": "/"
+  },
+  {
+    "name": "profile",
+    "path": "profile",
+    "showIfLoggedIn": true
+  },
+  {
+    "name": "register",
+    "path": "register",
+    "showIfLoggedIn": false
+  }
+]
