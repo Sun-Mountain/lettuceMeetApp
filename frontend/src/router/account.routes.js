@@ -5,10 +5,6 @@ export default {
   component: Layout,
   children: [
     { path: "login", component: Login },
-    // {
-    //   path: "profile",
-    //   component: () => import("@/views/account/UserProfile.vue"),
-    // },
     { path: "register", component: Register },
   ],
 };

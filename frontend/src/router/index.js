@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore, useAlertStore } from "@/stores";
 import { Home } from "@/views";
 import accountRoutes from "./account.routes";
+import eventRoutes from "./event.routes";
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,7 @@ export const router = createRouter({
       component: () => import("@/views/UserProfile.vue"),
     },
     { ...accountRoutes },
+    { ...eventRoutes },
     // catch all redirect to home page
     { path: "/:pathMatch(.*)*", redirect: "/" },
   ],
