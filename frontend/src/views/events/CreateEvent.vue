@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    This is the create page.
+    Create a new event
   </div>
 </template>

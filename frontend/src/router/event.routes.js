@@ -1,9 +1,13 @@
-import { OwnedEvents } from "@/views/events";
+import { EventsLayout } from "@/views/events";
 
 export default {
   path: "/events",
-  component: OwnedEvents,
+  component: EventsLayout,
   children: [
-    { path: "create", component: () => import("@/views/events/CreateEvent.vue") }
+    { path: "", component: () => import("@/views/events/EventsList.vue") },
+    {
+      path: "create",
+      component: () => import("@/views/events/CreateEvent.vue"),
+    },
   ],
 };

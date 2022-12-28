@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    This is the events page.
+    <router-view></router-view>
   </div>
 </template>
