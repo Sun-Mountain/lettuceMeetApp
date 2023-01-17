@@ -1,0 +1,39 @@
+body {
+  background-color: $general-bgc;
+  color: $general-font-color;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $general-font-size;
+  margin: 0 auto;
+}
+
+main {
+  margin: 2em auto;
+}
+
+@media screen and (min-width: $bp-sm-max) {
+  main {
+    max-width: 800px;
+  }
+}
+
+@media screen and (max-width: $bp-md-max) {
+  .desktop-break {
+    visibility: hidden;
+    height: 0px;
+  }
+
+  .mobile-break {
+    visibility: visible;
+  }
+}
+
+@media screen and (min-width: $bp-lg-min) {
+  .desktop-break {
+    visibility: visible;
+  }
+
+  .mobile-break {
+    height: 0px;
+    visibility: hidden;
+  }
+}
