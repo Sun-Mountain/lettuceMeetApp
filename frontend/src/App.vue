@@ -1,5 +1,5 @@
 <script setup>
-import { Nav } from "@/components/layout";
+import { Nav } from "@/components";
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import { useAlertStore, useAuthStore, useUsersStore } from "@/stores";
-import { Alert } from "@/components/layout";
+import { Alert } from "@/components";
 import {
   CAccordion,
   CAccordionBody,
