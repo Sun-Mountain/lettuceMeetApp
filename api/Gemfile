@@ -12,6 +12,8 @@ gem "pg", "~> 1.1"
 gem "jwt"
 gem "bcrypt", "~> 3.1.7"
 
+gem "sidekiq", "~> 7.0"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
