@@ -16,7 +16,7 @@ COPY ./Gemfile.lock /api
 RUN gem install bundler --no-document && bundle install && yarn install
 
 # Run bundler audit
-RUN bundle exec bundle audit update && bundle exec bundle audit check
+RUN bundle exec bundler-audit update && bundle exec bundler-audit check
 
 # Copy the code, test the app, and build the assets pipeline
 COPY . /api

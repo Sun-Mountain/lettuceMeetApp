@@ -32,5 +32,5 @@ services:
       - redis
 
 volumes:
-  db:
+  dbdata:
   rails_log:
