@@ -20,17 +20,30 @@ services:
 
   api:
     build: ./api
-    environment:
-      - PORT=3000
-    volumes:
-      - ./api:/api
-      - rails_log:/api/log
     ports:
-      - "3091:3000"
+      - "3000:3000"
     depends_on:
       - db
       - redis
+    environment:
+      - DATABASE_URL=postgresql://db/lettuceMeetApp_development
+      - REDIS_URL=redis://redis:6397
+      - DB_USER=postgres
+      - DB_PASS=changeme
+    volumes:
+      - ./api:/api
+      - rails_log:/api/log
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "8091:8080" # use port that you want to in your local instead of 8091
+    volumes:
+      - ./frontend:/frontend
+      - front_node_modules:/frontend/node_modules
+
 
 volumes:
   dbdata:
   rails_log:
+  front_node_modules:
