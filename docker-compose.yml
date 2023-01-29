@@ -1,0 +1,36 @@
+version: '3'
+
+services: 
+
+  db:
+    image: postgres:14
+    command: postgres -c 'max_connections=250'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=changeme
+    volumes:
+      - "dbdata:/var/lib/postgres/data"
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  api:
+    build: ./api
+    environment:
+      - PORT=3000
+    volumes:
+      - ./api:/api
+      - rails_log:/api/log
+    ports:
+      - "3091:3000"
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  db:
+  rails_log:
