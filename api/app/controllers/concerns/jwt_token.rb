@@ -1,5 +1,5 @@
 require "jwt"
-
+# To do: read up on library and see if token is being signed during encode call and if signature is being checked
 module JwtToken
 
   extend ActiveSupport::Concern
