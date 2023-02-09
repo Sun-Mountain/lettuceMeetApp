@@ -31,7 +31,7 @@ services:
       - DB_USER=postgres
       - DB_PASS=changeme
     volumes:
-      - ./api:/api
+      - .:/api
       - rails_log:/api/log
   
   frontend:
@@ -39,7 +39,7 @@ services:
     ports:
       - "8091:8080" # use port that you want to in your local instead of 8091
     volumes:
-      - ./frontend:/frontend
+      - .:/frontend
       - front_node_modules:/frontend/node_modules
 
 
