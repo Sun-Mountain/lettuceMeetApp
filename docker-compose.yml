@@ -31,7 +31,6 @@ services:
       - DB_USER=postgres
       - DB_PASS=changeme
     volumes:
-      - ./api:/lettuce-meet-api
       - rails_log:/api/log
   
   frontend:

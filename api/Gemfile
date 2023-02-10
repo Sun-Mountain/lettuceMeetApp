@@ -13,6 +13,7 @@ gem "jwt"
 gem "bcrypt", "~> 3.1.7"
 
 gem "sidekiq", "~> 7.0"
+gem "nokogiri", force_ruby_platform: true
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"

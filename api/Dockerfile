@@ -14,7 +14,7 @@ COPY ./Gemfile /lettuce-meet-api/
 COPY ./Gemfile.lock /lettuce-meet-api/
 
 # Install the website dependencies
-RUN gem install bundler --no-document && bundle install && yarn install
+RUN gem install bundler --no-document && bundle update --bundler && bundle install && yarn install
 
 # Run bundler audit
 CMD bundle audit check --update
@@ -45,7 +45,7 @@ COPY --from=ruby_builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=ruby_builder /lettuce-meet-api /lettuce-meet-api
 
 # Declare the entrypoint shell script
-RUN chmod 555 ./docker/entrypoint.sh
-ENTRYPOINT ["./docker/entrypoint.sh"]
+RUN chmod 555 /lettuce-meet-api/docker/entrypoint.sh
+ENTRYPOINT ["/lettuce-meet-api/docker/entrypoint.sh"]
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
