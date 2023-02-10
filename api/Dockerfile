@@ -45,6 +45,6 @@ COPY --from=ruby_builder /api /api
 
 # Declare the entrypoint shell script
 RUN chmod 555 ./docker/entrypoint.sh
-ENTRYPOINT ["./api/docker/entrypoint.sh"]
+ENTRYPOINT ["/api/docker/entrypoint.sh"]
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
