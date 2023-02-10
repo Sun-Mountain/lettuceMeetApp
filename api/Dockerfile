@@ -45,9 +45,7 @@ COPY --from=ruby_builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=ruby_builder /lettuce-meet-api /lettuce-meet-api
 
 # Declare the entrypoint shell script
-# RUN chmod 555 ./docker/entrypoint.sh
-
-RUN chmod +x ./docker/entrypoint.sh
+RUN chmod 555 ./docker/entrypoint.sh
 ENTRYPOINT ["./docker/entrypoint.sh"]
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
