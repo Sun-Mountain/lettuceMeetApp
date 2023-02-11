@@ -1,6 +1,6 @@
 version: '3'
 
-services: 
+services:
 
   db:
     image: postgres:14
@@ -20,6 +20,7 @@ services:
 
   api:
     build: ./api
+    platform: linux/x86_64
     ports:
       - "3000:3000"
     depends_on:
