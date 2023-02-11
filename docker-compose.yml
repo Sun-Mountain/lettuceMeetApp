@@ -37,9 +37,8 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "8091:8080" # use port that you want to in your local instead of 8091
+      - "5173:5173"
     volumes:
-      - ./frontend:/frontend
       - front_node_modules:/frontend/node_modules
 
 
