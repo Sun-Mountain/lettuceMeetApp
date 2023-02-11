@@ -1,7 +1,7 @@
 <script setup>
 import { useAuthStore } from "@/stores";
 import { router } from "@/router";
-import { Alert } from "@/components/layout";
+import { Alert } from "@/components";
 
 // redirect home if already logged in
 const authStore = useAuthStore();

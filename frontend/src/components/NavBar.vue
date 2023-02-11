@@ -1,6 +1,6 @@
 <script setup>
-import { MobileNav } from "../mobile";
-import { DeskNav } from "../desktop";
+import { MobileNav } from ".";
+import { DeskNav } from ".";
 </script>
 
 <template>

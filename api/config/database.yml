@@ -21,6 +21,10 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+  url: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: '<%= ENV['DB_PASS'] %>'
+
 development:
   <<: *default
   database: lettuceMeetApp_development
@@ -29,10 +33,12 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: lettuceMeetApp
+  username: <%= ENV.fetch("DB_USER", nil) %>
 
   # The password associated with the postgres role (username).
-  #password:
+  password: '<%= ENV.fetch("DB_PASS", nil) %>'
+
+  url: <%= ENV.fetch("DATABASE_URL", "postgresql://localhost/lettuceMeetApp_development") %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -57,7 +63,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: lettuceMeetApp_test
+  username: <%= ENV.fetch("DB_USER", nil) %>
+
+  password: '<%= ENV.fetch("DB_PASS", nil) %>'
+
+  url: <%= ENV.fetch("DATABASE_URL", "postgresql://localhost/lettuceMeetApp_test") %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +91,3 @@ test:
 #
 production:
   <<: *default
-  database: lettuceMeetApp_production
-  username: lettuceMeetApp
-  password: <%= ENV["LETTUCEMEETAPP_DATABASE_PASSWORD"] %>
