@@ -1,6 +1,6 @@
 ---
 name: Feature
-about: 'If something isn't working as expected :disappointed:.'
+about: 'Exciting New Features.'
 title: ':rocket: :: [INSERT BRIEF DESCRIPTION OF FEATURE]'
 labels: development, enhancement
 assignees: ''

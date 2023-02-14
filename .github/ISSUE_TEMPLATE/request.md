@@ -1,8 +1,8 @@
 ---
-name: Request
+name: 
 about: 'I have a suggestion (and may want to implement it :smiley:).'
-title: ':bulb: :: [INSERT BRIEF DESCRIPTION OF REQUEST]'
-labels: development, request
+title: ':boom: :: [INSERT BRIEF DESCRIPTION OF REQUEST]'
+labels: request
 assignees: ''
 ---
 
