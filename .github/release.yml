@@ -1,0 +1,26 @@
+# release.yml
+
+changelog:
+  categories:
+    - title: 🚀 Exciting New Features
+      labels:
+        - feature
+    - title: 🎨 UX/UI Updates
+      labels:
+        - design
+    - title: 📚 Content Updates
+      labels:
+        - content
+    - title: 🐛 Bugs Fixed
+      labels:
+        - bug
+    - title: ✅ Tests Added
+      labels:
+        - tests
+    - title: 🔧 Fixes Applied
+      labels:
+        - maintenance
+        - refactor
+    - title: ⚙️ Behind the Scenes
+      labels:
+        - '*'
