@@ -7,17 +7,19 @@ on:
       - main
 concurrency: production
 jobs:
-  Patch:
+  bump-version:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
-    - name: Minor version for each merge
+    - name: Dry Run
       id: taggerDryRun
       uses: anothrNick/github-tag-action@1.55.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VERBOSE: true
         WITH_V: true
         DRY_RUN: true
 

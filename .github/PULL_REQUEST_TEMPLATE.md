@@ -1,5 +1,5 @@
 <!-- issue number -->
-Resolves # 
+Resolves #
 
 ### Description
 
