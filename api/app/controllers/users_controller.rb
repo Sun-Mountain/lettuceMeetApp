@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:create]
-  before_action :find_user, only: [:show, :update, :destroy]
+  before_action :find_user, only: %i[show update destroy]
 
   def index
     @users = User.all
@@ -16,30 +18,30 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user, status: 201
     else
-      render json: {err: @user.errors.full_messages}, status: 503
+      render json: { err: @user.errors.full_messages }, status: 503
     end
   end
 
   def update
     # binding.pry
-    unless @user&.authenticate(params[:password]) && @user.update(user_params)
-      render json: {err: @user.errors.full_messages}, status: 503
-    end
+    return if @user&.authenticate(params[:password]) && @user&.update(user_params)
+
+    render json: { err: @user.errors.full_messages }, status: 503
   end
 
   def destroy
-    unless @user&.authenticate(params[:password]) && @user.destroy
-      render json: {err: @user.errors.full_messages}, status: 503
-    end
+    return if @user&.authenticate(params[:password]) && @user&.destroy
+
+    render json: { err: @user.errors.full_messages }, status: 503
   end
 
   private
 
-    def user_params
-      params.permit(:id, :first_name, :last_name, :user_name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.permit(:id, :first_name, :last_name, :user_name, :email, :password, :password_confirmation)
+  end
 
-    def find_user
-      @user = User.find(params[:id])
-    end
+  def find_user
+    @user = User.find(params[:id])
+  end
 end

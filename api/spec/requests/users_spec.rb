@@ -84,9 +84,9 @@ RSpec.describe 'Users', type: :request do
     context 'login is unsuccessful' do
       it 'returns 401' do
         post login_url, params: {
-                                  email: user.email,
-                                  password: ''
-                                }
+          email: user.email,
+          password: ''
+        }
         expect(response).to have_http_status(401)
       end
     end
