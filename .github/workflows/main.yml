@@ -23,6 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
 
       - name: Install PostgreSQL
         run: sudo apt-get -yqq install libpq-dev
