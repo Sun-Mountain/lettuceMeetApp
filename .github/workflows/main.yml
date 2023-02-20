@@ -6,6 +6,50 @@ on:
     branches: [ "main" ]
 
 jobs:
+  build:
+    name: CI
+    runs-on: ubuntu-latest
+    env:
+      api-dir: ./api 
+
+    services:
+      postgres:
+        image: postgres:11.6
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
+
+      - name: Install PostgreSQL
+        run: sudo apt-get -yqq install libpq-dev
+
+      - name: Run bundle install
+        working-directory: ${{env.api-dir}}
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: Setup Database
+        working-directory: ${{env.api-dir}}
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+        run: bin/rails db:create db:schema:load
+
+      - name: Build and test with rspec
+        working-directory: ${{env.api-dir}}
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+        run: bundle exec rspec spec
   auto-tag:
     runs-on: ubuntu-latest
     steps:
