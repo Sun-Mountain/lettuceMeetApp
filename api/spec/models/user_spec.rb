@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { create :user }
+
+  describe 'factory' do
+    it { is_expected.to be_valid }
+  end
 end

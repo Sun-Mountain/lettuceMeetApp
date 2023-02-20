@@ -19,6 +19,9 @@ RUN gem install bundler --no-document && bundle update --bundler && bundle insta
 # Run bundler audit
 CMD bundle audit check --update
 
+# Run linting and tests
+RUN bundle exec rubocop && rspec spec
+
 # Copy the code, test the app, and build the assets pipeline
 COPY . /lettuce-meet-api/
 
