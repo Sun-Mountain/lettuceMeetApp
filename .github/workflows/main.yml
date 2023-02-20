@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: CI
+    name: API
     runs-on: ubuntu-latest
     env:
       api-dir: ./api 
