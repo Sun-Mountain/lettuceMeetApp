@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: "API Tests"
-    working_directory: ./api
+    run: cd ./api
     services:
       postgres:
         image: postgres:11-alpine
