@@ -1,8 +1,4 @@
-version: 2
-
-workflows:
-  version: 2
-
+name: Main
 on:
   push:
     branches: [ "main" ]
