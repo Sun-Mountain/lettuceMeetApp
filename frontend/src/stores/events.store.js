@@ -12,6 +12,16 @@ export const useEventStore = defineStore({
   actions: {
     async createEvent(params, userId) {
       await fetchWrapper.post(`${baseUrl}/users/${userId}/events`, params);
+      this.getAllUserEvents(userId);
+    },
+    async getAllUserEvents(userId) {
+      try {
+        this.events = await fetchWrapper.get(
+          `${baseUrl}/users/${userId}/events`
+        );
+      } catch (error) {
+        this.events = { error }
+      }
     }
   },
 });

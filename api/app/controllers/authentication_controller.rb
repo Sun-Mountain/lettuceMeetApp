@@ -12,7 +12,7 @@ class AuthenticationController < ApplicationController
       @events = @user.events
       render json: { token: token, exp: time.strftime('%m-%d-%Y %H:%M'),
                      user_name: @user.user_name, email: @user.email, id: @user.id,
-                     first_name: @user.first_name, last_name: @user.last_name, events: @events },
+                     first_name: @user.first_name, last_name: @user.last_name },
              status: :ok
     else
       render json: { err: 'unauthorized' }, status: :unauthorized

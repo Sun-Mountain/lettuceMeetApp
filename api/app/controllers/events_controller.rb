@@ -3,6 +3,12 @@
 class EventsController < ApplicationController
   before_action :find_user
 
+  def index
+    @user = User.find(params[:user_id])
+    @events = @user.events
+    render json: @events, status: 201
+  end
+
   def create
     @event = Event.new(event_params)
     if @event.save
