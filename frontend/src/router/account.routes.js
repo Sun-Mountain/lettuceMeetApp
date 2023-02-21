@@ -1,9 +1,9 @@
-import { Layout } from "@/views/account";
+import { AccountLayout } from "@/views/account";
 import {  LoginForm, RegisterForm } from "@/Components";
 
 export default {
   path: "/account",
-  component: Layout,
+  component: AccountLayout,
   children: [
     { path: "login", component: LoginForm },
     // {

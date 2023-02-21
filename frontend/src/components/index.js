@@ -5,6 +5,7 @@ export { default as Nav } from "./NavBar.vue";
 // Form Components
 export { default as LoginForm } from "./forms/LoginForm.vue";
 export { default as RegisterForm } from "./forms/RegisterForm.vue";
+export { default as EventForm } from "./forms/EventForm.vue";
 
 // Navigation Link Components
 export { default as DeskNav } from "./DeskNavLinks.vue"; // For desktop views

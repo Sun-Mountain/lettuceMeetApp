@@ -1,1 +1,1 @@
-export { default as Layout } from "./AccountLayout.vue";
+export { default as AccountLayout } from "./AccountLayout.vue";

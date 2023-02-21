@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import CoreUI from "@coreui/vue";
+// import CoreUIPro from "@coreui/coreui-pro";
 
 import App from "./App.vue";
 import { router } from "./router";
@@ -21,5 +22,6 @@ app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(createPinia());
 app.use(router);
 app.use(CoreUI);
+// app.use(CoreUIPro);
 
 app.mount("#app");
