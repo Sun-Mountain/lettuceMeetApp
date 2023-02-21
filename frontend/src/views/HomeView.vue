@@ -12,8 +12,7 @@ const { user } = storeToRefs(authStore);
 <template>
   <div v-if="user">
     <h1>Hi {{ user?.user_name }}!</h1>
-    <p>{{user}}</p>
-    <EventForm />
+    <EventForm :user="user" />
   </div>
   <div v-else>Hello</div>
 </template>

@@ -1,22 +1,15 @@
 <script setup>
-import { ref } from 'vue';
-import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import { ref } from "vue";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 import { CButton, CForm, CFormInput, CFormTextarea } from "@coreui/vue";
-// import { useAlertStore, useAuthStore, useUsersStore } from "@/stores";
-
-const date = ref(new Date());
-
-async function createEvent(event) {
-  event.preventDefault();
-  console.log({ event });
-}
+import { useAlertStore, useEventStore } from "@/stores";
+import { router } from "@/router";
 </script>
-
 <template>
   <div id="event-form">
+    {{ user }}
     <h3>Create an Event</h3>
-
     <div>
       <CForm @submit="createEvent">
         <div class="form-group">
@@ -26,6 +19,7 @@ async function createEvent(event) {
             label="Title"
             name="title"
             type="text"
+            v-model="EventTitle"
           />
         </div>
         <div>
@@ -45,6 +39,7 @@ async function createEvent(event) {
             name="details"
             rows="3"
             type="text"
+            v-model="EventDetails"
           />
         </div>
         <div class="submit-btn-container">
@@ -54,3 +49,42 @@ async function createEvent(event) {
     </div>
   </div>
 </template>
+
+<script>
+const date = ref(new Date());
+
+let EventTitle,
+  EventDetails,
+  StartDate = date.value;
+
+export default {
+  props: ["user"],
+  data: function () {
+    return { currentUser: this.user.id };
+  },
+  methods: {
+    async createEvent(event) {
+      event.preventDefault();
+      let data = {
+        title: EventTitle,
+        body: EventDetails,
+        start_date: StartDate,
+        user_id: this.currentUser,
+      };
+
+      const eventStore = useEventStore();
+      const alertStore = useAlertStore();
+
+      console.log(data);
+
+      try {
+        await eventStore.createEvent(data, data.user_id);
+        await router.push("/");
+        alertStore.success("Event created");
+      } catch (error) {
+        alertStore.error(error);
+      }
+    },
+  },
+};
+</script>
