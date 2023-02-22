@@ -78,7 +78,7 @@ export default {
       console.log(data);
 
       try {
-        await eventStore.createEvent(data, data.user_id);
+        await eventStore.createEvent(data);
         await router.push("/");
         alertStore.success("Event created");
       } catch (error) {

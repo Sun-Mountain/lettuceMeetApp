@@ -7,6 +7,9 @@ import { useAuthStore, useEventStore } from "@/stores";
 
 const authStore = useAuthStore();
 const eventStore = useEventStore();
+
+// eventStore.getAllUserEvents();
+
 const { user } = storeToRefs(authStore);
 const { events } = storeToRefs(eventStore);
 </script>
