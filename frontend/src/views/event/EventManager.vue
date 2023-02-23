@@ -1,13 +1,17 @@
 <script setup>
 import { storeToRefs } from "pinia";
-import { useAuthStore } from "@/stores";
 
-const authStore = useAuthStore();
-const { user } = storeToRefs(authStore);
+import { useEventStore } from "@/stores";
+
+const eventStore = useEventStore();
+
+const { events } = storeToRefs(eventStore);
 </script>
 
 <template>
   <div>
-    This is the event
+    <div v-for="event in events" :key="event.uuid">
+      {{ event.title }}
+    </div>
   </div>
 </template>
