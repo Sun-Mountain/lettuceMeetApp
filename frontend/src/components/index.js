@@ -10,3 +10,6 @@ export { default as EventForm } from "./forms/EventForm.vue";
 // Navigation Link Components
 export { default as DeskNav } from "./DeskNavLinks.vue"; // For desktop views
 export { default as MobileNav } from "./MobileNavLinks.vue"; // For mobile views
+
+// Event Components
+export { default as EventCard } from "./EventCard.vue";
