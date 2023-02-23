@@ -2,30 +2,18 @@
 import { ref, readonly } from "vue";
 
 export default {
-  props: [
-    "title",
-    "body",
-    "private",
-    "all_day",
-    "start_date",
-    "end_date",
-    "start_time",
-    "end_time",
-    "user_id",
-    "uuid",
-    "created_at",
-  ],
+  props: ["event"],
   setup(props) {
-    const eventTitle = ref(props.title);
-    const eventDetails = ref(props.body);
-    const eventPrivate = ref(props.private);
-    const eventAllDay = ref(props.all_day);
-    const eventStartDate = ref(props.start_date);
-    const eventEndDate = ref(props.end_date);
-    const eventStartTime = ref(props.start_time);
-    const eventEndTime = ref(props.end_time);
-    const userId = ref(props.user_id);
-    const eventId = ref(props.uuid);
+    const eventTitle = ref(props.event.title);
+    const eventDetails = ref(props.event.body);
+    const eventPrivate = ref(props.event.private);
+    const eventAllDay = ref(props.event.all_day);
+    const eventStartDate = ref(props.event.start_date);
+    const eventEndDate = ref(props.event.end_date);
+    const eventStartTime = ref(props.event.start_time);
+    const eventEndTime = ref(props.event.end_time);
+    const userId = ref(props.event.user_id);
+    const eventId = ref(props.event.uuid);
 
     return {
       eventTitle: readonly(eventTitle),
@@ -44,7 +32,10 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="eventCard">
     <h2>{{ eventTitle }}</h2>
+    <div>
+      {{ event }}
+    </div>
   </div>
 </template>

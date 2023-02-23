@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @events = @user.events
+    @events = @user.events.order(start_date: :desc)
     render json: @events, status: 201
   end
 

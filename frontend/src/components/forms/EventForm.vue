@@ -79,7 +79,7 @@ export default {
 
       try {
         await eventStore.createEvent(data);
-        await router.push("/");
+        await router.push("/events");
         alertStore.success("Event created");
       } catch (error) {
         alertStore.error(error);

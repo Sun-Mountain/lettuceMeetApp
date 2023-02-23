@@ -1,0 +1,27 @@
+#event-card-container {
+  border: 1px $event-card-container-border solid;
+  border-radius: calc(0.375rem - 1px);;
+  padding: 0.375rem;
+
+  .eventCard {
+    padding: 0.375rem;
+  }
+
+  .eventCard:not(:last-child) {
+    border-bottom: 1px $event-card-container-border solid;
+    margin-bottom: 15px;
+  }
+}
+
+#events-page {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: $bp-md-max) {
+  #events-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
