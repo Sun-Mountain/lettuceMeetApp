@@ -13,6 +13,15 @@ const authStore = useAuthStore();
       </CNavItem>
       <CNavItem>
         <router-link
+          id="events"
+          to="events"
+          v-show="authStore.user"
+          class="nav-item nav-link"
+          >Events</router-link
+        >
+      </CNavItem>
+      <CNavItem>
+        <router-link
           id="profile"
           to="profile"
           v-show="authStore.user"
