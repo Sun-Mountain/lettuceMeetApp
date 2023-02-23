@@ -6,7 +6,9 @@ import { DeskNav } from ".";
 <template>
   <nav>
     <div class="nav_logo_container">
-      <img src="@/assets/images/lettuce_nav_logo.png" class="logo" />
+      <router-link to="/">
+        <img src="@/assets/images/lettuce_nav_logo.png" class="logo" />
+      </router-link>
     </div>
 
     <div class="nav_links_container">

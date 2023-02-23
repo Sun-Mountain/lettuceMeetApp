@@ -1,14 +1,11 @@
 <script setup>
-import { Alert } from "@/components";
+import { Alert, EventPageNav } from "@/components";
 </script>
 
 <template>
   <div id="events-page" class="card">
-    <div id="sideNav">
-      <div>Upcoming Events</div>
-      <div>Past Events</div>
-    </div>
-    <div>
+    <EventPageNav />
+    <div id="eventsMain">
       <Alert />
       <router-view />
     </div>

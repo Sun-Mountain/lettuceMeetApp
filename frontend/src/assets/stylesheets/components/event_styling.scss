@@ -23,5 +23,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    #sideNav {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+
+      a.active {
+        color: $active-link-color;
+        opacity: .7;
+        text-decoration: none;
+      }
+    }
+
+    #eventsMain {
+      width: 75%;
+    }
   }
 }
