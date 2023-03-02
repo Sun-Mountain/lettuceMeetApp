@@ -1,4 +1,4 @@
-import { EventLayout, EventStage, Manager, PastEvents } from "@/views/event";
+import { EventLayout, Manager, PastEvents } from "@/views/event";
 
 export default {
   path: "/events",
@@ -10,6 +10,7 @@ export default {
       component: Manager,
       alias: ["/"],
     },
-    { path: "past", name: "past", component: PastEvents }
+    { path: "past", name: "past", component: PastEvents },
+    { path: ":uid", component: () => import("@/views/event/EventStage.vue") },
   ],
 };

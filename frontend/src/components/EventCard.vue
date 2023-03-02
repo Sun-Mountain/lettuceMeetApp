@@ -13,9 +13,10 @@ export default {
     const eventStartTime = ref(props.event.start_time);
     const eventEndTime = ref(props.event.end_time);
     const userId = ref(props.event.user_id);
-    const eventId = ref(props.event.uuid);
+    const eventId = ref(props.event.uid);
 
     return {
+      eventLink: `events/${eventId.value}`,
       eventTitle: readonly(eventTitle),
       eventDetails: readonly(eventDetails),
       eventPrivate: readonly(eventPrivate),
@@ -35,7 +36,7 @@ export default {
   <div class="eventCard">
     <h2>{{ eventTitle }}</h2>
     <div>
-      <!-- <router-link :to="eventId">link</router-link> -->
+      <router-link :to="eventLink">link</router-link>
     </div>
     <div>
       {{ event }}

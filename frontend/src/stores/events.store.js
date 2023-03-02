@@ -9,7 +9,7 @@ export const useEventStore = defineStore({
   id: "events",
   state: () => ({
     events: JSON.parse(localStorage.getItem("events")),
-    eventStage: {},
+    stagedEvent: {},
   }),
   actions: {
     async createEvent(params) {
@@ -46,7 +46,7 @@ export const useEventStore = defineStore({
         const event = await fetchWrapper.get(
           `${baseUrl}/users/${userId}/events/${eventId}`
         );
-        this.eventStage = event;
+        this.stagedEvent = event;
       } catch (error) {
         alertStore.error(error);
       }
