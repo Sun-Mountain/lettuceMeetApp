@@ -35,6 +35,9 @@ export default {
   <div class="eventCard">
     <h2>{{ eventTitle }}</h2>
     <div>
+      <!-- <router-link :to="eventId">link</router-link> -->
+    </div>
+    <div>
       {{ event }}
     </div>
   </div>
