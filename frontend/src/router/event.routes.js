@@ -4,7 +4,12 @@ export default {
   path: "/events",
   component: EventLayout,
   children: [
-    { path: "", component: Manager },
-    { path: "past", component: PastEvents }
+    {
+      path: "",
+      name: "upcoming",
+      component: Manager,
+      alias: ["/"],
+    },
+    { path: "past", name: "past", component: PastEvents }
   ],
 };

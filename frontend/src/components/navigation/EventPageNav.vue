@@ -1,10 +1,12 @@
 <script setup>
-
 </script>
-
 <template>
   <div id="sideNav">
-    <a href="/events" id="upcomingEvents">Upcoming Events</a>
-    <a href="/events/past" id="pastEvents">Past Events</a>
+    <router-link id="upcomingEvents" :to="{ name: 'upcoming' }">
+      Upcoming Events
+    </router-link>
+    <router-link id="pastEvents" :to="{ name: 'past' }">
+      Past Events
+    </router-link>
   </div>
 </template>

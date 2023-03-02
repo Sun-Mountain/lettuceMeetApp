@@ -29,7 +29,7 @@
       flex-direction: column;
       width: 25%;
 
-      a.active {
+      a.router-link-exact-active {
         color: $active-link-color;
         opacity: .7;
         text-decoration: none;
