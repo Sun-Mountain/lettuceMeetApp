@@ -5,43 +5,25 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "e2e": "cypress run",
     "preview": "vite preview",
-    "test:unit": "vitest --environment jsdom --root src/",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@coreui/coreui": "^4.2.2",
-    "@coreui/coreui-pro": "^4.4.0",
-    "@coreui/vue": "^4.5.0",
-    "@cypress/vue": "^5.0.2",
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-brands-svg-icons": "^6.2.1",
-    "@fortawesome/free-regular-svg-icons": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@fortawesome/vue-fontawesome": "^3.0.2",
-    "pinia": "^2.0.26",
-    "sass": "^1.56.1",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "@mdi/font": "7.0.96",
+    "core-js": "^3.8.3",
+    "pinia": "^2.0.23",
+    "roboto-fontface": "*",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.0",
+    "vuetify": "^3.0.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@pinia/testing": "^0.0.14",
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@testing-library/cypress": "^4.0.4",
-    "@vitejs/plugin-vue": "^3.2.0",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/test-utils": "^2.2.4",
-    "cypress": "^11.2.0",
+    "@vitejs/plugin-vue": "^3.0.3",
     "eslint": "^8.22.0",
-    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.3.0",
-    "jsdom": "^20.0.3",
-    "prettier": "^2.7.1",
-    "start-server-and-test": "^1.14.0",
-    "vite": "^3.2.4",
-    "vitest": "^0.25.3"
+    "sass": "^1.55.0",
+    "vite": "^3.1.9",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12"
   }
 }

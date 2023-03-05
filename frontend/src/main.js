@@ -1,25 +1,19 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
-import CoreUI from "@coreui/vue";
+/**
+ * main.js
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
 
-import App from "./App.vue";
-import { router } from "./router";
+// Components
+import App from './App.vue'
 
-/* import the fontawesome core */
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {
-  faUserSecret,
-  faAnglesDown,
-  faAnglesUp,
-} from "@fortawesome/free-solid-svg-icons";
-library.add(faUserSecret, faAnglesDown, faAnglesUp);
+// Composables
+import { createApp } from 'vue'
 
-const app = createApp(App);
+// Plugins
+import { registerPlugins } from '@/plugins'
 
-app.component("font-awesome-icon", FontAwesomeIcon);
-app.use(createPinia());
-app.use(router);
-app.use(CoreUI);
+const app = createApp(App)
+registerPlugins(app)
 
-app.mount("#app");
+app.mount('#app')
