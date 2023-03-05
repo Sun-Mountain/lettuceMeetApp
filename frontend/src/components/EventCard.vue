@@ -34,10 +34,9 @@ export default {
 
 <template>
   <div class="eventCard">
-    <h2>{{ eventTitle }}</h2>
-    <div>
-      <router-link :to="eventLink">link</router-link>
-    </div>
+    <h2>
+      <router-link :to="eventLink">{{ eventTitle }}</router-link>
+    </h2>
     <div>
       {{ event }}
     </div>

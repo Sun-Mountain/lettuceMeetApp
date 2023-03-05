@@ -5,7 +5,6 @@ import { useEventStore } from "@/stores";
 
 const route = useRoute();
 const eventStore = useEventStore();
-// const { post, loading, error } = storeToRefs(useEventStore())
 const { getEventById } = eventStore;
 getEventById(route.params.uid);
 const { stagedEvent } = storeToRefs(eventStore);
