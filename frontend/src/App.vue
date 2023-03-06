@@ -1,7 +1,16 @@
+<script setup>
+  import { Alert, Nav } from '@/components';
+</script>
+
 <template>
-  <router-view />
+  <v-app>
+    <Nav />
+    <Alert />
+    <router-view />
+  </v-app>
 </template>
 
-<script setup>
-  //
-</script>
+<style lang="scss">
+@import "@/assets/stylesheets/application.scss";
+</style>
+
