@@ -5,8 +5,10 @@
 <template>
   <v-app>
     <Nav />
-    <Alert />
-    <router-view />
+    <v-main>
+      <Alert />
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 

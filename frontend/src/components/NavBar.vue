@@ -3,18 +3,11 @@
     <v-app-bar
       id="navigation_main"
       prominent
-    >
-      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-  
+    > 
       <v-toolbar-title>My files</v-toolbar-title>
   
-      <v-spacer></v-spacer>
-  
-      <v-btn variant="text" icon="mdi-magnify"></v-btn>
-  
-      <v-btn variant="text" icon="mdi-filter"></v-btn>
-  
-      <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+      <v-spacer />
+      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" :fullscreen="!mobile" />
     </v-app-bar>
   
     <v-navigation-drawer
@@ -30,6 +23,7 @@
 </template>
 
 <script>
+  import { useDisplay } from 'vuetify'
   export default {
     data: () => ({
       drawer: false,
@@ -59,5 +53,10 @@
         this.drawer = false
       },
     },
+    setup: () => {
+      const { mobile } = useDisplay();
+
+      return { mobile }
+    }
   }
 </script>
