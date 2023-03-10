@@ -18,7 +18,6 @@ const schema = Yup.object().shape({
 async function onSubmit(values) {
   const usersStore = useUsersStore();
   const alertStore = useAlertStore();
-  console.log(values);
   try {
     await usersStore.register(values);
     await router.push('/account/login');
@@ -37,7 +36,7 @@ async function onSubmit(values) {
     variant="outlined"
   >
     <v-card-item>
-      <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting, isValid }">
+      <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
         <div>
           <label>First Name:</label><br />
           <Field name="firstName" type="text" class="form-control" :class="{ 'is-invalid': errors.firstName }" />
