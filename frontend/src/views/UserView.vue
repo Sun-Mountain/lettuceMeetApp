@@ -1,6 +1,9 @@
-<template>
-  <router-view />
-</template>
-
 <script setup>
 </script>
+
+<template>
+  <div>
+    Hahaha!
+  </div>
+</template>
+
