@@ -1,1 +1,1 @@
-export { default as Home } from "./HomeLayout.vue";
+export { default as User } from "./UserView.vue";
