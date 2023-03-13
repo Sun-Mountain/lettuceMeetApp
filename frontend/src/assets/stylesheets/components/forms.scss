@@ -1,7 +1,18 @@
 .form-container {
+  margin: 25px auto;
+  max-width: 800px;
+
   button {
     background-color: $submit-btn-bg;
     padding: 5px 8px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  label {
+    font-weight: 700;
   }
 
   .btn-container {
@@ -10,6 +21,10 @@
     justify-content: space-between;
     max-width: 170px;
     padding: 15px 0;
+  }
+
+  .invalid-feedback {
+    color: $form-error-color;
   }
 }
 

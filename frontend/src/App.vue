@@ -5,7 +5,7 @@
 <template>
   <v-app>
     <Nav />
-    <v-main>
+    <v-main style="max-width: 1200px; padding-top: 0">
       <Alert />
       <router-view />
     </v-main>
