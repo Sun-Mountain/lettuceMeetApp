@@ -2,13 +2,14 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import { useAuthStore, useAlertStore } from "@/stores";
 import { Home } from "@/layouts";
+import { Welcome } from "@/views";
 import accountRoutes from "./account.routes";
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   linkActiveClass: "active",
   routes: [
-    { path: "/", component: Home },
+    { path: "/", component: Welcome },
     { ...accountRoutes },
     // catch all redirect to home page
     { path: "/:pathMatch(.*)*", redirect: "/" },

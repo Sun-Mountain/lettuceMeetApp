@@ -8,8 +8,9 @@ const authStore = useAuthStore();
   <nav>
     <v-app-bar
       id="navigation_main"
-      prominent
-    > 
+      elevation="0"
+      style="position:relative"
+    >
       <v-toolbar-title>My files</v-toolbar-title>
       <v-spacer />
       <v-tabs class="d-none d-sm-none d-md-flex">

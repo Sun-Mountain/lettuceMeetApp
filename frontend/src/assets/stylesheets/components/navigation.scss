@@ -1,5 +1,16 @@
+nav {
+  background-color: $main-nav-bg;
+  width: 100%;
+  height: 64px;
+
+  header {
+    margin: 0 auto;
+  }
+}
+
 #navigation_main {
   background-color: $main-nav-bg;
   color: $main-nav-font-color;
   font-weight: 700;
+  max-width: 1200px;
 }
