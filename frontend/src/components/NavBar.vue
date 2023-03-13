@@ -11,14 +11,13 @@ const authStore = useAuthStore();
       prominent
     > 
       <v-toolbar-title>My files</v-toolbar-title>
-  
       <v-spacer />
       <v-tabs class="d-none d-sm-none d-md-flex">
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/account/login" v-show="!authStore.user">
+        <v-tab to="/login" v-show="!authStore.user">
           Login
         </v-tab>
-        <v-tab to="/account/register" v-show="!authStore.user">
+        <v-tab to="/register" v-show="!authStore.user">
           Register
         </v-tab>
         <v-tab 
@@ -28,7 +27,6 @@ const authStore = useAuthStore();
       </v-tabs>
       <v-app-bar-nav-icon class="d-sm-flex d-md-none" variant="text" @click.stop="drawer = !drawer" />
     </v-app-bar>
-  
     <v-navigation-drawer
       class="d-sm-flex d-md-none"
       v-model="drawer"
@@ -40,12 +38,12 @@ const authStore = useAuthStore();
           <router-link to="/">Home</router-link>
         </v-list-item>
         <v-list-item>
-          <router-link to="/account/login" v-show="!authStore.user">
+          <router-link to="/login" v-show="!authStore.user">
             Login
           </router-link>
         </v-list-item>
         <v-list-item>
-          <router-link to="/account/register" v-show="!authStore.user">
+          <router-link to="/register" v-show="!authStore.user">
             Register
           </router-link>
         </v-list-item>

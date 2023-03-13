@@ -26,7 +26,6 @@ async function onSubmit(values) {
     alertStore.error(err);
   }
 }
-
 </script>
 
 <template>
