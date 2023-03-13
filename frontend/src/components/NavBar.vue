@@ -1,3 +1,9 @@
+<script setup>
+import { useAuthStore } from "@/stores";
+
+const authStore = useAuthStore();
+</script>
+
 <template>
   <nav>
     <v-app-bar
@@ -7,56 +13,56 @@
       <v-toolbar-title>My files</v-toolbar-title>
   
       <v-spacer />
-      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" :fullscreen="!mobile" />
+      <v-tabs class="d-none d-sm-none d-md-flex">
+        <v-tab to="/">Home</v-tab>
+        <v-tab to="/account/login" v-show="!authStore.user">
+          Login
+        </v-tab>
+        <v-tab to="/account/register" v-show="!authStore.user">
+          Register
+        </v-tab>
+        <v-tab 
+          id="logout"
+          @click="authStore.logout()"
+          v-show="authStore.user">Logout</v-tab>
+      </v-tabs>
+      <v-app-bar-nav-icon class="d-sm-flex d-md-none" variant="text" @click.stop="drawer = !drawer" />
     </v-app-bar>
   
     <v-navigation-drawer
+      class="d-sm-flex d-md-none"
       v-model="drawer"
       location="top"
       temporary
     >
-      <v-list
-        :items="items"
-      ></v-list>
+      <v-list nav>
+        <v-list-item>
+          <router-link to="/">Home</router-link>
+        </v-list-item>
+        <v-list-item>
+          <router-link to="/account/login" v-show="!authStore.user">
+            Login
+          </router-link>
+        </v-list-item>
+        <v-list-item>
+          <router-link to="/account/register" v-show="!authStore.user">
+            Register
+          </router-link>
+        </v-list-item>
+        <v-list-item
+          id="logout"
+          @click="authStore.logout()"
+          v-show="authStore.user">Logout</v-list-item>
+      </v-list>
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
-  import { useDisplay } from 'vuetify'
-  export default {
-    data: () => ({
-      drawer: false,
-      group: null,
-      items: [
-        {
-          title: 'Foo',
-          value: 'foo',
-        },
-        {
-          title: 'Bar',
-          value: 'bar',
-        },
-        {
-          title: 'Fizz',
-          value: 'fizz',
-        },
-        {
-          title: 'Buzz',
-          value: 'buzz',
-        },
-      ],
-    }),
-
-    watch: {
-      group () {
-        this.drawer = false
-      },
-    },
-    setup: () => {
-      const { mobile } = useDisplay();
-
-      return { mobile }
-    }
-  }
+export default {
+  data: () => ({
+    drawer: false
+  })
+}
 </script>
+

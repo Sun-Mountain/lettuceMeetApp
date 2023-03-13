@@ -13,9 +13,9 @@ const schema = Yup.object().shape({
 async function onSubmit(values) {
   const authStore = useAuthStore();
   const alertStore = useAlertStore();
-  const { username, password } = values;
+  const { email, password } = values;
   try {
-    await authStore.login(username, password);
+    await authStore.login(email, password);
     await router.push('/');
   } catch (err) {
     alertStore.error(err);
