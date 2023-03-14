@@ -34,12 +34,12 @@ services:
     volumes:
       - rails_log:/api/log
   
-  frontend:
-    build: ./frontend
+  client:
+    build: ./client
     ports:
       - "5173:5173"
     volumes:
-      - front_node_modules:/frontend/node_modules
+      - front_node_modules:/client/node_modules
 
 
 volumes:

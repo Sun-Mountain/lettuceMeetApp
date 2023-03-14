@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :user do
-    sequence(:first_name) { |n| "first_#{n}" }
-    sequence(:last_name) { |n| "last_#{n}" }
-    sequence(:user_name) { |n| "username_#{n}" }
+    sequence(:firstName) { |n| "first_#{n}" }
+    sequence(:lastName) { |n| "last_#{n}" }
+    sequence(:preferredUsername) { |n| "username_#{n}" }
     sequence(:email) { |n| "user#{n}@example.com" }
 
     password { '12345ABCDEfghi!' }

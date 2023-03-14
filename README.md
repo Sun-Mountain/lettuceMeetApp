@@ -1,48 +1,88 @@
-# Lettuce Meet Application
+# LettuceMeetApp
 This is the pre-release version of the Lettuce Meet Application.
 
-## Set Up & Installation
-To clone the application then change into the directory:
+LettuceMeetApp is an event management application that allows users to create and manage events, RSVP to events, and keep track of their own event attendance. This application is built with a Ruby on Rails API and a Vue.js client.
+
+## Local Installation
+Before you can run the application, you must have [Ruby](https://mac.install.guide/ruby/13.html), [Ruby on Rails](https://gorails.com/setup/macos/13-ventura), [PostgreSQL](https://wiki.postgresql.org/wiki/Homebrew), [Node.js](https://formulae.brew.sh/formula/node), and [VueJS](https://vuejs.org/guide/introduction.html) installed on your machine.
+
+**Other tools that might help:**
+- [Homebrew](https://brew.sh/) - for installing Ruby, Rails, Postgres, and Node.js
+- [Ruby Installer](https://rubyinstaller.org/) - installing Ruby on Windows
+- [RVM](https://rvm.io/) - ruby version manager
+- [Postico](https://eggerapps.at/postico/) or [Postgres.app](https://postgresapp.com/downloads.html) - postgres clients
+
+Once you have those installed, follow these steps:
+
+1. Clone the repository from GitHub:
 
 ```bash
-git clone git@github.com:Sun-Mountain/lettuceMeetApp.git
+git clone https://github.com/Sun-Mountain/lettuceMeetApp
 cd lettuceMeetApp
 ```
 
-### API - Ruby on Rails
+### API
 
-#### Prerequisits
-The backend is built with Ruby on Rails with a [PostgreSQL](https://github.com/Sun-Mountain/lettuceMeetApp/blob/main/Postgres-url) database. OSX comes with Ruby already installed. [Homebrew](https://brew.sh/) can be used to install if needed. For Windows, we recommend [Ruby Installer](https://rubyinstaller.org/).
-
-Recommended: Install a ruby version manager like [RVM](https://rvm.io/).
-
-Install and switch to the latest version of Ruby:
+2. Install dependencies:
 
 ```bash
-rvm install 3.0.0
-rvm use 3.0.0
+cd api
+bundle install
 ```
 
-Homebrew can be used to install postgresql:
+You made need to make sure you have the correct version of Ruby installed. You can use RVM to install and switch versions.
 
 ```bash
-brew install postgresql
+rvm install 3.0.3
+rvm use 3.0.3
 ```
 
-Follow the prompts following installation to start running postgres as a service. For postgresql clients, we recommend [Postico](https://eggerapps.at/postico/) or [Postgres.app](https://postgresapp.com/downloads.html).
-
-### Frontend - VueJS
-
-#### Prerequisits
-
-Install [Vue](https://vuejs.org/guide/introduction.html) and the Vue CLI:
+3. Set up the database:
 
 ```bash
-npm install -g @vue/cli
-# OR
+rails db:create db:migrate
+```
+
+4. Start the server:
+
+```bash
+rails s
+```
+
+The rails server will be running on `localhost:3000` unless specified otherwise.
+
+### Client
+
+In a separate terminal, make sure you have the Vue CLI installed:
+
+```bash
 yarn global add @vue/cli
 ```
 
-We are currently using **Vue 3.2+**.
+5. Install dependencies:
 
-Other dependencies will be installed in the set up.
+```bash
+cd lettuceMeetApp/client
+yarn install
+```
+
+6. Start the client server:
+
+```bash
+yarn run dev
+```
+
+7. Open your browser and navigate to http://localhost:5173 to use the application.
+
+## Docker SetUp
+Another option for installation and set up is to run our docker containers. To do so, navigate to the root folder in `LettuceMeetApp` and run:
+
+```bash
+docker compose build && docker compose up -d
+```
+
+## Contributing
+Coming soon...
+
+## License
+Coming soon...
