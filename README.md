@@ -1,5 +1,7 @@
-# Lettuce Meet Application
+# LettuceMeetApp
 This is the pre-release version of the Lettuce Meet Application.
+
+LettuceMeetApp is an event management application that allows users to create and manage events, RSVP to events, and keep track of their own event attendance. This application is built with a Ruby on Rails API and a Vue.js front-end.
 
 ## Set Up & Installation
 To clone the application then change into the directory:
@@ -31,7 +33,7 @@ brew install postgresql
 
 Follow the prompts following installation to start running postgres as a service. For postgresql clients, we recommend [Postico](https://eggerapps.at/postico/) or [Postgres.app](https://postgresapp.com/downloads.html).
 
-### Frontend - VueJS
+### Client - VueJS
 
 #### Prerequisits
 
