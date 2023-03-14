@@ -75,7 +75,11 @@ yarn run dev
 7. Open your browser and navigate to http://localhost:5173 to use the application.
 
 ## Docker SetUp
-Coming soon...
+Another option for installation and set up is to run our docker containers. To do so, navigate to the root folder in `LettuceMeetApp` and run:
+
+```bash
+docker compose build && docker compose up -d
+```
 
 ## Contributing
 Coming soon...
