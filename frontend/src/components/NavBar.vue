@@ -21,6 +21,9 @@ const authStore = useAuthStore();
         <v-tab to="/register" v-show="!authStore.user">
           Register
         </v-tab>
+        <v-tab to="profile" v-show="authStore.user">
+          Profile
+        </v-tab>
         <v-tab 
           id="logout"
           @click="authStore.logout()"

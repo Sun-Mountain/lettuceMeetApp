@@ -7,6 +7,6 @@ export default {
   children: [
     { path: "login", name: "login", component: () => import("@/components/forms/LoginUser.vue"), alias: ['/login'] },
     { path: "register", name: "register", component: () => import("@/components/forms/RegisterUser.vue"), alias: ['/register'] },
-    { path: "user", name: "profile", component: User, props: true }
+    { path: "profile", name: "profile", component: User, props: true, alias: ['/profile'] }
   ],
 };
