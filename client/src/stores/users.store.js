@@ -12,9 +12,9 @@ export const useUsersStore = defineStore({
   actions: {
     async register(user) {
       let newUser = {
-        first_name: user.firstName,
-        last_name: user.lastName,
-        user_name: user.username,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        preferredUsername: user.username,
         email: user.email,
         password: user.password,
         password_confirmation: user.passwordConfirm
