@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
     create_table :events do |t|
       t.string :uid,      null: false
       t.string :title,    null: false
-      t.text :body
+      t.text :description
       t.boolean :private, default: false, null: false
       t.boolean :allDay,  default: false, null: false
       t.date :startDate,  null: false

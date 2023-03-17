@@ -6,13 +6,13 @@ import { useUsersStore, useAlertStore } from '@/stores';
 import { router } from '@/router';
 
 const schema = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required'),
-  lastName: Yup.string().required('Last Name is required'),
-  username: Yup.string().required('Username is required'),
-  email: Yup.string().email().required('Email is required'),
-  password: Yup.string().required('Password is required')
+  firstName: Yup.string().required('First Name is required.'),
+  lastName: Yup.string().required('Last Name is required.'),
+  username: Yup.string().required('Username is required.'),
+  email: Yup.string().email().required('Email is required.'),
+  password: Yup.string().required('Password is required.')
       .min(6, 'Password must be at least 6 characters'),
-  passwordConfirm: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match')
+  passwordConfirm: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match.')
 })
 
 async function onSubmit(values) {

@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_201544) do
   create_table "events", force: :cascade do |t|
     t.string "uid", null: false
     t.string "title", null: false
-    t.text "body"
+    t.text "description"
     t.boolean "private", default: false, null: false
     t.boolean "allDay", default: false, null: false
     t.date "startDate", null: false
