@@ -14,3 +14,14 @@ nav {
   font-weight: 700;
   max-width: 1200px;
 }
+
+.nav_logo_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  img {
+    margin: 5px 15px;
+    width: 52px;
+    height: auto;
+  }
+}

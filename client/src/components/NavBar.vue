@@ -11,7 +11,11 @@ const authStore = useAuthStore();
       elevation="0"
       style="position:relative"
     >
-      <v-toolbar-title>My files</v-toolbar-title>
+      <div class="nav_logo_container">
+        <router-link to="/">
+          <img src="@/assets/images/lettuce_nav_logo.png" class="logo" />
+        </router-link>
+      </div>
       <v-spacer />
       <v-tabs class="d-none d-sm-none d-md-flex">
         <v-tab to="/">Home</v-tab>
