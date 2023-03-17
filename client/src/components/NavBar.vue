@@ -25,7 +25,10 @@ const authStore = useAuthStore();
         <v-tab to="/register" v-show="!authStore.user">
           Register
         </v-tab>
-        <v-tab to="profile" v-show="authStore.user">
+        <v-tab id="events" to="events" v-show="authStore.user">
+          Events
+        </v-tab>
+        <v-tab id="profile" to="profile" v-show="authStore.user">
           Profile
         </v-tab>
         <v-tab 

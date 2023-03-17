@@ -1,0 +1,26 @@
+.layout-with-subnav {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-container {
+  padding: 15px;
+}
+
+@media screen and (min-width: $sm-max) {
+  .layout-with-subnav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .subnav {
+      padding: 15px 25px;
+      width: 33%;
+    }
+
+    .sub-content-container {
+      padding: 15px 25px;
+      width: 100%;
+    }
+  }
+}
