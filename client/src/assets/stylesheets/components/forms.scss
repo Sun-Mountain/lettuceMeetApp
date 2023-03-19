@@ -1,6 +1,8 @@
 .form-container {
   margin: 25px auto;
+  padding: 25px;
   max-width: 800px;
+  min-height: 525px;
 
   button {
     background-color: $submit-btn-bg;
@@ -21,6 +23,10 @@
     justify-content: space-between;
     max-width: 170px;
     padding: 15px 0;
+  }
+
+  .dp__menu {
+    z-index: 5000;
   }
 
   .invalid-feedback {
