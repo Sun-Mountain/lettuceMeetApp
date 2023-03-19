@@ -19,9 +19,15 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
   img {
     margin: 5px 15px;
     width: 52px;
     height: auto;
   }
+}
+
+.subnav {
+  display: flex;
+  flex-direction: column;
 }

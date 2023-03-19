@@ -1,10 +1,10 @@
 <script setup>
-import { SubNav } from '@/components';
+import { EventSubNav } from '@/components';
 </script>
 
 <template>
   <div class="layout-with-subnav main-content-container">
-    <SubNav />
+    <EventSubNav />
     <div class="sub-content-container">
       <router-view />
     </div>
