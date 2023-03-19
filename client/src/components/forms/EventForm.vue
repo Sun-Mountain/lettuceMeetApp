@@ -18,6 +18,7 @@ async function onSubmit(values) {
   values.startDate = startDate.value;
   try {
     console.log(values);
+    eventStore.createEvent(values);
   } catch (err) {
     alertStore.error(err);
   }

@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :find_event, only: %i[show update destroy]
 
   def index
-    @events = @user.events.order(start_date: :desc)
+    @events = @user.events.order(startDate: :desc)
     render json: @events, status: 201
   end
 
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.permit(:title, :description, :private, :all_day, :start_date, :end_date, :start_time, :end_time, :user_id, :uid, :created_at)
+    params.permit(:eventTitle, :description, :private, :allDay, :startDate, :endDate, :startTime, :endTime, :user_id, :uid, :created_at)
   end
 
   def find_event
