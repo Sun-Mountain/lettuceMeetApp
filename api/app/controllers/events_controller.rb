@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :find_event, only: %i[show update destroy]
 
   def index
-    @events = @user.events.order(startDate: :desc)
+    @events = @user.events.order(startDate: :asc)
     render json: @events, status: 201
   end
 

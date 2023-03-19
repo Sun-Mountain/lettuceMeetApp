@@ -9,7 +9,7 @@ import { useAlertStore, useEventStore } from '@/stores';
 const startDate = ref();
 
 const schema = Yup.object().shape({
-  eventTitle: Yup.string().required('Title required.'),
+  eventTitle: Yup.string().required('Title required.')
 })
 
 async function onSubmit(values) {
@@ -39,7 +39,7 @@ async function onSubmit(values) {
       </div>
       <div>
         <label>Start Date</label>
-        <VueDatePicker v-model="startDate" :min-date="new Date()" :enable-time-picker="false" />
+        <VueDatePicker v-model="startDate" :min-date="new Date()" :enable-time-picker="false" name="startDate" />
       </div>
       <div>
         <label>Description</label>

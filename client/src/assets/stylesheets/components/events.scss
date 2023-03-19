@@ -1,0 +1,9 @@
+.card-container {
+  .event-card {
+    padding: 20px 0;
+  }
+
+  .event-card:not(:first-child) {
+    border-top: 1px solid $event-card-border;
+  }
+}

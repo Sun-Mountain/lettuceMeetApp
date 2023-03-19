@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { router } from "@/router";
 
 import { fetchWrapper } from "@/helpers";
 import { useAlertStore, useAuthStore } from "@/stores";
@@ -19,6 +20,7 @@ export const useEventStore = defineStore({
         const userId = authStore.user.id;
         await fetchWrapper.post(`${baseUrl}/users/${userId}/events`, params);
         this.getAllUserEvents();
+        router.push(this.returnUrl || "/events");
       } catch (err) {
         alertStore.error(err);
       }

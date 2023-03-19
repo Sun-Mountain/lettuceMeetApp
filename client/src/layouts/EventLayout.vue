@@ -3,9 +3,9 @@
 
 <template>
   <div class="layout-with-subnav main-content-container">
-    <subnav class="subnav">
+    <div class="subnav">
       This is a subnav
-    </subnav>
+    </div>
     <div class="sub-content-container">
       <router-view />
     </div>
