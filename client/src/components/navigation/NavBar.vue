@@ -1,7 +1,9 @@
 <script setup>
 import { useAuthStore } from "@/stores";
+import { ref } from 'vue';
 
 const authStore = useAuthStore();
+const drawer = ref(false);
 </script>
 
 <template>
@@ -66,12 +68,4 @@ const authStore = useAuthStore();
     </v-navigation-drawer>
   </nav>
 </template>
-
-<script>
-export default {
-  data: () => ({
-    drawer: false
-  })
-}
-</script>
 
