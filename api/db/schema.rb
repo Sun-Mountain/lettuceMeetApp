@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_201544) do
     t.string "eventTitle", null: false
     t.text "description"
     t.boolean "private", default: false, null: false
-    t.boolean "allDay", default: false, null: false
+    t.boolean "allDay", default: true, null: false
     t.date "startDate", null: false
     t.date "endDate"
     t.time "startTime"

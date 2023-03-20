@@ -10,8 +10,10 @@ class Event < ApplicationRecord
   private
 
   def assign_event_uid
-    str = self.startDate.to_s + self.eventTitle
-    self.uid = CGI.escape(str)
+    loop do
+      self.uid = SecureRandom.hex(10)
+      break self.uid unless Event.where(uid: uid).exists?
+    end
   end
 
   def parse_date

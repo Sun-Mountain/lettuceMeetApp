@@ -40,6 +40,19 @@ export const useEventStore = defineStore({
         alertStore.error(err);
       }
       return this.events;
+    },
+    async getEventById(eventId) {
+      const alertStore = useAlertStore();
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.user.id;
+        const event = await fetchWrapper.get(
+          `${baseUrl}users/${userId}/events/${eventId}`
+        );
+        this.stagedEvent = event;
+      } catch (error) {
+        alertStore.error(error);
+      }
     }
   }
 })

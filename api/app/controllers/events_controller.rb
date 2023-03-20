@@ -2,7 +2,6 @@
 
 class EventsController < ApplicationController
   before_action :find_user
-  before_action :find_event, only: %i[show update destroy]
 
   def index
     @events = @user.events.order(startDate: :asc)
@@ -10,11 +9,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    if @event
-      render json: @event, status: 201
-    else
-      render json: { err: @event.errors.full_messages }, status: 503
-    end
+    @event = Event.find_by(uid: params[:id])
+    render json: @event, status: 201
   end
 
   def create
