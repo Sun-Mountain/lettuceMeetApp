@@ -2,6 +2,7 @@
 
 class EventsController < ApplicationController
   before_action :find_user
+  before_action :find_event, only: %i[show update destroy]
 
   def index
     @events = @user.events.order(startDate: :asc)
@@ -9,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(uid: params[:id])
     render json: @event, status: 201
   end
 

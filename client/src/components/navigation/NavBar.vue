@@ -21,10 +21,10 @@ const drawer = ref(false);
       <v-spacer />
       <v-tabs class="d-none d-sm-none d-md-flex">
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/login" v-show="!authStore.user">
+        <v-tab to="login" v-show="!authStore.user">
           Login
         </v-tab>
-        <v-tab to="/register" v-show="!authStore.user">
+        <v-tab to="register" v-show="!authStore.user">
           Register
         </v-tab>
         <v-tab id="events" to="events" v-show="authStore.user">

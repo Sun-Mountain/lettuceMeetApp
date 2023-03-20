@@ -14,6 +14,7 @@ const { stagedEvent } = storeToRefs(eventStore);
 
 <template>
   <div>
+    <h2>{{ stagedEvent.eventTitle }}</h2>
     {{ stagedEvent }}
   </div>
 </template>
