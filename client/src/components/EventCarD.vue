@@ -15,7 +15,9 @@ console.log(event.value)
         <h2>
           {{ event.eventTitle }}
         </h2>
-        {{ event.startDate }}
+        <div class="event-card-dates">
+          {{ event.startDate }}
+        </div>
         {{ event }}
       </div>
     </router-link>

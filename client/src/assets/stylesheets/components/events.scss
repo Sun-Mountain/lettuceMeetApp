@@ -4,8 +4,19 @@
     text-decoration: none;
   }
 
+  .event-card-content {
+    border-radius: 15px;
+    padding: 5px 10px;
+  }
+
   .card-container {
-    padding: 20px 0;
+    padding: 15px 0;
+  }
+
+  .card-container:hover {
+    .event-card-content {
+      background-color: $event-card-hover-bg;
+    }
   }
 
   .card-container:not(:first-child) {
