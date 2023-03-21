@@ -1,9 +1,15 @@
-.card-container {
+.cards-list-container {
   .event-card {
+    color: $event-font-color;
+    text-decoration: none;
+  }
+
+  .card-container {
     padding: 20px 0;
   }
 
-  .event-card:not(:first-child) {
+  .card-container:not(:first-child) {
     border-top: 1px solid $event-card-border;
   }
 }
+

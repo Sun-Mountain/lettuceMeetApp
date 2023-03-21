@@ -14,7 +14,7 @@ const { events } = storeToRefs(eventStore);
 <template>
   <div id="event-manager">
     <h1>You have {{ events.length }} upcoming events</h1>
-    <div class="card-container">
+    <div class="cards-list-container">
       <EventCard v-for="event in events" :key="event.uid" :event="event" />
     </div>
   </div>

@@ -4,10 +4,11 @@ import { storeToRefs } from 'pinia'
 import { useEventStore } from "@/stores";
 
 const route = useRoute();
+const uid = route.params.uid;
 const eventStore = useEventStore();
 const { getEventById } = eventStore;
 
-getEventById(route.params.uid);
+getEventById(uid);
 
 const { stagedEvent } = storeToRefs(eventStore);
 </script>
