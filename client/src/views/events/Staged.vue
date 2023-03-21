@@ -11,6 +11,7 @@ const { getEventById, cancelEvent } = eventStore;
 getEventById(uid);
 
 const { stagedEvent } = storeToRefs(eventStore);
+const editLink = `edit/${uid}`;
 
 async function cancelStaged() {
   cancelEvent(uid);
@@ -26,6 +27,9 @@ async function cancelStaged() {
           {{ stagedEvent.startDate }}
         </div>
         <div>
+          <router-link :to="editLink">
+            Edit
+          </router-link>
           <v-btn
             variant="plain"
             color="error"

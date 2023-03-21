@@ -8,5 +8,6 @@ export default {
     { path: "", name: "upcoming", component: Manager },
     { path: "past", name: "past", component: () => import("@/views/events/Past") },
     { path: ":uid", name: "staged", component: () => import("@/views/events/Staged.vue"), props: true },
+    { path: "edit/:uid", name: "editEvent/:uid", component: () => import("@/views/events/Edit.vue"), props: true },
   ]
 }
