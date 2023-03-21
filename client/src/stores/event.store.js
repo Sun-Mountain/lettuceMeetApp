@@ -18,9 +18,10 @@ export const useEventStore = defineStore({
       const authStore = useAuthStore();
       try {
         const userId = authStore.user.id;
-        await fetchWrapper.post(`${baseUrl}/users/${userId}/events`, params);
+        await fetchWrapper.post(`${baseUrl}users/${userId}/events`, params);
         this.getAllUserEvents();
         router.push(this.returnUrl || "/events");
+        alertStore.success('Event created!')
       } catch (err) {
         alertStore.error(err);
       }
@@ -32,7 +33,7 @@ export const useEventStore = defineStore({
       try {
         const userId = authStore.user.id;
         const events = await fetchWrapper.get(
-          `${baseUrl}/users/${userId}/events`
+          `${baseUrl}users/${userId}/events`
         );
         this.events = events;
         localStorage.setItem("events", JSON.stringify(events));
@@ -50,6 +51,18 @@ export const useEventStore = defineStore({
           `${baseUrl}users/${userId}/events/${eventId}`
         );
         this.stagedEvent = event;
+      } catch (error) {
+        alertStore.error(error);
+      }
+    },
+    async cancelEvent(eventId) {
+      const alertStore = useAlertStore();
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.user.id;
+        await fetchWrapper.delete(`${baseUrl}users/${userId}/events/${eventId}`);
+        router.push(this.returnUrl || "/events");
+        alertStore.success('Event deleted!')
       } catch (error) {
         alertStore.error(error);
       }

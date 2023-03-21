@@ -26,6 +26,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    return if @event.destroy
+    render json: { err: @event.errors.full_messages }, status: 503
   end
 
   private

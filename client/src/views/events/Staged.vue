@@ -6,16 +6,38 @@ import { useEventStore } from "@/stores";
 const route = useRoute();
 const uid = route.params.uid;
 const eventStore = useEventStore();
-const { getEventById } = eventStore;
+const { getEventById, cancelEvent } = eventStore;
 
 getEventById(uid);
 
 const { stagedEvent } = storeToRefs(eventStore);
+
+async function cancelStaged() {
+  cancelEvent(uid);
+}
 </script>
 
 <template>
   <div>
-    <h2>{{ stagedEvent.eventTitle }}</h2>
-    {{ stagedEvent }}
+    <div class="staged-event-header">
+      <h2>{{ stagedEvent.eventTitle }}</h2>
+      <div class="staged-event-byline">
+        <div>
+          {{ stagedEvent.startDate }}
+        </div>
+        <div>
+          <v-btn
+            variant="plain"
+            color="error"
+            @click="cancelStaged()"
+          >
+            Cancel Event
+          </v-btn>
+        </div>
+      </div>
+    </div>
+    <div class="staged-event-details">
+      {{ stagedEvent }}
+    </div>
   </div>
 </template>
