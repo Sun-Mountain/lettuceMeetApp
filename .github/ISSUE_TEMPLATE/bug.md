@@ -1,6 +1,6 @@
 ---
 name: Bug
-about: 'If something isn't working as expected :disappointed:.'
+about: 'If something is not working as expected :disappointed:.'
 title: ':bug: :: [INSERT BRIEF DESCRIPTION OF BUG]'
 labels: development, bug
 assignees: ''
