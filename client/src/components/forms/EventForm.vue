@@ -1,12 +1,46 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, toRefs } from 'vue';
+import { storeToRefs } from 'pinia';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
 import { useAlertStore, useEventStore } from '@/stores';
-// import { router } from '@/router';
 
-const startDate = ref();
+const eventStore = useEventStore();
+
+const props = defineProps({
+  uid: String
+});
+const { uid } = toRefs(props);
+const editUid = uid.value;
+
+var eventInfo = {
+  formTitleTxt: 'Create Event',
+  btnTxt: 'Create Event'
+};
+
+(function ifEditing () {
+  if (editUid) {
+    eventStore.getEventById(editUid);
+    const { stagedEvent } = storeToRefs(eventStore);
+    const eventValue = stagedEvent.value;
+
+    var newEventInfo = {
+      description: eventValue.description,
+      eventTitle: eventValue.eventTitle,
+      startDate: eventValue.startDate,
+      formTitleTxt: `Edit ${eventValue.eventTitle}`,
+      btnTxt: 'Save Event'
+    }
+
+    return eventInfo = newEventInfo;
+  }
+})();
+
+const formTitle = eventInfo.formTitleTxt;
+const BtnText = eventInfo.btnTxt;
+
+const startDate = ref(eventInfo.startDate);
 
 const schema = Yup.object().shape({
   eventTitle: Yup.string().required('Title required.')
@@ -17,8 +51,11 @@ async function onSubmit(values) {
   const alertStore = useAlertStore();
   values.startDate = startDate.value;
   try {
-    console.log(values);
-    eventStore.createEvent(values);
+    if (editUid) {
+      eventStore.updateEvent(editUid, values);
+    } else {
+      eventStore.createEvent(values);
+    }
   } catch (err) {
     alertStore.error(err);
   }
@@ -28,10 +65,10 @@ async function onSubmit(values) {
 <template>
   <v-card
     class="form-container"
-    title="Create Event"
+    :title="formTitle"
     variant="outlined"
   >
-    <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
+    <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }" :initial-values="eventInfo">
       <div>
         <label>Title</label>
         <Field name="eventTitle" type="text" class="form-control" :class="{ 'is-invalid': errors.eventTitle }" />
@@ -48,7 +85,7 @@ async function onSubmit(values) {
       <div class="btn-container">
         <button class="btn btn-primary" :disabled="isSubmitting">
             <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
-            Create Event
+            {{ BtnText }}
         </button>
       </div>
     </Form>
