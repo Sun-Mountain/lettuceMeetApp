@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   before_create :assign_event_uid
   # before_save :parse_date
 
-  validates :eventTitle, :startDate, :user, presence: true, on: :create
+  validates :eventTitle, :startDate, :user, presence: true
 
   private
 
