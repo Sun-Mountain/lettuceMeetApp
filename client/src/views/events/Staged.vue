@@ -1,6 +1,6 @@
 <script setup>
-import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
 import { useEventStore } from "@/stores";
 
 const route = useRoute();

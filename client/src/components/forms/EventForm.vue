@@ -1,28 +1,46 @@
 <script setup>
 import { ref, toRefs } from 'vue';
+import { storeToRefs } from 'pinia';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
 import { useAlertStore, useEventStore } from '@/stores';
 
+const eventStore = useEventStore();
+
 const props = defineProps({
   uid: String
 });
-
 const { uid } = toRefs(props);
-
 const editUid = uid.value;
 
-const titleText = () => {
+var eventInfo = {
+  formTitleTxt: 'Create Event',
+  btnTxt: 'Create Event'
+};
+
+(function ifEditing () {
   if (editUid) {
-    return 'Edit'
+    eventStore.getEventById(editUid);
+    const { stagedEvent } = storeToRefs(eventStore);
+    const eventValue = stagedEvent.value;
+
+    var newEventInfo = {
+      description: eventValue.description,
+      eventTitle: eventValue.eventTitle,
+      startDate: eventValue.startDate,
+      formTitleTxt: `Edit ${eventValue.eventTitle}`,
+      btnTxt: 'Save Event'
+    }
+
+    return eventInfo = newEventInfo;
   }
-  return 'Create Event'
-}
+})();
 
-const formTitle = titleText()
+const formTitle = eventInfo.formTitleTxt;
+const BtnText = eventInfo.btnTxt;
 
-const startDate = ref();
+const startDate = ref(eventInfo.startDate);
 
 const schema = Yup.object().shape({
   eventTitle: Yup.string().required('Title required.')
@@ -46,7 +64,7 @@ async function onSubmit(values) {
     :title="formTitle"
     variant="outlined"
   >
-    <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
+    <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }" :initial-values="eventInfo">
       <div>
         <label>Title</label>
         <Field name="eventTitle" type="text" class="form-control" :class="{ 'is-invalid': errors.eventTitle }" />
@@ -63,7 +81,7 @@ async function onSubmit(values) {
       <div class="btn-container">
         <button class="btn btn-primary" :disabled="isSubmitting">
             <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
-            Create Event
+            {{ BtnText }}
         </button>
       </div>
     </Form>
