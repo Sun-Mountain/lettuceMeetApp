@@ -51,7 +51,11 @@ async function onSubmit(values) {
   const alertStore = useAlertStore();
   values.startDate = startDate.value;
   try {
-    eventStore.createEvent(values);
+    if (editUid) {
+      eventStore.updateEvent(editUid, values);
+    } else {
+      eventStore.createEvent(values);
+    }
   } catch (err) {
     alertStore.error(err);
   }
