@@ -7,11 +7,10 @@ const route = useRoute();
 const uid = route.params.uid;
 const eventStore = useEventStore();
 const { getEventById, cancelEvent } = eventStore;
-
 getEventById(uid);
 
 const { stagedEvent } = storeToRefs(eventStore);
-const editLink = `edit/${uid}`;
+const editLink = `${uid}/edit`;
 
 async function cancelStaged() {
   cancelEvent(uid);

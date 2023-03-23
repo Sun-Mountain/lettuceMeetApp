@@ -1,10 +1,26 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, toRefs } from 'vue';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
 import { useAlertStore, useEventStore } from '@/stores';
-// import { router } from '@/router';
+
+const props = defineProps({
+  uid: String
+});
+
+const { uid } = toRefs(props);
+
+const editUid = uid.value;
+
+const titleText = () => {
+  if (editUid) {
+    return 'Edit'
+  }
+  return 'Create Event'
+}
+
+const formTitle = titleText()
 
 const startDate = ref();
 
@@ -17,7 +33,6 @@ async function onSubmit(values) {
   const alertStore = useAlertStore();
   values.startDate = startDate.value;
   try {
-    console.log(values);
     eventStore.createEvent(values);
   } catch (err) {
     alertStore.error(err);
@@ -28,7 +43,7 @@ async function onSubmit(values) {
 <template>
   <v-card
     class="form-container"
-    title="Create Event"
+    :title="formTitle"
     variant="outlined"
   >
     <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">

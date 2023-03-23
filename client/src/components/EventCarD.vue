@@ -5,7 +5,6 @@ const props = defineProps({
 })
 const { event } = toRefs(props);
 const eventLink = `events/${event.value.uid}`;
-console.log(event.value)
 </script>
 
 <template>
