@@ -1,7 +1,9 @@
 <script setup>
 import { useAuthStore } from "@/stores";
+import { ref } from 'vue';
 
 const authStore = useAuthStore();
+const drawer = ref(false);
 </script>
 
 <template>
@@ -11,17 +13,24 @@ const authStore = useAuthStore();
       elevation="0"
       style="position:relative"
     >
-      <v-toolbar-title>My files</v-toolbar-title>
+      <div class="nav_logo_container">
+        <router-link to="/">
+          <img src="@/assets/images/lettuce_nav_logo.png" class="logo" />
+        </router-link>
+      </div>
       <v-spacer />
       <v-tabs class="d-none d-sm-none d-md-flex">
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/login" v-show="!authStore.user">
+        <v-tab to="login" v-show="!authStore.user">
           Login
         </v-tab>
-        <v-tab to="/register" v-show="!authStore.user">
+        <v-tab to="register" v-show="!authStore.user">
           Register
         </v-tab>
-        <v-tab to="profile" v-show="authStore.user">
+        <v-tab id="events" to="events" v-show="authStore.user">
+          Events
+        </v-tab>
+        <v-tab id="profile" to="profile" v-show="authStore.user">
           Profile
         </v-tab>
         <v-tab 
@@ -59,12 +68,4 @@ const authStore = useAuthStore();
     </v-navigation-drawer>
   </nav>
 </template>
-
-<script>
-export default {
-  data: () => ({
-    drawer: false
-  })
-}
-</script>
 
