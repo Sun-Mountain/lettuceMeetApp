@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Auth Requests', type: :request do
   describe 'POST /users' do
     let(:register_url) { '/users' }
 
