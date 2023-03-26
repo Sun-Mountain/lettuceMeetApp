@@ -25,7 +25,6 @@ class EventsController < ApplicationController
   def update
     return if @event&.update(event_params)
 
-
     render json: { err: @event.errors.full_messages }, status: 503
   end
 
