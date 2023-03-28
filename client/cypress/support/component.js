@@ -17,6 +17,7 @@
 import vuetify from '@/plugins/vuetify';
 import './commands';
 import '@/plugins/support';
+import { createTestingPinia } from '@pinia/testing'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -25,7 +26,7 @@ import { mount } from 'cypress/vue'
 
 Cypress.Commands.add('mount', (component) => {
   return mount(component, {
-    global: { plugins: [vuetify] }
+    global: { plugins: [vuetify, createTestingPinia({ createSpy: () => cy.spy() })] }
   })
 })
 
