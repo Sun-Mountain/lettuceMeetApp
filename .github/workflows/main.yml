@@ -7,26 +7,28 @@ on:
 
 jobs:
   build:
-    name: "Build and Test API"
+    name: API
     runs-on: ubuntu-latest
     env:
       api-dir: ./api 
+
     services:
       postgres:
         image: postgres:11.6
         ports: ["5432:5432"]
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
       redis:
         image: redis
         ports: ["6379:6379"]
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.3
+
       - name: Install PostgreSQL
         run: sudo apt-get -yqq install libpq-dev
+
       - name: Run bundle install
         working-directory: ${{env.api-dir}}
         run: |
