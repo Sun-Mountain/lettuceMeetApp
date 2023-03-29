@@ -49,7 +49,7 @@ jobs:
     name: Build and Test Client
     runs-on: ubuntu-latest
     env:
-      api-dir: ./client 
+      client-dir: ./client 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
