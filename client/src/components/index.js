@@ -6,6 +6,6 @@ export { default as EventSubNav } from "./navigation/EventSubNav.vue";
 export { default as RegisterUserForm } from './forms/RegisterUser.vue';
 export { default as LoginUserForm } from './forms/LoginUser.vue';
 
-export { default as EventCard } from './EventCard.vue';
+export { default as EventCard } from './SingleEventCard.vue';
 
 export { default as EventForm } from './forms/EventForm.vue';

@@ -6,12 +6,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    name: API
+  build-api:
+    name: Build and Test Rails API
     runs-on: ubuntu-latest
     env:
       api-dir: ./api 
-
     services:
       postgres:
         image: postgres:11.6
@@ -19,16 +18,13 @@ jobs:
       redis:
         image: redis
         ports: ["6379:6379"]
-
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.3
-
       - name: Install PostgreSQL
         run: sudo apt-get -yqq install libpq-dev
-
       - name: Run bundle install
         working-directory: ${{env.api-dir}}
         run: |
@@ -41,7 +37,6 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
         run: bin/rails db:create db:schema:load
-
       - name: Build and test with rspec
         working-directory: ${{env.api-dir}}
         env:
@@ -49,6 +44,21 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
         run: bundle exec rspec spec
+
+  build-client:
+    name: Build and Test Client
+    runs-on: ubuntu-latest
+    env:
+      api-dir: ./client 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          start: yarn dev
+          component: true
+
   auto-tag:
     runs-on: ubuntu-latest
     steps:

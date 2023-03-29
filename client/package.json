@@ -22,7 +22,9 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
+    "@pinia/testing": "^0.0.15",
     "@vitejs/plugin-vue": "^3.0.3",
+    "cypress": "^12.8.1",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
     "sass": "^1.55.0",
