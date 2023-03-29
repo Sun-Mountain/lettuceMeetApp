@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :find_event, only: %i[show update destroy]
 
   def index
-    @events = Event.all.order(startDate: :asc).partition { |e| e.startDate < Date.today() }
+    @events = Event.all.where(user_id: @user.id).order(startDate: :asc).partition { |e| e.startDate < Date.today() }
     render json: { past: @events[0], upcoming: @events[1] }, status: 201
   end
 
