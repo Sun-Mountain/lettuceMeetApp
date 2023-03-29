@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  api:
     name: API
     runs-on: ubuntu-latest
     env:
@@ -21,7 +21,7 @@ jobs:
         ports: ["6379:6379"]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.3
@@ -34,6 +34,7 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+
       - name: Setup Database
         working-directory: ${{env.api-dir}}
         env:
@@ -49,6 +50,7 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
         run: bundle exec rspec spec
+
   auto-tag:
     runs-on: ubuntu-latest
     steps:
