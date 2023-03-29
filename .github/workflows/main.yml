@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-api:
+  build:
     name: "Build and Test API"
     runs-on: ubuntu-latest
     env:
