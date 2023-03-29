@@ -10,6 +10,7 @@ export const useEventStore = defineStore({
   id: "events",
   state: () => ({
     events: JSON.parse(localStorage.getItem("events")),
+    pastEvents: JSON.parse(localStorage.getItem("pastEvents")),
     stagedEvent: {}
   }),
   actions: {
@@ -35,7 +36,9 @@ export const useEventStore = defineStore({
         const events = await fetchWrapper.get(
           `${baseUrl}users/${userId}/events`
         );
-        this.events = events;
+        console.log(events);
+        this.events = events.upcoming;
+        this.pastEvents = events.past;
         localStorage.setItem("events", JSON.stringify(events));
       } catch (err) {
         alertStore.error(err);
