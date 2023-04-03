@@ -39,6 +39,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
 
+  gem 'bundler-audit'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'dotenv-rails'
