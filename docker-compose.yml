@@ -5,6 +5,8 @@ services:
   db:
     image: postgres:14
     command: postgres -c 'max_connections=250'
+    env_file:
+      - ./api/.env
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=changeme
@@ -26,6 +28,8 @@ services:
     depends_on:
       - db
       - redis
+    env_file:
+      - ./api/.env
     environment:
       - DATABASE_URL=postgresql://db/lettuceMeetApp_development
       - REDIS_URL=redis://redis:6397

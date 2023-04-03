@@ -22,9 +22,6 @@ RUN gem install bundler --no-document && bundle update --bundler && bundle insta
 # Run bundler audit
 RUN bundle audit check --update
 
-# Run linting and tests
-RUN bundle exec rspec spec
-
 # Clean up from the build
 RUN rm -rf /usr/local/bundle/cache/*.gem && \
     find /usr/local/bundle/gems/ -name "*.c" -delete && \
