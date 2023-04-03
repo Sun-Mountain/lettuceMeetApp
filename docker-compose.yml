@@ -20,6 +20,23 @@ services:
     ports:
       - "6379:6379"
 
+  test-api:
+    build: ./api
+    platform: linux/x86_64
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - ./api/.env
+    environment:
+      - DATABASE_URL=postgresql://db/lettuceMeetApp_test
+      - DB_USER=postgres
+      - DB_PASS=changeme
+    volumes:
+      - rails_log:/api/log
+    command: "bundle exec rspec spec"
+
   api:
     build: ./api
     platform: linux/x86_64
@@ -28,6 +45,7 @@ services:
     depends_on:
       - db
       - redis
+      - test-api
     env_file:
       - ./api/.env
     environment:
@@ -37,6 +55,7 @@ services:
       - DB_PASS=changeme
     volumes:
       - rails_log:/api/log
+
   
   client:
     build: ./client
