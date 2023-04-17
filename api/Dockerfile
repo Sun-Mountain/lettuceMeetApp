@@ -27,7 +27,7 @@ RUN rm -rf /usr/local/bundle/cache/*.gem && \
     find /usr/local/bundle/gems/ -name "*.c" -delete && \
     find /usr/local/bundle/gems/ -name "*.o" -delete
 
-FROM ruby:3.0.3-alpine
+FROM ruby:3.0.3-alpine AS ruby_server
 
 # Install app dependencies
 RUN apk add --no-cache postgresql-client nodejs tzdata libsodium-dev
