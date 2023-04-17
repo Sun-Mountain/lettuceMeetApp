@@ -45,11 +45,11 @@ jobs:
           PGUSER: postgres
         run: bundle exec rspec spec
 
-  build-client:
-    name: Build and Test Client
+  build-frontend:
+    name: Build and Test Frontend
     runs-on: ubuntu-latest
     env:
-      api-dir: ./client 
+      api-dir: ./frontend 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
