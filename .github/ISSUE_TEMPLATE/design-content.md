@@ -1,7 +1,7 @@
 ---
 name: Design or Content
 about: 'Changes to the UX/UI or content of app :sunrise_over_mountains:'
-title: '[DESIGN] - [INSERT BRIEF DESCRIPTION OF CHANGES]'
+title: '#[Issue Number] [Design] - [INSERT BRIEF DESCRIPTION OF CHANGES]'
 labels: design, content
 assignees: ''
 ---

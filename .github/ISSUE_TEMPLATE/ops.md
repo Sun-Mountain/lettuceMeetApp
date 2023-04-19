@@ -1,7 +1,7 @@
 ---
 name: Ops
 about: 'Anything and everything related to deployment :computer:'
-title: '[DEV-OPS] - [INSERT BRIEF DESCRIPTION OF JOB]'
+title: '#[Issue Number] [Dev-Ops] - [INSERT BRIEF DESCRIPTION OF JOB]'
 labels: devops
 assignees: ''
 ---

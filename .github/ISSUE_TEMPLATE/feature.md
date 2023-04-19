@@ -1,7 +1,7 @@
 ---
 name: Feature
 about: 'Exciting New Features.'
-title: '[FEATURE] - [INSERT BRIEF DESCRIPTION OF FEATURE]'
+title: '#[Issue Number] [Feature] - [INSERT BRIEF DESCRIPTION OF FEATURE]'
 labels: development, enhancement
 assignees: ''
 ---

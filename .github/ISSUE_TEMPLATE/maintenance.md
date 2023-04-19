@@ -1,7 +1,7 @@
 ---
 name: Maintenance
 about: 'Fixing something :hammer:'
-title: '[MAINTENANCE] - [INSERT BRIEF DESCRIPTION OF JOB]'
+title: '#[Issue Number] [Maintenance] - [INSERT BRIEF DESCRIPTION OF JOB]'
 labels: maintenance
 assignees: ''
 ---

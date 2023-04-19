@@ -20,7 +20,6 @@ changelog:
     - title: 🔧 Fixes Applied
       labels:
         - maintenance
-        - refactor
     - title: ⚙️ Behind the Scenes
       labels:
         - '*'
