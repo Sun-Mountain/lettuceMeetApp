@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { router } from "@/router";
 
 import { fetchWrapper } from "@/helpers";
-import { useAlertStore, useAuthStore } from "@/stores";
+import { useAlertStore, useAuthStore, useLoadingStore } from "@/stores";
 
 const baseUrl = `${import.meta.env.VITE_API_URL}`;
 
@@ -16,6 +16,8 @@ export const useEventStore = defineStore({
     async createEvent(params) {
       const alertStore = useAlertStore();
       const authStore = useAuthStore();
+      const loadingStore = useLoadingStore();
+      loadingStore.isLoading();
       try {
         const userId = authStore.user.id;
         await fetchWrapper.post(`${baseUrl}users/${userId}/events`, params);
@@ -25,11 +27,14 @@ export const useEventStore = defineStore({
       } catch (err) {
         alertStore.error(err);
       }
+      loadingStore.clearLoading();
       return this.events;
     },
     async getAllUserEvents() {
       const alertStore = useAlertStore();
       const authStore = useAuthStore();
+      const loadingStore = useLoadingStore();
+      loadingStore.isLoading();
       try {
         const userId = authStore.user.id;
         const events = await fetchWrapper.get(
@@ -40,11 +45,14 @@ export const useEventStore = defineStore({
       } catch (err) {
         alertStore.error(err);
       }
+      loadingStore.clearLoading();
       return this.events;
     },
     async getEventById(eventId) {
       const alertStore = useAlertStore();
       const authStore = useAuthStore();
+      const loadingStore = useLoadingStore();
+      loadingStore.isLoading();
       try {
         const userId = authStore.user.id;
         const event = await fetchWrapper.get(
@@ -54,10 +62,13 @@ export const useEventStore = defineStore({
       } catch (error) {
         alertStore.error(error);
       }
+      loadingStore.clearLoading();
     },
     async updateEvent(eventId, values) {
       const alertStore = useAlertStore();
       const authStore = useAuthStore();
+      const loadingStore = useLoadingStore();
+      loadingStore.isLoading();
       try {
         const userId = authStore.user.id;
         const event = await fetchWrapper.put(
@@ -68,10 +79,13 @@ export const useEventStore = defineStore({
       } catch (error) {
         alertStore.error(error);
       }
+      loadingStore.clearLoading();
     },
     async cancelEvent(eventId) {
       const alertStore = useAlertStore();
       const authStore = useAuthStore();
+      const loadingStore = useLoadingStore();
+      loadingStore.isLoading();
       try {
         const userId = authStore.user.id;
         await fetchWrapper.delete(`${baseUrl}users/${userId}/events/${eventId}`);
@@ -80,6 +94,7 @@ export const useEventStore = defineStore({
       } catch (error) {
         alertStore.error(error);
       }
+      loadingStore.clearLoading();
     }
   }
 })
