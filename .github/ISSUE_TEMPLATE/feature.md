@@ -23,3 +23,7 @@ assignees: ''
 | Given | When | Then | Covered |
 | ----- | ---- | ---- | ------- |
 |       |      |      |         |
+
+### This issue blocks or is blocked by:
+
+- Issue/PR #

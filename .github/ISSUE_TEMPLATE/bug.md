@@ -21,7 +21,7 @@ assignees: ''
 ### Environment
 
 - [ ] All
-- [ ] PR #\_\_\_\_
+- [ ] PR #
 - [ ] Staging
 - [ ] Production
 
@@ -32,11 +32,12 @@ assignees: ''
 - [ ] Chrome
 - [ ] IE
 
-**Cypress test created OR Ticket for cypress test created-**
+## This issue blocks or is blocked by:
+
+- Issue/PR #
 
 **Related user story/bug-** (if applicable)
 
 **Additional information-** (optional)
 
-**Logs or error output/Screenshot/Video-** (at least 1 of these)
-
+**Logs or error output/Screenshot/Video-**
