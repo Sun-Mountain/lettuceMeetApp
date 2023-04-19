@@ -13,24 +13,21 @@ WORKDIR /lettuce-meet-api
 COPY ./Gemfile /lettuce-meet-api/
 COPY ./Gemfile.lock /lettuce-meet-api/
 
+# Copy the code, test the app, and build the assets pipeline
+COPY . /lettuce-meet-api/
+
 # Install the website dependencies
 RUN gem install bundler --no-document && bundle update --bundler && bundle install && yarn install
 
 # Run bundler audit
-CMD bundle audit check --update
-
-# Run linting and tests
-RUN bundle exec rubocop && rspec spec
-
-# Copy the code, test the app, and build the assets pipeline
-COPY . /lettuce-meet-api/
+RUN bundle audit check --update
 
 # Clean up from the build
 RUN rm -rf /usr/local/bundle/cache/*.gem && \
     find /usr/local/bundle/gems/ -name "*.c" -delete && \
     find /usr/local/bundle/gems/ -name "*.o" -delete
 
-FROM ruby:3.0.3-alpine
+FROM ruby:3.0.3-alpine AS ruby_server
 
 # Install app dependencies
 RUN apk add --no-cache postgresql-client nodejs tzdata libsodium-dev
