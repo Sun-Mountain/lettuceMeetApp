@@ -1,7 +1,7 @@
 ---
 name: 
 about: 'I have a suggestion (and may want to implement it :smiley:).'
-title: ':boom: :: [INSERT BRIEF DESCRIPTION OF REQUEST]'
+title: '[REQUEST] - [INSERT BRIEF DESCRIPTION OF REQUEST]'
 labels: request
 assignees: ''
 ---

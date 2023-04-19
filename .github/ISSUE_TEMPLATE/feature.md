@@ -1,7 +1,7 @@
 ---
 name: Feature
 about: 'Exciting New Features.'
-title: ':rocket: :: [INSERT BRIEF DESCRIPTION OF FEATURE]'
+title: '[FEATURE] - [INSERT BRIEF DESCRIPTION OF FEATURE]'
 labels: development, enhancement
 assignees: ''
 ---

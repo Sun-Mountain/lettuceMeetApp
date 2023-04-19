@@ -1,7 +1,7 @@
 ---
 name: Maintenance
 about: 'Fixing something :hammer:'
-title: ':wrench: :: [INSERT BRIEF DESCRIPTION OF JOB]'
+title: '[MAINTENANCE] - [INSERT BRIEF DESCRIPTION OF JOB]'
 labels: maintenance
 assignees: ''
 ---
