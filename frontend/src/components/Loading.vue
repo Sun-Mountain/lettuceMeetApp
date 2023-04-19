@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    Loading ...
+  <div id="loading">
+    <font-awesome-icon :icon="['fas', 'spinner']" size="2xl" style="color: #5ec379;" />
   </div>
 </template>

@@ -45,7 +45,7 @@ export const useEventStore = defineStore({
       } catch (err) {
         alertStore.error(err);
       }
-      loadingStore.clearLoading();
+      // loadingStore.clearLoading();
       return this.events;
     },
     async getEventById(eventId) {
