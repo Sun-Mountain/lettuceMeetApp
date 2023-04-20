@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :events
+    get 'public_events', action: :public_events, controller: 'events'
   end
 
   post '/auth/login', to: 'authentication#login'

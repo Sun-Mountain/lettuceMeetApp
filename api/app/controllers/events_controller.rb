@@ -33,6 +33,11 @@ class EventsController < ApplicationController
     render json: { err: @event.errors.full_messages }, status: 503
   end
 
+  def all_public
+    @public_events = Event.all.where(private: false).order(startDate: :asc).partition { |e| e.startDate < Date.today() }
+    render json: { past: @public_events[0], upcoming: @public_events[1] }, status: 201
+  end
+
   private
 
   def event_params
