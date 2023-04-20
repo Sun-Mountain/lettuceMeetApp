@@ -50,11 +50,11 @@ nav {
 #events-manager-navigation {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: space-between;
   padding: 1rem 1rem 0 1rem;
   width: 100%;
 
-  a, a:visited {
+  #newEvent, #newEvent:visited {
     background-color: $btn-bg-color;
     border-radius: 5px;
     color: $btn-txt-color;
@@ -63,7 +63,20 @@ nav {
     text-decoration: none;
   }
 
-  a:hover {
+  #newEvent:hover {
     background-color: $btn-bg-color-hover;
+  }
+
+  #pastEvents, #pastEvents:visited {
+    border-bottom: 2px solid $link-color;
+    color: $link-color;
+    font-weight: 700;
+    padding: 5px 7px 5px 5px;
+    text-decoration: none;
+  }
+
+  #pastEvents:hover {
+    border-bottom: 2px solid $link-color-hover;
+    color: $link-color-hover;
   }
 }

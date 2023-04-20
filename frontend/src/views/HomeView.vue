@@ -18,6 +18,9 @@ console.log(publicEvents);
   <div>
     <div v-if="user">
       <div id="events-manager-navigation">
+        <router-link id="pastEvents" :to="{ name: 'past-public' }">
+          Past Events
+        </router-link>
         <router-link id="newEvent" :to="{ name: 'new' }">
           <v-icon icon="mdi-plus-circle"></v-icon>
           New Event
