@@ -1,6 +1,9 @@
 # release.yml
 
 changelog:
+  exclude:
+    labels:
+      - ignore-for-release
   categories:
     - title: 🚀 Exciting New Features
       labels:
@@ -14,13 +17,12 @@ changelog:
     - title: 🐛 Bugs Fixed
       labels:
         - bug
-    - title: ✅ Tests Added
+    - title: ✅ Testing
       labels:
         - tests
     - title: 🔧 Fixes Applied
       labels:
         - maintenance
-        - refactor
     - title: ⚙️ Behind the Scenes
       labels:
         - '*'

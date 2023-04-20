@@ -111,6 +111,20 @@ RSpec.describe 'Event Requests', type: :request do
     end
   end
 
+  describe 'GET /all_public' do
+    before do
+      events_id_url = "/users/#{user.id}/all_public"
+
+      get events_id_url, headers: { 'Authorization': @token }
+    end
+
+    context 'is successful' do
+      it 'returns 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+  end
+
   describe 'DELETE /events/:id' do
     context 'is successful' do
       before do
