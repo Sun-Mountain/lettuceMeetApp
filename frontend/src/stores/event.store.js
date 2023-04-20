@@ -51,9 +51,9 @@ export const useEventStore = defineStore({
       try {
         const userId = authStore.user.id;
         const publicEvents = await fetchWrapper.get(
-          `${baseUrl}users/${userId}/public_events`
+          `${baseUrl}users/${userId}/all_public`
         )
-        this.publicEvents = publicEvents;
+        this.publicEvents = publicEvents.upcoming;
       } catch (err) {
         alertStore.error(err);
       }
