@@ -11,6 +11,8 @@ export const useEventStore = defineStore({
   state: () => ({
     events: JSON.parse(localStorage.getItem("events")),
     pastEvents: JSON.parse(localStorage.getItem("pastEvents")),
+    publicEvents: JSON.parse(localStorage.getItem("publicEvents")),
+    publicPastEvents: JSON.parse(localStorage.getItem("publicPastEvents")),
     stagedEvent: {}
   }),
   actions: {
@@ -43,6 +45,19 @@ export const useEventStore = defineStore({
       }
       return this.events;
     },
+    async getAllPublicEvents() {
+      const alertStore = useAlertStore();
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.user.id;
+        const publicEvents = await fetchWrapper.get(
+          `${baseUrl}users/${userId}/public_events`
+        )
+        this.publicEvents = publicEvents;
+      } catch (err) {
+        alertStore.error(err);
+      }
+    },
     async getEventById(eventId) {
       const alertStore = useAlertStore();
       const authStore = useAuthStore();
@@ -52,8 +67,8 @@ export const useEventStore = defineStore({
           `${baseUrl}users/${userId}/events/${eventId}`
         );
         this.stagedEvent = event;
-      } catch (error) {
-        alertStore.error(error);
+      } catch (err) {
+        alertStore.error(err);
       }
     },
     async updateEvent(eventId, values) {
