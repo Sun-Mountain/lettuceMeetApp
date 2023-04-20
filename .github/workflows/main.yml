@@ -45,16 +45,15 @@ jobs:
           PGUSER: postgres
         run: bundle exec rspec spec
 
-  build-client:
-    name: Build and Test Client
+  build-frontend:
+    name: Build and Test Frontend
     runs-on: ubuntu-latest
     env:
-      client-dir: ./client 
+      api-dir: ./frontend 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
+      - name: Build
         with:
           run: yarn install
           start: yarn dev

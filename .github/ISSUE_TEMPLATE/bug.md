@@ -32,8 +32,6 @@ assignees: ''
 - [ ] Chrome
 - [ ] IE
 
-**Cypress test created OR Ticket for cypress test created-**
-
 **Related user story/bug-** (if applicable)
 
 **Additional information-** (optional)
