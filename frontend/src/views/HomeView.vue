@@ -11,7 +11,6 @@ const user = authStore.user;
 eventStore.getAllPublicEvents();
 
 const { publicEvents } = storeToRefs(eventStore);
-console.log(publicEvents);
 </script>
 
 <template>
