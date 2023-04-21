@@ -19,9 +19,9 @@ gem "redis", "~> 4.0"
 gem 'nokogiri', force_ruby_platform: true
 gem "rack-cors", require: 'rack/cors'
 gem 'sidekiq', '~> 7.0'
-gem 'sidekiq-scheduler', '~> 5.0'
-gem 'sidekiq-unique-jobs', '~> 7.1'
-gem 'sidekiq-bulk', '~> 0.2.0'
+# gem 'sidekiq-scheduler', '~> 5.0'
+# gem 'sidekiq-unique-jobs', '~> 7.1'
+# gem 'sidekiq-bulk', '~> 0.2.0'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
