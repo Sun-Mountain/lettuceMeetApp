@@ -9,8 +9,8 @@ RSpec.describe 'Auth Requests', type: :request do
     email = 'picard@gmail.com'
     let(:valid_user_params) do
       {
-        firstName: 'Jean Luc',
-        lastName: 'Picard',
+        first_name: 'Jean Luc',
+        last_name: 'Picard',
         preferredUsername: 'Captain Picard',
         email: email,
         password: 'password',
@@ -29,8 +29,8 @@ RSpec.describe 'Auth Requests', type: :request do
 
     let(:invalid_user_params) do
       {
-        firstName: 'Jean Luc',
-        lastName: 'Picard',
+        first_name: 'Jean Luc',
+        last_name: 'Picard',
         preferredUsername: 'Captain Picard',
         email: email,
         password: 'password',

@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  has_secure_password
   has_many :events
 
-  validates :firstName, :lastName, :preferredUsername, :email, :password, :password_confirmation, presence: true, on: :create
-  validates :preferredUsername, :email, uniqueness: true
+  devise :database_authenticatable, :registerable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: Devise::JWT::RevocationStrategies::Null
+
+  validates :first_name, :last_name, :preferred_username, :email, :password, :password_confirmation, presence: true, on: :create
+  validates :preferred_username, :email, uniqueness: true
 end
