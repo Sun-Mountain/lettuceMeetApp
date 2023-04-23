@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @resource = build_resource(user_params)
+    @resource = build_resource(registration_params)
     @resource.save!
     super
   end
@@ -82,7 +82,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def user_params
+  def registration_params
     params.permit(:id, :first_name, :last_name, :preferred_username, :email, :password, :password_confirmation)
   end
 end
