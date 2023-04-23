@@ -13,8 +13,12 @@ export const useUsersStore = defineStore({
     async register(user) {
       let newUser = {
         user: {
+          first_name: user.firstName,
+          last_name: user.lastName,
+          preferred_username: user.username,
           email: user.email,
-          password: user.password
+          password: user.password,
+          password_confirmation: user.passwordConfirm
         }
       }
       await fetchWrapper.post(`${baseUrl}signup`, newUser)

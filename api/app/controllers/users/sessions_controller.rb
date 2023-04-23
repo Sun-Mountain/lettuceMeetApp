@@ -6,7 +6,6 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    binding.pry
     render json: {
       status: {code: 200, message: 'Logged in sucessfully.'},
       data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
