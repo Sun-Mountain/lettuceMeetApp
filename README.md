@@ -33,8 +33,8 @@ bundle install
 You made need to make sure you have the correct version of Ruby installed. You can use RVM to install and switch versions.
 
 ```bash
-rvm install 3.0.3
-rvm use 3.0.3
+rvm install 3.1.2
+rvm use 3.1.2
 ```
 
 3. Set up the database:
