@@ -13,9 +13,9 @@ gem 'pg', '~> 1.4'
 
 gem 'active_model_serializers', '~> 0.10'
 gem 'bootsnap', require: false
-# gem 'devise'
-# gem 'devise-jwt'
-# gem 'fast_jsonapi'
+gem 'devise'
+gem 'devise-jwt'
+gem 'fast_jsonapi'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # DB and JWT management
@@ -32,11 +32,11 @@ group :development, :test do
   gem 'rspec-rails'
 
   gem 'bundler-audit'
-  gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'pry'
   gem 'pry-nav'
+
   gem 'rubocop', require: false
 end
 
@@ -46,5 +46,6 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem "webmock"
 end
