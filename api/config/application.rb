@@ -17,6 +17,7 @@ module LettuceMeetApp
       config.middleware.use config.session_store, config.session_options
 
     config.api_only = true
+    config.hosts.clear
 
     # Configuration for the application, engines, and railties goes here.
     #

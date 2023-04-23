@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  # s :verify_authenticity_token
   respond_to :json
+
   private
 
   def respond_with(resource, _opts = {})

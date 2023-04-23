@@ -12,14 +12,12 @@ export const useUsersStore = defineStore({
   actions: {
     async register(user) {
       let newUser = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        preferredUsername: user.username,
-        email: user.email,
-        password: user.password,
-        password_confirmation: user.passwordConfirm
+        user: {
+          email: user.email,
+          password: user.password
+        }
       }
-      await fetchWrapper.post(`${baseUrl}users`, newUser)
+      await fetchWrapper.post(`${baseUrl}signup`, newUser)
     }
   }
 })

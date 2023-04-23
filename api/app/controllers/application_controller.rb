@@ -1,23 +1,26 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  include JwtToken
+  include ActionController::RequestForgeryProtection
+  # before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # before_action :authenticate_user
+  respond_to :json
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username name])
+  end
 
   private
 
-  def authenticate_user
-    header = request.headers['Authorization']
-    header = header.split(' ').last if header
+  def deny_content_type_json
+    return unless request.content_type == 'application/json'
 
-    begin
-      @decoded = JwtToken.decode(header)
-      @current_user = User.find(@decoded[:user_id])
-    rescue ActiveRecord::RecordNotFound => e
-      render json: { err: e.message }, status: unauthorized
-    rescue JWT::DecodeError => e
-      render json: { err: e.message }, status: unauthorized
-    end
+    render json: {
+      status: 403,
+      message: 'No body allowed in this request'
+    }, status: :forbidden
   end
 end

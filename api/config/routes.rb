@@ -16,6 +16,4 @@ Rails.application.routes.draw do
     resources :events
     get 'all_public', action: :all_public, controller: 'events'
   end
-
-  post '/auth/login', to: 'authentication#login'
 end

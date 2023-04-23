@@ -17,9 +17,11 @@ export const useAuthStore = defineStore({
     async login(email, password) {
       const alertStore = useAlertStore();
       try {
-        const user = await fetchWrapper.post(`${baseUrl}auth/login`, {
-          email, password
-        })
+        const user = await fetchWrapper.post(`${baseUrl}login`, {
+          user: {
+            email: email,
+            password: password
+          }})
         // update pinia state
         this.user = user;
         // store user details and jwt in local storage to keep user logged in between page refreshes
