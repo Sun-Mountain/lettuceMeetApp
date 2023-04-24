@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create]
   before_action :find_user, only: %i[show update destroy]
+  before_action :authenticate_user!
+  before_action :deny_content_type_json, only: [:show]
 
   def index
     @users = User.all
@@ -10,16 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @user, status: 200
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      render json: @user, status: 201
-    else
-      render json: { err: @user.errors.full_messages }, status: 503
-    end
+    render json: { user: @user }, status: :ok
   end
 
   def update
@@ -38,7 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:id, :email, :password)
+    params.permit(:id, :email, :password, :password_confirmation)
   end
 
   def find_user

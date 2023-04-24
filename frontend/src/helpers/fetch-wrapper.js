@@ -37,9 +37,16 @@ function authHeader(url) {
 
 async function handleResponse(response) {
   const isJson = response.headers
-    ?.get("content-type")
-    ?.includes("application/json");
+  ?.get("content-type")
+  ?.includes("application/json");
   const data = isJson ? await response.json() : null;
+  const token = response.headers.get("Authorization")
+
+  if(token) {
+    let newToken = token.replace("Bearer ", "")
+    localStorage.setItem("token", newToken);
+    data.body.token = newToken;
+  }
 
   // check for error response
   if (!response.ok) {

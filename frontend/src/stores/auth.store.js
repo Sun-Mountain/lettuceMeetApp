@@ -17,15 +17,16 @@ export const useAuthStore = defineStore({
     async login(email, password) {
       const alertStore = useAlertStore();
       try {
-        const user = await fetchWrapper.post(`${baseUrl}login`, {
+        const res = await fetchWrapper.post(`${baseUrl}login`, {
           user: {
             email: email,
             password: password
-          }})
+          }
+        })
         // update pinia state
-        this.user = user;
+        this.user = res.body;
         // store user details and jwt in local storage to keep user logged in between page refreshes
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify(res.body));
 
         // redirect to previous url or default to home page
         router.push(this.returnUrl || "/");
