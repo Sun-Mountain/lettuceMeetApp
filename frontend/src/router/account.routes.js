@@ -1,12 +1,10 @@
-import { Home } from "@/layouts";
-import { User } from "@/views";
+import { Account } from "@/layouts";
+import { AccountView } from "@/views";
 
 export default {
   path: "/account",
-  component: Home,
+  component: Account,
   children: [
-    { path: "login", name: "login", component: () => import("@/components/forms/LoginUser.vue"), alias: ['/login'] },
-    { path: "register", name: "register", component: () => import("@/components/forms/RegisterUser.vue"), alias: ['/register'] },
-    { path: "profile", name: "profile", component: User, props: true, alias: ['/profile'] }
+    { path: "", name: "account", component: AccountView, props: true }
   ],
 };

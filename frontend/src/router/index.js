@@ -11,6 +11,8 @@ export const router = createRouter({
   linkActiveClass: "active",
   routes: [
     { path: "/", component: Welcome },
+    { path: "/login", name: "login", component: () => import("@/components/forms/LoginUser.vue") },
+    { path: "/register", name: "register", component: () => import("@/components/forms/RegisterUser.vue") },
     { ...accountRoutes },
     { ...eventRoutes },
     // catch all redirect to home page
