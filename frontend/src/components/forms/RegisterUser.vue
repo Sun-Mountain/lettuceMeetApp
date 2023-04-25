@@ -20,7 +20,7 @@ async function onSubmit(values) {
   const alertStore = useAlertStore();
   try {
     await usersStore.register(values);
-    await router.push('/account/login');
+    await router.push('/');
     alertStore.success('Registration Successful');
   } catch (err) {
     alertStore.error(err);

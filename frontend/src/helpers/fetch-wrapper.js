@@ -43,9 +43,7 @@ async function handleResponse(response) {
   const token = response.headers.get("Authorization")
 
   if(token) {
-    let newToken = token.replace("Bearer ", "")
-    localStorage.setItem("token", newToken);
-    data.body.token = newToken;
+    data.token = token;
   }
 
   // check for error response
