@@ -1,14 +1,12 @@
 import { defineStore } from "pinia";
 
 import { fetchWrapper } from "@/helpers";
-import { useAlertStore, useAuthStore } from "@/stores";
 
 const baseUrl = `${import.meta.env.VITE_API_URL}`;
 
 export const useUsersStore = defineStore({
   id: "users",
   state: () => ({
-    currentUserProfile: {},
     users: []
   }),
   actions: {
@@ -24,20 +22,6 @@ export const useUsersStore = defineStore({
         }
       }
       await fetchWrapper.post(`${baseUrl}signup`, newUser)
-    },
-    async getCurrentUserProfile() {
-      const alertStore = useAlertStore();
-      const authStore = useAuthStore();
-      try {
-        const userId = authStore.user.id;
-        console.log(userId)
-        const profile = await fetchWrapper.get(
-          `${baseUrl}users/${userId}`
-        );
-        this.currentUserProfile = profile;
-      } catch (err) {
-        alertStore.error(err)
-      }
     }
   }
 })

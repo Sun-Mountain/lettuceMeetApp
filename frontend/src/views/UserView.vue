@@ -1,13 +1,7 @@
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useUsersStore } from '@/stores';
-
-const userStore = useUsersStore();
-const { getCurrentUserProfile } = userStore;
-getCurrentUserProfile();
-
-const { currentUserProfile } = storeToRefs(userStore);
-console.log(currentUserProfile)
+import { useAuthStore } from '@/stores';
+const { user } = useAuthStore();
+console.log(user)
 </script>
 
 <template>
