@@ -47,9 +47,15 @@ async function onSubmit(values) {
   const usersStore = useUsersStore();
   const alertStore = useAlertStore();
   try {
-    await usersStore.register(values);
-    await router.push('/');
-    alertStore.success('Registration Successful');
+    if (isEditing) {
+      await usersStore.updateAccount(values, currentUser.id);
+      await router.push('/account');
+      alertStore.success('Account Update Successful');
+    } else {
+      await usersStore.register(values);
+      await router.push('/');
+      alertStore.success('Registration Successful');
+    }
   } catch (err) {
     alertStore.error(err);
   }
@@ -111,8 +117,9 @@ async function onSubmit(values) {
           <label>Current Password:</label><br />
           <Field name="current_password" type="password" class="form-control" :class="{ 'is-invalid': errors.current_password }" />
           <div class="invalid-feedback">{{ errors.current_password }}</div>
-        </div><br />
+        </div>
         <div v-if="isEditing">
+          <br />
           <h3>Change Password:</h3>
         </div>
         <div>
