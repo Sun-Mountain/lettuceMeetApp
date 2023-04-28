@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::API
   include ActionController::RequestForgeryProtection
-  # before_action :authenticate_user!
+  before_action :authenticate_user
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   respond_to :json
@@ -26,6 +26,20 @@ class ApplicationController < ActionController::API
   end
 
   private
+
+  def authenticate_user
+    header = request.headers['Authorization']
+    header = header.split(' ').last if header
+
+    begin
+      @decoded = JwtToken.decode(header)
+      return if current_user.id === @decoded[:sub]
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { err: e.message }, status: unauthorized
+    rescue JWT::DecodeError => e
+      render json: { err: e.message }, status: unauthorized
+    end
+  end
 
   def deny_content_type_json
     return unless request.content_type == 'application/json'
