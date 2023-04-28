@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 import { fetchWrapper } from "@/helpers";
 import { router } from "@/router";
-import { useAuthStore } from '@/stores';
+import { useAlertStore, useAuthStore } from '@/stores';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}`;
 
@@ -26,6 +26,7 @@ export const useUsersStore = defineStore({
       await fetchWrapper.post(`${baseUrl}signup`, newAccount)
     },
     async updateAccount(user, userId) {
+      const alertStore = useAlertStore();
       const authStore = useAuthStore();
       const currentUser = authStore.user;
       let updateAccount = {
@@ -39,9 +40,13 @@ export const useUsersStore = defineStore({
       }
       const res = await fetchWrapper.put(`${baseUrl}users/${userId}`, updateAccount);
 
-      if (currentUser.id === userId) {
-        authStore.updateCurrentUser(res.data)
-        router.push("/account");
+      try {
+        if (currentUser.id === userId) {
+          authStore.updateCurrentUser(res.data)
+          router.push("/account");
+        }
+      } catch (err) {
+        alertStore.error("Something went wrong.");
       }
     }
   }

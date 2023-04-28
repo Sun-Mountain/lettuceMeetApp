@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user&.update(user_params)
+    if authenticate_password && @user&.update(user_params)
       render json: {
         status: {code: 200, message: "Account updated successfully."},
         data: UserSerializer.new(@user).serializable_hash[:data][:attributes]
@@ -33,11 +33,15 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.permit(:id, :email, :first_name, :last_name, :preferred_username, :password, :password_confirmation)
+  def authenticate_password
+    @user.valid_password?(params[:current_password])
   end
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.permit(:id, :email, :first_name, :last_name, :preferred_username, :password, :password_confirmation)
   end
 end
