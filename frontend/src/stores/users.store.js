@@ -39,7 +39,6 @@ export const useUsersStore = defineStore({
         password_confirmation: user.passwordConfirm
       }
       const res = await fetchWrapper.put(`${baseUrl}users/${userId}`, updateAccount);
-
       try {
         if (currentUser.id === userId) {
           authStore.updateCurrentUser(res.data)
