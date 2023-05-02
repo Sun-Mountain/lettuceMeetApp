@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_user, except: [:create]
   before_action :find_user, only: %i[show update destroy]
   before_action :deny_content_type_json, only: [:show]
 
