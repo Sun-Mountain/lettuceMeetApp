@@ -3,22 +3,23 @@
 require 'rails_helper'
 
 RSpec.describe 'Auth Requests', type: :request do
+  include ApiSupport
+
   describe 'POST /users' do
     let(:register_url) { '/users' }
-
     email = 'picard@gmail.com'
     let(:valid_user_params) do
       {
-        firstName: 'Jean Luc',
-        lastName: 'Picard',
-        preferredUsername: 'Captain Picard',
+        first_name: 'Jean Luc',
+        last_name: 'Picard',
+        preferred_username: 'Captain Picard',
         email: email,
         password: 'password',
         password_confirmation: 'password'
       }
     end
 
-    let(:login_url) { '/auth/login' }
+    let(:login_url) { '/login' }
     let!(:user) { create :user }
     let(:valid_sign_in) do
       {
@@ -29,9 +30,9 @@ RSpec.describe 'Auth Requests', type: :request do
 
     let(:invalid_user_params) do
       {
-        firstName: 'Jean Luc',
-        lastName: 'Picard',
-        preferredUsername: 'Captain Picard',
+        first_name: 'Jean Luc',
+        last_name: 'Picard',
+        preferred_username: 'Captain Picard',
         email: email,
         password: 'password',
         password_confirmation: 'passwordd'
@@ -40,6 +41,7 @@ RSpec.describe 'Auth Requests', type: :request do
 
     context 'registration is successful' do
       before do
+        # authenticated_header(request, user)
         post register_url, params: valid_user_params
       end
 
@@ -55,6 +57,7 @@ RSpec.describe 'Auth Requests', type: :request do
 
     context 'login is successful' do
       before do
+        authenticated_header(request, user)
         post login_url, params: valid_sign_in
       end
 

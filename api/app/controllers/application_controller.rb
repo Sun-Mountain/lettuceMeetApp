@@ -35,9 +35,9 @@ class ApplicationController < ActionController::API
       @decoded = JwtToken.decode(header)
       return if current_user.id === @decoded[:sub]
     rescue ActiveRecord::RecordNotFound => e
-      render json: { err: e.message }, status: unauthorized
+      render json: { err: e.message }, status: 401
     rescue JWT::DecodeError => e
-      render json: { err: e.message }, status: unauthorized
+      render json: { err: e.message }, status: 401
     end
   end
 
