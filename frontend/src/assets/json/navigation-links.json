@@ -2,19 +2,16 @@
   {
     "name": "Home",
     "path": "/",
-    "userPresent": true,
-    "userNotPresent": true
+    "userPresent": true
   },
   {
     "name": "Login",
     "path": "/login",
-    "userPresent": false,
-    "userNotPresent": true
+    "userPresent": false
   },
   {
     "name": "Register",
     "path": "/register",
-    "userPresent": false,
-    "userNotPresent": true
+    "userPresent": false
   }
 ]

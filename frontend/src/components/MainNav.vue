@@ -13,7 +13,11 @@
       <v-spacer />
       <div class="nav_links_container">
 
-        <router-link v-for="link in navLinks" v-bind:key="link.name" v-bind:to="link.path">
+        <router-link
+          v-for="link in navLinks"
+          v-bind:key="link.name"
+          v-bind:to="link.path"
+        >
           {{ link.name }}
         </router-link>
       </div>
