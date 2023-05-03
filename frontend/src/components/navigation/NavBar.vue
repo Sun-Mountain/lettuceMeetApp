@@ -30,8 +30,8 @@ const drawer = ref(false);
         <v-tab id="events" to="events" v-show="authStore.user">
           Events
         </v-tab>
-        <v-tab id="profile" to="profile" v-show="authStore.user">
-          Profile
+        <v-tab id="account" to="account" v-show="authStore.user">
+          Account
         </v-tab>
         <v-tab 
           id="logout"

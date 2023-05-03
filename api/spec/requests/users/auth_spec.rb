@@ -3,35 +3,40 @@
 require 'rails_helper'
 
 RSpec.describe 'Auth Requests', type: :request do
-  describe 'POST /users' do
-    let(:register_url) { '/users' }
+  include ApiSupport
 
+  describe 'POST /users' do
+    let(:register_url) { '/signup' }
     email = 'picard@gmail.com'
     let(:valid_user_params) do
       {
-        firstName: 'Jean Luc',
-        lastName: 'Picard',
-        preferredUsername: 'Captain Picard',
-        email: email,
-        password: 'password',
-        password_confirmation: 'password'
+        user: {
+          first_name: 'Jean Luc',
+          last_name: 'Picard',
+          preferred_username: 'Captain Picard',
+          email: email,
+          password: 'password',
+          password_confirmation: 'password'
+        }
       }
     end
 
-    let(:login_url) { '/auth/login' }
-    let!(:user) { create :user }
+    let(:login_url) { '/login' }
+    let(:user) { create :user }
     let(:valid_sign_in) do
       {
-        email: user.email,
-        password: user.password
+        user: { 
+          email: user.email,
+          password: user.password
+        }
       }
     end
 
     let(:invalid_user_params) do
       {
-        firstName: 'Jean Luc',
-        lastName: 'Picard',
-        preferredUsername: 'Captain Picard',
+        first_name: 'Jean Luc',
+        last_name: 'Picard',
+        preferred_username: 'Captain Picard',
         email: email,
         password: 'password',
         password_confirmation: 'passwordd'
@@ -43,13 +48,20 @@ RSpec.describe 'Auth Requests', type: :request do
         post register_url, params: valid_user_params
       end
 
-      it 'returns 201' do
-        expect(response).to have_http_status(201)
+      it 'returns 200' do
+        expect(response).to have_http_status(200)
       end
 
       it 'returns last user' do
         expect(response.body).to include(User.last.id.to_json)
         expect(response.body).to include(email.to_json)
+      end
+    end
+
+    context 'registration is unsuccessful' do
+      it 'returns 503' do
+        post register_url, params: invalid_user_params
+        expect(response).to have_http_status(503)
       end
     end
 
@@ -62,22 +74,15 @@ RSpec.describe 'Auth Requests', type: :request do
         expect(response).to have_http_status(200)
       end
 
+      it 'returns valid JTW token' do
+        token = extract_token(response)
+        expect(token).to be_present
+      end
+
       it 'returns last user' do
         user_email = user.email
         expect(response.body).to include(User.last.id.to_json)
         expect(response.body).to include(user_email.to_json)
-      end
-
-      it 'returns with valid JWT' do
-        token = JSON.parse(response.body)['token']
-        expect { JwtToken.decode(token) }.to_not raise_error
-      end
-    end
-
-    context 'registration is unsuccessful' do
-      it 'returns 503' do
-        post register_url, params: invalid_user_params
-        expect(response).to have_http_status(503)
       end
     end
 

@@ -4,7 +4,7 @@ require 'jwt'
 # To do: read up on library and see if token is being signed during encode call and if signature is being checked
 module JwtToken
   extend ActiveSupport::Concern
-  SECRET_KEY = Rails.application.secrets.secret_key_base.to_s
+  SECRET_KEY = ENV['DEVISE_JWT_SECRET_KEY']
   EXP = 7.days.from_now
 
   def self.encode(payload)
