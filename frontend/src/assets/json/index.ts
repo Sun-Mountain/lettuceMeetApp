@@ -1,0 +1,1 @@
+export { default as navLinks } from './navigation-links.json';

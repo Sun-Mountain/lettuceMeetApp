@@ -1,4 +1,50 @@
+nav {
+  background-color: $main-nav-bg;
+  height: 64px;
+  width: 100%;
+
+  .v-toolbar {
+    margin: 0 auto;
+  }
+}
+
 #main-navigation {
   background-color: $main-nav-bg;
   color: $main-nav-font;
+  font-weight: 700;
+  max-width: 1200px;
+
+  .nav_logo_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    img {
+      margin: 10px 15px 5px 15px;
+      width: 52px;
+      height: auto;
+    }
+  }
+
+  .nav_links_container {
+    display: flex;
+    flex-direction: row;
+    height: 64px;
+    vertical-align: bottom;
+
+    a, a:visited {
+      color: $color-cultured;
+      display: flex;
+      flex-direction: column;
+      font-size: $main-nav-font-size;
+      height: 100%;
+      margin: 15px 0 0 0;
+      padding: 5px 15px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: $main-nav-bg-hover;
+    }
+  }
 }
