@@ -7,14 +7,13 @@ export const fetchWrapper = {
   delete: request("DELETE"),
 };
 
-function request(method) {
-  return (url, body) => {
+function request(method: string) {
+  return (url: string, body: any) => {
     const requestOptions = {
       method,
       headers: authHeader(url),
     };
     if (body) {
-      requestOptions.headers["Content-Type"] = "application/json";
       requestOptions.body = JSON.stringify(body);
     }
     return fetch(url, requestOptions).then(handleResponse);
@@ -23,13 +22,13 @@ function request(method) {
 
 // helper functions
 
-function authHeader(url) {
+function authHeader(url: string) {
   // return auth header with jwt if user is logged in and request is to the api url
   const { user, token } = useAuthStore();
   const isLoggedIn = user ? true : false;
   const isApiUrl = url.startsWith(import.meta.env.VITE_API_URL);
   if (isLoggedIn && isApiUrl) {
-    return { Authorization: `${token}` };
+    return { "Content-Type": "application/json", "Authorization": `${token}` };
   } else {
     return {};
   }

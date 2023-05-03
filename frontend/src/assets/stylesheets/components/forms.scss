@@ -1,0 +1,29 @@
+.form-container {
+  margin: 0 auto;
+  max-width: 45rem;
+
+  input {
+    border: solid 1px $input-border-color;
+    width: 100%;
+  }
+
+  label {
+    font-weight: 700;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .invalid-feedback {
+    color: $invalid-err-color;
+    font-weight: 700;
+  }
+
+  .is-invalid {
+    border: 2px solid $invalid-err-color;
+  }
+}
