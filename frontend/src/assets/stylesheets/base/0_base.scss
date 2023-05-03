@@ -1,1 +1,7 @@
 @import "./colors.scss";
+@import "./variables.scss";
+
+main {
+  background-color: $main-bg;
+  color: $main-font;
+}
