@@ -26,5 +26,5 @@
 </template>
 
 <script setup lang="ts">
-  import { navLinks } from '@/assets/json';
+import { navLinks } from '@/assets/json';
 </script>
