@@ -74,7 +74,7 @@ RSpec.describe 'Auth Requests', type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it 'returns valid JTW token in authorization header' do
+      it 'returns valid JTW token' do
         token = extract_token(response)
         expect(token).to be_present
       end
