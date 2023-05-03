@@ -25,8 +25,10 @@ RSpec.describe 'Auth Requests', type: :request do
     let!(:user) { create :user }
     let(:valid_sign_in) do
       {
-        email: user.email,
-        password: user.password
+        user: { 
+          email: user.email,
+          password: user.password
+        }
       }
     end
 
@@ -56,43 +58,46 @@ RSpec.describe 'Auth Requests', type: :request do
       end
     end
 
-    # context 'login is successful' do
-    #   before do
-    #     authenticated_header(request, user)
-    #     post login_url, params: valid_sign_in
-    #   end
+    context 'registration is unsuccessful' do
+      it 'returns 503' do
+        post register_url, params: invalid_user_params
+        expect(response).to have_http_status(503)
+      end
+    end
 
-    #   it 'returns 200' do
-    #     expect(response).to have_http_status(200)
-    #   end
+    context 'login is successful' do
+      before do
+        # headers: authenticated_header(user)
+        post login_url, params: valid_sign_in
+      end
 
-    #   it 'returns last user' do
-    #     user_email = user.email
-    #     expect(response.body).to include(User.last.id.to_json)
-    #     expect(response.body).to include(user_email.to_json)
-    #   end
+      it 'returns 200' do
+        expect(response).to have_http_status(200)
+      end
 
-    #   it 'returns with valid JWT' do
-    #     token = JSON.parse(response.body)['token']
-    #     expect { JwtToken.decode(token) }.to_not raise_error
-    #   end
-    # end
+      it 'returns valid JTW token in authorization header' do
+        header = response.headers['Authorization'];
+        expect(header).to be_present
+        header = header.split(' ').last
+        decoded_token = JwtToken.decode(header)
+        expect(decoded_token['sub']).to be_present
+      end
 
-    # context 'registration is unsuccessful' do
-    #   it 'returns 503' do
-    #     post register_url, params: invalid_user_params
-    #     expect(response).to have_http_status(503)
-    #   end
-    # end
+      it 'returns last user' do
+        user_email = user.email
+        expect(response.body).to include(User.last.id.to_json)
+        expect(response.body).to include(user_email.to_json)
+      end
+    end
 
-    # context 'login is unsuccessful' do
-    #   it 'returns 401' do
-    #     post login_url, params: {
-    #       email: user.email,
-    #       password: ''
-    #     }
-    #     expect(response).to have_http_status(401)
-    #   end
-    # end
+    context 'login is unsuccessful' do
+      it 'returns 401' do
+        post login_url, params: {
+          email: user.email,
+          password: ''
+        }
+        expect(response).to have_http_status(401)
+      end
+    end
   end
 end
