@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <Navigation />
-    <v-main>
-      <HelloWorld />
-    </v-main>
+    <main>
+      <router-view />
+    </main>
     <Footer />
   </v-app>
 </template>

@@ -4,13 +4,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    component: () => import('@/layouts/View.vue'),
     children: [
       {
         path: '',
         name: 'Home',
         component: () => import('@/views/Home.vue'),
       },
+      { path: "/login", name: "login", component: () => import("@/components/forms/LoginForm.vue") },
+      { path: "/register", name: "register", component: () => import("@/components/forms/UserForm.vue") },
     ],
   },
 ]
