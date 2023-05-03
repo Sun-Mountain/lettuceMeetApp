@@ -14,11 +14,14 @@ class UsersController < ApplicationController
   end
 
   def update
+
     if authenticate_password && @user&.update(user_params)
       render json: {
         status: {code: 200, message: "Account updated successfully."},
         data: UserSerializer.new(@user).serializable_hash[:data][:attributes]
       }, status: :ok
+    elsif !authenticate_password
+      render json: { err: @user.errors.full_messages }, status: 401
     else
       render json: { err: @user.errors.full_messages }, status: 503
     end

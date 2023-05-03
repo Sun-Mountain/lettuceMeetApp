@@ -22,7 +22,7 @@ RSpec.describe 'Auth Requests', type: :request do
     end
 
     let(:login_url) { '/login' }
-    let!(:user) { create :user }
+    let(:user) { create :user }
     let(:valid_sign_in) do
       {
         user: { 
@@ -67,7 +67,6 @@ RSpec.describe 'Auth Requests', type: :request do
 
     context 'login is successful' do
       before do
-        # headers: authenticated_header(user)
         post login_url, params: valid_sign_in
       end
 
@@ -76,11 +75,8 @@ RSpec.describe 'Auth Requests', type: :request do
       end
 
       it 'returns valid JTW token in authorization header' do
-        header = response.headers['Authorization'];
-        expect(header).to be_present
-        header = header.split(' ').last
-        decoded_token = JwtToken.decode(header)
-        expect(decoded_token['sub']).to be_present
+        token = extract_token(response)
+        expect(token).to be_present
       end
 
       it 'returns last user' do
