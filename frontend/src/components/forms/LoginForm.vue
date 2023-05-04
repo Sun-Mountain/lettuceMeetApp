@@ -38,8 +38,8 @@ import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
 const schema = Yup.object().shape({
-  email: Yup.string().email().required('Email is required'),
-  password: Yup.string().required('Password is required')
+  email: Yup.string().email().required('Email is required.'),
+  password: Yup.string().required('Password is required.')
 })
 
 async function onSubmit(values) {
