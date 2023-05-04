@@ -5,4 +5,8 @@
 main {
   background-color: $main-bg;
   color: $main-font;
+
+  .right-align {
+    text-align: right;
+  }
 }

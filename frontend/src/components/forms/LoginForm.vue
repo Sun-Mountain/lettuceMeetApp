@@ -22,7 +22,7 @@
                 <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
                 Login
             </button>
-            <div>
+            <div class="right-align">
               Don't have an account?<br />
               <router-link to="register">Register Here</router-link>
             </div>
