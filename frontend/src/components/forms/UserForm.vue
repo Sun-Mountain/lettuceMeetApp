@@ -34,8 +34,8 @@
           </div>
           <div>
             <label>Confirm Password:</label><br />
-            <Field name="confirm_password" type="password" class="form-control" :class="{ 'is-invalid': errors.confirm_password }" />
-            <div class="invalid-feedback">{{ errors.confirm_password }}</div>
+            <Field name="password_confirm" type="password" class="form-control" :class="{ 'is-invalid': errors.password_confirm }" />
+            <div class="invalid-feedback">{{ errors.password_confirm }}</div>
           </div>
           <div class="btn-container">
             <button class="btn btn-primary" :disabled="isSubmitting">
@@ -56,6 +56,10 @@
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
+import router from '@/router';
+import { User } from "@/models/user.model";
+import { useUsersStore } from "@/store"
+
 const schema = Yup.object().shape({
   first_name: Yup.string().required('First name is required.'),
   last_name: Yup.string().required('Last name is required.'),
@@ -63,11 +67,17 @@ const schema = Yup.object().shape({
   email: Yup.string().email().required('Email is required.'),
   password: Yup.string().required('Password is required.')
       .min(6, 'Password must be at least 6 characters.'),
-  confirm_password: Yup.string().required('Confirm password.')
+  password_confirm: Yup.string().required('Confirm password.')
     .oneOf([Yup.ref('password')], 'Your passwords do not match.')
 })
 
-async function onSubmit(values: Object) {
-  console.log(values);
+async function onSubmit(values: User) {
+  const usersStore = useUsersStore();
+  try {
+    await usersStore.register(values);
+    router.push("/login");
+  } catch (err) {
+    console.log(err)
+  }
 }
 </script>

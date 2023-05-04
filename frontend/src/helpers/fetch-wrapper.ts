@@ -1,4 +1,6 @@
-import { useAuthStore } from "@/stores";
+import { Request } from "@/models/request.model";
+import { useAuthStore } from "@/store";
+import router from "@/router";
 
 export const fetchWrapper = {
   get: request("GET"),
@@ -8,10 +10,14 @@ export const fetchWrapper = {
 };
 
 function request(method: string) {
-  return (url: string, body: any) => {
+  return (url: string, body?: any) => {
     const requestOptions = {
       method,
-      headers: authHeader(url),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authToken(url)
+      },
+      body
     };
     if (body) {
       requestOptions.body = JSON.stringify(body);
@@ -22,19 +28,20 @@ function request(method: string) {
 
 // helper functions
 
-function authHeader(url: string) {
+function authToken(url: string) {
   // return auth header with jwt if user is logged in and request is to the api url
-  const { user, token } = useAuthStore();
-  const isLoggedIn = user ? true : false;
+  const { currentUser, token } = useAuthStore();
+  const isLoggedIn = currentUser ? true : false;
   const isApiUrl = url.startsWith(import.meta.env.VITE_API_URL);
   if (isLoggedIn && isApiUrl) {
-    return { "Content-Type": "application/json", "Authorization": `${token}` };
+    return `${token}`;
   } else {
-    return {};
+    return '';
   }
 }
 
-async function handleResponse(response) {
+async function handleResponse(response: any) {
+  console.log(response);
   const isJson = response.headers
   ?.get("content-type")
   ?.includes("application/json");
@@ -47,10 +54,10 @@ async function handleResponse(response) {
 
   // check for error response
   if (!response.ok) {
-    const { user, logout } = useAuthStore();
-    if ([401, 403].includes(response.status) && user) {
+    const { currentUser } = useAuthStore();
+    if ([401, 403].includes(response.status) && currentUser) {
       // auto logout if 401 Unauthorized or 403 Forbidden response returned from api
-      logout();
+      router.push("/");
     }
 
     // get error message from body or default to response status
