@@ -1,0 +1,1 @@
+export { default as ProfileView } from './account/Profile.vue';
