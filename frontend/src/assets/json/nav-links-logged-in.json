@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "name": "Profile",
+    "path": "/profile"
+  }
+]

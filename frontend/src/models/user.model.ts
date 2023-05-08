@@ -8,3 +8,8 @@ export interface User {
   password?: string,
   password_confirmation?: string
 }
+
+export interface Login {
+  email: string,
+  password: string
+}
