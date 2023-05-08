@@ -1,10 +1,9 @@
 import { defineStore } from "pinia";
 
 import { fetchWrapper } from "@/helpers";
+import { BASE_URL } from "@/helpers";
 import { Login } from "@/models/user.model";
 import router from "@/router";
-
-const baseURL = `${import.meta.env.VITE_API_URL}`
 
 export const useAuthStore = defineStore({
   id: "auth",
@@ -16,7 +15,7 @@ export const useAuthStore = defineStore({
   actions: {
     async login(values: Login) {
       try {
-        const response = await fetchWrapper.post(`${baseURL}login`, {
+        const response = await fetchWrapper.post(`${BASE_URL}login`, {
           user: {
             email: values.email,
             password: values.password
@@ -32,7 +31,7 @@ export const useAuthStore = defineStore({
       }
     },
     logout() {
-      this.currentUser = '{}';
+      this.currentUser = '';
       localStorage.removeItem("currentUser");
       router.push("/login");
     },
