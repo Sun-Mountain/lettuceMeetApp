@@ -40,7 +40,6 @@ function authToken(url: string) {
 }
 
 async function handleResponse(response: any) {
-  console.log(response);
   const isJson = response.headers
   ?.get("content-type")
   ?.includes("application/json");

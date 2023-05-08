@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 
-import { fetchWrapper } from "@/helpers";
-import { BASE_URL } from "@/helpers";
+import { BASE_URL, fetchWrapper } from "@/helpers";
 import { Login } from "@/models/user.model";
 import router from "@/router";
 
@@ -9,7 +8,7 @@ export const useAuthStore = defineStore({
   id: "auth",
   state: () => ({
     token: localStorage.getItem("token"),
-    currentUser: JSON.parse(localStorage.getItem('currentUser') || '{}'),
+    currentUser: localStorage.getItem('currentUser'),
     returnUrl: null
   }),
   actions: {

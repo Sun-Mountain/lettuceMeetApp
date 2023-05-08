@@ -1,10 +1,8 @@
 import { defineStore } from "pinia";
 
-import { fetchWrapper } from "@/helpers";
+import { BASE_URL, fetchWrapper } from "@/helpers";
 import { User } from "@/models/user.model";
 import router from "@/router"
-
-const baseURL = `${import.meta.env.VITE_API_URL}`
 
 export const useUsersStore = defineStore({
   id: "users",
@@ -16,7 +14,7 @@ export const useUsersStore = defineStore({
       const newAccount = {
         user: user
       }
-      await fetchWrapper.post(`${baseURL}signup`, newAccount)
+      await fetchWrapper.post(`${BASE_URL}signup`, newAccount)
     }
   }
 })

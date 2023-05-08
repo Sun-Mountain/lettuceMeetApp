@@ -46,7 +46,6 @@ const schema = Yup.object().shape({
 })
 
 async function onSubmit(values: Login) {
-  console.log(values);
   const authStore = useAuthStore();
   await authStore.login(values);
 }
