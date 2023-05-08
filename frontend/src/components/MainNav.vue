@@ -12,9 +12,15 @@
       </div>
       <v-spacer />
       <div class="nav_links_container">
-
         <router-link
-          v-for="link in navLinks"
+          v-for="link in globalLinks"
+          v-bind:key="link.name"
+          v-bind:to="link.path"
+        >
+          {{ link.name }}
+        </router-link>
+        <router-link
+          v-for="link in publicLinks"
           v-bind:key="link.name"
           v-bind:to="link.path"
         >
@@ -26,5 +32,5 @@
 </template>
 
 <script setup lang="ts">
-import { navLinks } from '@/assets/json';
+import { globalLinks, loggedInLinks, publicLinks } from '@/assets/json';
 </script>
