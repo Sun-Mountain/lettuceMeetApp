@@ -1,14 +1,14 @@
 import { defineStore } from "pinia";
 
 import { BASE_URL, fetchWrapper } from "@/helpers";
-import { Login } from "@/models/user.model";
+import { Login, User } from "@/models/user.model";
 import router from "@/router";
 
 export const useAuthStore = defineStore({
   id: "auth",
   state: () => ({
     token: localStorage.getItem("token"),
-    currentUser: localStorage.getItem('currentUser'),
+    currentUser: JSON.parse(localStorage.getItem('currentUser') || '{}'),
     returnUrl: null
   }),
   actions: {
@@ -34,5 +34,9 @@ export const useAuthStore = defineStore({
       localStorage.removeItem("currentUser");
       router.push("/login");
     },
+    async updateCurrentUser(currentUser: User) {
+      this.currentUser = currentUser;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
   }
 })

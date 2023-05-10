@@ -12,6 +12,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
         status: {code: 201, message: "Signed up sucessfully."},
         data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
       }, status: :ok
+    elsif request.method == "PUT" && resource.persisted?
+      account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
+      if authenticate_password(account_update_params) && @user&.update(account_update_params.except("current_password"))
+        render json: {
+          status: {code: 200, message: "Account updated successfully."},
+          data: UserSerializer.new(@user).serializable_hash[:data][:attributes]
+        }, status: :ok
+      elsif !authenticate_password
+        render json: { err: @user.errors.full_messages }, status: 401
+      else
+        render json: { err: @user.errors.full_messages }, status: 503
+      end
     elsif request.method == "DELETE"
       render json: {
         status: { code: 204, message: "Account deleted successfully."}
