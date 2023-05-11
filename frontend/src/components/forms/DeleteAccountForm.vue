@@ -8,7 +8,8 @@
       <v-card-item>
         <Form
           @submit="onSubmit"
-          v-slot="{ isSubmitting }"
+          :validation-schema="schema" 
+          v-slot="{ errors, isSubmitting }"
         >
           <div>
             <label>Current Password:</label>
@@ -16,7 +17,9 @@
               name="current_password"
               type="password"
               class="form-control"
+              :class="{ 'is-invalid': errors.current_password }"
             />
+            <div class="invalid-feedback">{{ errors.current_password }}</div>
           </div>
           <div class="btn-container">
             <button class="btn btn-primary danger" :disabled="isSubmitting">
@@ -33,6 +36,10 @@
 <script lang="ts" setup>
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
+
+const schema = Yup.object().shape({
+  current_password: Yup.string().required('Current password is required.')
+})
 
 async function onSubmit() {
   console.log("DELETED")
