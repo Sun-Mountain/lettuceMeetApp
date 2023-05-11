@@ -30,7 +30,15 @@
 
   input {
     border: solid 1px $input-border-color;
+    border-radius: 4px;
+    padding: 6px 10px;
     width: 100%;
+  }
+
+  .date-field {
+    input {
+      padding: 6px 30px;
+    }
   }
 
   label {

@@ -8,5 +8,6 @@ export interface Event {
   private: boolean,
   start_date: Date,
   start_time?: Date,
-  uid: string
+  uid: string,
+  user_id: string
 }

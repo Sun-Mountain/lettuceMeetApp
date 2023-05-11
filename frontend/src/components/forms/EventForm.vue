@@ -16,10 +16,12 @@
         <div>
           <label>Start Date</label><br />
           <VueDatePicker
-            v-model="date"
+            class="date-field"
+            v-model="start_date"
             :min-date="minDate"
             :max-date="maxDate"
-            :enable-time-picker="false">
+            :enable-time-picker="false"
+          >
           </VueDatePicker>
         </div>
         <div>
@@ -41,10 +43,13 @@
 import { ref } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
+import { Event } from '@/models/event.model';
 import { Field, Form } from 'vee-validate';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
-const date = ref(new Date());
+import { useEventStore } from '@/store';
+
+const start_date = ref(new Date());
 const minDate = new Date()
 const maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1)
 
@@ -53,8 +58,9 @@ var eventInfo = {
   btnText: 'Create Event'
 }
 
-
-async function onSubmit() {
-  console.log("LOL")
+async function onSubmit(values: Event) {
+  const eventStore = useEventStore();
+  values.start_date = start_date.value;
+  eventStore.createEvent(values);
 }
 </script>
