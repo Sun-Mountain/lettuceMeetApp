@@ -14,7 +14,7 @@
     color: $link-hover;
   }
 
-  button {
+  .submit-btn {
     background-color: $btn-bg-color;
     border: 2px solid $btn-border;
     border-radius: 5px;
@@ -23,7 +23,7 @@
     padding: 12px;
   }
 
-  button:hover {
+  .submit-btn:hover {
     background-color: $btn-hover-bg;
     color: $btn-hover-font;
   }
@@ -60,6 +60,12 @@
     font-size: 2rem;
     line-height: 2.75rem !important;
     padding-bottom: 0;
+  }
+}
+
+.event-form {
+  .v-card-item__content {
+    min-height: 60vh;
   }
 }
 

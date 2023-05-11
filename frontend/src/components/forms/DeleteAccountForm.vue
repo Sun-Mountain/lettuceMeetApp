@@ -22,7 +22,7 @@
             <div class="invalid-feedback">{{ errors.current_password }}</div>
           </div>
           <div class="btn-container">
-            <button class="btn btn-primary danger" :disabled="isSubmitting">
+            <button class="btn btn-primary submit-btn danger" :disabled="isSubmitting">
               <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
               Delete Account
             </button>

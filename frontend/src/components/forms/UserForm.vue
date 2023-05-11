@@ -72,7 +72,7 @@
             <div class="invalid-feedback">{{ errors.password_confirm }}</div>
           </div>
           <div class="btn-container">
-            <button class="btn btn-primary" :disabled="isSubmitting">
+            <button class="btn btn-primary submit-btn" :disabled="isSubmitting">
                 <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
                 {{ btnText }}
             </button>
