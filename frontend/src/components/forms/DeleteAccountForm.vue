@@ -37,11 +37,15 @@
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
+import { useUsersStore } from '@/store';
+import { CurrentPassword } from "@/models/user.model";
+
 const schema = Yup.object().shape({
   current_password: Yup.string().required('Current password is required.')
 })
 
-async function onSubmit() {
-  console.log("DELETED")
+async function onSubmit(value: CurrentPassword) {
+  const usersStore = useUsersStore()
+  await usersStore.deleteAccount(value);
 }
 </script>

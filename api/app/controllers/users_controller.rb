@@ -27,7 +27,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    return if @user&.authenticate(params[:password]) && @user&.destroy
+    binding.pry
+    return if authenticate_password && @user&.destroy
 
     render json: { err: @user.errors.full_messages }, status: 503
   end

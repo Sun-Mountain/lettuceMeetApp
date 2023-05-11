@@ -6,8 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def account_params
+  def account_update_params
     devise_parameter_sanitizer.sanitize(:account_update)
+  end
+
+  def delete_response
+    render json: {
+      status: { code: 204, message: "Account deleted successfully."}
+    }, status: :ok
   end
 
   def register_user(resource)
@@ -22,10 +28,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       register_user(resource)
     elsif request.method == "PUT" && resource.persisted?
       update_user(resource)
-    elsif request.method == "DELETE"
-      render json: {
-        status: { code: 204, message: "Account deleted successfully."}
-      }, status: :ok
     else
       render json: {
         status: {code: 422, message: "Could not complete action. #{resource.errors.full_messages.to_sentence}"}
@@ -34,7 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_user(resource)
-    if authenticate_password(account_params) && @user&.update(account_params.except("current_password"))
+    if authenticate_password(account_update_params) && @user&.update(account_update_params.except("current_password"))
       render json: {
         status: {code: 200, message: "Account updated successfully."},
         data: UserSerializer.new(@user).serializable_hash[:data][:attributes]
