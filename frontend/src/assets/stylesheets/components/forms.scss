@@ -62,3 +62,9 @@
     padding-bottom: 0;
   }
 }
+
+.danger-header {
+  .v-card-title {
+    color: $danger-header-color;
+  }
+}
