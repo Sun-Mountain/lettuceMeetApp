@@ -3,8 +3,8 @@
 FactoryBot.define do
   factory :event do
     association :user
-    sequence(:eventTitle) { |n| "title_#{n}" }
+    sequence(:event_title) { |n| "title_#{n}" }
 
-    startDate { Date.today() + 1.day }
+    start_date { Date.today() + 1.day }
   end
 end

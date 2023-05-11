@@ -16,14 +16,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_192803) do
 
   create_table "events", force: :cascade do |t|
     t.string "uid", null: false
-    t.string "eventTitle", null: false
+    t.string "event_title", null: false
     t.text "description"
     t.boolean "private", default: false, null: false
-    t.boolean "allDay", default: true, null: false
-    t.date "startDate", null: false
-    t.date "endDate"
-    t.time "startTime"
-    t.time "endTime"
+    t.boolean "all_day", default: true, null: false
+    t.date "start_date", null: false
+    t.date "end_date"
+    t.time "start_time"
+    t.time "end_time"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

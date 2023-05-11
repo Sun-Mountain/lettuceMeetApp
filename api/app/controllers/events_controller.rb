@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :find_event, only: %i[show update destroy]
 
   def index
-    @events = Event.all.where(user_id: @user.id).order(startDate: :asc).partition { |e| e.startDate < Date.today() }
+    @events = Event.all.where(user_id: @user.id).order(start_date: :asc).partition { |e| e.start_date < Date.today() }
     render json: { past: @events[0], upcoming: @events[1] }, status: 201
   end
 
@@ -34,14 +34,14 @@ class EventsController < ApplicationController
   end
 
   def all_public
-    @public_events = Event.all.where(private: false).order(startDate: :asc).partition { |e| e.startDate < Date.today() }
+    @public_events = Event.all.where(private: false).order(start_date: :asc).partition { |e| e.start_date < Date.today() }
     render json: { past: @public_events[0], upcoming: @public_events[1] }, status: 201
   end
 
   private
 
   def event_params
-    params.permit(:eventTitle, :description, :private, :allDay, :startDate, :endDate, :startTime, :endTime, :user_id, :uid, :created_at)
+    params.permit(:event_title, :description, :private, :all_day, :start_date, :end_date, :start_time, :end_time, :user_id, :uid, :created_at)
   end
 
   def find_event

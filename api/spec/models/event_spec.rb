@@ -9,21 +9,21 @@ RSpec.describe Event, type: :model do
     it { is_expected.to be_valid }
   end
 
-  describe '#eventTitle' do
+  describe '#event_title' do
     it 'is required' do
-      subject.eventTitle = nil
+      subject.event_title = nil
       expect(subject).to_not be_valid
     end
   end
 
-  describe '#startDate' do
+  describe '#start_date' do
     it 'is required' do
-      subject.startDate = nil
+      subject.start_date = nil
       expect(subject).to_not be_valid
     end
 
     it 'must be a date' do
-      subject.startDate = "This is a string"
+      subject.start_date = "This is a string"
       expect(subject).to_not be_valid
     end
   end
