@@ -14,8 +14,9 @@
     width: 100%;
 
     .subnav {
+      border-right: 1px solid $subnav-border;
       padding: 15px 25px;
-      width: 30%;
+      width: 25%;
     }
 
     .sub-content-container {

@@ -5,6 +5,7 @@ export { default as Navigation } from './MainNav.vue';
 // Event Components
 export { default as EventCard } from './events/EventCard.vue';
 export { default as EventForm } from './events/EventForm.vue';
+export { default as EventSubNav } from './events/EventSubNav.vue';
 
 // User Form Components
 export { default as DeleteAccountForm } from './user-forms/DeleteAccountForm.vue';

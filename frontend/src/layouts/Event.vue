@@ -1,8 +1,6 @@
 <template>
   <v-container class="layout-with-subnav main-content-container">
-    <div>
-      SubNav
-    </div>
+    <EventSubNav />
     <div class="sub-content-container">
       <router-view />
     </div>
@@ -10,4 +8,5 @@
 </template>
 
 <script lang="ts" setup>
+import { EventSubNav } from '@/components';
 </script>
