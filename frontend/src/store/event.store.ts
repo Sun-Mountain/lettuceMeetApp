@@ -10,6 +10,7 @@ export const useEventStore = defineStore({
   state: () => ({
     events: JSON.parse(localStorage.getItem('events') || '[]'),
     pastEvents: JSON.parse(localStorage.getItem("pastEvents") || '[]'),
+    stagedEvent: JSON.parse(localStorage.getItem("stagedEvent") || '{}')
   }),
   actions: {
     async createEvent(params: Event) {
@@ -37,6 +38,26 @@ export const useEventStore = defineStore({
         console.log(err);
       }
       return this.events;
+    },
+    async getEventById(eventId: string) {
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.currentUser.id;
+        const event = await fetchWrapper.get(`${BASE_URL}users/${userId}/events/${eventId}`);
+        this.stagedEvent = event;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    async cancelEvent(eventId: string) {
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.currentUser.id;
+        await fetchWrapper.delete(`${BASE_URL}users/${userId}/events/${eventId}`);
+        router.push("/events");
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 })
