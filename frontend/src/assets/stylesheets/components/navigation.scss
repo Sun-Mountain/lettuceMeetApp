@@ -71,3 +71,23 @@ nav {
     }
   }
 }
+
+.subnav {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    color: $subnav-link-color;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  a:not(:first-child) {
+    margin-top: 2.5px;
+  }
+
+  .router-link-exact-active {
+    border-bottom: 2px solid $active-link-color;
+    color: $active-link-color;
+  }
+}
