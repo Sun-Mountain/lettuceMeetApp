@@ -18,7 +18,7 @@
           <label>Start Date</label><br />
           <VueDatePicker
             class="date-field"
-            v-model="eventInfo.start_date"
+            v-model="start_date"
             :min-date="minDate"
             :max-date="maxDate"
             :enable-time-picker="false"
@@ -57,16 +57,16 @@ const props = defineProps({
 const { uid } = toRefs(props);
 const editUid = uid?.value;
 
-const new_start_date = new Date();
-const minDate = new Date();
-const maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1).toLocaleString()
+var start_date = ref(new Date());
+const minDate = new Date()
+const maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1)
+console.log(minDate)
 
 var eventInfo = {
   btnText: 'Create Event',
   description: '',
   event_title: '',
-  formTitle: 'Create Event',
-  start_date: new_start_date
+  formTitle: 'Create Event'
 }
 
 if (editUid) {
@@ -74,26 +74,34 @@ if (editUid) {
   eventStore.getEventById(editUid);
   const { stagedEvent } = storeToRefs(eventStore);
   const eventValue = stagedEvent.value;
-  const stagedStart = new Date(eventValue.start_date);
-  const addDay = new Date(stagedStart.setDate(stagedStart.getDate() + 1));
 
+  // Set Start Date
+  const stagedStart = new Date(eventValue.start_date);
+  const addDay = new Date(stagedStart.setDate(stagedStart.getDate() + 1))
+  start_date = ref(addDay);
 
   var editEventInfo = {
     btnText: 'Update Event',
     description: eventValue.description,
     event_title: eventValue.event_title,
-    formTitle: 'Edit Event',
-    start_date: addDay
+    formTitle: 'Edit Event'
   }
 
   eventInfo = editEventInfo;
 }
 
-const start_date = ref(eventInfo.start_date);
-
 async function onSubmit(values: Event) {
   const eventStore = useEventStore();
-  values.start_date = start_date.value;
-  eventStore.createEvent(values);
+
+  try {
+    values.start_date = start_date.value;
+    if (editUid) {
+      eventStore.updateEvent(editUid, values);
+    } else {
+      eventStore.createEvent(values);
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 </script>

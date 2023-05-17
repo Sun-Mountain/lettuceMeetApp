@@ -49,6 +49,17 @@ export const useEventStore = defineStore({
         console.log(err);
       }
     },
+    async updateEvent(eventId: string, values: Event) {
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.currentUser.id;
+        const event = await fetchWrapper.put(`${BASE_URL}users/${userId}/events/${eventId}`, values)
+        this.stagedEvent = event;
+        router.push(`events/${eventId}`)
+      } catch (err) {
+        console.log(err)
+      }
+    },
     async cancelEvent(eventId: string) {
       const authStore = useAuthStore();
       try {
