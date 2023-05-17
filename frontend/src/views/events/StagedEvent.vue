@@ -20,6 +20,7 @@
 <script lang="ts" setup>
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiSquareEditOutline } from '@mdi/js';
+
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useEventStore } from '@/store';
