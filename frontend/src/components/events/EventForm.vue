@@ -20,7 +20,7 @@
             class="date-field"
             v-model="start_date"
             :min-date="minDate"
-            :max-date="(maxDate as number)"
+            :max-date="maxDate"
             :enable-time-picker="false"
           >
           </VueDatePicker>
@@ -49,6 +49,7 @@ import { Event } from '@/models/event.model';
 import { Field, Form } from 'vee-validate';
 import * as Yup from 'yup';
 
+import { getSubmitFn } from '@/helpers';
 import { useEventStore } from '@/store';
 
 const props = defineProps({
@@ -58,9 +59,8 @@ const { uid } = toRefs(props);
 const editUid = uid?.value;
 
 var start_date = ref(new Date());
-const minDate = new Date()
-const maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1)
-console.log(minDate)
+const minDate = new Date();
+let maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1).toLocaleString();
 
 var eventInfo = {
   btnText: 'Create Event',
@@ -90,25 +90,24 @@ if (editUid) {
   eventInfo = editEventInfo;
 }
 
-console.log(typeof(maxDate))
-
 const schema = Yup.object().shape({
   event_title: Yup.string().required('Event title is required.'),
-  description: Yup.string()
+  description: Yup.string().nullable().notRequired(),
+  start_date: Yup.object()
 })
 
-async function onSubmit(values: Event) {
+const onSubmit = getSubmitFn(schema, async (values) => {
   const eventStore = useEventStore();
 
   try {
     values.start_date = start_date.value;
     if (editUid) {
-      eventStore.updateEvent(editUid, values);
+      eventStore.updateEvent(editUid, values as Event);
     } else {
-      eventStore.createEvent(values);
+      eventStore.createEvent(values as Event);
     }
   } catch (err) {
     console.log(err);
   }
-}
+})
 </script>
