@@ -20,7 +20,7 @@
             class="date-field"
             v-model="start_date"
             :min-date="minDate"
-            :max-date="maxDate"
+            :max-date="(maxDate as number)"
             :enable-time-picker="false"
           >
           </VueDatePicker>
@@ -47,7 +47,7 @@ import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 import { Event } from '@/models/event.model';
 import { Field, Form } from 'vee-validate';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 
 import { useEventStore } from '@/store';
 
@@ -89,6 +89,13 @@ if (editUid) {
 
   eventInfo = editEventInfo;
 }
+
+console.log(typeof(maxDate))
+
+const schema = Yup.object().shape({
+  event_title: Yup.string().required('Event title is required.'),
+  description: Yup.string()
+})
 
 async function onSubmit(values: Event) {
   const eventStore = useEventStore();

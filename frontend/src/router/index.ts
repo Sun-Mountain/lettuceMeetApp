@@ -14,8 +14,8 @@ const routes = [
         name: 'Home',
         component: () => import('@/views/Home.vue'),
       },
-      { path: "/login", name: "login", component: () => import("@/components/forms/LoginForm.vue") },
-      { path: "/register", name: "register", component: () => import("@/components/forms/UserForm.vue") },
+      { path: "/login", name: "login", component: () => import("@/components/user-forms/LoginForm.vue") },
+      { path: "/register", name: "register", component: () => import("@/components/user-forms/UserForm.vue") },
       { ...accountRoutes },
       { ...eventsRoutes }
     ],

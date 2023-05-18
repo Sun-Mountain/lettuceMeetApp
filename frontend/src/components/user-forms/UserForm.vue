@@ -92,6 +92,7 @@ import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
 import router from '@/router';
+import { getSubmitFn } from '@/helpers';
 import { User } from "@/models/user.model";
 import { useAuthStore, useUsersStore } from "@/store"
 
@@ -132,7 +133,7 @@ const registerSchema = Yup.object().shape({
 
 const schema = isEditing ? updateSchema : registerSchema;
 
-async function onSubmit(values: User) {
+const onSubmit = getSubmitFn(schema, async (values: User) => {
   const usersStore = useUsersStore();
   const authStore = useAuthStore();
   try {
@@ -145,5 +146,5 @@ async function onSubmit(values: User) {
   } catch (err) {
     console.log(err)
   }
-}
+})
 </script>

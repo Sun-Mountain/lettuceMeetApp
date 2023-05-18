@@ -8,7 +8,6 @@ export { default as EventForm } from './events/EventForm.vue';
 export { default as EventSubNav } from './events/EventSubNav.vue';
 
 // User Form Components
-export { default as DeleteAccountForm } from './user-forms/DeleteAccountForm.vue';
 export { default as LoginForm } from './user-forms/LoginForm.vue';
 export { default as PasswordChangeForm } from './user-forms/PasswordChangeForm.vue';
 export { default as UserForm } from './user-forms/UserForm.vue';
