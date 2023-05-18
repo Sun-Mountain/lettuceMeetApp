@@ -1,5 +1,5 @@
 <template>
-  <EventForm :uid="uid" />
+  <EventForm :uid="(uid as string)" />
 </template>
 
 <script lang="ts" setup>

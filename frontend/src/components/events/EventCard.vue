@@ -4,6 +4,7 @@
     :subtitle="event?.start_date"
     :text="event?.description"
     :to="eventLink"
+    class="event-card"
     variant="outlined"
   >
   </v-card>

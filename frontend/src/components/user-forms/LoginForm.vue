@@ -38,6 +38,7 @@ import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
 import { useAuthStore } from '@/store';
+import { getSubmitFn } from '@/helpers';
 import { Login } from "@/models/user.model";
 
 const schema = Yup.object().shape({
@@ -45,8 +46,8 @@ const schema = Yup.object().shape({
   password: Yup.string().required('Password is required.')
 })
 
-async function onSubmit(values: Login) {
+const onSubmit = getSubmitFn(schema, async (values: Login) => {
   const authStore = useAuthStore();
   await authStore.login(values);
-}
+})
 </script>

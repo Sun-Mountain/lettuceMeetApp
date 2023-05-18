@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 import { BASE_URL, fetchWrapper } from "@/helpers";
-import { CurrentPassword, User } from "@/models/user.model";
+import { User } from "@/models/user.model";
 import { useAuthStore } from "./auth.store";
 import router from "@/router"
 
@@ -30,14 +30,14 @@ export const useUsersStore = defineStore({
         console.log(err);
       }
     },
-    async deleteAccount(value: CurrentPassword) {
+    async deleteAccount(value: string) {
       const authStore = useAuthStore();
       const currentUser = authStore.currentUser;
 
       try {
         await fetchWrapper.delete(`${BASE_URL}/users/${currentUser.id}`, {
           user: {
-            current_password: value.current_password
+            current_password: value
       }});
         authStore.logout();
         router.push("/login")
