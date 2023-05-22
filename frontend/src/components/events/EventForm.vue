@@ -60,7 +60,7 @@ const editUid = uid?.value;
 
 var start_date = ref(new Date());
 const minDate = new Date();
-let maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1).toLocaleString();
+let maxDate = (new Date()).setFullYear(minDate.getFullYear() + 1);
 
 var eventInfo = {
   btnText: 'Create Event',

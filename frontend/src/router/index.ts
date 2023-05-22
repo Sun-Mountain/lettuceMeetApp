@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import accountRoutes from './accounts.routes';
+import adminRoutes from './admin.routes';
 import eventsRoutes from './events.routes';
 
 const routes = [
@@ -17,6 +18,7 @@ const routes = [
       { path: "/login", name: "login", component: () => import("@/components/user-forms/LoginForm.vue") },
       { path: "/register", name: "register", component: () => import("@/components/user-forms/UserForm.vue") },
       { ...accountRoutes },
+      { ...adminRoutes },
       { ...eventsRoutes }
     ],
   },
