@@ -1,24 +1,36 @@
-// Navigation
-// Main
+// Main Layout
+$main-bg: $color-cultured;
+$main-font: $color-onyx;
+$main-link: $color-medium-sea-green;
+$main-link-hover: $color-deep-sea;
 $main-nav-bg: $color-medium-sea-green;
-$main-nav-font-color: $color-cultured;
+$main-nav-font: $color-cultured;
+$main-nav-font-size: 22px;
+$main-nav-bg-hover: $color-deep-sea;
+
+// Buttons
+$danger-color: $color-red;
+$danger-hover-font: $color-dark-red;
+
+// Cards
+$event-card-border: $color-deep-sea;
 
 // Forms
-$submit-btn-bg: $color-medium-sea-green;
-$form-error-color: $color-dark-red;
+$btn-bg-color: $color-deep-sea;
+$btn-border: $color-deep-sea;
+$btn-font: $color-cultured;
+$btn-hover-bg: $color-cultured;
+$btn-hover-font: $color-deep-sea;
+$danger-header-color: $color-dark-red;
+$input-border-color: $color-davys-grey;
+$invalid-err-color: $color-red;
+$title-color: $color-deep-sea;
 
-// Events
-$event-card-border: $color-light-gray;
-$event-font-color: $color-onyx;
-$event-card-hover-bg: $color-cultured-2;
+// Links
+$link-color: $color-medium-sea-green;
+$link-hover: $color-deep-sea;
 
 // SubNav
+$subnav-border: $color-cadet-blue-crayola;
 $subnav-link-color: $color-medium-sea-green;
 $active-link-color: $color-cadet-blue-crayola;
-
-// Links & Buttons
-$btn-bg-color: $color-medium-sea-green;
-$btn-bg-color-hover: $color-deep-sea;
-$btn-txt-color: $color-cultured;
-$link-color: $color-sonic-silver;
-$link-color-hover: $color-medium-sea-green;

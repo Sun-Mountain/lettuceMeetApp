@@ -20,7 +20,7 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.permit(:sign_up) do |user|
       user.permit(
         :first_name, :last_name, :preferred_username,
-        :email, :password, :password_confirmation, :current_password
+        :email, :password, :password_confirmation
       )
     end
   end
@@ -39,6 +39,10 @@ class ApplicationController < ActionController::API
     rescue JWT::DecodeError => e
       render json: { err: e.message }, status: 401
     end
+  end
+
+  def authenticate_password(account_update_params)
+    @user.valid_password?(account_update_params[:current_password])
   end
 
   def deny_content_type_json

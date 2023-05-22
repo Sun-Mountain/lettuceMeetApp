@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def update
-
     if authenticate_password && @user&.update(user_params)
       render json: {
         status: {code: 200, message: "Account updated successfully."},
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    return if @user&.authenticate(params[:password]) && @user&.destroy
+    return if authenticate_password && @user&.destroy
 
     render json: { err: @user.errors.full_messages }, status: 503
   end
@@ -36,7 +35,7 @@ class UsersController < ApplicationController
   private
 
   def authenticate_password
-    @user.valid_password?(params[:current_password])
+    @user.valid_password?(user_params[:current_password])
   end
 
   def find_user
@@ -44,6 +43,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:id, :email, :first_name, :last_name, :preferred_username, :password, :password_confirmation)
+    params.require(:user).permit(:id, :email, :first_name, :last_name, :preferred_username, :current_password, :password, :password_confirmation)
   end
 end

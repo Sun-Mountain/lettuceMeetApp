@@ -1,4 +1,3 @@
-# stage1 as builder
 FROM node:lts-alpine as builder
 
 WORKDIR /lettuce-meet-frontend

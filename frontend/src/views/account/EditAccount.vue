@@ -1,12 +1,9 @@
-<script setup>
-import { RegisterUserForm } from '@/components';
-import { useAuthStore } from '@/stores';
-const { user } = useAuthStore();
-console.log(typeof(user))
-</script>
-
 <template>
-  <div>
-    <RegisterUserForm :user="user" />
-  </div>
+  <UserForm :user="currentUser" />
 </template>
+
+<script lang="ts" setup>
+import { UserForm } from '@/components';
+import { useAuthStore } from '@/store';
+const { currentUser } = useAuthStore();
+</script>

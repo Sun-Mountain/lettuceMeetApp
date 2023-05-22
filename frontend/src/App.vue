@@ -1,18 +1,15 @@
-<script setup>
-  import { Alert, Nav } from '@/components';
-</script>
-
 <template>
   <v-app>
-    <Nav />
-    <v-main style="max-width: 1200px; padding-top: 0">
-      <Alert />
+    <Navigation />
+    <main>
       <router-view />
-    </v-main>
+    </main>
+    <Footer />
   </v-app>
 </template>
 
-<style lang="scss">
-@import "@/assets/stylesheets/application.scss";
-</style>
-
+<script setup lang="ts">
+  import "@/assets/stylesheets/application.scss";
+  import HelloWorld from '@/components/HelloWorld.vue';
+  import { Footer, Navigation } from '@/components';
+</script>

@@ -1,8 +1,13 @@
-@import './colors.scss';
-@import './breakpoints.scss';
-@import './variables.scss';
+@import "./breakpoints.scss";
+@import "./colors.scss";
+@import "./variables.scss";
+@import "./vuetify.scss";
 
 main {
-  margin: 0 auto;
-  width: 95%;
+  background-color: $main-bg;
+  color: $main-font;
+
+  .right-align {
+    text-align: right;
+  }
 }

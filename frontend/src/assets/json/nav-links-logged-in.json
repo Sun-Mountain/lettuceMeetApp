@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Events",
+    "path": "/events"
+  },
+  {
+    "name": "Account",
+    "path": "/account"
+  }
+]

@@ -1,0 +1,9 @@
+.danger {
+  background-color: $danger-color !important;
+  border-color: $danger-color !important;
+}
+
+.danger:hover {
+  background-color: $btn-hover-bg !important;
+  color: $danger-hover-font !important;
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Login",
+    "path": "/login",
+    "userPresent": false
+  },
+  {
+    "name": "Register",
+    "path": "/register",
+    "userPresent": false
+  }
+]

@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   before_create :assign_event_uid
   # before_save :parse_date
 
-  validates :eventTitle, :startDate, :user, presence: true
+  validates :event_title, :start_date, :user, presence: true
 
   private
 
@@ -17,7 +17,7 @@ class Event < ApplicationRecord
   end
 
   def parse_date
-    startDateStr = self.startDate
-    self.startDate = Date.parse(startDateStr)
+    startDateStr = self.start_date
+    self.start_date = Date.parse(startDateStr)
   end
 end
