@@ -10,6 +10,5 @@
 
 <script setup lang="ts">
   import "@/assets/stylesheets/application.scss";
-  import HelloWorld from '@/components/HelloWorld.vue';
   import { Footer, Navigation } from '@/components';
 </script>
