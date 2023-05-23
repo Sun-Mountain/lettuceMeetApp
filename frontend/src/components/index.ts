@@ -2,6 +2,9 @@
 export { default as Footer } from './MainFooter.vue';
 export { default as Navigation } from './MainNav.vue';
 
+// Admin Components
+export { default as AdminNav } from './AdminNav.vue';
+
 // Event Components
 export { default as EventCard } from './events/EventCard.vue';
 export { default as EventForm } from './events/EventForm.vue';
