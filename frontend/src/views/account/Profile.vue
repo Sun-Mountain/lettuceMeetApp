@@ -1,12 +1,15 @@
 <template>
   <div>
     <h2>Welcome, {{ fullname }}</h2>
-
-    Profile
-  
-    <router-link :to="{ name: 'accountEdit' }">
-      Edit
-    </router-link>
+    <div>
+      <v-icon size="small" color="info" icon="mdi-star-circle"></v-icon> Admin
+    </div>
+    <div>
+      Profile
+      <router-link :to="{ name: 'accountEdit' }">
+        Edit
+      </router-link>
+    </div>
   </div>
 </template>
 

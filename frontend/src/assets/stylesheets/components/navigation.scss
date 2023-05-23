@@ -91,3 +91,11 @@ nav {
     color: $active-link-color;
   }
 }
+
+#admin-nav {
+
+  #admin-link-container {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}

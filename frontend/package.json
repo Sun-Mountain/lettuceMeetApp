@@ -9,7 +9,6 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/font": "7.0.96",
     "@mdi/js": "^7.2.96",
     "@vuepic/vue-datepicker": "^5.0.1",
