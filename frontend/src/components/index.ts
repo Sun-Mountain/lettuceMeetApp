@@ -1,4 +1,5 @@
 // Base Components
+export { default as AdminNav } from './AdminNav.vue';
 export { default as Footer } from './MainFooter.vue';
 export { default as Navigation } from './MainNav.vue';
 
