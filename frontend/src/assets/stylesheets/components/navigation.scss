@@ -93,8 +93,9 @@ nav {
 }
 
 #admin-nav {
-
   #admin-link-container {
+    display: flex;
+    justify-content: space-around;
     margin: 0 auto;
     max-width: 1200px;
   }
