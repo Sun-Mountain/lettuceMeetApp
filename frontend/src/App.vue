@@ -14,9 +14,5 @@
 
 <script setup lang="ts">
   import "@/assets/stylesheets/application.scss";
-  import { toRaw } from "vue";
-  import { useAuthStore } from "./store";
-  import { AdminNav, Footer, Navigation } from '@/components';
-
-  const authStore = useAuthStore();
+  import { Footer, Navigation } from '@/components';
 </script>
