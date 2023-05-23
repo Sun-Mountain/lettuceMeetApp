@@ -3,8 +3,11 @@
     <div>
       <v-icon color="info" icon="mdi-account-group" size="100px"></v-icon>
     </div>
-    <div class="title">
+    <div class="title text">
       Users
+    </div>
+    <div class="total text">
+      Total:
     </div>
   </div>
   <div class="stats event-stats">
@@ -13,6 +16,9 @@
     </div>
     <div class="title">
       Events
+    </div>
+    <div class="total text">
+      Total:
     </div>
   </div>
 </template>
