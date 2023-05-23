@@ -1,0 +1,18 @@
+.stats {
+  display: flex;
+  flex-direction: row;
+  font-size: 50px;
+  font-weight: 700;
+
+  .title {
+    padding: 20px;
+  }
+}
+
+.event-stats {
+  color: #4caf50;
+}
+
+.user-stats {
+  color: #2196f3;
+}

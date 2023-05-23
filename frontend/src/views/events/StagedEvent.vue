@@ -3,7 +3,7 @@
     <h2>{{ stagedEvent.event_title }}</h2>
     <div>
       <router-link :to="editLink">
-        <svg-icon type="mdi" :path="mdiSquareEditOutline"></svg-icon> Edit
+        <v-icon size="small" color="info" icon="mdi-square-edit-outline"></v-icon> Edit
       </router-link>
       <v-btn
         variant="plain"
@@ -18,9 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiSquareEditOutline } from '@mdi/js';
-
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useEventStore } from '@/store';
