@@ -1,10 +1,6 @@
 <template>
   <v-app>
     <Navigation />
-    <AdminNav
-      v-if="Object.keys(toRaw(authStore.currentUser)).length != 0 &&
-      toRaw(authStore.currentUser).admin"
-    />
     <main>
       <router-view />
     </main>
