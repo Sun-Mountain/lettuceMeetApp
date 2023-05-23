@@ -8,7 +8,7 @@ export const useAuthStore = defineStore({
   id: "auth",
   state: () => ({
     token: localStorage.getItem("token"),
-    currentUser: JSON.parse(localStorage.getItem('currentUser') || '{}'),
+    currentUser: JSON.parse(localStorage.getItem('currentUser')!),
     returnUrl: null
   }),
   actions: {
@@ -20,8 +20,9 @@ export const useAuthStore = defineStore({
             password: values.password
           }
         });
-        this.currentUser = response.body;
-        localStorage.setItem("currentUser", JSON.stringify(response.body));
+        const jsonBody = JSON.stringify(response.body);
+        this.currentUser = jsonBody;
+        localStorage.setItem("currentUser", jsonBody);
         this.token = response.token;
         localStorage.setItem("token", response.token);
         router.push(this.returnUrl || "/");
