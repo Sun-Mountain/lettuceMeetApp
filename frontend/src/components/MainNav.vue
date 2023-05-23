@@ -23,7 +23,7 @@
           v-for="link in loggedInLinks"
           v-bind:key="link.name"
           v-bind:to="link.path"
-          v-show="Object.keys(toRaw(authStore.currentUser)).length != 0"
+          v-show="authStore.currentUser"
         >
           {{ link.name }}
         </router-link>
@@ -31,13 +31,13 @@
           v-for="link in publicLinks"
           v-bind:key="link.name"
           v-bind:to="link.path"
-          v-show="Object.keys(toRaw(authStore.currentUser)).length === 0"
+          v-show="!authStore.currentUser"
         >
           {{ link.name }}
         </router-link>
         <v-btn
           @click="authStore.logout()"
-          v-show="Object.keys(toRaw(authStore.currentUser)).length != 0"
+          v-show="authStore.currentUser"
         >
           Logout
         </v-btn>
@@ -49,7 +49,6 @@
 <script setup lang="ts">
 import { globalLinks, loggedInLinks, publicLinks } from '@/assets/json';
 import { useAuthStore } from '@/store';
-import { toRaw } from 'vue';
 
 const authStore = useAuthStore();
 </script>
