@@ -1,18 +1,13 @@
-.stats {
+.stats-container {
   display: flex;
   flex-direction: row;
-  font-size: 50px;
-  font-weight: 700;
 
-  .title {
-    padding: 20px;
+  .stats {
+    line-height: 85px;
+    padding: 15px;
   }
-}
 
-.event-stats {
-  color: #4caf50;
-}
-
-.user-stats {
-  color: #2196f3;
+  .user-stats-header {
+    color: $color-info-blue;
+  }
 }
