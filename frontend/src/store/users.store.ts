@@ -13,9 +13,7 @@ export const useUsersStore = defineStore({
   actions: {
     async getAllUsers() {
       const response = await fetchWrapper.get(`${BASE_URL}users`);
-      const jsonUserList = JSON.stringify(response);
-      this.users = jsonUserList;
-      localStorage.setItem("users", jsonUserList);
+      localStorage.setItem("users", JSON.stringify(response));
     },
     async register(user: User) {
       const newAccount = { user };

@@ -19,5 +19,5 @@ const usersStore = useUsersStore();
 usersStore.getAllUsers();
 
 const { users } = storeToRefs(usersStore);
-const userCount = Object.keys(users.value).length;
+const userCount = (users.value).length;
 </script>
