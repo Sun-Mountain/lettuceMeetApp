@@ -98,5 +98,26 @@ nav {
     justify-content: space-around;
     margin: 0 auto;
     max-width: 1200px;
+
+    a {
+      border-bottom: 2px solid $color-white;
+      border-radius: 5px;
+      color: $admin-nav-link;
+      font-weight: 700;
+      margin-top: 10px;
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: $admin-nav-link;
+      color: $color-white;
+    }
+
+    .router-link-exact-active {
+      background-color: $admin-nav-link;
+      color: $color-white;
+    }
   }
+
 }

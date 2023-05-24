@@ -31,7 +31,9 @@ export const useAuthStore = defineStore({
     },
     logout() {
       this.currentUser = '';
+      this.token = '';
       localStorage.removeItem("currentUser");
+      localStorage.removeItem("token");
       router.push("/login");
     },
     async updateCurrentUser(currentUser: User) {

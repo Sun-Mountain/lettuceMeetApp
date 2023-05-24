@@ -9,7 +9,11 @@
     padding: 15px;
   }
 
+  .event-stats-header {
+    color: $event-stats;
+  }
+
   .user-stats-header {
-    color: $color-info-blue;
+    color: $user-stats;
   }
 }

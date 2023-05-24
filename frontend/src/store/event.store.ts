@@ -8,6 +8,7 @@ import { Event } from "@/models/event.model";
 export const useEventStore = defineStore({
   id: "events",
   state: () => ({
+    allEvents: JSON.parse(localStorage.getItem('allEvents') || '[]'),
     events: JSON.parse(localStorage.getItem('events') || '[]'),
     pastEvents: JSON.parse(localStorage.getItem("pastEvents") || '[]'),
     stagedEvent: JSON.parse(localStorage.getItem("stagedEvent") || '{}')
@@ -27,11 +28,21 @@ export const useEventStore = defineStore({
         console.log(err);
       }
     },
+    async getAllEvents() {
+      const authStore = useAuthStore();
+      try {
+        const userId = authStore.currentUser.id;
+        const allEvents = await fetchWrapper.get(`${BASE_URL}users/${userId}/events`)
+        localStorage.setItem("allEvents", JSON.stringify(allEvents));
+      } catch (err) {
+        console.log(err);
+      }
+    },
     async getAllUserEvents() {
       const authStore = useAuthStore();
       try {
         const userId = authStore.currentUser.id;
-        const events = await fetchWrapper.get(`${BASE_URL}users/${userId}/events`)
+        const events = await fetchWrapper.get(`${BASE_URL}users/${userId}/owned`)
         localStorage.setItem("events", JSON.stringify(events.upcoming));
         localStorage.setItem("pastEvents", JSON.stringify(events.past));
       } catch (err) {

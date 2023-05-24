@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <DashCard
-      :count="userCount"
-      :header_class="'user-stats-header'"
+      :count="eventCount"
+      :header_class="'event-stats-header'"
       :icon_color="'success'"
       :icon_name="'mdi-account-group'"
       :path_name="'eventManager'"
@@ -22,11 +22,16 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { DashCard } from '@/components';
-import { useUsersStore } from '@/store';
+import { useEventStore, useUsersStore } from '@/store';
 const usersStore = useUsersStore();
+const eventStore = useEventStore();
 
 usersStore.getAllUsers();
+eventStore.getAllEvents();
 
 const { users } = storeToRefs(usersStore);
 const userCount = (users.value).length;
+
+const { allEvents } = storeToRefs(eventStore);
+const eventCount = (allEvents.value).length;
 </script>
