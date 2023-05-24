@@ -32,8 +32,8 @@ export const useEventStore = defineStore({
       try {
         const userId = authStore.currentUser.id;
         const events = await fetchWrapper.get(`${BASE_URL}users/${userId}/events`)
-        this.events = events.upcoming;
-        this.pastEvents = events.past;
+        localStorage.setItem("events", JSON.stringify(events.upcoming));
+        localStorage.setItem("pastEvents", JSON.stringify(events.past));
       } catch (err) {
         console.log(err);
       }

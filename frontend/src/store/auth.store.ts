@@ -20,7 +20,9 @@ export const useAuthStore = defineStore({
             password: values.password
           }
         });
+        this.currentUser = JSON.stringify(response.body);
         localStorage.setItem("currentUser", JSON.stringify(response.body));
+        this.token = response.token;
         localStorage.setItem("token", response.token);
         router.push(this.returnUrl || "/");
       } catch (err) {
@@ -33,6 +35,7 @@ export const useAuthStore = defineStore({
       router.push("/login");
     },
     async updateCurrentUser(currentUser: User) {
+      this.currentUser = currentUser;
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
   }

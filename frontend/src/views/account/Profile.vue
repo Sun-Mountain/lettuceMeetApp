@@ -15,8 +15,9 @@
 
 <script lang="ts" setup>
 import { useAuthStore } from '@/store';
-const { currentUser } = useAuthStore();
 import { userFullName } from '@/helpers';
+const authStore = useAuthStore();
+const currentUser = authStore.currentUser;
 
 const fullname = userFullName(currentUser.first_name, currentUser.last_name);
 </script>
