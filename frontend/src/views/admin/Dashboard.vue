@@ -4,7 +4,7 @@
       :count="eventCount"
       :header_class="'event-stats-header'"
       :icon_color="'success'"
-      :icon_name="'mdi-account-group'"
+      :icon_name="'mdi:mdi-calendar-multiple'"
       :path_name="'eventManager'"
       :title="'Events'"
     />
@@ -12,7 +12,7 @@
       :count="userCount"
       :header_class="'user-stats-header'"
       :icon_color="'info'"
-      :icon_name="'mdi-account-group'"
+      :icon_name="'mdi:mdi-account-group'"
       :path_name="'userManager'"
       :title="'Users'"
     />

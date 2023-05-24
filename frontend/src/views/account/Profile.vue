@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>Welcome, {{ fullname }}</h2>
-    <div v-show="currentUser.admin">
-      <v-icon size="small" color="info" icon="mdi-star-circle"></v-icon> Admin
+    <div v-show="currentUser.admin" className="role-container">
+      <v-icon size="20px" color="info" icon="mdi:mdi-star-circle"></v-icon> Admin
     </div>
     <div>
       Profile
