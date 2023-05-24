@@ -3,7 +3,8 @@ export { default as Footer } from './MainFooter.vue';
 export { default as Navigation } from './MainNav.vue';
 
 // Admin Components
-export { default as AdminNav } from './AdminNav.vue';
+export { default as AdminNav } from './admin/AdminNav.vue';
+export { default as DashCard } from './admin/DashCard.vue';
 
 // Event Components
 export { default as EventCard } from './events/EventCard.vue';

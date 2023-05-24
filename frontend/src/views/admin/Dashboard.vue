@@ -1,18 +1,27 @@
 <template>
   <v-container>
-    <div className="stats-container">
-      <v-icon color="info" icon="mdi-account-group" size="100px"></v-icon>
-      <div className="stats">
-        <div className="count">
-          <h2>Users: <span className="user-stats-header">{{ userCount }}</span></h2>
-        </div>
-      </div>
-    </div>
+    <DashCard
+      :count="userCount"
+      :header_class="'user-stats-header'"
+      :icon_color="'success'"
+      :icon_name="'mdi-account-group'"
+      :path_name="'userManager'"
+      :title="'Events'"
+    />
+    <DashCard
+      :count="userCount"
+      :header_class="'user-stats-header'"
+      :icon_color="'info'"
+      :icon_name="'mdi-account-group'"
+      :path_name="'userManager'"
+      :title="'Users'"
+    />
   </v-container>
 </template>
 
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
+import { DashCard } from '@/components';
 import { useUsersStore } from '@/store';
 const usersStore = useUsersStore();
 

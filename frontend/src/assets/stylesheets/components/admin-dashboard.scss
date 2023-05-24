@@ -1,6 +1,8 @@
-.stats-container {
+.stats-container-link {
   display: flex;
+  color: $admin-card-link-color;
   flex-direction: row;
+  text-decoration: none;
 
   .stats {
     line-height: 85px;

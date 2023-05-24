@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Welcome, {{ fullname }}</h2>
-    <div>
+    <div v-show="currentUser.admin">
       <v-icon size="small" color="info" icon="mdi-star-circle"></v-icon> Admin
     </div>
     <div>
