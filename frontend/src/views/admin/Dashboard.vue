@@ -6,7 +6,7 @@
       :icon_color="'success'"
       :icon_name="'mdi:mdi-calendar-multiple'"
       :path_name="'eventManager'"
-      :title="'Events'"
+      :title="'Events Total'"
     />
     <DashCard
       :count="userCount"
