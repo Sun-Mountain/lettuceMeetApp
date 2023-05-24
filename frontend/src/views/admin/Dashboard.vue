@@ -22,16 +22,11 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { DashCard } from '@/components';
-import { useEventStore, useUsersStore } from '@/store';
-const usersStore = useUsersStore();
-const eventStore = useEventStore();
+import { useAdminStore } from '@/store';
+const adminStore = useAdminStore();
 
-usersStore.getAllUsers();
-eventStore.getAllEvents();
+adminStore.getStats();
 
-const { users } = storeToRefs(usersStore);
-const userCount = (users.value).length;
-
-const { allEvents } = storeToRefs(eventStore);
-const eventCount = (allEvents.value).length;
+const eventCount = adminStore.stats.events.all;
+const userCount = adminStore.stats.users;
 </script>

@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { BASE_URL, fetchWrapper } from "@/helpers";
 import { User } from "@/models/user.model";
 import { useAuthStore } from "./auth.store";
-import router from "@/router"
+import router from "@/router";
 
 export const useUsersStore = defineStore({
   id: "users",

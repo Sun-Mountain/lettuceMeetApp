@@ -3,7 +3,7 @@
 class AdminController < ApplicationController
   before_action :confirm_admin
 
-  def app_stats
+  def show
     @users = User.all
     @events = Event.all
     @split = Event.all.partition { |e| e.start_date < Date.today() }
@@ -13,7 +13,7 @@ class AdminController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin_req).permit(:id, :admin)
+    params.require(:admin_req).permit(:admin_id)
   end
 
   def confirm_admin

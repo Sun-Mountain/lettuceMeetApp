@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     get 'all_public', action: :all_public, controller: 'events'
     get 'owned', action: :user_owned, controller: 'events'
   end
+
+
+  resources :admin
 end
