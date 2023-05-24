@@ -6,6 +6,7 @@ export default {
   component: View,
   children: [
     { path: "", name: "admin", component: AdminDashboard },
-    { path: "user-manager", name: "userManager", component: () => import("@/views/admin/UserManager.vue"), props: true }
+    { path: "event-manager", name: "eventManager", component: () => import("@/views/admin/EventsManager.vue") },
+    { path: "user-manager", name: "userManager", component: () => import("@/views/admin/UserManager.vue") }
   ]
 }

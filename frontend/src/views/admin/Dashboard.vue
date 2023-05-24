@@ -5,7 +5,7 @@
       :header_class="'user-stats-header'"
       :icon_color="'success'"
       :icon_name="'mdi-account-group'"
-      :path_name="'userManager'"
+      :path_name="'eventManager'"
       :title="'Events'"
     />
     <DashCard
