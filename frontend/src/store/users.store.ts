@@ -42,7 +42,8 @@ export const useUsersStore = defineStore({
         await fetchWrapper.delete(`${BASE_URL}/users/${currentUser.id}`, {
           user: {
             current_password: value
-      }});
+          }
+        });
         authStore.logout();
         router.push("/login")
       } catch (err) {
