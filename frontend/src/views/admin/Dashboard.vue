@@ -1,12 +1,13 @@
 <template>
   <v-container>
     <DashCard
-      :count="eventCount"
+      :count="upcomingCount"
       :header_class="'event-stats-header'"
       :icon_color="'success'"
       :icon_name="'mdi:mdi-calendar-multiple'"
       :path_name="'eventManager'"
-      :title="'Events Total'"
+      :sub="`Total: ${eventCount}`"
+      :title="'Upcoming Events'"
     />
     <DashCard
       :count="userCount"
@@ -28,5 +29,6 @@ const adminStore = useAdminStore();
 adminStore.getStats();
 
 const eventCount = adminStore.stats.events.all;
+const upcomingCount = adminStore.stats.events.upcoming;
 const userCount = adminStore.stats.users;
 </script>

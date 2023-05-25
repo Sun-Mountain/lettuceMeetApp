@@ -5,8 +5,11 @@
   text-decoration: none;
 
   .stats {
-    line-height: 85px;
     padding: 15px;
+
+    h2 {
+      margin-top: 20px;
+    }
   }
 
   .event-stats-header {

@@ -3,7 +3,7 @@
     <h2>{{ stagedEvent.event_title }}</h2>
     <div>
       <router-link :to="editLink">
-        <v-icon size="small" color="info" icon="mdi:mdi-square-edit-outline"></v-icon> Edit
+        <v-icon size="small" color="info" icon="mdi:mdi-square-edit-outline" /> Edit
       </router-link>
       <v-btn
         variant="plain"

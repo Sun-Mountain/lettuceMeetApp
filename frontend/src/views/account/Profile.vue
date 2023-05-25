@@ -2,7 +2,7 @@
   <div>
     <h2>Welcome, {{ fullname }}</h2>
     <div v-show="currentUser.admin" className="role-container">
-      <v-icon size="20px" color="info" icon="mdi:mdi-star-circle"></v-icon> Admin
+      <v-icon size="20px" color="info" icon="mdi:mdi-star-circle" /> Admin
     </div>
     <div>
       Profile

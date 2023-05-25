@@ -7,7 +7,7 @@ class AdminController < ApplicationController
     @users = User.all
     @events = Event.all
     @split = Event.all.partition { |e| e.start_date < Date.today() }
-    render json: { users: @users.count, events: { all: @events.count, past: @split[0], upcoming: @split[1] }}, status: 201
+    render json: { users: @users.count, events: { all: @events.count, past: @split[0].count, upcoming: @split[1].count }}, status: 201
   end
 
   private

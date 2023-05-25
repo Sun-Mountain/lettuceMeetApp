@@ -15,3 +15,6 @@ export { default as EventSubNav } from './events/EventSubNav.vue';
 export { default as LoginForm } from './auth/LoginForm.vue';
 export { default as PasswordChangeForm } from './auth/PasswordChangeForm.vue';
 export { default as UserForm } from './auth/UserForm.vue';
+
+// User Components
+export { default as UserCard } from './user/UserCard.vue';
