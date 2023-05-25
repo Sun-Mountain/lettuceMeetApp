@@ -2,3 +2,17 @@
   border: 1px solid $event-card-border !important;
   margin-bottom: 20px;
 }
+
+.user-card {
+  display: flex;
+  flex-direction: row;
+
+  .icon-container {
+    height: 100%;
+    margin: auto 0;
+  }
+
+  .info-container {
+    padding: 15px;
+  }
+}

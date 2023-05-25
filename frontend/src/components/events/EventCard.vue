@@ -3,7 +3,7 @@
     :title="event?.event_title"
     :subtitle="event?.start_date"
     :text="event?.description"
-    :to="eventLink"
+    :to="{ name: 'staged', params: { uid: eventId } }"
     class="event-card"
     variant="outlined"
   >
@@ -17,5 +17,5 @@ const props = defineProps({ event: Object })
 
 const { event } = toRefs(props);
 
-const eventLink = `events/${event?.value?.uid}`
+const eventId = event?.value?.uid;
 </script>
