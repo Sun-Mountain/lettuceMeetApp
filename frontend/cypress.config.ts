@@ -7,7 +7,7 @@ export default defineConfig({
     viewportHeight: 1000,
     videoUploadOnPasses: false,
     env: {
-      VITE_API_URL: 'http://localhost:3000'
+      VITE_API_URL: 'http://localhost:3000/'
     }
   },
 });

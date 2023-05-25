@@ -15,6 +15,7 @@
               class="form-control"
               :class="{ 'is-invalid': errors.first_name }"
               :value="firstNameValue"
+              data-test="first-name"
             />
             <div class="invalid-feedback">{{ errors.first_name }}</div>
           </div>
@@ -26,6 +27,7 @@
               class="form-control"
               :class="{ 'is-invalid': errors.last_name }"
               :value="lastNameValue"
+              data-test="last-name"
             />
             <div class="invalid-feedback">{{ errors.last_name }}</div>
           </div>
@@ -37,6 +39,7 @@
               class="form-control"
               :class="{ 'is-invalid': errors.preferred_username }"
               :value="usernameValue"
+              data-test="username"
             />
             <div class="invalid-feedback">{{ errors.preferred_username }}</div>
           </div>
@@ -48,6 +51,7 @@
               class="form-control"
               :class="{ 'is-invalid': errors.email }"
               :value="emailValue"
+              data-test="email"
             />
             <div class="invalid-feedback">{{ errors.email }}</div>
           </div>
@@ -63,12 +67,24 @@
           </div>
           <div v-show="!isEditing">
             <label>Password:</label><br />
-            <Field name="password" type="password" class="form-control" :class="{ 'is-invalid': errors.password }" />
+            <Field
+              name="password"
+              type="password"
+              class="form-control"
+              :class="{ 'is-invalid': errors.password }"
+              data-test="password"
+            />
             <div class="invalid-feedback">{{ errors.password }}</div>
           </div>
           <div v-show="!isEditing">
             <label>Confirm Password:</label><br />
-            <Field name="password_confirm" type="password" class="form-control" :class="{ 'is-invalid': errors.password_confirm }" />
+            <Field
+              name="password_confirm"
+              type="password"
+              class="form-control"
+              :class="{ 'is-invalid': errors.password_confirm }"
+              data-test="confirm-password"
+            />
             <div class="invalid-feedback">{{ errors.password_confirm }}</div>
           </div>
           <div class="btn-container">
