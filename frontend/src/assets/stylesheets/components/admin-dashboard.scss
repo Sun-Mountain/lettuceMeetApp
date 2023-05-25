@@ -1,18 +1,28 @@
-.stats {
+.stats-link {
+  border-radius: 15px 15px;
+  color: $admin-card-link-color;
   display: flex;
   flex-direction: row;
-  font-size: 50px;
-  font-weight: 700;
+  padding: 14px;
+  text-decoration: none;
 
-  .title {
-    padding: 20px;
+  .stats {
+    padding: 15px;
+
+    h2 {
+      margin-top: 20px;
+    }
+  }
+
+  .event-stats-header {
+    color: $event-stats;
+  }
+
+  .user-stats-header {
+    color: $user-stats;
   }
 }
 
-.event-stats {
-  color: #4caf50;
-}
-
-.user-stats {
-  color: #2196f3;
+.stats-link:hover {
+  background-color: $card-hover-color;
 }

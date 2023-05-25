@@ -3,11 +3,25 @@
 @import "./variables.scss";
 @import "./vuetify.scss";
 
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
 main {
   background-color: $main-bg;
   color: $main-font;
+  flex: 1;
 
   .right-align {
     text-align: right;
   }
+}
+
+footer {
+  display: flex;
+  flex: 0 !important;
+  flex-direction: row !important;
+  justify-content: space-between;
 }

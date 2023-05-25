@@ -93,10 +93,33 @@ nav {
 }
 
 #admin-nav {
+  border-bottom: 1px $admin-nav-border solid;
+
   #admin-link-container {
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
     max-width: 1200px;
+
+    a {
+      border-bottom: 2px solid $color-white;
+      border-radius: 5px;
+      color: $admin-nav-link;
+      font-weight: 700;
+      margin: 8px 0;
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: $admin-nav-link;
+      color: $color-white;
+    }
+
+    .router-link-exact-active {
+      background-color: $admin-nav-link;
+      color: $color-white;
+    }
   }
+
 }

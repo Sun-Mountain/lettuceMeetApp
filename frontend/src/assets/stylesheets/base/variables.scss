@@ -8,12 +8,26 @@ $main-nav-font: $color-cultured;
 $main-nav-font-size: 22px;
 $main-nav-bg-hover: $color-deep-sea;
 
+// Admin
+$admin-nav-border: $color-light-gray;
+
 // Buttons
 $danger-color: $color-red;
 $danger-hover-font: $color-dark-red;
 
 // Cards
+$card-hover-color: $color-nyanza;
 $event-card-border: $color-deep-sea;
+
+// Dashboard
+$admin-card-link-color: $color-davys-grey;
+$admin-nav-link: $color-honolulu;
+$user-stats: $color-info-blue;
+$event-stats: $color-success-green;
+
+// Events
+$edit-link-color: $color-info-blue;
+$edit-link-hover: $color-fed-blue;
 
 // Forms
 $btn-bg-color: $color-deep-sea;

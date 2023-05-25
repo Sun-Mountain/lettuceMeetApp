@@ -3,14 +3,18 @@ import { defineStore } from "pinia";
 import { BASE_URL, fetchWrapper } from "@/helpers";
 import { User } from "@/models/user.model";
 import { useAuthStore } from "./auth.store";
-import router from "@/router"
+import router from "@/router";
 
 export const useUsersStore = defineStore({
   id: "users",
   state: () => ({
-    users: []
+    users: JSON.parse(localStorage.getItem('users') || '[]')
   }),
   actions: {
+    async getAllUsers() {
+      const response = await fetchWrapper.get(`${BASE_URL}users`);
+      localStorage.setItem("users", JSON.stringify(response));
+    },
     async register(user: User) {
       const newAccount = { user };
       await fetchWrapper.post(`${BASE_URL}signup`, newAccount);

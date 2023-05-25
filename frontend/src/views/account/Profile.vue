@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>Welcome, {{ fullname }}</h2>
-    <div>
-      <v-icon size="small" color="info" icon="mdi-star-circle"></v-icon> Admin
+    <div v-show="currentUser.admin" className="role-container">
+      <v-icon size="20px" color="info" icon="mdi:mdi-star-circle" /> Admin
     </div>
     <div>
       Profile
@@ -15,8 +15,9 @@
 
 <script lang="ts" setup>
 import { useAuthStore } from '@/store';
-const { currentUser } = useAuthStore();
 import { userFullName } from '@/helpers';
+const authStore = useAuthStore();
+const currentUser = authStore.currentUser;
 
 const fullname = userFullName(currentUser.first_name, currentUser.last_name);
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <v-container>
+  <v-container class="event-container">
     <h2>{{ stagedEvent.event_title }}</h2>
-    <div>
-      <router-link :to="editLink">
-        <v-icon size="small" color="info" icon="mdi-square-edit-outline"></v-icon> Edit
+    <div className="event-actions-container" v-show="stagedEvent.user_id === currentUser.id">
+      <router-link className="edit-link" :to="editLink">
+        <v-icon size="16px" color="info" icon="mdi:mdi-square-edit-outline" /> Edit
       </router-link>
       <v-btn
         variant="plain"
@@ -20,8 +20,10 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
-import { useEventStore } from '@/store';
+import { useAuthStore, useEventStore } from '@/store';
 
+const authStore = useAuthStore();
+const { currentUser } = authStore;
 const eventStore = useEventStore();
 const route = useRoute();
 const { getEventById, cancelEvent } = eventStore;

@@ -1,27 +1,34 @@
 <template>
-  <div class="stats user-stats">
-    <div>
-      <v-icon color="info" icon="mdi-account-group" size="100px"></v-icon>
-    </div>
-    <div class="title text">
-      Users
-    </div>
-    <div class="total text">
-      Total:
-    </div>
-  </div>
-  <div class="stats event-stats">
-    <div>
-      <v-icon color="success" icon="mdi-calendar" size="100px"></v-icon>
-    </div>
-    <div class="title">
-      Events
-    </div>
-    <div class="total text">
-      Total:
-    </div>
-  </div>
+  <v-container>
+    <DashCard
+      :count="upcomingCount"
+      :header_class="'event-stats-header'"
+      :icon_color="'success'"
+      :icon_name="'mdi:mdi-calendar-multiple'"
+      :path_name="'eventManager'"
+      :sub="`Total: ${eventCount}`"
+      :title="'Upcoming Events'"
+    />
+    <DashCard
+      :count="userCount"
+      :header_class="'user-stats-header'"
+      :icon_color="'info'"
+      :icon_name="'mdi:mdi-account-group'"
+      :path_name="'userManager'"
+      :title="'Users'"
+    />
+  </v-container>
 </template>
 
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia';
+import { DashCard } from '@/components';
+import { useAdminStore } from '@/store';
+const adminStore = useAdminStore();
+
+adminStore.getStats();
+
+const eventCount = adminStore.stats.events.all;
+const upcomingCount = adminStore.stats.events.upcoming;
+const userCount = adminStore.stats.users;
 </script>
