@@ -1,7 +1,9 @@
-.stats-container-link {
-  display: flex;
+.stats-link {
+  border-radius: 15px 15px;
   color: $admin-card-link-color;
+  display: flex;
   flex-direction: row;
+  padding: 14px;
   text-decoration: none;
 
   .stats {
@@ -19,4 +21,8 @@
   .user-stats-header {
     color: $user-stats;
   }
+}
+
+.stats-link:hover {
+  background-color: $card-hover-color;
 }

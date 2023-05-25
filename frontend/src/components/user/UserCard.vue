@@ -1,5 +1,8 @@
 <template>
-  <v-card className="user-card" variant="outlined">
+  <v-card
+    class="user-card"
+    variant="outlined"
+  >
     <div className="icon-container"><v-icon color="success" icon="mdi:mdi-sprout" size="50px" /></div>
     <div className="info-container">
       <h2>{{ fullName }}</h2>

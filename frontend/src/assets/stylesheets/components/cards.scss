@@ -4,12 +4,15 @@
 }
 
 .user-card {
-  display: flex;
+  border: 1px solid $event-card-border !important;
+  display: flex !important;
   flex-direction: row;
+  margin-bottom: 20px;
 
   .icon-container {
     height: 100%;
     margin: auto 0;
+    padding: 20px;
   }
 
   .info-container {

@@ -1,5 +1,5 @@
 <template>
-  <router-link className="stats-container-link" :to="{ name: path_name }">
+  <router-link className="stats-link" :to="{ name: path_name }">
     <v-icon :color="icon_color" :icon="icon_name" size="100px" />
     <div className="stats">
       <div className="count">
