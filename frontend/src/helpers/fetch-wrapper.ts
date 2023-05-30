@@ -31,7 +31,7 @@ function authToken(url: string) {
   // return auth header with jwt if user is logged in and request is to the api url
   const { currentUser, token } = useAuthStore();
   const isLoggedIn = currentUser ? true : false;
-  const isApiUrl = url.startsWith(import.meta.env.VITE_API_URL);
+  const isApiUrl = url.startsWith(import.meta.env.API_URL);
   if (isLoggedIn && isApiUrl) {
     return `${token}`;
   } else {
