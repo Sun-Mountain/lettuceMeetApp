@@ -1,5 +1,10 @@
 <template>
-  <UserCard v-for="user in users" :key="getUserId(user)" :user="(user as User)" />
+  <UserCard
+    v-for="user in users"
+    :key="getUserId(user)"
+    :user="(user as User)"
+    :to="{ name: 'user-profile', params: { id: getUserId(user) } }"
+  />
 </template>
 
 <script lang="ts" setup>
