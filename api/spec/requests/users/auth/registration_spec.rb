@@ -2,12 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Auth Requests', type: :request do
+RSpec.describe 'Registration Requests', type: :request do
   include ApiSupport
 
-  describe 'POST /users' do
-    let(:register_url) { '/signup' }
+  let(:register_url) { '/signup' }
+
+  describe 'POST /signup' do
     email = 'picard@gmail.com'
+
     let(:valid_user_params) do
       {
         user: {
@@ -17,17 +19,6 @@ RSpec.describe 'Auth Requests', type: :request do
           email: email,
           password: 'password',
           password_confirmation: 'password'
-        }
-      }
-    end
-
-    let(:login_url) { '/login' }
-    let(:user) { create :user }
-    let(:valid_sign_in) do
-      {
-        user: { 
-          email: user.email,
-          password: user.password
         }
       }
     end
@@ -64,36 +55,43 @@ RSpec.describe 'Auth Requests', type: :request do
         expect(response).to have_http_status(503)
       end
     end
-
-    context 'login is successful' do
-      before do
-        post login_url, params: valid_sign_in
-      end
-
-      it 'returns 200' do
-        expect(response).to have_http_status(200)
-      end
-
-      it 'returns valid JTW token' do
-        token = extract_token(response)
-        expect(token).to be_present
-      end
-
-      it 'returns last user' do
-        user_email = user.email
-        expect(response.body).to include(User.last.id.to_json)
-        expect(response.body).to include(user_email.to_json)
-      end
-    end
-
-    context 'login is unsuccessful' do
-      it 'returns 401' do
-        post login_url, params: {
-          email: user.email,
-          password: ''
-        }
-        expect(response).to have_http_status(401)
-      end
-    end
   end
+
+  # describe 'PUT /signup' do
+  #   let(:user) { create :user }
+  #   let(:login_url) { '/login' }
+
+  #   let(:valid_sign_in) do
+  #     {
+  #       user: { 
+  #         email: user.email,
+  #         password: user.password
+  #       }
+  #     }
+  #   end
+
+  #   let(:valid_user_params) do
+  #     {
+  #       user: {
+  #         first_name: 'Jean Luc',
+  #         last_name: 'Picard',
+  #         preferred_username: 'Captain Picard',
+  #         email: user.email,
+  #         current_password: user.password
+  #       }
+  #     }
+  #   end
+
+  #   context 'update account is successful' do
+  #     before do
+  #       post login_url, params: valid_sign_in
+  #       token = extract_token(response)
+  #       put register_url, headers: { "CONTENT_TYPE": "application/json", "Authorization": "Bearer #{token}" }, params: valid_user_params.to_json
+  #     end
+
+  #     it 'returns 200' do
+  #       expect(response).to have_http_status(200)
+  #     end
+  #   end
+  # end
 end
