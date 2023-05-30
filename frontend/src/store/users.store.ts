@@ -17,7 +17,7 @@ export const useUsersStore = defineStore({
     },
     async register(user: User) {
       const newAccount = { user };
-      await fetchWrapper.post(`${BASE_URL}signup`, newAccount);
+      const res = await fetchWrapper.post(`${BASE_URL}signup`, newAccount);
     },
     async updateAccount(user: User, userId: number) {
       const authStore = useAuthStore();
