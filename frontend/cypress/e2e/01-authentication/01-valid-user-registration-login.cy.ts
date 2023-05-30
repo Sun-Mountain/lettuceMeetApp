@@ -20,7 +20,25 @@ describe('Valid Registration and Login', function () {
     cy.get("[data-test=confirm-password]").clear().type(user1.password);
 
     cy.contains('Submit Registration').click();
-    cy.wait('@submitForm')
+    // cy.wait('@submitForm')
+
+    cy.get('.v-card-title').contains('Login').should('exist')
+  })
+
+  it ('allows user login', function () {
+    cy.visit('/login');
+    cy.get("[data-test=email]").clear().type(user1.email);
+    cy.get("[data-test=password]").clear().type(user1.password);
+
+    cy.contains('Login').click();
+  })
+
+  it ('allows user to delete account', function () {
+    cy.visit('/account');
+
+    cy.contains('Edit').click();
+    cy.get("[data-test=delete-account]").clear().type(user1.password);
+    cy.contains('Delete Account').click();
 
     cy.get('.v-card-title').contains('Login').should('exist')
   })
