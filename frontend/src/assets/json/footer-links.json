@@ -1,18 +1,6 @@
 [
   {
     "name": "About",
-    "path": ""
-  },
-  {
-    "name": "Docs",
-    "path": ""
-  },
-  {
-    "name": "Terms of Service",
-    "path": ""
-  },
-  {
-    "name": "Privacy Policy",
-    "path": ""
+    "path": "/about"
   }
 ]
