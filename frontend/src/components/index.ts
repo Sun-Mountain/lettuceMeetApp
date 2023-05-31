@@ -11,6 +11,7 @@ export { default as EventCard } from './events/EventCard.vue';
 export { default as EventForm } from './events/EventForm.vue';
 export { default as EventHeader } from './events/EventLayoutHeader.vue';
 export { default as EventSubNav } from './events/EventSubNav.vue';
+export { default as NewEventBtn } from './events/NewEventBtn.vue';
 
 // User Form Components
 export { default as DeleteAccountForm } from './auth/DeleteAccountForm.vue';
@@ -20,3 +21,7 @@ export { default as UserForm } from './auth/UserForm.vue';
 
 // User Components
 export { default as UserCard } from './user/UserCard.vue';
+
+// Welcome Components
+export { default as LoggedIn } from './welcome/LoggedIn.vue';
+export { default as Welcome } from './welcome/Welcome.vue';
