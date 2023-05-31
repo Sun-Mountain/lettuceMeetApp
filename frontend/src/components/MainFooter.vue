@@ -10,7 +10,7 @@
       </router-link>
     </div>
     <div id="social-links">
-      social media place holder
+      <v-icon icon="fa:fas fa-lock"></v-icon>
     </div>
   </v-footer>
 </template>
