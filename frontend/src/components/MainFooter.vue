@@ -10,7 +10,7 @@
       </router-link>
     </div>
     <div id="social-links">
-      Social Links Placeholder
+      social media place holder
     </div>
   </v-footer>
 </template>

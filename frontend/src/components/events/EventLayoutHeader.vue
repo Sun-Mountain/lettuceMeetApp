@@ -5,5 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-import NewEventBtn from './NewEventBtn.vue';
+import { NewEventBtn } from '@/components';
 </script>

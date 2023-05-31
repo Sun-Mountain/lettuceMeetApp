@@ -24,4 +24,13 @@ footer {
   flex: 0 !important;
   flex-direction: row !important;
   justify-content: space-between;
+
+  a, a:visited {
+    color: $footer-link-color;
+  }
+
+  a:hover {
+    color: $footer-link-hover;
+    text-decoration: none;
+  }
 }
