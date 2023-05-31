@@ -39,7 +39,7 @@
             @click="add_end_date = !add_end_date"
             variant="text"
           >
-            <v-icon size="16px" color="info" icon="mdi:mdi-plus-box" />
+            <v-icon size="22px" icon="mdi:mdi-plus-box" />
             Add End Date
           </v-btn>
         </div>
@@ -58,7 +58,7 @@
             @click="add_end_date = !add_end_date"
             variant="text"
           >
-            <v-icon size="16px" color="info" icon="mdi:mdi-minus-box" />
+            <v-icon size="22px" icon="mdi:mdi-minus-box" />
             Remove End Date
           </v-btn>
         </div>
@@ -146,7 +146,7 @@ const schema = Yup.object().shape({
   event_title: Yup.string().required('Event title is required.'),
   description: Yup.string().nullable().notRequired(),
   start_date: Yup.object(),
-  end_date: Yup.object()
+  end_date: Yup.object().nullable()
 })
 
 const onSubmit = getSubmitFn(schema, async (values) => {
@@ -154,8 +154,10 @@ const onSubmit = getSubmitFn(schema, async (values) => {
   try {
     values.start_date = start_date.value;
 
-    if (add_end_date.value) {
+    if (add_end_date.value && end_date.value) {
       values.end_date = end_date.value;
+    } else {
+      values.end_date = null;
     }
 
     if (editUid) {
