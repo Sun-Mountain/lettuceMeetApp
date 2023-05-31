@@ -1,10 +1,8 @@
 <template>
-  <v-container>
-    <h1 v-if="events.length === 0 || events.length > 1">You have {{ events.length }} upcoming events.</h1>
-    <h1 v-else>You have {{ events.length }} upcoming event.</h1>
+  <h1 v-if="events.length === 0 || events.length > 1">You have {{ events.length }} upcoming events.</h1>
+  <h1 v-else>You have {{ events.length }} upcoming event.</h1>
 
-    <EventCard v-for="event in events" :key="getUid(event as Event)" :event="(event as Event)" />
-  </v-container>
+  <EventCard v-for="event in events" :key="getUid(event as Event)" :event="(event as Event)" />
 </template>
 
 <script lang="ts" setup>

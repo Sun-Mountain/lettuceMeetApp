@@ -109,6 +109,10 @@ const props = defineProps({
 const { uid } = toRefs(props);
 const editUid = uid?.value;
 
+const addDateToDay = (event) => {
+  return new Date(event.setDate(event.getDate() + 1));
+}
+
 if (editUid) {
   const eventStore = useEventStore();
   eventStore.getEventById(editUid);
@@ -117,8 +121,16 @@ if (editUid) {
 
   // Set Start Date
   const stagedStart = new Date(eventValue.start_date);
-  const addDay = new Date(stagedStart.setDate(stagedStart.getDate() + 1))
-  start_date = ref(addDay);
+  const startPlusOne = addDateToDay(stagedStart);
+  start_date = ref(startPlusOne);
+
+  // If End Date
+  if (eventValue.end_date) {
+    add_end_date.value = true;
+    const stagedEnd = new Date(eventValue.end_date);
+    const endPlusOne = addDateToDay(stagedEnd);
+    end_date = ref(endPlusOne);
+  }
 
   var editEventInfo = {
     btnText: 'Update Event',
