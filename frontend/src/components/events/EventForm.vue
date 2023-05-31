@@ -14,6 +14,14 @@
           <label>Title</label>
           <Field name="event_title" type="text" class="form-control" />
         </div>
+        <!-- <div>
+          <Field v-slot="{ privateField }" name="terms" type="checkbox" :value="true">
+            <label class="form-checkbox-container">
+              <input type="checkbox" name="terms" v-bind="privateField" :value="true" />
+              Private
+            </label>
+          </Field>
+        </div> -->
         <div>
           <label>Start Date</label><br />
           <VueDatePicker
@@ -22,6 +30,25 @@
             :min-date="minDate"
             :max-date="maxDate"
             :enable-time-picker="false"
+            :teleport="true"
+          >
+          </VueDatePicker>
+        </div>
+        <div class="form-checkbox-container">
+          <Field class="checkbox-field" v-slot="{ allDayField }" name="terms" type="checkbox" :value="true">
+            <input class="checkbox-field" type="checkbox" id="checkbox" v-model="all_day" v-bind="allDayField" />
+            <label class="checkbox-field" for="checkbox">Add End Date</label>
+          </Field>
+        </div>
+        <div v-show="all_day">
+          <label>End Date</label><br />
+          <VueDatePicker
+            class="date-field"
+            v-model="start_date"
+            :min-date="start_date"
+            :max-date="maxDate"
+            :enable-time-picker="false"
+            :teleport="true"
           >
           </VueDatePicker>
         </div>
@@ -52,22 +79,24 @@ import * as Yup from 'yup';
 import { getSubmitFn } from '@/helpers';
 import { useEventStore } from '@/store';
 
-const props = defineProps({
-  uid: String
-});
-const { uid } = toRefs(props);
-const editUid = uid?.value;
-
+// General form data
+var all_day = ref(false);
 var start_date = ref(new Date());
 const minDate = new Date();
 let maxDate = new Date((new Date()).setFullYear(minDate.getFullYear() + 1));
-
 var eventInfo = {
   btnText: 'Create Event',
   description: '',
   event_title: '',
   formTitle: 'Create Event'
 }
+
+// Editing Event
+const props = defineProps({
+  uid: String
+});
+const { uid } = toRefs(props);
+const editUid = uid?.value;
 
 if (editUid) {
   const eventStore = useEventStore();
@@ -98,7 +127,6 @@ const schema = Yup.object().shape({
 
 const onSubmit = getSubmitFn(schema, async (values) => {
   const eventStore = useEventStore();
-
   try {
     values.start_date = start_date.value;
     if (editUid) {
