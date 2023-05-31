@@ -14,8 +14,19 @@ main {
   color: $main-font;
   flex: 1;
 
+  p+p {
+    margin-top: 10px;
+  }
+
   .right-align {
     text-align: right;
+  }
+
+  @each $heading in $headings{
+    #{$heading} {
+      color: $h-color;
+      margin: 15px 0 8px 0;
+    }
   }
 }
 

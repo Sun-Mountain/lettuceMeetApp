@@ -8,6 +8,8 @@ $main-nav-font: $color-cultured;
 $main-nav-font-size: 22px;
 $main-nav-bg-hover: $color-deep-sea;
 
+$warning-color: $color-orange-darkened;
+
 // Admin
 $admin-nav-border: $color-light-gray;
 
@@ -39,6 +41,10 @@ $danger-header-color: $color-dark-red;
 $input-border-color: $color-davys-grey;
 $invalid-err-color: $color-red;
 $title-color: $color-deep-sea;
+
+// Headers
+$headings : h1 h2 h3 h4 h5 h6;
+$h-color: $color-deep-sea;
 
 // Links
 $link-color: $color-medium-sea-green;
