@@ -34,23 +34,33 @@
           >
           </VueDatePicker>
         </div>
-        <div class="form-checkbox-container">
-          <Field class="checkbox-field" v-slot="{ allDayField }" name="terms" type="checkbox" :value="true">
-            <input class="checkbox-field" type="checkbox" id="checkbox" v-model="all_day" v-bind="allDayField" />
-            <label class="checkbox-field" for="checkbox">Add End Date</label>
-          </Field>
+        <div v-show="!add_end_date">
+          <v-btn
+            @click="add_end_date = !add_end_date"
+            variant="text"
+          >
+            <v-icon size="16px" color="info" icon="mdi:mdi-plus-box" />
+            Add End Date
+          </v-btn>
         </div>
-        <div v-show="all_day">
+        <div v-show="add_end_date">
           <label>End Date</label><br />
           <VueDatePicker
             class="date-field"
-            v-model="start_date"
+            v-model="end_date"
             :min-date="start_date"
             :max-date="maxDate"
             :enable-time-picker="false"
             :teleport="true"
+          />
+
+          <v-btn
+            @click="add_end_date = !add_end_date"
+            variant="text"
           >
-          </VueDatePicker>
+            <v-icon size="16px" color="info" icon="mdi:mdi-minus-box" />
+            Remove End Date
+          </v-btn>
         </div>
         <div>
           <label>Description</label>
@@ -80,8 +90,9 @@ import { getSubmitFn } from '@/helpers';
 import { useEventStore } from '@/store';
 
 // General form data
-var all_day = ref(false);
+var add_end_date = ref(false);
 var start_date = ref(new Date());
+var end_date = ref();
 const minDate = new Date();
 let maxDate = new Date((new Date()).setFullYear(minDate.getFullYear() + 1));
 var eventInfo = {
@@ -122,13 +133,19 @@ if (editUid) {
 const schema = Yup.object().shape({
   event_title: Yup.string().required('Event title is required.'),
   description: Yup.string().nullable().notRequired(),
-  start_date: Yup.object()
+  start_date: Yup.object(),
+  end_date: Yup.object()
 })
 
 const onSubmit = getSubmitFn(schema, async (values) => {
   const eventStore = useEventStore();
   try {
     values.start_date = start_date.value;
+
+    if (add_end_date.value) {
+      values.end_date = end_date.value;
+    }
+
     if (editUid) {
       eventStore.updateEvent(editUid, values as Event);
     } else {
