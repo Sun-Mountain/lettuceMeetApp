@@ -3,7 +3,7 @@
     <v-container>
       <h1>Welcome to the Lettuce Meet App beta!</h1>
       <p>
-        Lettuce Meet App started as a joke in 2019 at a coding bootcamp and evolved into a passion project. This application is currently in beta (otherwise known as, not its final form).
+        Lettuce Meet App started as a joke in 2019 at a coding bootcamp and evolved into a passion project. This application is currently in beta (otherwise known as: not its final form).
       </p>
     </v-container>
     <BackToHome />
