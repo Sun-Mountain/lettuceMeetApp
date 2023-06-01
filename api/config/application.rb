@@ -19,6 +19,19 @@ module LettuceMeetApp
     config.api_only = true
     config.hosts.clear
 
+    # Don't generate system test files.
+    config.generators.system_tests = nil
+
+    # field_with_errors support, avoid that nasty line break on errors
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+      html_tag
+    }
+
+    config.active_job.queue_adapter = :sidekiq
+
+    # Sending mail with`DeliveryJob` has been deprecated. Work has been moved to `MailDeliveryJob`
+    config.action_mailer.delivery_job = "ActionMailer::MailDeliveryJob"
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
