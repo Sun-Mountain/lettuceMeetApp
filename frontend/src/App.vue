@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Navigation />
-    <AdminNav v-show="authStore.currentUser && authStore.currentUser.admin"  />
+    <AdminNav v-show="authStore.currentUser && userAdmin(authStore.currentUser)"  />
     <main>
       <router-view />
     </main>
@@ -16,5 +16,8 @@ import { useAuthStore } from '@/store';
 import { userAdmin } from "./helpers";
 const authStore = useAuthStore();
 
-console.log(authStore.currentUser)
+import { useRoute } from 'vue-router';
+const route = useRoute();
+
+console.log(route)
 </script>
