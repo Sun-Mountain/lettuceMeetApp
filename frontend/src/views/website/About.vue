@@ -11,7 +11,7 @@
         <v-icon color="orange-darken-2" icon="mdi:mdi-progress-wrench" />
       </h2>
         <p>
-          This site is currently in the progress of being built. This may mean users may experience outages in some features.
+          This site is currently in the progress of being built. This may mean we may experience outages in some features.
         </p>
       <h2>Our Goal</h2>
         <p>
@@ -23,6 +23,12 @@
         <p>
           Simply, Lettuce Meet wants its users to be able to create events, invite people (whether or not they're on the application) and allow invitees to respond to the invitation.
         </p>
+    </v-container>
+    <v-container>
+      <h3>Recommended Reading:</h3>
+      <p>
+        <router-link to="/faq">Frequently Asked Questions</router-link>
+      </p>
     </v-container>
     <BackToHome />
   </v-container>

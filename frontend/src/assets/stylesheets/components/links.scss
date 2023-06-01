@@ -1,11 +1,25 @@
 .back-to-home-container {
   a, a:visited {
     color: $bth-link;
+    font-weight: 400;
   }
 
   a:hover {
     text-decoration: none;
   }
+}
+
+.inverted-link {
+  background-color: $inverted-link-bg;
+  border-radius: 5px 5px;
+  color: $inverted-link-color !important;
+  font-weight: 700;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+.inverted-link:hover {
+  background-color: $inverted-link-hover;
 }
 
 #website-links {

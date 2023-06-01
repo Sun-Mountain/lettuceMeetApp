@@ -14,6 +14,16 @@ main {
   color: $main-font;
   flex: 1;
 
+  a, a:visited {
+    color: $main-link;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: $main-link-hover;
+    text-decoration: none;
+  }
+
   p+p {
     margin-top: 10px;
   }

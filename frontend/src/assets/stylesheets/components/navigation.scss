@@ -123,19 +123,6 @@ nav {
   }
 }
 
-.inverted-link {
-  background-color: $inverted-link-bg;
-  border-radius: 5px 5px;
-  color: $inverted-link-color;
-  font-weight: 700;
-  padding: 8px 10px;
-  text-decoration: none;
-}
-
-.inverted-link:hover {
-  background-color: $inverted-link-hover;
-}
-
 .event-header {
   display: flex;
   flex-direction: row;
