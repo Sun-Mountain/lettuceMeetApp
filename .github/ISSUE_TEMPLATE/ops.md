@@ -1,7 +1,7 @@
 ---
 name: Ops
 about: 'Anything and everything related to deployment.'
-title: ':traffic_light: :: [INSERT BRIEF DESCRIPTION OF JOB]'
+title: '[Dev-Ops] - [INSERT BRIEF DESCRIPTION OF JOB]'
 labels: devops
 assignees: ''
 ---

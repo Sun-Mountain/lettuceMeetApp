@@ -1,21 +1,32 @@
 <template>
   <v-card
-    :title="event?.event_title"
-    :subtitle="event?.start_date"
-    :text="event?.description"
+    :title="eventForCard?.event_title"
+    :subtitle="subtitle"
+    :text="eventForCard?.description"
     :to="{ name: 'staged', params: { uid: eventId } }"
     class="event-card"
+    :class="{ 'mini-card': mini }"
     variant="outlined"
-  >
-  </v-card>
+  />
 </template>
 
 <script lang="ts" setup>
 import { toRefs } from 'vue';
 
-const props = defineProps({ event: Object })
+const props = defineProps({ event: Object, mini: Boolean })
 
-const { event } = toRefs(props);
+const { event, mini } = toRefs(props);
+const eventForCard = event?.value;
 
-const eventId = event?.value?.uid;
+const eventId = eventForCard?.uid;
+
+const returnDates = (event) => {
+  if (event.end_date) {
+    return `${event?.start_date} - ${event?.end_date}`;
+  }
+
+  return event?.start_date;
+};
+
+const subtitle = returnDates(eventForCard)
 </script>

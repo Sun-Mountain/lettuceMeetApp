@@ -121,5 +121,10 @@ nav {
       color: $color-white;
     }
   }
+}
 
+.event-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }

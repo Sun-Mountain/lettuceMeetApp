@@ -1,12 +1,16 @@
 <template>
   <v-footer border>
     <div id="website-links">
-      <div v-for="link in footerLinks" v-bind:key="link.name">
-        {{ link.name }} <span v-if="!link.path">(coming soon)</span>
-      </div>
+      <router-link 
+        v-for="link in footerLinks"
+        v-bind:key="link.name"
+        v-bind:to="link.path"
+      >
+        {{ link.name }}
+      </router-link>
     </div>
     <div id="social-links">
-      Social Links Placeholder
+      Social Media Links Go Here
     </div>
   </v-footer>
 </template>

@@ -1,16 +1,12 @@
 <template>
   <div>
-    <div v-if="authStore.currentUser">
-      <EventForm />
-    </div>
-    <div v-else>
-      Welcome Message.....
-    </div>
+    <LoggedIn v-if="authStore.currentUser" />
+    <Welcome v-else />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { EventForm } from '@/components';
 import { useAuthStore } from '@/store';
+import { LoggedIn, Welcome } from '@/components';
 const authStore = useAuthStore();
 </script>

@@ -1,12 +1,14 @@
 // Main Layout
 $main-bg: $color-cultured;
 $main-font: $color-onyx;
-$main-link: $color-medium-sea-green;
+$main-link: $color-deep-sea2;
 $main-link-hover: $color-deep-sea;
 $main-nav-bg: $color-medium-sea-green;
 $main-nav-font: $color-cultured;
 $main-nav-font-size: 22px;
 $main-nav-bg-hover: $color-deep-sea;
+
+$warning-color: $color-orange-darkened;
 
 // Admin
 $admin-nav-border: $color-light-gray;
@@ -40,9 +42,22 @@ $input-border-color: $color-davys-grey;
 $invalid-err-color: $color-red;
 $title-color: $color-deep-sea;
 
+// Headers
+$headings : h1 h2 h3 h4 h5 h6;
+$h-color: $color-deep-sea;
+
 // Links
 $link-color: $color-medium-sea-green;
 $link-hover: $color-deep-sea;
+
+$inverted-link-bg: $color-medium-sea-green;
+$inverted-link-color: $color-cultured;
+$inverted-link-hover: $color-deep-sea;
+
+$footer-link-color: $color-sonic-silver;
+$footer-link-hover: $color-onyx;
+
+$bth-link: $color-sonic-silver;
 
 // SubNav
 $subnav-border: $color-cadet-blue-crayola;

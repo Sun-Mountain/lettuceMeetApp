@@ -14,6 +14,14 @@
           <label>Title</label>
           <Field name="event_title" type="text" class="form-control" />
         </div>
+        <!-- <div>
+          <Field v-slot="{ privateField }" name="terms" type="checkbox" :value="true">
+            <label class="form-checkbox-container">
+              <input type="checkbox" name="terms" v-bind="privateField" :value="true" />
+              Private
+            </label>
+          </Field>
+        </div> -->
         <div>
           <label>Start Date</label><br />
           <VueDatePicker
@@ -22,8 +30,37 @@
             :min-date="minDate"
             :max-date="maxDate"
             :enable-time-picker="false"
+            :teleport="true"
           >
           </VueDatePicker>
+        </div>
+        <div v-show="!add_end_date">
+          <v-btn
+            @click="add_end_date = !add_end_date"
+            variant="text"
+          >
+            <v-icon size="22px" icon="mdi:mdi-plus-box" />
+            Add End Date
+          </v-btn>
+        </div>
+        <div v-show="add_end_date">
+          <label>End Date</label><br />
+          <VueDatePicker
+            class="date-field"
+            v-model="end_date"
+            :min-date="start_date"
+            :max-date="maxDate"
+            :enable-time-picker="false"
+            :teleport="true"
+          />
+
+          <v-btn
+            @click="add_end_date = !add_end_date"
+            variant="text"
+          >
+            <v-icon size="22px" icon="mdi:mdi-minus-box" />
+            Remove End Date
+          </v-btn>
         </div>
         <div>
           <label>Description</label>
@@ -52,21 +89,28 @@ import * as Yup from 'yup';
 import { getSubmitFn } from '@/helpers';
 import { useEventStore } from '@/store';
 
+// General form data
+var add_end_date = ref(false);
+var start_date = ref(new Date());
+var end_date = ref();
+const minDate = new Date();
+let maxDate = new Date((new Date()).setFullYear(minDate.getFullYear() + 1));
+var eventInfo = {
+  btnText: 'Create Event',
+  description: '',
+  event_title: '',
+  formTitle: 'Create Event'
+}
+
+// Editing Event
 const props = defineProps({
   uid: String
 });
 const { uid } = toRefs(props);
 const editUid = uid?.value;
 
-var start_date = ref(new Date());
-const minDate = new Date();
-let maxDate = new Date((new Date()).setFullYear(minDate.getFullYear() + 1));
-
-var eventInfo = {
-  btnText: 'Create Event',
-  description: '',
-  event_title: '',
-  formTitle: 'Create Event'
+const addDateToDay = (event) => {
+  return new Date(event.setDate(event.getDate() + 1));
 }
 
 if (editUid) {
@@ -77,8 +121,16 @@ if (editUid) {
 
   // Set Start Date
   const stagedStart = new Date(eventValue.start_date);
-  const addDay = new Date(stagedStart.setDate(stagedStart.getDate() + 1))
-  start_date = ref(addDay);
+  const startPlusOne = addDateToDay(stagedStart);
+  start_date = ref(startPlusOne);
+
+  // If End Date
+  if (eventValue.end_date) {
+    add_end_date.value = true;
+    const stagedEnd = new Date(eventValue.end_date);
+    const endPlusOne = addDateToDay(stagedEnd);
+    end_date = ref(endPlusOne);
+  }
 
   var editEventInfo = {
     btnText: 'Update Event',
@@ -93,14 +145,21 @@ if (editUid) {
 const schema = Yup.object().shape({
   event_title: Yup.string().required('Event title is required.'),
   description: Yup.string().nullable().notRequired(),
-  start_date: Yup.object()
+  start_date: Yup.object(),
+  end_date: Yup.object().nullable()
 })
 
 const onSubmit = getSubmitFn(schema, async (values) => {
   const eventStore = useEventStore();
-
   try {
     values.start_date = start_date.value;
+
+    if (add_end_date.value && end_date.value) {
+      values.end_date = end_date.value;
+    } else {
+      values.end_date = null;
+    }
+
     if (editUid) {
       eventStore.updateEvent(editUid, values as Event);
     } else {

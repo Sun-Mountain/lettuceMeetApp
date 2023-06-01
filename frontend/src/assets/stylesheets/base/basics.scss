@@ -1,0 +1,10 @@
+.center-vertically {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}

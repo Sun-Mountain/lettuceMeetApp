@@ -1,6 +1,21 @@
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .event-card+.event-card {
+    margin-left: 20px;
+  }
+}
+
 .event-card {
   border: 1px solid $event-card-border !important;
   margin-bottom: 20px;
+}
+
+.mini-card {
+  height: 250px;
+  width: 150px;
 }
 
 .user-card {

@@ -1,3 +1,4 @@
+@import "./basics.scss";
 @import "./breakpoints.scss";
 @import "./colors.scss";
 @import "./variables.scss";
@@ -14,8 +15,29 @@ main {
   color: $main-font;
   flex: 1;
 
+  a, a:visited {
+    color: $main-link;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: $main-link-hover;
+    text-decoration: none;
+  }
+
+  p+p {
+    margin-top: 10px;
+  }
+
   .right-align {
     text-align: right;
+  }
+
+  @each $heading in $headings{
+    #{$heading} {
+      color: $h-color;
+      margin: 15px 0 8px 0;
+    }
   }
 }
 
@@ -24,4 +46,13 @@ footer {
   flex: 0 !important;
   flex-direction: row !important;
   justify-content: space-between;
+
+  a, a:visited {
+    color: $footer-link-color;
+  }
+
+  a:hover {
+    color: $footer-link-hover;
+    text-decoration: none;
+  }
 }
