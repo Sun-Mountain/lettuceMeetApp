@@ -10,6 +10,9 @@ const user1 = {
 
 describe('Valid Registration and Login', function () {
   it ('accept and notice registration', function () {
+    cy.intercept('POST', `http://127.0.0.1:3000/signup`, {}).as(
+      'submitForm'
+    );
     cy.visit('/register');
     // cy.findByRole('heading', { name: /Log in/i }).should('exist');
     cy.get("[data-test=first-name]").clear().type(user1.first_name);
@@ -20,7 +23,7 @@ describe('Valid Registration and Login', function () {
     cy.get("[data-test=confirm-password]").clear().type(user1.password);
 
     cy.contains('Submit Registration').click();
-    // cy.wait('@submitForm')
+    cy.wait('@submitForm')
 
     cy.get('.v-card-title').contains('Login').should('exist')
   })
