@@ -6,6 +6,7 @@ export default {
   component: View,
   children: [
     { path: "", name: "account", component: ProfileView },
+    { path: "confirmations?:token", name: "confirmAccount", component: () => import("@/views/account/ConfirmAccount.vue")},
     { path: "edit", name: "accountEdit", component: () => import("@/views/account/EditAccount.vue"), props: true}
   ]
 }
