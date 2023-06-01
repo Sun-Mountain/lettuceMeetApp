@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { toRefs } from 'vue';
 
-const props = defineProps({ event: Object, mini: Boolean })
+const props = defineProps({ event: Object, mini: String })
 
 const { event, mini } = toRefs(props);
 const eventForCard = event?.value;
