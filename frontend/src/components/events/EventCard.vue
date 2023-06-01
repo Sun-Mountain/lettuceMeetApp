@@ -5,6 +5,7 @@
     :text="eventForCard?.description"
     :to="{ name: 'staged', params: { uid: eventId } }"
     class="event-card"
+    :class="{ 'mini-card': mini }"
     variant="outlined"
   />
 </template>
@@ -12,9 +13,9 @@
 <script lang="ts" setup>
 import { toRefs } from 'vue';
 
-const props = defineProps({ event: Object })
+const props = defineProps({ event: Object, mini: Boolean })
 
-const { event } = toRefs(props);
+const { event, mini } = toRefs(props);
 const eventForCard = event?.value;
 
 const eventId = eventForCard?.uid;

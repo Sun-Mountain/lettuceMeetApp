@@ -1,13 +1,36 @@
 <template>
   <v-container>
-    <h1>Your Upcoming Events</h1>
-    <NewEventBtn style="float: right" />
+    <div class="flex-space-between">
+      <h1>Your Upcoming Events</h1>
+      <div class="center-vertically">
+
+        <NewEventBtn />
+      </div>
+    </div>
+    <p class="cards-container">
+
+      <EventCard v-for="event in events" :key="getUid(event as Event)" :event="(event as Event)" mini="true" />
+
+    </p>
     <router-link id="upcomingEvents" :to="{ name: 'upcoming' }">
-      More <v-icon size="22px" icon="mdi:mdi-arrow-right-bold-box" />
+      Your Events Page <v-icon size="22px" icon="mdi:mdi-arrow-right-bold-box" />
     </router-link>
   </v-container>
 </template>
 
 <script lang="ts" setup>
-import { NewEventBtn } from '@/components';
+import { storeToRefs } from 'pinia';
+import { EventCard, NewEventBtn } from '@/components';
+import { Event } from '@/models/event.model';
+import { useEventStore } from '@/store';
+
+const eventStore = useEventStore();
+const getUid = (event) => {
+  return event.uid as string;
+}
+
+eventStore.getAllUserEvents();
+
+const { events } = storeToRefs(eventStore);
+const numOfEvents = Object.keys(events.value).length;
 </script>
