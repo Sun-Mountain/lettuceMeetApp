@@ -13,7 +13,7 @@ RSpec.describe 'Auth Requests', type: :request do
         user: {
           first_name: 'Jean Luc',
           last_name: 'Picard',
-          preferred_username: 'Captain Picard',
+          username: 'Captain Picard',
           email: email,
           password: 'password',
           password_confirmation: 'password'
@@ -36,7 +36,7 @@ RSpec.describe 'Auth Requests', type: :request do
       {
         first_name: 'Jean Luc',
         last_name: 'Picard',
-        preferred_username: 'Captain Picard',
+        username: 'Captain Picard',
         email: email,
         password: 'password',
         password_confirmation: 'passwordd'

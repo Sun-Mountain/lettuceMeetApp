@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Navigation />
-    <AdminNav v-if="authStore.currentUser && userAdmin(authStore.currentUser)"  />
+    <AdminNav v-show="authStore.currentUser && authStore.currentUser.admin"  />
     <main>
       <router-view />
     </main>
@@ -15,4 +15,6 @@ import { AdminNav, Footer, Navigation } from '@/components';
 import { useAuthStore } from '@/store';
 import { userAdmin } from "./helpers";
 const authStore = useAuthStore();
+
+console.log(authStore.currentUser)
 </script>

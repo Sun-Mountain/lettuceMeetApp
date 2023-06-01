@@ -32,13 +32,13 @@
           <div>
             <label>Username:</label>
             <Field
-              name="preferred_username"
+              name="username"
               type="text"
               class="form-control"
-              :class="{ 'is-invalid': errors.preferred_username }"
+              :class="{ 'is-invalid': errors.username }"
               :value="usernameValue"
             />
-            <div class="invalid-feedback">{{ errors.preferred_username }}</div>
+            <div class="invalid-feedback">{{ errors.username }}</div>
           </div>
           <div>
             <label>Email:</label><br />
@@ -109,13 +109,13 @@ const cancelLink = isEditing ? { name: 'account' } : 'login';
 
 const firstNameValue = isEditing ? editUser?.first_name : '';
 const lastNameValue = isEditing ? editUser?.last_name : '';
-const usernameValue = isEditing ? editUser?.preferred_username : '';
+const usernameValue = isEditing ? editUser?.username : '';
 const emailValue = isEditing ? editUser?.email : '';
 
 const updateSchema = Yup.object().shape({
   first_name: Yup.string().required('First name is required.'),
   last_name: Yup.string().required('Last name is required.'),
-  preferred_username: Yup.string().required('Username is required.'),
+  username: Yup.string().required('Username is required.'),
   email: Yup.string().email().required('Email is required.'),
   current_password: Yup.string().required('Current password is required.')
 })
@@ -123,7 +123,7 @@ const updateSchema = Yup.object().shape({
 const registerSchema = Yup.object().shape({
   first_name: Yup.string().required('First name is required.'),
   last_name: Yup.string().required('Last name is required.'),
-  preferred_username: Yup.string().required('Username is required.'),
+  username: Yup.string().required('Username is required.'),
   email: Yup.string().email().required('Email is required.'),
   password: Yup.string().required('Password is required.')
       .min(6, 'Password must be at least 6 characters.'),

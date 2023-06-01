@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_140310) do
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
-    t.string "preferred_username", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
