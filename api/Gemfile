@@ -49,5 +49,6 @@ end
 group :test do
   gem 'capybara'
   gem "webmock"
+  gem 'fakeredis'
 end
 
