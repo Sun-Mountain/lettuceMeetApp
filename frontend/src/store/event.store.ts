@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import router from "@/router";
 
 import { BASE_URL, fetchWrapper } from "@/helpers";
-import { useAuthStore } from "./auth.store";
+import { useAlertStore, useAuthStore } from "@/store";
 import { Event } from "@/models/event.model";
 
 export const useEventStore = defineStore({
@@ -16,6 +16,7 @@ export const useEventStore = defineStore({
   actions: {
     async createEvent(params: Event) {
       const authStore = useAuthStore();
+      const alertStore = useAlertStore();
       try {
         const userId = authStore.currentUser.id;
         params.user_id = userId
@@ -24,8 +25,10 @@ export const useEventStore = defineStore({
         });
         this.getAllUserEvents();
         router.push("/events");
+        alertStore.success("Yay")!
       } catch (err) {
         console.log(err);
+        alertStore.success("Nay")!
       }
     },
     async getAllEvents() {
