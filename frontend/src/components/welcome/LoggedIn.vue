@@ -32,5 +32,4 @@ const getUid = (event) => {
 eventStore.getAllUserEvents();
 
 const { events } = storeToRefs(eventStore);
-const numOfEvents = Object.keys(events.value).length;
 </script>

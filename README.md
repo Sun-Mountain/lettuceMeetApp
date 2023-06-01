@@ -82,7 +82,7 @@ docker compose build && docker compose up -d
 ```
 
 ## Contributing
-Coming soon...
+Read the full extent of our contributing in our [CONTRIBUTING.MD file](https://github.com/Sun-Mountain/lettuceMeetApp/blob/main/CONTRIBUTING.md).
 
 ## License
-Coming soon...
+We use a GNU GENERAL PUBLIC LICENSE. Read the full extent of that license in the [LICENSE.MD file](https://github.com/Sun-Mountain/lettuceMeetApp/blob/main/LICENSE.md).
