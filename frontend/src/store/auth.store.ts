@@ -20,6 +20,7 @@ export const useAuthStore = defineStore({
             password: values.password
           }
         });
+        console.log(response)
         this.currentUser = JSON.stringify(response.body);
         localStorage.setItem("currentUser", JSON.stringify(response.body));
         this.token = response.token;
