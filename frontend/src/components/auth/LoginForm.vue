@@ -9,12 +9,24 @@
         <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
           <div>
             <label>Email:</label><br />
-            <Field name="email" type="text" class="form-control" :class="{ 'is-invalid': errors.email }" />
+            <Field
+              name="email"
+              type="text"
+              class="form-control"
+              :class="{ 'is-invalid': errors.email }"
+              data-test="email"
+            />
             <div class="invalid-feedback">{{ errors.email }}</div>
           </div>
           <div>
             <label>Password:</label><br />
-            <Field name="password" type="password" class="form-control" :class="{ 'is-invalid': errors.password }" />
+            <Field
+              name="password"
+              type="password"
+              class="form-control"
+              :class="{ 'is-invalid': errors.password }"
+              data-test="password"
+            />
             <div class="invalid-feedback">{{ errors.password }}</div>
           </div>
           <div class="btn-container">

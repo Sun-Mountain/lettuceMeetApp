@@ -13,6 +13,7 @@
             type="password"
             class="form-control"
             :class="{ 'is-invalid': errors.current_password }"
+            data-test="delete-account"
           />
           <div class="invalid-feedback">{{ errors.current_password }}</div>
         </div>

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # has_secure_password
   has_many :events
 
-  validates :email, :password, presence: true, on: :create
+  validates :first_name, :last_name, :preferred_username, :email, :password, presence: true, on: :create
+  validates :first_name, :last_name, :preferred_username, :email, presence: true
   validates :email, uniqueness: true
 end
