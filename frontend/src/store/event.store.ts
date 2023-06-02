@@ -25,10 +25,9 @@ export const useEventStore = defineStore({
         });
         this.getAllUserEvents();
         router.push("/events");
-        alertStore.success("Yay")!
+        alertStore.success("Yay")
       } catch (err) {
-        console.log(err);
-        alertStore.success("Nay")!
+        alertStore.error(err)
       }
     },
     async getAllEvents() {
