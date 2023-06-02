@@ -17,6 +17,7 @@
     "sass": "^1.62.1",
     "vee-validate": "^4.8.6",
     "vue": "^3.2.0",
+    "vue-mq": "^1.0.1",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0",
