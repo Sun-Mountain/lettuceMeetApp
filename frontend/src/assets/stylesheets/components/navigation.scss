@@ -1,10 +1,15 @@
 nav {
   background-color: $main-nav-bg;
-  height: 64px;
   width: 100%;
 
   .v-toolbar {
     margin: 0 auto;
+  }
+
+  .v-toolbar__content {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
   }
 }
 
@@ -16,21 +21,22 @@ nav {
 
   .nav_logo_container {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
+    width: 100%;
   
     img {
-      margin: 10px 15px 5px 15px;
-      width: 52px;
+      justify-content: space-around;
+      margin: 8px 15px 0px 15px;
+      width: 80px;
       height: auto;
     }
   }
 
   .nav_links_container {
     display: flex;
-    flex-direction: row;
-    height: 64px;
+    flex-direction: column;
     vertical-align: bottom;
+    width: 100%;
 
     a, a:visited {
       color: $color-cultured;
@@ -40,13 +46,13 @@ nav {
       height: 100%;
       margin: 15px 0 0 0;
       padding: 5px 15px;
+      text-align: center;
       text-decoration: none;
     }
 
     a:hover {
       background-color: $main-nav-bg-hover;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      color: $main-nav-font-hover;
     }
 
     button {
@@ -54,7 +60,6 @@ nav {
       font-size: 22px;
       font-weight: 700;
       letter-spacing: .25px;
-      margin-top: 18px;
       text-transform: capitalize;
     }
 
@@ -62,12 +67,9 @@ nav {
       background-color: $main-nav-bg-hover;
     }
 
-    .router-link-exact-active {
+    a+.router-link-exact-active {
       background-color: $main-nav-bg-hover;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      margin: 8px 0 0 0;
-      padding-top: 5px;
+      color: $main-nav-font-hover;
     }
   }
 }
@@ -127,4 +129,30 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: right;
+}
+
+@media screen and (min-width: 960px) {
+  nav {
+    .v-toolbar__content {
+      flex-direction: row;
+    }
+  }
+
+  #main-navigation {
+    .nav_links_container {
+      flex-direction: row;
+      justify-content: right;
+    }
+  }
+
+
+  .nav_logo_container {
+    flex-direction: column;
+  
+    img {
+      margin: 8px 15px;
+      width: 58px;
+      height: auto;
+    }
+  }
 }

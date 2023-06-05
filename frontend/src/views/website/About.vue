@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-container>
+  <v-container class="no-padding">
+    <div>
       <h1>Welcome to the Lettuce Meet App alpha!</h1>
         <p>
           Lettuce Meet App started as a joke in 2019 at a coding bootcamp and evolved into a passion project and professional development exercise. This application is currently in alpha (otherwise known as: not its final form).
@@ -23,13 +23,13 @@
         <p>
           Simply, Lettuce Meet wants its users to be able to create events, invite people (whether or not they're on the application) and allow invitees to respond to the invitation.
         </p>
-    </v-container>
-    <v-container>
+    </div>
+    <div>
       <h3>Recommended Reading:</h3>
       <p>
         <router-link to="/faq">Frequently Asked Questions</router-link>
       </p>
-    </v-container>
+    </div>
     <BackToHome />
   </v-container>
 </template>

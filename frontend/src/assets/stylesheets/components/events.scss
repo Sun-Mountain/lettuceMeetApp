@@ -1,4 +1,13 @@
 .event-container {
+  #event-date {
+    color: $date-color;
+  }
+
+  .no-description {
+    color: $description-color;
+    font-style: italic;
+  }
+
   .event-actions-container {
     display: flex;
     justify-content: space-between;
