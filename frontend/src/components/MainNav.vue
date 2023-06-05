@@ -44,12 +44,6 @@
           >
             {{ link.name }}
           </router-link>
-          <v-btn
-            @click="authStore.logout()"
-            v-show="authStore.currentUser"
-          >
-            Logout
-          </v-btn>
         </div>
       </v-expand-transition>
     </v-app-bar>
