@@ -26,8 +26,8 @@ nav {
   
     img {
       justify-content: space-around;
-      margin: 10px 15px 5px 15px;
-      width: 52px;
+      margin: 8px 15px 0px 15px;
+      width: 80px;
       height: auto;
     }
   }
@@ -36,6 +36,7 @@ nav {
     display: flex;
     flex-direction: column;
     vertical-align: bottom;
+    width: 100%;
 
     a, a:visited {
       color: $color-cultured;
@@ -45,13 +46,13 @@ nav {
       height: 100%;
       margin: 15px 0 0 0;
       padding: 5px 15px;
+      text-align: center;
       text-decoration: none;
     }
 
     a:hover {
       background-color: $main-nav-bg-hover;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      color: $main-nav-font-hover;
     }
 
     button {
@@ -59,7 +60,6 @@ nav {
       font-size: 22px;
       font-weight: 700;
       letter-spacing: .25px;
-      margin-top: 18px;
       text-transform: capitalize;
     }
 
@@ -67,12 +67,9 @@ nav {
       background-color: $main-nav-bg-hover;
     }
 
-    .router-link-exact-active {
+    a+.router-link-exact-active {
       background-color: $main-nav-bg-hover;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      margin: 8px 0 0 0;
-      padding-top: 5px;
+      color: $main-nav-font-hover;
     }
   }
 }
@@ -150,5 +147,11 @@ nav {
 
   .nav_logo_container {
     flex-direction: column;
+  
+    img {
+      margin: 8px 15px;
+      width: 58px;
+      height: auto;
+    }
   }
 }

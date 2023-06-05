@@ -16,7 +16,7 @@
       <v-spacer v-show="mq.mdPlus" />
       <v-btn
         v-show="mq.smMinus"
-        :icon="showNav ? 'mdi:mdi-chevron-up' : 'mdi:mdi-chevron-down'"
+        :icon="showNav ? 'mdi:mdi-chevron-up-circle' : 'mdi:mdi-chevron-down-circle'"
         @click="showNav = !showNav"
       ></v-btn>
       <v-expand-transition>
