@@ -1,6 +1,9 @@
 <template>
   <v-container class="event-container">
     <h2>{{ stagedEvent.event_title }}</h2>
+    <div id="event-date">
+      {{ stagedEvent.start_date }} {{ stagedEvent.end_date ? `- ${stagedEvent.end_date}` : null }}
+    </div>
     <div className="event-actions-container" v-show="stagedEvent.user_id === currentUser.id">
       <router-link className="edit-link" :to="editLink">
         <v-icon size="16px" color="info" icon="mdi:mdi-square-edit-outline" /> Edit
@@ -13,7 +16,13 @@
         Cancel Event
       </v-btn>
     </div>
-    {{ stagedEvent}}
+    <h3>About</h3>
+    <div id="description-container" :class="{ 'no-description': !stagedEvent.description }">
+      {{ stagedEvent.description ?
+        stagedEvent.description :
+        'No description has been given for the event.'
+      }}
+    </div>
   </v-container>
 </template>
 

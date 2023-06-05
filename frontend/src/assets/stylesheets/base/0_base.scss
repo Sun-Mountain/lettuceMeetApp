@@ -44,7 +44,7 @@ main {
 footer {
   display: flex;
   flex: 0 !important;
-  flex-direction: row !important;
+  flex-direction: row;
   justify-content: space-between;
 
   a, a:visited {
