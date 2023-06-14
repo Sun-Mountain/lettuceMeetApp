@@ -1,8 +1,5 @@
 <template>
   <v-container>
-    <v-container>
-      <Alert />
-    </v-container>
     <v-card
       class="form-container"
       :title="formTitle"
@@ -94,7 +91,6 @@ import { PropType, toRefs } from 'vue';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
-import { Alert } from '@/components';
 import { getSubmitFn } from '@/helpers';
 import { User } from "@/models/user.model";
 import { useAuthStore, useUsersStore } from "@/store"

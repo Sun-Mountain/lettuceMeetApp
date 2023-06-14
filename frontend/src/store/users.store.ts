@@ -27,6 +27,7 @@ export const useUsersStore = defineStore({
       }
     },
     async updateAccount(user: User, userId: number) {
+      const alertStore = useAlertStore();
       const authStore = useAuthStore();
       const updates = { user };
       const currentUser = authStore.currentUser;
@@ -35,13 +36,15 @@ export const useUsersStore = defineStore({
         if (currentUser.id === userId) {
           const response = await fetchWrapper.put(`${BASE_URL}signup`, updates);
           authStore.updateCurrentUser(response.data);
+          alertStore.success("Your account was successfully updated.")
           router.push("/account");
         }
       } catch (err) {
-        console.log(err);
+        alertStore.error(err);
       }
     },
     async deleteAccount(value: string) {
+      const alertStore = useAlertStore();
       const authStore = useAuthStore();
       const currentUser = authStore.currentUser;
 
@@ -53,8 +56,9 @@ export const useUsersStore = defineStore({
         });
         authStore.logout();
         router.push("/login")
+        alertStore.success("Your account was successfully deleted.")
       } catch (err) {
-        console.log(err);
+        alertStore.error(err);
       }
     }
   }
