@@ -17,6 +17,8 @@ export const useAuthStore = defineStore({
       const alertStore = useAlertStore();
       try {
         await fetchWrapper.post(`${BASE_URL}confirmation`, { token })
+        router.push("/login");
+        alertStore.success('Account confirmed!');
       } catch (err) {
         alertStore.error(err);
       }

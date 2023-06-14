@@ -8,10 +8,19 @@ class ConfirmationsController < Devise::ConfirmationsController
   respond_to :json
 
   def create
-    binding.pry
+    return render json: { status: 403, message: 'There was an issue.' }, status: :forbidden unless find_user_by_token
+    if @user.confirm
+      render json: { status: 201 }, status: :ok
+    else
+      render json: { err: @event.errors.full_messages }, status: 503
+    end
   end
 
   private
+
+  def after_confirmation_path_for(resource_name, resource)
+    sign_in(resource)
+  end
 
   def confirmation_params
     params.require(:confirmation).permit(:token)
@@ -19,5 +28,9 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   def token
     @token = confirmation_params[:token]
+  end
+
+  def find_user_by_token
+    @user = User.find_by_confirmation_token(@token)
   end
 end

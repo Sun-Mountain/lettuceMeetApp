@@ -10,7 +10,7 @@ export default {
       name: "confirmAccount",
       component: () => import("@/views/account/ConfirmAccount.vue"),
       props: (route) => ({ confirmation_token: route.query.confirmation_token }),
-      alias: '/confirmations'
+      alias: '/confirmation'
     },
     { path: "edit", name: "accountEdit", component: () => import("@/views/account/EditAccount.vue"), props: true}
   ]
