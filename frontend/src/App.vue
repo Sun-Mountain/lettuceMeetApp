@@ -15,9 +15,4 @@ import { AdminNav, Footer, Navigation } from '@/components';
 import { useAuthStore } from '@/store';
 import { userAdmin } from "./helpers";
 const authStore = useAuthStore();
-
-import { useRoute } from 'vue-router';
-const route = useRoute();
-
-console.log(route)
 </script>

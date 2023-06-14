@@ -2,12 +2,13 @@
 
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {
-    confirmation: "confirmations",
+    confirmations: "confirmations",
     sign_in: 'login',
     sign_out: 'logout',
     registration: 'signup'
   },
   controllers: {
+    confirmations: "confirmations",
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }

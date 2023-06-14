@@ -13,6 +13,14 @@ export const useAuthStore = defineStore({
     returnUrl: null
   }),
   actions: {
+    async confirmUser(token: string) {
+      const alertStore = useAlertStore();
+      try {
+        await fetchWrapper.post(`${BASE_URL}confirmation`, { token })
+      } catch (err) {
+        alertStore.error(err);
+      }
+    },
     async login(values: Login) {
       const alertStore = useAlertStore();
       try {
@@ -28,7 +36,6 @@ export const useAuthStore = defineStore({
         localStorage.setItem("token", response.token);
         router.push(this.returnUrl || "/");
       } catch (err) {
-        console.log(err);
         alertStore.error(err);
       }
     },
