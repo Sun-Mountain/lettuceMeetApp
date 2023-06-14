@@ -1,0 +1,10 @@
+.v-alert-title {
+  text-transform: capitalize !important;
+}
+
+.v-alert__close {
+  .v-icon:before {
+    position: relative;
+    content: "✖";
+  }
+}

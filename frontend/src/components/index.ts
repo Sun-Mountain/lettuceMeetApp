@@ -13,6 +13,7 @@ export { default as EventHeader } from './events/EventLayoutHeader.vue';
 export { default as EventSubNav } from './events/EventSubNav.vue';
 
 // Shared Components
+export { default as Alert } from './shared/AlertItem.vue';
 export { default as BackToHome } from './shared/BackToHome.vue';
 export { default as NewEventBtn } from './shared/NewEventBtn.vue';
 
