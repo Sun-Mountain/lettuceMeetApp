@@ -20,7 +20,7 @@ export const useUsersStore = defineStore({
       try {
         const newAccount = { user };
         await fetchWrapper.post(`${BASE_URL}signup`, newAccount);
-        alertStore.success("You're account has been created.")
+        alertStore.success("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
       } catch (err) {
         alertStore.error(err);
       }

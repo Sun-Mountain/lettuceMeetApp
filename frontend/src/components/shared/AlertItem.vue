@@ -1,6 +1,10 @@
 <template>
   <v-alert
     v-if="alert"
+    border="start"
+    variant="tonal"
+    closable
+    close-label="Close Alert"
     :title="alert?.type"
     :text="alert?.message"
     :type="alert?.type"
