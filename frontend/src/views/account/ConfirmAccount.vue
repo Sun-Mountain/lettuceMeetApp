@@ -1,5 +1,11 @@
 <template>
-  Confirming account...
+  <v-container id="confirmation-page">
+    <h1>Confirming Account</h1>
+    <v-progress-circular
+      indeterminate
+      color="green"
+    />
+  </v-container>
 </template>
 
 <script lang="ts" setup>

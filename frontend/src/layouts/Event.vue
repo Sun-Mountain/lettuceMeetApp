@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <v-container>
-      <Alert />
-    </v-container>
+    <Alert />
     <div class="layout-with-subnav main-content-container">
       <EventSubNav />
       <div class="sub-content-container">
