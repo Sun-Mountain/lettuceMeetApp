@@ -21,6 +21,7 @@ export const useUsersStore = defineStore({
         const newAccount = { user };
         await fetchWrapper.post(`${BASE_URL}signup`, newAccount);
         alertStore.success("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+        router.push("/login");
       } catch (err) {
         alertStore.error(err);
       }
