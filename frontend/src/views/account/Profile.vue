@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Welcome, {{ fullname }}</h2>
+    <h2>Welcome, {{ fullName }}</h2>
     <div v-show="currentUser.admin" className="role-container">
       <v-icon size="20px" color="info" icon="mdi:mdi-star-circle" /> Admin
     </div>
@@ -9,6 +9,11 @@
       <router-link :to="{ name: 'accountEdit' }">
         Edit
       </router-link>
+      <div>
+        <v-btn @click="authStore.logout()">
+          Logout
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>
@@ -19,5 +24,5 @@ import { userFullName } from '@/helpers';
 const authStore = useAuthStore();
 const currentUser = authStore.currentUser;
 
-const fullname = userFullName(currentUser.first_name, currentUser.last_name);
+const fullName = userFullName(currentUser.first_name, currentUser.last_name);
 </script>

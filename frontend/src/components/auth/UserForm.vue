@@ -91,7 +91,6 @@ import { PropType, toRefs } from 'vue';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
-import router from '@/router';
 import { getSubmitFn } from '@/helpers';
 import { User } from "@/models/user.model";
 import { useAuthStore, useUsersStore } from "@/store"
@@ -141,7 +140,6 @@ const onSubmit = getSubmitFn(schema, async (values: User) => {
       await usersStore.updateAccount(values, authStore.currentUser.id);
     } else {
       await usersStore.register(values);
-      router.push("/login");
     }
   } catch (err) {
     console.log(err)

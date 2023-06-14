@@ -1,15 +1,20 @@
 <template>
-  <v-container class="layout-with-subnav main-content-container">
-    <EventSubNav />
-    <div class="sub-content-container">
-      <EventHeader />
-      <v-container>
-        <router-view />
-      </v-container>
+  <v-container>
+    <v-container>
+      <Alert />
+    </v-container>
+    <div class="layout-with-subnav main-content-container">
+      <EventSubNav />
+      <div class="sub-content-container">
+        <EventHeader />
+        <v-container>
+          <router-view />
+        </v-container>
+      </div>
     </div>
   </v-container>
 </template>
 
 <script lang="ts" setup>
-import { EventHeader, EventSubNav } from '@/components';
+import { Alert, EventHeader, EventSubNav } from '@/components';
 </script>
