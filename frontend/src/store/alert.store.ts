@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
+import { Alert } from "@/models/alert.model";
 
 export const useAlertStore = defineStore({
   id: "alert",
   state: () => ({
-    alert: null as Object | null
+    alert: null as Alert | null
   }),
   actions: {
     success(message) {

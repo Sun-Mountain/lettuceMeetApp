@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 import { BASE_URL, fetchWrapper } from "@/helpers";
 import { User } from "@/models/user.model";
-import { useAuthStore } from "./auth.store";
+import { useAlertStore, useAuthStore } from "@/store";
 import router from "@/router";
 
 export const useUsersStore = defineStore({
@@ -16,8 +16,14 @@ export const useUsersStore = defineStore({
       localStorage.setItem("users", JSON.stringify(response));
     },
     async register(user: User) {
-      const newAccount = { user };
-      await fetchWrapper.post(`${BASE_URL}signup`, newAccount);
+      const alertStore = useAlertStore();
+      try {
+        const newAccount = { user };
+        await fetchWrapper.post(`${BASE_URL}signup`, newAccount);
+        alertStore.success("You're account has been created.")
+      } catch (err) {
+        alertStore.error(err);
+      }
     },
     async updateAccount(user: User, userId: number) {
       const authStore = useAuthStore();
