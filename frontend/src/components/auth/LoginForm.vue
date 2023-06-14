@@ -22,14 +22,13 @@
                 <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
                 Login
             </button>
-            <div class="right-align">
-              Don't have an account?<br />
-              <router-link to="register">Register Here</router-link>
-            </div>
           </div>
         </Form>
       </v-card-item>
     </v-card>
+    <v-container>
+      Don't have an account?  <router-link to="register">Register Here</router-link>
+    </v-container>
   </v-container>
 </template>
 

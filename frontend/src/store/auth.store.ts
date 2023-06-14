@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 
 import { BASE_URL, fetchWrapper } from "@/helpers";
 import { Login, User } from "@/models/user.model";
+import { useAlertStore } from "./alert.store";
 import router from "@/router";
 
 export const useAuthStore = defineStore({
@@ -13,6 +14,7 @@ export const useAuthStore = defineStore({
   }),
   actions: {
     async login(values: Login) {
+      const alertStore = useAlertStore();
       try {
         const response = await fetchWrapper.post(`${BASE_URL}login`, {
           user: {
@@ -27,6 +29,7 @@ export const useAuthStore = defineStore({
         router.push(this.returnUrl || "/");
       } catch (err) {
         console.log(err);
+        alertStore.error(err);
       }
     },
     logout() {
