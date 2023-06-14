@@ -1,5 +1,8 @@
 <template>
   <v-container>
+    <v-container>
+      <Alert />
+    </v-container>
     <v-card
       class="form-container"
       title="Login"
@@ -37,6 +40,7 @@
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
+import { Alert } from '@/components';
 import { useAuthStore } from '@/store';
 import { getSubmitFn } from '@/helpers';
 import { Login } from "@/models/user.model";

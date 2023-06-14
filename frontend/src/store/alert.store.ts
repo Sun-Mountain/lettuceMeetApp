@@ -8,10 +8,10 @@ export const useAlertStore = defineStore({
   }),
   actions: {
     success(message) {
-      this.alert = { message, type: "success" }
+      this.alert = { message, type: "success", icon: "mdi:mdi-checkbox-marked-circle" }
     },
     error(message) {
-      this.alert = {message, type: "error" }
+      this.alert = {message, type: "error", icon: "mdi:mdi-alert" }
     },
     clear() {
       this.alert = null;
