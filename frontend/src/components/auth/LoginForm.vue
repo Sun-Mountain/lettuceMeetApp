@@ -27,7 +27,13 @@
       </v-card-item>
     </v-card>
     <v-container>
-      Don't have an account?  <router-link to="register">Register Here</router-link>
+      <v-card class="form-container" variant="flat">
+        <v-card-item>
+          Don't have an account?  <router-link to="register">Register Here</router-link><br />
+          <router-link to="passwordReset">Forgot your password?</router-link><br />
+          <router-link to="confirmationHelp">Didn't receive confirmation instructions?</router-link><br />
+        </v-card-item>
+      </v-card>
     </v-container>
   </v-container>
 </template>
