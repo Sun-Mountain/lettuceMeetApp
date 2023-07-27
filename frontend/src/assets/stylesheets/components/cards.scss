@@ -22,6 +22,14 @@
   border: 1px solid $event-card-border !important;
   margin-bottom: 20px;
 
+  h2 {
+    margin: 0;
+  }
+
+  .v-card-item {
+    padding: 2px;
+  }
+
   .v-card-item__content {
     display: flex;
     justify-content: space-between;
@@ -34,16 +42,21 @@
   .icon-container {
     height: 100%;
     margin: auto 0;
-    padding: 20px 0;
   }
 
   .name-container {
-    padding: 15px;
+    padding: 0 15px;
+
+    .joined-container {
+      font-size: 14px;
+    }
   }
 
   .badges-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 2px 3px;
 
     .v-icon {
       font-weight: 700;
