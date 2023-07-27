@@ -23,11 +23,20 @@ RSpec.describe 'Auth Requests', type: :request do
 
     let(:login_url) { '/login' }
     let(:user) { create :user, confirmed_at: DateTime.now }
+    let(:user2) { create :user }
     let(:valid_sign_in) do
       {
         user: { 
           email: user.email,
           password: user.password
+        }
+      }
+    end
+    let(:invalid_sign_in) do
+      {
+        user: { 
+          email: user2.email,
+          password: user2.password
         }
       }
     end
@@ -45,7 +54,10 @@ RSpec.describe 'Auth Requests', type: :request do
 
     context 'registration is successful' do
       before do
-        post register_url, params: valid_user_params
+        expect do
+          post register_url, params: valid_user_params
+          Sidekiq::Worker.drain_all
+        end.to change { ActionMailer::Base.deliveries.size }.by(1)
       end
 
       it 'returns 200' do
@@ -83,6 +95,19 @@ RSpec.describe 'Auth Requests', type: :request do
         user_email = user.email
         expect(response.body).to include(User.last.id.to_json)
         expect(response.body).to include(user_email.to_json)
+      end
+    end
+
+    context 'user is not confirmed' do
+      it 'returns 403' do
+        post login_url, params: invalid_sign_in
+        expect(response).to have_http_status(403)
+      end
+
+      it 'can confirm and sign in' do
+        user2.confirm
+        post login_url, params: invalid_sign_in
+        expect(response).to have_http_status(200)
       end
     end
 
