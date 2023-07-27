@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 import { BASE_URL, fetchWrapper } from "@/helpers";
-import { Login, User } from "@/models/user.model";
+import { Email, Login, User } from "@/models/user.model";
 import { useAlertStore } from "./alert.store";
 import router from "@/router";
 
@@ -21,6 +21,16 @@ export const useAuthStore = defineStore({
         alertStore.success('Account confirmed!');
       } catch (err) {
         alertStore.error(err);
+      }
+    },
+    async resendConfirmation(email: Email) {
+      const alertStore = useAlertStore();
+      try {
+        await fetchWrapper.post(`${BASE_URL}confirmation`, email);
+        router.push("/login")
+        alertStore.success('Confirmation resent.')
+      } catch (err) {
+        alertStore.error(err)
       }
     },
     async login(values: Login) {

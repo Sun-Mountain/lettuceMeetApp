@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useUsersStore } from "@/store"
+import { useUsersStore } from "@/store";
 import { getSubmitFn } from '@/helpers';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
