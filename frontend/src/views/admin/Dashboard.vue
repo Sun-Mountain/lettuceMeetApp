@@ -21,7 +21,6 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia';
 import { DashCard } from '@/components';
 import { useAdminStore } from '@/store';
 const adminStore = useAdminStore();

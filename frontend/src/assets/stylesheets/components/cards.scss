@@ -20,17 +20,29 @@
 
 .user-card {
   border: 1px solid $event-card-border !important;
-  display: flex !important;
-  flex-direction: row;
   margin-bottom: 20px;
+
+  .v-card-item__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info-container {
+    display: flex;
+  }
 
   .icon-container {
     height: 100%;
     margin: auto 0;
-    padding: 20px;
+    padding: 20px 0;
   }
 
-  .info-container {
+  .name-container {
     padding: 15px;
+  }
+
+  .badges-container {
+    display: flex;
+    flex-direction: column;
   }
 }
