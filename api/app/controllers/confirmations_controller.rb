@@ -11,6 +11,8 @@ class ConfirmationsController < Devise::ConfirmationsController
     if token
       return render json: { status: 403, message: 'There was an issue.' }, status: :forbidden unless find_user_by_token
       if @user.confirm
+        @user.confirmed = @user.confirmed_at
+        @user.save!
         render json: { status: 201 }, status: :ok
       else
         render json: { err: @event.errors.full_messages }, status: 503

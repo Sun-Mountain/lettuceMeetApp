@@ -11,7 +11,9 @@
         </div>
       </div>
       <div className="badges-container">
-        <v-icon color="info" icon="mdi:mdi-shield" v-if="userValue?.admin" />
+        <v-icon color="info" icon="mdi:mdi-shield" v-show="userValue?.admin" />
+        <v-icon color="success" icon="mdi:mdi-check-circle" v-show="!userConfirmed" />
+        <v-icon color="red-darken-4" icon="mdi:mdi-close-circle" v-if="userConfirmed" />
       </div>
     </v-card-item>
   </v-card>
@@ -24,8 +26,7 @@ const props = defineProps({ user: Object })
 
 const { user } = toRefs(props);
 const userValue = user?.value;
+const userConfirmed = !userValue?.confirmed
 
 const fullName = userValue?.first_name + ' ' + userValue?.last_name
-
-console.log(userValue)
 </script>

@@ -44,5 +44,13 @@
   .badges-container {
     display: flex;
     flex-direction: column;
+
+    .v-icon {
+      font-weight: 700;
+    }
+
+    .v-icon+.v-icon {
+      margin-top: 5px;
+    }
   }
 }
