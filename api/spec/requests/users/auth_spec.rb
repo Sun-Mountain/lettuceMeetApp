@@ -22,7 +22,7 @@ RSpec.describe 'Auth Requests', type: :request do
     end
 
     let(:login_url) { '/login' }
-    let(:user) { create :user }
+    let(:user) { create :user, confirmed_at: DateTime.now }
     let(:valid_sign_in) do
       {
         user: { 
@@ -88,10 +88,10 @@ RSpec.describe 'Auth Requests', type: :request do
 
     context 'login is unsuccessful' do
       it 'returns 401' do
-        post login_url, params: {
+        post login_url, params: { user: {
           email: user.email,
           password: ''
-        }
+        }}
         expect(response).to have_http_status(401)
       end
     end
