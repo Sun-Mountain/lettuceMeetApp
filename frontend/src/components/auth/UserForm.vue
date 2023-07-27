@@ -83,6 +83,9 @@
         </Form>
       </v-card-item>
     </v-card>
+    <div v-show="!isEditing">
+      <AccountLinks page="register" />
+    </div>
   </v-container>
 </template>
 
@@ -94,6 +97,7 @@ import * as Yup from 'yup';
 import { getSubmitFn } from '@/helpers';
 import { User } from "@/models/user.model";
 import { useAuthStore, useUsersStore } from "@/store"
+import { AccountLinks } from '@/components';
 
 const props = defineProps({
   user: Object as PropType<User>

@@ -24,6 +24,7 @@
           </Form>
       </v-card-item>
     </v-card>
+    <AccountLinks :page="resetType" />
   </v-container>
 </template>
 
@@ -31,6 +32,8 @@
 import { PropType, toRefs } from 'vue';
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
+
+import { AccountLinks } from '@/components';
 import { getSubmitFn } from '@/helpers';
 import { Email } from '@/models/user.model';
 import { useAuthStore } from "@/store";

@@ -26,15 +26,7 @@
         </Form>
       </v-card-item>
     </v-card>
-    <v-container>
-      <v-card class="form-container" variant="flat">
-        <v-card-item>
-          Don't have an account?  <router-link to="register">Register Here</router-link><br />
-          <router-link to="passwordReset">Forgot your password?</router-link><br />
-          <router-link to="confirmationHelp">Didn't receive confirmation instructions?</router-link><br />
-        </v-card-item>
-      </v-card>
-    </v-container>
+    <AccountLinks page="login" />
   </v-container>
 </template>
 
@@ -42,9 +34,10 @@
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
-import { useAuthStore } from '@/store';
+import { AccountLinks } from '@/components';
 import { getSubmitFn } from '@/helpers';
 import { Login } from "@/models/user.model";
+import { useAuthStore } from '@/store';
 
 const schema = Yup.object().shape({
   email: Yup.string().email().required('Email is required.'),
