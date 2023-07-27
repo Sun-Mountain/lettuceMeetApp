@@ -8,9 +8,16 @@ class ConfirmationsController < Devise::ConfirmationsController
   respond_to :json
 
   def create
-    return render json: { status: 403, message: 'There was an issue.' }, status: :forbidden unless find_user_by_token
-    if @user.confirm
-      render json: { status: 201 }, status: :ok
+    if token
+      return render json: { status: 403, message: 'There was an issue.' }, status: :forbidden unless find_user_by_token
+      if @user.confirm
+        render json: { status: 201 }, status: :ok
+      else
+        render json: { err: @event.errors.full_messages }, status: 503
+      end
+    elsif find_user_by_email
+      return render json: { status: 403, message: 'There was an issue.' }, status: :forbidden if @user.confirmed?
+      @user.send_confirmation_instructions
     else
       render json: { err: @event.errors.full_messages }, status: 503
     end
@@ -23,11 +30,15 @@ class ConfirmationsController < Devise::ConfirmationsController
   end
 
   def confirmation_params
-    params.require(:confirmation).permit(:token)
+    params.require(:confirmation).permit(:token, :email)
   end
 
   def token
     @token = confirmation_params[:token]
+  end
+
+  def find_user_by_email
+    @user = User.find_by_email(confirmation_params[:email])
   end
 
   def find_user_by_token
