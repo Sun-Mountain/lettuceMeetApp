@@ -18,6 +18,7 @@ export { default as BackToHome } from './shared/BackToHome.vue';
 export { default as NewEventBtn } from './shared/NewEventBtn.vue';
 
 // User Form Components
+export { default as AccountLinks } from './auth/AccountLinks.vue';
 export { default as DeleteAccountForm } from './auth/DeleteAccountForm.vue';
 export { default as LoginForm } from './auth/LoginForm.vue';
 export { default as PasswordChangeForm } from './auth/PasswordChangeForm.vue';

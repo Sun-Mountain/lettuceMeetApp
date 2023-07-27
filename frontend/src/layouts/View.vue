@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <v-container>
-      <Alert />
-    </v-container>
+    <Alert />
     <router-view />
   </v-container>
 </template>

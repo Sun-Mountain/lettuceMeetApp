@@ -7,9 +7,11 @@ ruby '3.1.2'
 
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
-
 gem 'dotenv-rails'
 gem 'pg', '~> 1.4'
+gem "activejob", "~> 7.0"
+gem "actionmailer", "~> 7.0"
+gem "activerecord", "~> 7.0"
 
 gem 'active_model_serializers', '~> 0.10'
 gem 'bootsnap', require: false
@@ -43,9 +45,12 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "letter_opener", "~> 1.8"
+  gem "letter_opener_web", "~> 2.0"
 end
 
 group :test do
   gem 'capybara'
   gem "webmock"
+  gem 'fakeredis'
 end

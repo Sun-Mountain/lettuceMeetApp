@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Navigation />
-    <AdminNav v-if="authStore.currentUser && userAdmin(authStore.currentUser)"  />
+    <AdminNav v-show="authStore.currentUser && userAdmin(authStore.currentUser)"  />
     <main>
       <router-view />
     </main>

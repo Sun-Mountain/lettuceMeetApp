@@ -22,14 +22,11 @@
                 <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
                 Login
             </button>
-            <div class="right-align">
-              Don't have an account?<br />
-              <router-link to="register">Register Here</router-link>
-            </div>
           </div>
         </Form>
       </v-card-item>
     </v-card>
+    <AccountLinks page="login" />
   </v-container>
 </template>
 
@@ -37,9 +34,10 @@
 import { Form, Field } from 'vee-validate';
 import * as Yup from 'yup';
 
-import { useAuthStore } from '@/store';
+import { AccountLinks } from '@/components';
 import { getSubmitFn } from '@/helpers';
 import { Login } from "@/models/user.model";
+import { useAuthStore } from '@/store';
 
 const schema = Yup.object().shape({
   email: Yup.string().email().required('Email is required.'),
