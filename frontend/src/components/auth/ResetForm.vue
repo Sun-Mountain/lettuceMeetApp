@@ -17,10 +17,12 @@
               />
               <div class="invalid-feedback">{{ errors.email }}</div>
             </div>
-            <button class="btn btn-primary submit-btn" :disabled="isSubmitting">
+            <div class="btn-container">
+              <button class="btn btn-primary submit-btn" :disabled="isSubmitting">
                 <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
                 {{ btnText }}
-            </button>
+              </button>
+            </div>
           </Form>
       </v-card-item>
     </v-card>
