@@ -20,17 +20,50 @@
 
 .user-card {
   border: 1px solid $event-card-border !important;
-  display: flex !important;
-  flex-direction: row;
   margin-bottom: 20px;
+
+  h2 {
+    margin: 0;
+  }
+
+  .v-card-item {
+    padding: 2px;
+  }
+
+  .v-card-item__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info-container {
+    display: flex;
+  }
 
   .icon-container {
     height: 100%;
     margin: auto 0;
-    padding: 20px;
   }
 
-  .info-container {
-    padding: 15px;
+  .name-container {
+    padding: 0 15px;
+
+    .joined-container {
+      font-size: 14px;
+    }
+  }
+
+  .badges-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2px 3px;
+
+    .v-icon {
+      font-weight: 700;
+    }
+
+    .v-icon+.v-icon {
+      margin-top: 5px;
+    }
   }
 }
