@@ -33,6 +33,5 @@ const userConfirmed = !userValue?.confirmed;
 
 const fullName = userValue?.first_name + ' ' + userValue?.last_name;
 const createdAt = new Date(userValue?.created_at);
-const joinedOn = createdAt.toString()
-console.log(userValue)
+const joinedOn = createdAt.toString();
 </script>
