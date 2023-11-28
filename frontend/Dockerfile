@@ -10,7 +10,7 @@ RUN yarn install
 COPY . .
 
 # Build the project
-RUN yarn build
+RUN yarn build --debug
 
 
 FROM nginx:alpine as production-build
