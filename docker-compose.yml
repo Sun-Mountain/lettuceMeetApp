@@ -8,17 +8,17 @@ services:
     env_file:
       - ./api/.env
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - "dbdata:/var/lib/postgres/data"
     ports:
-      - "5432:5432"
+      - "${DB_PORT}:${DB_PORT}"
 
   redis:
     image: redis:latest
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:${REDIS_PORT}"
 
   test-api:
     build: ./api
@@ -30,9 +30,9 @@ services:
     env_file:
       - ./api/.env
     environment:
-      - DATABASE_URL=postgresql://db/lettuceMeetApp_test
-      - DB_USER=postgres
-      - DB_PASS=changeme
+      - DATABASE_URL=${DB_TEST_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASSWORD}
     volumes:
       - rails_log:/api/log
     command: "bundle exec rspec spec"
@@ -41,7 +41,7 @@ services:
     build: ./api
     platform: linux/x86_64
     ports:
-      - "3000:3000"
+      - "${API_PORT}:${API_PORT}"
     depends_on:
       - db
       - redis
@@ -49,10 +49,10 @@ services:
     env_file:
       - ./api/.env
     environment:
-      - DATABASE_URL=postgresql://db/lettuceMeetApp_development
-      - REDIS_URL=redis://redis:6397
-      - DB_USER=postgres
-      - DB_PASS=changeme
+      - DATABASE_URL=${DB_DEV_URL}
+      - REDIS_URL=${REDIS_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASSWORD}
     volumes:
       - rails_log:/api/log
 
@@ -60,7 +60,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "5173:5173"
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
     volumes:
       - front_node_modules:/frontend/node_modules
 

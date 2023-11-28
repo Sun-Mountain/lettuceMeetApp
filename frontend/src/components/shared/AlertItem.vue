@@ -1,4 +1,4 @@
-<template v-slot:close="{toggle}">
+<template>
   <v-alert
     v-if="alert"
     border="start"
@@ -7,12 +7,11 @@
     close-label="Close Alert"
     :title="alert?.type"
     :text="alert?.message"
-    :type="alert?.type"
     :icon="alert?.icon"
   >
     <!--  Close slot for custom close behavior -->
-    <template v-slot:close="{toggle}">
-      <v-btn @click="closeAlert(toggle)">
+    <template>
+      <v-btn @click="closeAlert()">
         <v-icon size="22px" icon="mdi:mdiClose" />
       </v-btn>
     </template>
@@ -27,7 +26,7 @@ import { useAlertStore } from "@/store";
 const alertStore = useAlertStore();
 const { alert } = storeToRefs(alertStore);
 
-const closeAlert = (toggle) => {
+const closeAlert = () => {
   alertStore.clear();
 }
 </script>
